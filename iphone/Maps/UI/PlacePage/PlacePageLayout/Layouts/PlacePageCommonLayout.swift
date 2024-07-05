@@ -67,6 +67,24 @@ class PlacePageCommonLayout: NSObject, IPlacePageLayout {
     return vc
   } ()
 
+  private func productsViewController() -> ProductsViewController? {
+    guard placePageData.isMapDownloaded() else {
+      return nil
+    }
+    do {
+      let productsManager = ProductsManager.default
+      let productsConfiguration = try productsManager.fetchProductsConfiguration(for: .placePage)
+      guard let productsConfiguration = productsConfiguration else {
+        return nil
+      }
+      let viewModel = ProductsViewModel(manager: productsManager, configuration: productsConfiguration)
+      return ProductsViewController(viewModel: viewModel)
+    } catch {
+      LOG(.error, error.localizedDescription)
+      return nil
+    }
+  }
+
   lazy var buttonsViewController: PlacePageButtonsViewController = {
     let vc = storyboard.instantiateViewController(ofType: PlacePageButtonsViewController.self)
     vc.buttonsData = placePageData.buttonsData!
@@ -111,6 +129,10 @@ class PlacePageCommonLayout: NSObject, IPlacePageLayout {
 
     if placePageData.infoData != nil {
       viewControllers.append(infoViewController)
+    }
+
+    if let productsViewController = productsViewController() {
+      viewControllers.append(productsViewController)
     }
 
     if placePageData.buttonsData != nil {
