@@ -6186,10 +6186,10 @@
     zh-Hans = 其他
     zh-Hant = 其他
 
-  [pref_track_record_title]
-    comment = Settings «Map» category: «Record track» title
-    tags = ios
-    en = Recent track
+  [recent_track]
+    comment = The name of the feature in the main menu, settings, and messages.
+    tags = android,ios
+    en = Recent Track
     af = Onlangse pad
     ar = المسار الأخير
     az = Son marşrut
@@ -16895,7 +16895,7 @@
     zh-Hant = 下載地圖來尋找位置和離線瀏覽。
 
   [current_location_unknown_error_title]
-    tags = ios
+    tags = android,ios
     en = Current location is unknown.
     af = Huidige ligging is onbekend.
     ar = الموقع الحالي غير معروف.
@@ -19198,7 +19198,7 @@
     zh-Hant = 看一看
 
   [recent_track_background_dialog_message]
-    tags = ios
+    tags = android,ios
     en = Organic Maps uses your location in the background to record your recently travelled route.
     af = Organic Maps gebruik u ligging in die agtergrond om u onlangs berese roete op te neem.
     ar = يستخدم Organic Maps موقعك الجغرافي في الخلفية لتسجيل مسار سفرك الأخير.
@@ -19240,6 +19240,52 @@
     vi = Organic Maps sử dụng định vị của bạn trong ứng dụng chạy nền để ghi lại tuyến đường đã đi gần đây của bạn.
     zh-Hans = Organic Maps使用背景中的地理位置记录您最近去过的路径。
     zh-Hant = Organic Maps使用背景中的地理位置記錄您最近去過的路徑。
+
+  [recording_location]
+    comment = Shown as toast when starting the recent track recording
+    tags = android
+    en = Recording the location
+    af = Opname van die ligging
+    ar = تسجيل الموقع
+    az = Yerin qeyd edilməsi
+    be = Запіс месцазнаходжання
+    bg = Записване на местоположението
+    ca = Enregistrament de la ubicació
+    cs = Záznam polohy
+    da = Registrering af placering
+    de = Aufnahme des Standorts
+    el = Καταγραφή της τοποθεσίας
+    es = Registro de la ubicación
+    et = Asukoha registreerimine
+    eu = Kokapena grabatzea
+    fa = ثبت مکان
+    fi = Sijainnin kirjaaminen
+    fr = Enregistrement de la localisation
+    he = הקלטת המיקום
+    hi = स्थान रिकार्ड करना
+    hu = A helyszín rögzítése
+    id = Merekam lokasi
+    it = Registrazione della posizione
+    ja = 場所の記録
+    ko = 위치 기록하기
+    lt = Vietos registravimas
+    mr = स्थान रेकॉर्ड करत आहे
+    nb = Registrere plasseringen
+    nl = De locatie opnemen
+    pl = Rejestrowanie lokalizacji
+    pt = Registar a localização
+    pt-BR = Registro do local
+    ro = Înregistrarea locației
+    ru = Запись местоположения
+    sk = Zaznamenávanie polohy
+    sv = Registrering av plats
+    sw = Kurekodi eneo
+    th = การบันทึกสถานที่
+    tr = Konumun kaydedilmesi
+    uk = Запис місцезнаходження
+    vi = Ghi lại vị trí
+    zh-Hans = 记录位置
+    zh-Hant = 記錄位置
 
   [general_settings]
     tags = ios
