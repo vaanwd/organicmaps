@@ -80,28 +80,8 @@ public:
 
 } // namespace settings
 
-/*
-namespace marketing
+namespace products
 {
-class Settings : public platform::StringStorageBase
-{
-public:
-  template <class Value>
-  static void Set(std::string const & key, Value const & value)
-  {
-    Instance().SetValue(key, settings::ToString(value));
-  }
-
-  template <class Value>
-  [[nodiscard]] static bool Get(std::string const & key, Value & outValue)
-  {
-    std::string strVal;
-    return Instance().GetValue(key, strVal) && settings::FromString(strVal, outValue);
-  }
-
-private:
-  static Settings & Instance();
-  Settings();
-};
-}  // namespace marketing
-*/
+void SetProductsConfiguration(std::string const & value);
+bool GetProductsConfiguration(std::string & outValue);
+}  // namespace products

@@ -7,6 +7,7 @@
 #include "defines.hpp"
 
 #include "coding/transliteration.hpp"
+#include "coding/file_writer.hpp"
 
 #include "geometry/any_rect2d.hpp"
 #include "geometry/rect2d.hpp"
@@ -22,6 +23,7 @@ using namespace std;
 
 char const * kMeasurementUnits = "Units";
 char const * kDeveloperMode = "DeveloperMode";
+char const * kProductsConfig = "ProductsConfiguration";
 
 StringStorage::StringStorage() : StringStorageBase(GetPlatform().SettingsPathForFile(SETTINGS_FILE_NAME)) {}
 
@@ -426,16 +428,44 @@ void UsageStats::EnterBackground()
 
 }  // namespace settings
 
-/*
-namespace marketing
+namespace products
 {
-Settings::Settings() : platform::StringStorageBase(GetPlatform().SettingsPathForFile(MARKETING_SETTINGS_FILE_NAME)) {}
-
-// static
-Settings & Settings::Instance()
+static std::string GetProductsFilePath()
 {
-  static Settings instance;
-  return instance;
+  return GetPlatform().SettingsPathForFile(PRODUCTS_SETTINGS_FILE_NAME);
 }
-}  // namespace marketing
-*/
+
+void SetProductsConfiguration(std::string const & value)
+{
+  try
+  {
+    FileWriter file(GetProductsFilePath());
+    file.Write(value.data(), value.size());
+  }
+  catch (std::exception const & ex)
+  {
+    LOG(LERROR, ("Error writing products file.", ex.what()));
+  }
+}
+
+bool GetProductsConfiguration(std::string & outValue)
+{
+  auto const path = GetProductsFilePath();
+  if (Platform::IsFileExistsByFullPath(path))
+  {
+    try
+    {
+      auto dataReader = GetPlatform().GetReader(path);
+      dataReader->ReadAsString(outValue);
+      return true;
+    }
+    catch (std::exception const & ex)
+    {
+      LOG(LERROR, ("Error reading products file.", ex.what()));
+      return false;
+    }
+  }
+  LOG(LERROR, ("Products file not found."));
+  return false;
+}
+}  // namespace products
