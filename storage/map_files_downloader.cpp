@@ -7,6 +7,7 @@
 #include "platform/platform.hpp"
 #include "platform/servers_list.hpp"
 #include "platform/settings.hpp"
+#include "platform/locale.hpp"
 
 #include "coding/url.hpp"
 
@@ -149,6 +150,12 @@ std::vector<std::string> MapFilesDownloader::MakeUrlList(std::string const & rel
   return urls;
 }
 
+std::string GetAcceptLanguage()
+{
+  auto const locale = platform::GetCurrentLocale();
+  return locale.m_language + "-" + locale.m_country;
+}
+
 // static
 MetaConfig MapFilesDownloader::LoadMetaConfig()
 {
@@ -160,7 +167,8 @@ MetaConfig MapFilesDownloader::LoadMetaConfig()
   {
     platform::HttpClient request(metaServerUrl);
     request.SetRawHeader("X-OM-DataVersion", std::to_string(m_dataVersion));
-    request.SetRawHeader("X-OM-AppVersion", GetPlatform().Version());
+    request.SetRawHeader("X-OM-AppVersion", pl.Version());
+    request.SetRawHeader("Accept-Language", GetAcceptLanguage());
     request.SetTimeout(10.0); // timeout in seconds
     request.RunHttpRequest(httpResult);
   }
