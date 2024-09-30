@@ -50,6 +50,7 @@ void MapFilesDownloader::RunMetaConfigAsync(std::function<void()> && callback)
     {
       m_serversList = metaConfig.m_serversList;
       settings::Update(metaConfig.m_settings);
+      products::SetProductsConfiguration(metaConfig.m_productsConfig);
 
       callback();
 
