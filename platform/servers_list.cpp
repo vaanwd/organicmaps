@@ -10,6 +10,10 @@
 
 namespace downloader
 {
+constexpr char const * kSettings = "settings";
+constexpr char const * kServers = "servers";
+constexpr char const * kProductsConfig = "productsConfig";
+
 std::optional<MetaConfig> ParseMetaConfig(std::string const & jsonStr)
 {
   MetaConfig outMetaConfig;
@@ -28,7 +32,7 @@ std::optional<MetaConfig> ParseMetaConfig(std::string const & jsonStr)
       //    }
       // }
 
-      json_t * settings = json_object_get(root.get(), "settings");
+      json_t * settings = json_object_get(root.get(), kSettings);
       const char * key;
       const json_t * value;
       json_object_foreach(settings, key, value)
@@ -38,7 +42,13 @@ std::optional<MetaConfig> ParseMetaConfig(std::string const & jsonStr)
           outMetaConfig.m_settings[key] = valueStr;
       }
 
-      servers = json_object_get(root.get(), "servers");
+      servers = json_object_get(root.get(), kServers);
+
+      auto const productsConfig = json_object_get(root.get(), kProductsConfig);
+      if (productsConfig)
+        outMetaConfig.m_productsConfig = json_dumps(productsConfig, JSON_ENCODE_ANY);
+      else
+        LOG(LINFO, ("No products config in meta configuration"));
     }
     else
     {
