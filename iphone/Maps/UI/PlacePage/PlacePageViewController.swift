@@ -189,6 +189,8 @@ final class PlacePageScrollView: UIScrollView {
     layout?.navigationBar?.view.removeFromSuperview()
     headerStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
     stackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
+    layout?.headerViewControllers.forEach { $0.removeFromParent() }
+    layout?.bodyViewControllers.forEach { $0.removeFromParent() }
   }
 
   private func findNearestStop(_ offset: CGFloat) -> PlacePageState {
