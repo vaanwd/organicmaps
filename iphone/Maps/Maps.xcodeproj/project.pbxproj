@@ -477,6 +477,9 @@
 		ED1ADA332BC6B1B40029209F /* CarPlayServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1ADA322BC6B1B40029209F /* CarPlayServiceTests.swift */; };
 		ED3EAC202B03C88100220A4A /* BottomTabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3EAC1F2B03C88100220A4A /* BottomTabBarButton.swift */; };
 		ED43B8BD2C12063500D07BAA /* DocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED43B8BC2C12063500D07BAA /* DocumentPicker.swift */; };
+		ED4DC7602CAEDDB90029B338 /* ProductsConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4DC75D2CAEDDB90029B338 /* ProductsConfiguration.swift */; };
+		ED4DC7612CAEDDB90029B338 /* ProductsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4DC75E2CAEDDB90029B338 /* ProductsManager.swift */; };
+		ED4DC7662CAEDE100029B338 /* ProductsManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4DC7652CAEDE100029B338 /* ProductsManagerTests.swift */; };
 		ED63CEB92BDF8F9D006155C4 /* SettingsTableViewiCloudSwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED63CEB62BDF8F9C006155C4 /* SettingsTableViewiCloudSwitchCell.swift */; };
 		ED77556E2C2C490B0051E656 /* UIAlertController+openInAppActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED77556D2C2C490B0051E656 /* UIAlertController+openInAppActionSheet.swift */; };
 		ED79A5AB2BD7AA9C00952D1F /* LoadingOverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED79A5AA2BD7AA9C00952D1F /* LoadingOverlayViewController.swift */; };
@@ -1405,6 +1408,9 @@
 		ED43B8BC2C12063500D07BAA /* DocumentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPicker.swift; sourceTree = "<group>"; };
 		ED48BBB817C2B1E2003E7E92 /* CircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleView.h; sourceTree = "<group>"; };
 		ED48BBB917C2B1E2003E7E92 /* CircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleView.m; sourceTree = "<group>"; };
+		ED4DC75D2CAEDDB90029B338 /* ProductsConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsConfiguration.swift; sourceTree = "<group>"; };
+		ED4DC75E2CAEDDB90029B338 /* ProductsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsManager.swift; sourceTree = "<group>"; };
+		ED4DC7652CAEDE100029B338 /* ProductsManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsManagerTests.swift; sourceTree = "<group>"; };
 		ED63CEB62BDF8F9C006155C4 /* SettingsTableViewiCloudSwitchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewiCloudSwitchCell.swift; sourceTree = "<group>"; };
 		ED77556D2C2C490B0051E656 /* UIAlertController+openInAppActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+openInAppActionSheet.swift"; sourceTree = "<group>"; };
 		ED79A5AA2BD7AA9C00952D1F /* LoadingOverlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingOverlayViewController.swift; sourceTree = "<group>"; };
@@ -1996,6 +2002,7 @@
 				3404753F1E081A4600C92850 /* Settings */,
 				340475421E081A4600C92850 /* Storage */,
 				34763EE31F2F392300F4D2D3 /* TextToSpeech */,
+				ED4DC75F2CAEDDB90029B338 /* Products */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -2690,6 +2697,7 @@
 		4B4153B62BF9709100EE4B02 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				ED4DC7642CAEDDF50029B338 /* ProductsTests */,
 				EDF838AB2C00B9C7007E4E67 /* iCloudTests */,
 				4B4153B72BF970A000EE4B02 /* TextToSpeech */,
 			);
@@ -3112,6 +3120,23 @@
 				ED43B8BC2C12063500D07BAA /* DocumentPicker.swift */,
 			);
 			path = DocumentPicker;
+			sourceTree = "<group>";
+		};
+		ED4DC75F2CAEDDB90029B338 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ED4DC75D2CAEDDB90029B338 /* ProductsConfiguration.swift */,
+				ED4DC75E2CAEDDB90029B338 /* ProductsManager.swift */,
+			);
+			path = Products;
+			sourceTree = "<group>";
+		};
+		ED4DC7642CAEDDF50029B338 /* ProductsTests */ = {
+			isa = PBXGroup;
+			children = (
+				ED4DC7652CAEDE100029B338 /* ProductsManagerTests.swift */,
+			);
+			path = ProductsTests;
 			sourceTree = "<group>";
 		};
 		ED79A5A92BD7AA7500952D1F /* LoadingOverlay */ = {
@@ -4674,6 +4699,8 @@
 				ED79A5D32BDF8D6100952D1F /* SynchronizaionManager.swift in Sources */,
 				6741AA1D1BF340DE002C974C /* MWMDownloadTransitMapAlert.mm in Sources */,
 				471A7BBE2481A3D000A0D4C1 /* EditBookmarkViewController.swift in Sources */,
+				ED4DC7602CAEDDB90029B338 /* ProductsConfiguration.swift in Sources */,
+				ED4DC7612CAEDDB90029B338 /* ProductsManager.swift in Sources */,
 				993DF0C923F6BD0600AC231A /* ElevationDetailsBuilder.swift in Sources */,
 				674A7E301C0DB10B003D48E1 /* MWMMapWidgets.mm in Sources */,
 				34AB66291FC5AA330078E451 /* RouteManagerViewController.swift in Sources */,
@@ -4733,6 +4760,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDF838C12C00B9D6007E4E67 /* iCloudDirectoryMonitorTests.swift in Sources */,
+				ED4DC7662CAEDE100029B338 /* ProductsManagerTests.swift in Sources */,
 				EDF838C02C00B9D0007E4E67 /* DefaultLocalDirectoryMonitorTests.swift in Sources */,
 				ED1ADA332BC6B1B40029209F /* CarPlayServiceTests.swift in Sources */,
 				EDF838C32C00B9D6007E4E67 /* UbiquitousDirectoryMonitorDelegateMock.swift in Sources */,
