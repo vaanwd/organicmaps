@@ -1,5 +1,13 @@
+@protocol ProductsSettings <NSObject>
++ (NSString * _Nullable)getProductsConfiguration;
++ (BOOL)isProductsEnabled;
++ (void)setProductsDialogClosed;
++ (NSTimeInterval)launchTime;
++ (NSTimeInterval)productsDialogClosedTime;
+@end
+
 NS_SWIFT_NAME(Settings)
-@interface MWMSettings : NSObject
+@interface MWMSettings : NSObject <ProductsSettings>
 
 + (BOOL)autoDownloadEnabled;
 + (void)setAutoDownloadEnabled:(BOOL)autoDownloadEnabled;

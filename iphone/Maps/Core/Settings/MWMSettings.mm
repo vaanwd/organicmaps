@@ -20,6 +20,7 @@ NSString * const kSpotlightLocaleLanguageId = @"SpotlightLocaleLanguageId";
 NSString * const kUDTrackWarningAlertWasShown = @"TrackWarningAlertWasShown";
 NSString * const kiCLoudSynchronizationEnabledKey = @"iCLoudSynchronizationEnabled";
 NSString * const kUDFileLoggingEnabledKey = @"FileLoggingEnabledKey";
+NSString * const kUDPlacePageProductsDialogClosedTime = @"PlacePageProductsDialogClosedTime";
 }  // namespace
 
 @implementation MWMSettings
@@ -183,6 +184,32 @@ NSString * const kUDFileLoggingEnabledKey = @"FileLoggingEnabledKey";
 + (void)setFileLoggingEnabled:(BOOL)fileLoggingEnabled {
   [NSUserDefaults.standardUserDefaults setBool:fileLoggingEnabled forKey:kUDFileLoggingEnabledKey];
   [Logger setFileLoggingEnabled:fileLoggingEnabled];
+}
+
++ (NSString * _Nullable)getProductsConfiguration {
+  std::string productsConfig;
+  products::GetProductsConfiguration(productsConfig);
+  return productsConfig.empty() ? nil : [NSString stringWithCString:productsConfig.c_str() encoding:NSUTF8StringEncoding];
+}
+
++ (BOOL)isProductsEnabled
+{
+  return [self donateUrl] != nil;
+}
+
++ (void)setProductsDialogClosed
+{
+  [NSUserDefaults.standardUserDefaults setDouble:NSDate.date.timeIntervalSince1970 forKey:kUDPlacePageProductsDialogClosedTime];
+}
+
++ (NSTimeInterval)launchTime
+{
+  return FirstSession.firstLaunchDate.timeIntervalSince1970;
+}
+
++ (NSTimeInterval)productsDialogClosedTime
+{
+  return [NSUserDefaults.standardUserDefaults doubleForKey:kUDPlacePageProductsDialogClosedTime];
 }
 
 @end
