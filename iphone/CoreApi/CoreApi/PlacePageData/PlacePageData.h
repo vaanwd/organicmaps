@@ -46,6 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)init NS_UNAVAILABLE;
 
 - (void)updateBookmarkStatus;
+- (BOOL)isMapDownloaded;
 
 @end
 

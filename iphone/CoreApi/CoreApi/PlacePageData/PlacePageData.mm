@@ -114,6 +114,14 @@ static PlacePageRoadType convertRoadType(RoadWarningMarkType roadType) {
   }
 }
 
+- (BOOL)isMapDownloaded {
+  if (self.mapNodeAttributes == nil) {
+    return NO;
+  }
+  MWMMapNodeStatus status = self.mapNodeAttributes.nodeStatus;
+  return status == MWMMapNodeStatusOnDisk || status == MWMMapNodeStatusOnDiskOutOfDate;
+}
+
 #pragma mark - MWMStorageObserver
 
 - (void)processCountryEvent:(NSString *)countryId {
