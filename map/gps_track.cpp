@@ -298,7 +298,7 @@ void GpsTrack::NotifyCallback(pair<size_t, size_t> const & addedIds, pair<size_t
     if (toAdd.empty())
       return; // nothing to send
 
-    m_callback(std::move(toAdd), make_pair(kInvalidId, kInvalidId));
+    m_callback(std::move(toAdd), make_pair(kInvalidId, kInvalidId), m_collection->GetInfo());
   }
   else
   {
@@ -319,6 +319,6 @@ void GpsTrack::NotifyCallback(pair<size_t, size_t> const & addedIds, pair<size_t
     if (toAdd.empty() && evictedIds.first == kInvalidId)
       return; // nothing to send
 
-    m_callback(std::move(toAdd), evictedIds);
+    m_callback(std::move(toAdd), evictedIds, m_collection->GetInfo());
   }
 }
