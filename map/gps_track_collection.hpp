@@ -17,11 +17,6 @@ public:
   /// Constructor
   GpsTrackCollection();
 
-  /// Adds new point in the collection.
-  /// @param item - item to be added.
-  /// @returns the item unique identifier or kInvalidId if point has incorrect time.
-  size_t Add(TItem const & item);
-
   /// Adds set of new points in the collection.
   /// @param items - set of items to be added.
   /// @returns range of identifiers of added items or pair(kInvalidId,kInvalidId) if nothing was added
