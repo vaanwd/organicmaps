@@ -2,20 +2,25 @@
 #import <UIKit/UIKit.h>
 
 #import "MWMTypes.h"
+#import "TrackStatistics.h"
 
 @class MWMMapSearchResult;
+@class MWMBookmarkGroup;
+@class TrackStatistics;
 
 typedef NS_ENUM(NSUInteger, MWMZoomMode) { MWMZoomModeIn = 0, MWMZoomModeOut };
 
 NS_ASSUME_NONNULL_BEGIN
 
 typedef void (^SearchInDownloaderCompletions)(NSArray<MWMMapSearchResult *> *results, BOOL finished);
+typedef void (^TrackRecordingUpdatedHandler)(TrackStatistics * _Nonnull trackStatistics);
 
 @protocol TrackRecorder <NSObject>
 
 + (void)startTrackRecording;
++ (void)setTrackRecordingUpdateHandler:(TrackRecordingUpdatedHandler _Nullable)trackRecordingDidUpdate;
 + (void)stopTrackRecording;
-+ (void)saveTrackRecordingWithName:(nullable NSString *)name;
++ (void)saveTrackRecordingWithCategoryId:(MWMMarkGroupID)categoryId name:(nullable NSString *)name color:(UIColor *)color;
 + (BOOL)isTrackRecordingEnabled;
 + (BOOL)isTrackRecordingEmpty;
 

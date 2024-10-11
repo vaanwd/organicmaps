@@ -1,5 +1,6 @@
 #import "MWMFrameworkHelper.h"
 #import "MWMMapSearchResult+Core.h"
+#import "TrackStatistics+Core.h"
 
 #include "Framework.h"
 
@@ -198,6 +199,19 @@
 
 + (void)startTrackRecording {
   GetFramework().StartTrackRecording();
+}
+
++ (void)setTrackRecordingUpdateHandler:(TrackRecordingUpdatedHandler _Nullable)trackRecordingDidUpdate {
+  if (!trackRecordingDidUpdate)
+  {
+    GetFramework().SetTrackRecordingUpdateHandler(nullptr);
+    return;
+  }
+  GetFramework().SetTrackRecordingUpdateHandler([trackRecordingDidUpdate](GpsTrackCollection::GpsTrackInfo const & gpsTrackInfo) {
+    TrackStatistics * trackStats = [[TrackStatistics alloc] initWithGpsTrackInfo:gpsTrackInfo];
+    ASSERT(trackStats, ("Failed to parse GpsTrackInfo"));
+    trackRecordingDidUpdate(trackStats);
+  });
 }
 
 + (void)stopTrackRecording {
