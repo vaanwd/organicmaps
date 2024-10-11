@@ -36,6 +36,15 @@ public:
   /// Returns number of items in the collection
   size_t GetSize() const;
 
+  struct GpsTrackInfo
+  {
+    double length;
+    double duration;
+    double elevationGain;
+  };
+
+  GpsTrackInfo GetInfo() const;
+
   /// Enumerates items in the collection.
   /// @param f - callable object, which is called with params - item and item id,
   /// if f returns false, then enumeration is stopped.
@@ -67,4 +76,6 @@ private:
   std::deque<TItem> m_items;  // asc. sorted by timestamp
 
   size_t m_lastId;
+  double m_length;
+  double m_elevationGain;
 };
