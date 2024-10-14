@@ -14,6 +14,12 @@ class BookmarksStyleSheet: IStyleSheet {
       s.fontColorDisabled = colors.blackHintText
     }
 
+    theme.add(styleName: "BookmarksCategoryContinueButton") { (s) -> (Void) in
+      s.font = fonts.regular17
+      s.fontColor = colors.linkBlue
+      s.fontColorDisabled = colors.blackHintText
+    }
+
     theme.add(styleName: "BookmarksActionCreateIcon") { (s) -> (Void) in
       s.tintColor = colors.linkBlue
     }
