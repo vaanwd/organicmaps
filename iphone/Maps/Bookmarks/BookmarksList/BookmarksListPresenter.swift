@@ -58,7 +58,7 @@ final class BookmarksListPresenter {
     interactor.resetSort()
     var sections: [IBookmarksListSectionViewModel] = []
     let tracks = bookmarkGroup.tracks.map { track in
-      TrackViewModel(track, formattedDistance: formatDistance(Double(track.trackLengthMeters)), colorDidTap: {
+      TrackViewModel(track, formattedDistance: formatDistance(track.statistics.length), colorDidTap: {
         self.view.showColorPicker(with: .defaultColorPicker(track.trackColor)) { color in
           BookmarksManager.shared().updateTrack(track.trackId, setColor: color)
           self.reload()
@@ -205,7 +205,7 @@ final class BookmarksListPresenter {
         }
         if let tracks = bookmarksSection.tracks, let self = self {
           return TracksSectionViewModel(tracks: tracks.map { track in
-            TrackViewModel(track, formattedDistance: self.formatDistance(Double(track.trackLengthMeters)), colorDidTap: {
+            TrackViewModel(track, formattedDistance: self.formatDistance(track.statistics.length), colorDidTap: {
               self.view.showColorPicker(with: .defaultColorPicker(track.trackColor)) { color in
                 BookmarksManager.shared().updateTrack(track.trackId, setColor: color)
                 self.reload()

@@ -4,13 +4,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class TrackStatistics;
+
 NS_SWIFT_NAME(Track)
 @interface MWMTrack : NSObject
 
 @property(nonatomic, readonly) MWMTrackID trackId;
-@property(nonatomic, readonly) NSString *trackName;
-@property(nonatomic, readonly) NSInteger trackLengthMeters;
-@property(nonatomic, readonly) UIColor *trackColor;
+@property(nonatomic, readonly) NSString * trackName;
+@property(nonatomic, readonly) TrackStatistics * statistics;
+@property(nonatomic, readonly) UIColor * trackColor;
 
 @end
 
