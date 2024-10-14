@@ -23,6 +23,10 @@ typedef void (^TrackRecordingUpdatedHandler)(TrackStatistics * _Nonnull trackSta
 + (void)saveTrackRecordingWithCategoryId:(MWMMarkGroupID)categoryId name:(nullable NSString *)name color:(UIColor *)color;
 + (BOOL)isTrackRecordingEnabled;
 + (BOOL)isTrackRecordingEmpty;
++ (MWMMarkGroupID)getTrackRecordingCategory;
++ (void)setTrackRecordingCategory:(MWMMarkGroupID)category;
++ (NSString *)generateTrackRecordingName;
++ (UIColor *)generateTrackRecordingColor;
 
 @end
 

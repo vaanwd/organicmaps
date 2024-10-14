@@ -1,6 +1,8 @@
 #import "MWMFrameworkHelper.h"
 #import "MWMMapSearchResult+Core.h"
 #import "TrackStatistics+Core.h"
+#import "StringUtils.h"
+#import "ColorUtils.h"
 
 #include "Framework.h"
 
@@ -218,9 +220,8 @@
   GetFramework().StopTrackRecording();
 }
 
-+ (void)saveTrackRecordingWithName:(nullable NSString *)name {
-  auto & bookmarkManager = GetFramework().GetBookmarkManager();
-  GetFramework().SaveTrackRecording(name == nil ? "" : name.UTF8String, bookmarkManager.GenerateTrackRecordingColor(), bookmarkManager.LastEditedBMCategory());
++ (void)saveTrackRecordingWithCategoryId:(MWMMarkGroupID)categoryId name:(nullable NSString *)name color:(UIColor *)color {
+  GetFramework().SaveTrackRecording(name == nil ? "" : name.UTF8String, GetDrapeColorFromUIColor(color), categoryId);
 }
 
 + (BOOL)isTrackRecordingEnabled {
@@ -229,6 +230,25 @@
 
 + (BOOL)isTrackRecordingEmpty {
   return GetFramework().IsTrackRecordingEmpty();
+}
+
++ (MWMMarkGroupID)getTrackRecordingCategory {
+  // TODO: fetch not the last edit cat
+  return GetFramework().GetBookmarkManager().LastEditedBMCategory();
+}
+
++ (void)setTrackRecordingCategory:(MWMMarkGroupID)category {
+  // TODO: implement
+}
+
++ (NSString *)generateTrackRecordingName {
+  auto const & bookmarkManager = GetFramework().GetBookmarkManager();
+  return ToNSString({bookmarkManager.GenerateTrackRecordingName()});
+}
+
++ (UIColor *)generateTrackRecordingColor {
+  auto const & bookmarkManager = GetFramework().GetBookmarkManager();
+  return GetUIColorFromDrapeColor(bookmarkManager.GenerateTrackRecordingColor());
 }
 
 @end
