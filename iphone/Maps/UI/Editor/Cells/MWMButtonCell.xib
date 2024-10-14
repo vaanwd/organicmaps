@@ -24,9 +24,6 @@
                         <state key="normal" title="Button">
                             <color key="titleColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="BookmarksCategoryDeleteButton"/>
-                        </userDefinedRuntimeAttributes>
                         <connections>
                             <action selector="buttonTap" destination="KGk-i7-Jjw" eventType="touchUpInside" id="kS2-aj-wfq"/>
                         </connections>
