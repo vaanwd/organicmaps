@@ -91,6 +91,7 @@
 		ED6FD54D2CB95A5500F6099F /* TrackStatistics.h in Headers */ = {isa = PBXBuildFile; fileRef = ED6FD54B2CB95A5500F6099F /* TrackStatistics.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ED6FD54E2CB95A5500F6099F /* TrackStatistics.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED6FD54C2CB95A5500F6099F /* TrackStatistics.mm */; };
 		ED6FD5542CB9736A00F6099F /* TrackStatistics+Core.h in Headers */ = {isa = PBXBuildFile; fileRef = ED6FD5532CB9736A00F6099F /* TrackStatistics+Core.h */; };
+		EDA7974D2CBC1F200035E043 /* ColorUtils.h in Sources */ = {isa = PBXBuildFile; fileRef = EDA7974C2CBC1F200035E043 /* ColorUtils.h */; };
 		EDC4E3512C5D222D009286A2 /* RecentlyDeletedCategory.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDC4E34E2C5D222D009286A2 /* RecentlyDeletedCategory.mm */; };
 		EDC4E3522C5D222D009286A2 /* RecentlyDeletedCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = EDC4E34F2C5D222D009286A2 /* RecentlyDeletedCategory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EDC4E3532C5D222D009286A2 /* RecentlyDeletedCategory+Core.h in Headers */ = {isa = PBXBuildFile; fileRef = EDC4E3502C5D222D009286A2 /* RecentlyDeletedCategory+Core.h */; };
@@ -188,6 +189,7 @@
 		ED6FD54B2CB95A5500F6099F /* TrackStatistics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrackStatistics.h; sourceTree = "<group>"; };
 		ED6FD54C2CB95A5500F6099F /* TrackStatistics.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TrackStatistics.mm; sourceTree = "<group>"; };
 		ED6FD5532CB9736A00F6099F /* TrackStatistics+Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TrackStatistics+Core.h"; sourceTree = "<group>"; };
+		EDA7974C2CBC1F200035E043 /* ColorUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorUtils.h; sourceTree = "<group>"; };
 		EDC4E34E2C5D222D009286A2 /* RecentlyDeletedCategory.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RecentlyDeletedCategory.mm; sourceTree = "<group>"; };
 		EDC4E34F2C5D222D009286A2 /* RecentlyDeletedCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentlyDeletedCategory.h; sourceTree = "<group>"; };
 		EDC4E3502C5D222D009286A2 /* RecentlyDeletedCategory+Core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RecentlyDeletedCategory+Core.h"; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 			isa = PBXGroup;
 			children = (
 				AC6A585628057CC1003EABAF /* StringUtils.h */,
+				EDA7974C2CBC1F200035E043 /* ColorUtils.h */,
 				479F7049234F785B00011E2E /* MWMTypes.h */,
 				47EEAFF52350CEF6005CF316 /* MWMCommon.h */,
 				47EEAFF32350CEDB005CF316 /* AppInfo.h */,
@@ -588,6 +591,7 @@
 				9957FACF237AB01400855F48 /* DeepLinkParser.mm in Sources */,
 				47F4F1FA23A3336C0022FD56 /* MWMMapNodeAttributes.mm in Sources */,
 				47942D88237CCA8800DEFAE3 /* PlacePagePreviewData.mm in Sources */,
+				EDA7974D2CBC1F200035E043 /* ColorUtils.h in Sources */,
 				47942D9D237D927800DEFAE3 /* PlacePageBookmarkData.mm in Sources */,
 				47942D86237CC55500DEFAE3 /* MWMOpeningHoursCommon.mm in Sources */,
 				9974CA2A23DF1968003FE824 /* ElevationProfileData.mm in Sources */,
