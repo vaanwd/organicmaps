@@ -20,9 +20,10 @@ final class TrackRecordingManager: NSObject {
 
   typealias CompletionHandler = () -> Void
 
-  private enum SavingOption {
-    case withoutSaving
-    case saveWithName(String? = nil)
+  enum StopOption {
+    case `continue`
+    case stopWithoutSaving
+    case saveWith(categoryId: MWMMarkGroupID, name: String?, color: UIColor)
   }
 
   fileprivate struct Observation {
@@ -57,7 +58,7 @@ final class TrackRecordingManager: NSObject {
       // Show alert to enable location
       LocationManager.checkLocationStatus()
     }
-    stopRecording(.withoutSaving, completion: completion)
+    stopRecording(.stopWithoutSaving, completion: completion)
   }
 
   private func getCurrentRecordingState() -> TrackRecordingState {
@@ -84,42 +85,35 @@ final class TrackRecordingManager: NSObject {
   private func stop(completion: (CompletionHandler)? = nil) {
     guard !trackRecorder.isTrackRecordingEmpty() else {
       Toast.toast(withText: L("track_recording_toast_nothing_to_save")).show()
-      stopRecording(.withoutSaving, completion: completion)
+      stopRecording(.stopWithoutSaving, completion: completion)
       return
     }
-    Self.showOnFinishRecordingAlert(onSave: { [weak self] in
-      guard let self else { return }
-      // TODO: (KK) pass the user provided name from the track saving screen (when it will be implemented)
-      self.stopRecording(.saveWithName(), completion: completion)
-    },
-                                    onStop: { [weak self] in
-      guard let self else { return }
-      self.stopRecording(.withoutSaving, completion: completion)
-    },
-                                    onContinue: {
-      completion?()
+
+    let configuration = TrackEditingMode.StopRecordingConfiguration(
+      groupId: trackRecorder.getTrackRecordingCategory(),
+      name: trackRecorder.generateTrackRecordingName(),
+      color: trackRecorder.generateTrackRecordingColor(),
+      onStopCompletion: { [weak self] stopOption in
+        self?.stopRecording(stopOption, completion: completion)
     })
+    let editTrackViewController = EditTrackViewController(editingMode: .stopRecording(configuration))
+    let navigationController = MWMNavigationController(rootViewController: editTrackViewController)
+    editTrackViewController.modalPresentationStyle = .pageSheet
+    UIViewController.topViewController().present(navigationController, animated: true)
   }
 
-  private func stopRecording(_ savingOption: SavingOption, completion: (CompletionHandler)? = nil) {
-    trackRecorder.stopTrackRecording()
-    switch savingOption {
-    case .withoutSaving:
+  private func stopRecording(_ option: StopOption, completion: (CompletionHandler)? = nil) {
+    switch option {
+    case .continue:
       break
-    case .saveWithName(let name):
-      trackRecorder.saveTrackRecording(withName: name)
+    case .stopWithoutSaving:
+      trackRecorder.stopTrackRecording()
+      recordingState = .inactive
+    case .saveWith(let categoryId, let name, let color):
+      trackRecorder.stopTrackRecording()
+      trackRecorder.saveTrackRecording(withCategoryId: categoryId, name: name, color: color)
+      recordingState = .inactive
     }
-    recordingState = .inactive
     completion?()
-  }
-  
-  private static func showOnFinishRecordingAlert(onSave: @escaping CompletionHandler, 
-                                                 onStop: @escaping CompletionHandler,
-                                                 onContinue: @escaping CompletionHandler) {
-    let alert = UIAlertController(title: L("track_recording_alert_title"), message: nil, preferredStyle: .alert)
-    alert.addAction(UIAlertAction(title: L("continue_recording"), style: .default, handler: { _ in onContinue() }))
-    alert.addAction(UIAlertAction(title: L("stop_without_saving"), style: .default, handler: { _ in onStop() }))
-    alert.addAction(UIAlertAction(title: L("save"), style: .cancel, handler: { _ in onSave() }))
-    UIViewController.topViewController().present(alert, animated: true)
   }
 }

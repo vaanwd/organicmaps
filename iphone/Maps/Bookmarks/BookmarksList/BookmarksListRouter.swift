@@ -76,7 +76,8 @@ extension BookmarksListRouter: IBookmarksListRouter {
   }
   
   func editTrack(trackId: MWMTrackID, completion: @escaping (Bool) -> Void) {
-    let editTrackController = EditTrackViewController(trackId: trackId, editCompletion: completion)
+    let editConfiguration = TrackEditingMode.EditingConfiguration(trackId: trackId, onFinishEditingCompletion: completion)
+    let editTrackController = EditTrackViewController(editingMode: .edit(editConfiguration))
     mapViewController.navigationController?.pushViewController(editTrackController, animated: true)
   }
 
