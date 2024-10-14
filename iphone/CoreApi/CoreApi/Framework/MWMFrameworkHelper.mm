@@ -219,7 +219,8 @@
 }
 
 + (void)saveTrackRecordingWithName:(nullable NSString *)name {
-  GetFramework().SaveTrackRecordingWithName(name == nil ? "" : name.UTF8String);
+  auto & bookmarkManager = GetFramework().GetBookmarkManager();
+  GetFramework().SaveTrackRecording(name == nil ? "" : name.UTF8String, bookmarkManager.GenerateTrackRecordingColor(), bookmarkManager.LastEditedBMCategory());
 }
 
 + (BOOL)isTrackRecordingEnabled {

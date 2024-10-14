@@ -1142,7 +1142,7 @@ kml::CompilationType BookmarkManager::GetCompilationType(kml::MarkGroupId id) co
   return compilation->second->GetCategoryData().m_type;
 }
 
-void BookmarkManager::SaveTrackRecording(std::string trackName)
+void BookmarkManager::SaveTrackRecording(std::string trackName, dp::Color color, kml::MarkGroupId groupId)
 {
   CHECK_THREAD_CHECKER(m_threadChecker, ());
   auto const & tracker = GpsTracker::Instance();
@@ -1172,7 +1172,13 @@ void BookmarkManager::SaveTrackRecording(std::string trackName)
   kml::SetDefaultStr(trackData.m_name, trackName);
 
   kml::ColorData colorData;
-  colorData.m_rgba = GenerateTrackRecordingColor().GetRGBA();
+  if (color == dp::Color())
+  {
+    LOG(LWARNING, ("Track recording color is not set. Random color will be used."));
+    color = GenerateTrackRecordingColor();
+  }
+  else
+  colorData.m_rgba = color.GetRGBA();
   kml::TrackLayer layer;
   layer.m_color = std::move(colorData);
 
@@ -1183,7 +1189,11 @@ void BookmarkManager::SaveTrackRecording(std::string trackName)
 
   auto editSession = GetEditSession();
   auto const track = editSession.CreateTrack(std::move(trackData));
-  auto const groupId = LastEditedBMCategory();
+  if (!HasBmCategory(groupId))
+  {
+    LOG(LERROR, ("Category with id", groupId, "does not exist"));
+    groupId = LastEditedBMCategory();
+  }
   AttachTrack(track->GetId(), groupId);
 }
 
