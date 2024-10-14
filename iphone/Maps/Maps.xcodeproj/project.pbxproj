@@ -1536,7 +1536,6 @@
 		F6E2FC261E097B9F0083EBEC /* MWMNoMapsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWMNoMapsView.m; sourceTree = "<group>"; };
 		F6E2FC271E097B9F0083EBEC /* MWMNoMapsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWMNoMapsViewController.h; sourceTree = "<group>"; };
 		F6E2FC281E097B9F0083EBEC /* MWMNoMapsViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MWMNoMapsViewController.mm; sourceTree = "<group>"; };
-		F6E2FC2A1E097B9F0083EBEC /* legacy_bookmark_colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = legacy_bookmark_colors.h; sourceTree = "<group>"; };
 		F6E2FC341E097B9F0083EBEC /* MWMEditorAdditionalNamesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWMEditorAdditionalNamesTableViewController.h; sourceTree = "<group>"; };
 		F6E2FC351E097B9F0083EBEC /* MWMEditorAdditionalNamesTableViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MWMEditorAdditionalNamesTableViewController.mm; sourceTree = "<group>"; };
 		F6E2FC371E097B9F0083EBEC /* MWMCuisineEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWMCuisineEditorViewController.h; sourceTree = "<group>"; };
@@ -3513,7 +3512,6 @@
 		F6E2FC291E097B9F0083EBEC /* EditBookmark */ = {
 			isa = PBXGroup;
 			children = (
-				F6E2FC2A1E097B9F0083EBEC /* legacy_bookmark_colors.h */,
 				471A7BBF2481C82500A0D4C1 /* BookmarkTitleCell.swift */,
 				471A7BC12481C9B700A0D4C1 /* BookmarkTitleCell.xib */,
 				471A7BBD2481A3D000A0D4C1 /* EditBookmarkViewController.swift */,
