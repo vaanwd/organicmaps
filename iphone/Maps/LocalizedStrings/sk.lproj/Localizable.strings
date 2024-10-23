@@ -1394,6 +1394,8 @@
 /* Message for the toast when saving the track recording is finished but nothing to save. */
 "track_recording_toast_nothing_to_save" = "Trasa je prázdna - nie je čo ukladať";
 
+"already_donated" = "Už Darované";
+
 
 /********** Types **********/
 
