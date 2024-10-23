@@ -6868,6 +6868,51 @@
     zh-Hans = 捐助，以共同打造最好的地图！
     zh-Hant = 捐助，以共同打造最好的地圖！
 
+  [already_donated]
+    tags = ios
+    en = Already Donated
+    af = Reeds Geskenk
+    ar = تم التبرع
+    az = Artıq İanə Edildi
+    be = Ужо Ахвяравана
+    bg = Вече Дарено
+    ca = Ja Donat
+    cs = Již Darováno
+    da = Allerede Doneret
+    de = Bereits Gespendet
+    el = Ήδη Δωρεά
+    es = Ya Donado
+    et = Juba Annetatud
+    eu = Dagoeneko Emanda
+    fa = قبلاً اهدا شده
+    fi = Jo Lahjoitettu
+    fr = Déjà Donné
+    he = כבר נתרם
+    hi = पहले से दान
+    hu = Már Adományozva
+    id = Sudah Disumbang
+    it = Già Donato
+    ja = 寄付済み
+    ko = 기부완료
+    lt = Jau Paaukota
+    mr = आधीच दान केले
+    nb = Allerede Donert
+    nl = Reeds Gedoneerd
+    pl = Już Przekazano
+    pt = Já Doado
+    pt-BR = Já Doado
+    ro = Deja Donat
+    ru = Уже Пожертвовано
+    sk = Už Darované
+    sv = Redan Donerat
+    sw = Tayari Kutoa
+    th = บริจาคแล้ว
+    tr = Zaten Bağışlandı
+    uk = Вже Пожертвувано
+    vi = Đã Quyên Góp
+    zh-Hans = 已捐赠
+    zh-Hant = 已捐贈
+
   [how_to_support_us]
     comment = Button in the main Help dialog
     tags = android
