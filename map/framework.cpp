@@ -887,9 +887,6 @@ void Framework::ShowTrack(kml::TrackId trackId)
 
   auto es = GetBookmarkManager().GetEditSession();
   es.SetIsVisible(track->GetGroupId(), true /* visible */);
-
-  if (track->IsInteractive())
-    bm.SetDefaultTrackSelection(trackId, true /* showInfoSign */);
 }
 
 void Framework::ShowBookmarkCategory(kml::MarkGroupId categoryId, bool animation)
@@ -908,13 +905,6 @@ void Framework::ShowBookmarkCategory(kml::MarkGroupId categoryId, bool animation
   es.SetIsVisible(categoryId, true /* visible */);
 
   auto const & trackIds = bm.GetTrackIds(categoryId);
-  for (auto trackId : trackIds)
-  {
-    if (!bm.GetTrack(trackId)->IsInteractive())
-      continue;
-    bm.SetDefaultTrackSelection(trackId, true /* showInfoSign */);
-    break;
-  }
 }
 
 void Framework::ShowFeature(FeatureID const & featureId)
