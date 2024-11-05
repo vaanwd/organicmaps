@@ -12,10 +12,6 @@ public final class DateTimeFormatter: NSObject {
   }()
   private static let dateFormatter = DateFormatter()
 
-  public static func durationString(from timeInterval: TimeInterval) -> String {
-    timeFormatter.string(from: timeInterval) ?? ""
-  }
-
   public static func dateString(from date: Date, dateStyle: DateFormatter.Style, timeStyle: DateFormatter.Style) -> String {
     DateFormatter.localizedString(from: date, dateStyle: dateStyle, timeStyle: timeStyle)
   }
