@@ -13,7 +13,7 @@ void TestIntersectionResult(IntersectionResult const & result, IntersectionResul
     PointD const & expectedPoint)
 {
   TEST_EQUAL(result.m_type, expectedType, ());
-  TEST(AlmostEqualAbs(result.m_point, expectedPoint, kEps), (result.m_point, expectedPoint, kEps));
+  TEST(base::AlmostEqualAbs(result.m_point, expectedPoint, kEps), (result.m_point, expectedPoint, kEps));
 }
 
 bool TestSegmentsIntersect(PointD a, PointD b, PointD c, PointD d)

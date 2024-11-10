@@ -377,7 +377,7 @@ UNIT_TEST(Bookmarks_Getting)
   fm.ShowRect(m2::RectD(0, 0, 80, 40));
 
   // This is not correct because Framework::OnSize doesn't work until SetRenderPolicy is called.
-  //TEST(m2::AlmostEqualULPs(m2::PointD(400, 200), pixC), (pixC));
+  //TEST(base::AlmostEqualUlps(m2::PointD(400, 200), pixC), (pixC));
 
   BookmarkManager & bmManager = fm.GetBookmarkManager();
   bmManager.EnableTestMode(true);

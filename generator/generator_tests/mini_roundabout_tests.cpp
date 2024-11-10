@@ -55,7 +55,7 @@ void TestRunCmpPoints(std::vector<m2::PointD> const & pointsFact,
   TEST_EQUAL(pointsFact.size(), pointsPlan.size(), ());
   TEST_GREATER(pointsFact.size(), 2, ());
   for (size_t i = 0; i < pointsFact.size(); ++i)
-    TEST(m2::AlmostEqualAbs(pointsFact[i], pointsPlan[i], kMwmPointAccuracy), ());
+    TEST(base::AlmostEqualAbs(pointsFact[i], pointsPlan[i], kMwmPointAccuracy), ());
 }
 
 void TestRunCmpNumbers(double val1, double val2)
@@ -97,7 +97,7 @@ UNIT_TEST(TrimSegment_Vertical)
   double const dist = 1.0;
   m2::PointD const point = GetPointAtDistFromTarget(a /* source */, b /* target */, dist);
   m2::PointD const pointPlan(2.0, 2.0);
-  TEST(m2::AlmostEqualAbs(point, pointPlan, kMwmPointAccuracy), ());
+  TEST(base::AlmostEqualAbs(point, pointPlan, kMwmPointAccuracy), ());
 }
 
 UNIT_TEST(TrimSegment_VerticalNegative)
@@ -107,7 +107,7 @@ UNIT_TEST(TrimSegment_VerticalNegative)
   double const dist = 4.0;
   m2::PointD const point = GetPointAtDistFromTarget(a /* source */, b /* target */, dist);
   m2::PointD const pointPlan(-3.0, 2.0);
-  TEST(m2::AlmostEqualAbs(point, pointPlan, kMwmPointAccuracy), ());
+  TEST(base::AlmostEqualAbs(point, pointPlan, kMwmPointAccuracy), ());
 }
 
 UNIT_TEST(TrimSegment_ExceptionalCase)
@@ -116,7 +116,7 @@ UNIT_TEST(TrimSegment_ExceptionalCase)
   m2::PointD const b(2.0, 3.0);
   double const dist = 10.0;
   m2::PointD const point = GetPointAtDistFromTarget(a /* source */, b /* target */, dist);
-  TEST(m2::AlmostEqualAbs(point, a, kMwmPointAccuracy), ());
+  TEST(base::AlmostEqualAbs(point, a, kMwmPointAccuracy), ());
 }
 
 UNIT_TEST(PointToCircle_ZeroMeridian)

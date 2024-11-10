@@ -42,7 +42,7 @@ UNIT_TEST(LineIntersection_Smoke)
     Line2D const rhs(Segment2D(PointD(-10, 0), PointD(-9, 10)));
     auto const result = Intersect(lhs, rhs);
     TEST_EQUAL(result.m_type, Type::One, ());
-    TEST(AlmostEqualAbs(result.m_point, PointD(0, 100), kEps), (result.m_point));
+    TEST(base::AlmostEqualAbs(result.m_point, PointD(0, 100), kEps), (result.m_point));
   }
 }
 }  // namespace line2d_tests

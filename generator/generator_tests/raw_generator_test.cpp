@@ -928,7 +928,7 @@ UNIT_TEST(MiniRoundabout_Connectivity)
     {
       for (auto const & p : roundabout)
       {
-        if (m2::AlmostEqualAbs(p, pt, kMwmPointAccuracy))
+        if (base::AlmostEqualAbs(p, pt, kMwmPointAccuracy))
           return true;
       }
       return false;

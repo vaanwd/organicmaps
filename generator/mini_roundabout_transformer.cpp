@@ -46,7 +46,7 @@ feature::FeatureBuilder::PointSeq::iterator GetIterOnRoad(m2::PointD const & poi
 {
   return std::find_if(road.begin(), road.end(), [&point](m2::PointD const & pointOnRoad)
   {
-    return m2::AlmostEqualAbs(pointOnRoad, point, kMwmPointAccuracy);
+    return base::AlmostEqualAbs(pointOnRoad, point, kMwmPointAccuracy);
   });
 }
 } // namespace
@@ -149,7 +149,7 @@ MiniRoundaboutTransformer::PointsT MiniRoundaboutTransformer::CreateSurrogateRoa
       *itPointOnSurrogateRoad /* source */, roundaboutOnRoad.m_location /* target */,
       m_radiusMercator /* dist */);
 
-  if (m2::AlmostEqualAbs(nextPointOnSurrogateRoad, *itPointOnSurrogateRoad, kMwmPointAccuracy))
+  if (base::AlmostEqualAbs(nextPointOnSurrogateRoad, *itPointOnSurrogateRoad, kMwmPointAccuracy))
     return {};
 
   AddPointToCircle(roundaboutCircle, nextPointOnSurrogateRoad);
@@ -174,7 +174,7 @@ bool MiniRoundaboutTransformer::AddRoundaboutToRoad(RoundaboutUnit const & round
       GetPointAtDistFromTarget(*itPointNearRoundabout /* source */, roundaboutCenter /* target */,
                                m_radiusMercator /* dist */);
 
-  if (isMiddlePoint && !m2::AlmostEqualAbs(nextPointOnRoad, *itPointNearRoundabout, kMwmPointAccuracy))
+  if (isMiddlePoint && !base::AlmostEqualAbs(nextPointOnRoad, *itPointNearRoundabout, kMwmPointAccuracy))
   {
     auto surrogateRoad = CreateSurrogateRoad(roundaboutOnRoad, roundaboutCircle, road, itPointUpd);
     if (surrogateRoad.size() < 2)

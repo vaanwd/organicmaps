@@ -226,7 +226,7 @@ void CamerasInfoCollector::Camera::FindClosestSegmentWithGeometryIndex(FrozenDat
     auto const & p1 = polyline.GetPolyline().GetPoint(curSegment.m_ind);
     auto const & p2 = polyline.GetPolyline().GetPoint(curSegment.m_ind + 1);
 
-    if (AlmostEqualAbs(p1, p2, kEps))
+    if (base::AlmostEqualAbs(p1, p2, kEps))
       return;
 
     m2::ParametrizedSegment<m2::PointD> st(p1, p2);
@@ -270,7 +270,7 @@ std::optional<std::pair<double, uint32_t>> CamerasInfoCollector::Camera::FindMys
       if (found)
         return;
 
-      if (AlmostEqualAbs(m_data.m_center, pt, kCoordEqualityEps))
+      if (base::AlmostEqualAbs(m_data.m_center, pt, kCoordEqualityEps))
         found = true;
       else
         ++result;

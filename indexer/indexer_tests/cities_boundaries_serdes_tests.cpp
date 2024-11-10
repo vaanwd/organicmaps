@@ -36,13 +36,13 @@ void TestEqual(vector<PointD> const & lhs, vector<PointD> const & rhs, double ep
 {
   TEST_EQUAL(lhs.size(), rhs.size(), (lhs, rhs));
   for (size_t i = 0; i < lhs.size(); ++i)
-    TEST(AlmostEqualAbs(lhs[i], rhs[i], eps), (lhs, rhs));
+    TEST(base::AlmostEqualAbs(lhs[i], rhs[i], eps), (lhs, rhs));
 }
 
 void TestEqual(BoundingBox const & lhs, BoundingBox const & rhs, double eps)
 {
-  TEST(AlmostEqualAbs(lhs.Min(), rhs.Min(), eps), (lhs, rhs));
-  TEST(AlmostEqualAbs(lhs.Max(), rhs.Max(), eps), (lhs, rhs));
+  TEST(base::AlmostEqualAbs(lhs.Min(), rhs.Min(), eps), (lhs, rhs));
+  TEST(base::AlmostEqualAbs(lhs.Max(), rhs.Max(), eps), (lhs, rhs));
 }
 
 void TestEqual(CalipersBox const & lhs, CalipersBox const & rhs, double eps)

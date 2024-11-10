@@ -123,7 +123,7 @@ bool CheckPolygonExistance(std::vector<std::vector<m2::PointD>> const & polygons
 
     for (size_t i = 0; i < polygon.size(); ++i)
     {
-      if (!m2::AlmostEqualAbs(polygon[i], polygonToFind[i], 1e-6))
+      if (!base::AlmostEqualAbs(polygon[i], polygonToFind[i], 1e-6))
       {
         same = false;
         break;

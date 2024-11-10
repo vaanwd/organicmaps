@@ -10,6 +10,13 @@
 #include <sstream>
 #include <typeinfo>
 
+// Forward declarations for IsAlmostZero method below.
+namespace m2 { template<class T> class Point; }
+namespace base
+{
+template <class T> bool AlmostEqualULPs(m2::Point<T> const & p1, m2::Point<T> const & p2, unsigned int maxULPs = 256);
+}
+
 namespace m2
 {
 template <typename T>
@@ -39,7 +46,7 @@ public:
   T SquaredLength(Point<T> const & p) const { return base::Pow2(x - p.x) + base::Pow2(y - p.y); }
   double Length(Point<T> const & p) const { return std::sqrt(SquaredLength(p)); }
 
-  bool IsAlmostZero() const { return AlmostEqualULPs(*this, Point<T>(0, 0)); }
+  bool IsAlmostZero() const { return base::AlmostEqualULPs(*this, Point<T>(0, 0)); }
 
   Point<T> Move(T len, T ang) const { return Point<T>(x + len * cos(ang), y + len * sin(ang)); }
 
@@ -231,18 +238,6 @@ std::string DebugPrint(m2::Point<T> const & p)
   return out.str();
 }
 
-template <typename T>
-bool AlmostEqualAbs(m2::Point<T> const & a, m2::Point<T> const & b, double eps)
-{
-  return base::AlmostEqualAbs(a.x, b.x, eps) && base::AlmostEqualAbs(a.y, b.y, eps);
-}
-
-template <typename T>
-bool AlmostEqualULPs(m2::Point<T> const & a, m2::Point<T> const & b, unsigned int maxULPs = 256)
-{
-  return base::AlmostEqualULPs(a.x, b.x, maxULPs) && base::AlmostEqualULPs(a.y, b.y, maxULPs);
-}
-
 /// Calculate three points of a triangle (p1, p2 and p3) which give an arrow that
 /// presents an equilateral triangle with the median
 /// starting at point b and having direction b,e.
@@ -250,7 +245,7 @@ bool AlmostEqualULPs(m2::Point<T> const & a, m2::Point<T> const & b, unsigned in
 template <typename T, typename TT, typename PointT = Point<T>>
 void GetArrowPoints(PointT const & b, PointT const & e, T w, T l, std::array<Point<TT>, 3> & arr)
 {
-  ASSERT(!m2::AlmostEqualULPs(b, e), ());
+  ASSERT(!base::AlmostEqualULPs(b, e), ());
 
   PointT const beVec = e - b;
   PointT beNormalizedVec = beVec.Normalize();
@@ -297,17 +292,18 @@ bool operator<(Point<T> const & l, Point<T> const & r)
 }
 }  // namespace m2
 
+// These two functions should be in the base namespace for compatibility with TEST_ALMOST_EQUAL_[ULPS|ABS] macro.
 namespace base
 {
 template <typename T>
-bool AlmostEqualULPs(m2::Point<T> const & p1, m2::Point<T> const & p2, unsigned int maxULPs = 256)
+bool AlmostEqualULPs(m2::Point<T> const & p1, m2::Point<T> const & p2, unsigned int maxULPs)
 {
-  return m2::AlmostEqualULPs(p1, p2, maxULPs);
+  return base::AlmostEqualULPs(p1.x, p2.x, maxULPs) && base::AlmostEqualULPs(p1.y, p2.y, maxULPs);
 }
 
 template <typename T>
 bool AlmostEqualAbs(m2::Point<T> const & p1, m2::Point<T> const & p2, double eps)
 {
-  return m2::AlmostEqualAbs(p1, p2, eps);
+  return base::AlmostEqualAbs(p1.x, p2.x, eps) && base::AlmostEqualAbs(p1.y, p2.y, eps);
 }
 }  // namespace base

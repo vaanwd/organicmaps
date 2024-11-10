@@ -56,7 +56,7 @@ inline bool ArePointsEqual(Point const & p1, Point const & p2)
 template <>
 inline bool ArePointsEqual<m2::PointD>(m2::PointD const & p1, m2::PointD const & p2)
 {
-  return AlmostEqualULPs(p1, p2);
+  return base::AlmostEqualULPs(p1, p2);
 }
 
 class DistanceToSegmentWithRectBounds

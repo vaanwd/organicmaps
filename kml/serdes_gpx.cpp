@@ -280,7 +280,7 @@ void GpxParser::Pop(std::string_view tag)
   if (tag == gpx::kTrkPt || tag == gpx::kRtePt)
   {
     m2::PointD const p = mercator::FromLatLon(m_lat, m_lon);
-    if (m_line.empty() || !AlmostEqualAbs(m_line.back().GetPoint(), p, kMwmPointAccuracy))
+    if (m_line.empty() || !base::AlmostEqualAbs(m_line.back().GetPoint(), p, kMwmPointAccuracy))
     {
       m_line.emplace_back(p, m_altitude);
       m_timestamps.emplace_back(m_timestamp);

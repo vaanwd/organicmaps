@@ -151,7 +151,7 @@ bool CalipersBox::HasPoint(PointD const & p, double eps) const
   case 0:
     return false;
   case 1:
-    return AlmostEqualAbs(m_points[0], p, eps);
+    return base::AlmostEqualAbs(m_points[0], p, eps);
   case 2:
     return IsPointOnSegmentEps(p, m_points[0], m_points[1], eps);
   }

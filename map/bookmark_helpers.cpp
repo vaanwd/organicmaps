@@ -256,7 +256,7 @@ void RemoveDuplicatedTrackPoints(std::unique_ptr<kml::FileData> & data)
         // We don't expect vertical surfaces, so do not compare heights here.
         // Will get a lot of duplicating points otherwise after import some user KMLs.
         // https://github.com/organicmaps/organicmaps/issues/3895
-        if (validLine.empty() || !AlmostEqualAbs(validLine.back().GetPoint(), currPoint.GetPoint(), kMwmPointAccuracy))
+        if (validLine.empty() || !base::AlmostEqualAbs(validLine.back().GetPoint(), currPoint.GetPoint(), kMwmPointAccuracy))
         {
           validLine.push_back(currPoint);
           if (hasTimestamps)
