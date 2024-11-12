@@ -300,6 +300,8 @@
 /* Tex label above the Donate button */
 "donate_description" = "บริจาคเพื่อสร้างแผนที่ที่ดีที่สุดด้วยกัน!";
 
+"already_donated" = "บริจาคแล้ว";
+
 /* Button in the main Help dialog */
 "copyright" = "ลิขสิทธิ์";
 

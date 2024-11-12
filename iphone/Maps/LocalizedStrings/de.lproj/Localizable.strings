@@ -300,6 +300,8 @@
 /* Tex label above the Donate button */
 "donate_description" = "Spende, um gemeinsam die besten Karten zu erstellen!";
 
+"already_donated" = "Bereits Gespendet";
+
 /* Button in the main Help dialog */
 "copyright" = "Copyright";
 

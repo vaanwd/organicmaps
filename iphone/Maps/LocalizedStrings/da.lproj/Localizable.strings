@@ -300,6 +300,8 @@
 /* Tex label above the Donate button */
 "donate_description" = "Donér for at bygge de bedste kort sammen!";
 
+"already_donated" = "Allerede Doneret";
+
 /* Button in the main Help dialog */
 "copyright" = "Copyright";
 

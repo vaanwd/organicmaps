@@ -300,6 +300,8 @@
 /* Tex label above the Donate button */
 "donate_description" = "En iyi harita uygulamasını birlikte geliştirmemiz için bağış yapın!";
 
+"already_donated" = "Zaten Bağışlandı";
+
 /* Button in the main Help dialog */
 "copyright" = "Telif hakkı";
 

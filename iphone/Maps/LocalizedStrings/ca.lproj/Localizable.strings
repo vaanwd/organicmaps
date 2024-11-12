@@ -300,6 +300,8 @@
 /* Tex label above the Donate button */
 "donate_description" = "Fes una donació per construir els millors mapes junts!";
 
+"already_donated" = "Ja Donat";
+
 /* Button in the main Help dialog */
 "copyright" = "Copyright";
 

@@ -300,6 +300,8 @@
 /* Tex label above the Donate button */
 "donate_description" = "Donează pentru a construi împreună cele mai bune hărți!";
 
+"already_donated" = "Deja Donat";
+
 /* Button in the main Help dialog */
 "copyright" = "Drepturi de autor";
 

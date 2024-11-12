@@ -300,6 +300,8 @@
 /* Tex label above the Donate button */
 "donate_description" = "Donasi untuk membangun peta terbaik bersama-sama!";
 
+"already_donated" = "Sudah Disumbang";
+
 /* Button in the main Help dialog */
 "copyright" = "Hak cipta";
 

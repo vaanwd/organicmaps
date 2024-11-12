@@ -300,6 +300,8 @@
 /* Tex label above the Donate button */
 "donate_description" = "Doe para criarmos juntos os melhores mapas!";
 
+"already_donated" = "Já Doado";
+
 /* Button in the main Help dialog */
 "copyright" = "Direitos autorais";
 

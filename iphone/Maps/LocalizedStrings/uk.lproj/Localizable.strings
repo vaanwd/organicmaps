@@ -300,6 +300,8 @@
 /* Tex label above the Donate button */
 "donate_description" = "Пожертвуйте, щоб разом створювати найкращі мапи!";
 
+"already_donated" = "Вже Пожертвувано";
+
 /* Button in the main Help dialog */
 "copyright" = "Копірайт";
 

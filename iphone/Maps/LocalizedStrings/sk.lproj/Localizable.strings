@@ -300,6 +300,8 @@
 /* Tex label above the Donate button */
 "donate_description" = "Darujte, aby sme spoločne vytvorili tie najlepšie mapy!";
 
+"already_donated" = "Už Darované";
+
 /* Button in the main Help dialog */
 "copyright" = "Autorské práva";
 

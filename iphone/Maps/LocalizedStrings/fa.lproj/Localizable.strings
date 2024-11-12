@@ -300,6 +300,8 @@
 /* Tex label above the Donate button */
 "donate_description" = "کمک مالی کنید تا بهترین نقشه ها را با هم بسازید!";
 
+"already_donated" = "قبلاً اهدا شده";
+
 /* Button in the main Help dialog */
 "copyright" = "حق نشر و کپی رایت";
 

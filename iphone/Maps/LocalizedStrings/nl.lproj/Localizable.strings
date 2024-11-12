@@ -300,6 +300,8 @@
 /* Tex label above the Donate button */
 "donate_description" = "Doneer om samen de beste kaarten te bouwen!";
 
+"already_donated" = "Reeds Gedoneerd";
+
 /* Button in the main Help dialog */
 "copyright" = "Auteursrechten";
 

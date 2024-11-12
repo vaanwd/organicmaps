@@ -300,6 +300,8 @@
 /* Tex label above the Donate button */
 "donate_description" = "Donera för att bygga de bästa kartorna tillsammans!";
 
+"already_donated" = "Redan Donerat";
+
 /* Button in the main Help dialog */
 "copyright" = "Upphovsrätt";
 

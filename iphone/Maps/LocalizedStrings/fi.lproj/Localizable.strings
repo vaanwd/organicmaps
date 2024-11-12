@@ -300,6 +300,8 @@
 /* Tex label above the Donate button */
 "donate_description" = "Lahjoittakaa, jotta voimme rakentaa parhaita karttoja yhdessä!";
 
+"already_donated" = "Jo Lahjoitettu";
+
 /* Button in the main Help dialog */
 "copyright" = "Tekijänoikeudet";
 

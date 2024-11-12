@@ -300,6 +300,8 @@
 /* Tex label above the Donate button */
 "donate_description" = "Поддержать деньгами, чтобы вместе создавать лучшие карты!";
 
+"already_donated" = "Уже Пожертвовано";
+
 /* Button in the main Help dialog */
 "copyright" = "Копирайт";
 

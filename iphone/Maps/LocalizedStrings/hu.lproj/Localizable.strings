@@ -300,6 +300,8 @@
 /* Tex label above the Donate button */
 "donate_description" = "Adományozz, hogy együtt építsük a legjobb térképeket!";
 
+"already_donated" = "Már Adományozva";
+
 /* Button in the main Help dialog */
 "copyright" = "Szerzői jog";
 

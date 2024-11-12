@@ -300,6 +300,8 @@
 /* Tex label above the Donate button */
 "donate_description" = "एकत्र सर्वोत्तम नकाशे तयार करण्यासाठी देणगी द्या!";
 
+"already_donated" = "आधीच दान केले";
+
 /* Button in the main Help dialog */
 "copyright" = "प्रकाशन अधिकार (कॉपीराईट)";
 

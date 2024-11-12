@@ -300,6 +300,8 @@
 /* Tex label above the Donate button */
 "donate_description" = "捐助，以共同打造最好的地图！";
 
+"already_donated" = "已捐赠";
+
 /* Button in the main Help dialog */
 "copyright" = "版权";
 

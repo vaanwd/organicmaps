@@ -300,6 +300,8 @@
 /* Tex label above the Donate button */
 "donate_description" = "تبرع لبناء أفضل الخرائط معًا!";
 
+"already_donated" = "تم التبرع";
+
 /* Button in the main Help dialog */
 "copyright" = "حقوق النشر";
 

@@ -300,6 +300,8 @@
 /* Tex label above the Donate button */
 "donate_description" = "寄付して最高の地図を一緒に作ろう！";
 
+"already_donated" = "寄付済み";
+
 /* Button in the main Help dialog */
 "copyright" = "著作権";
 

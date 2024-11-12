@@ -300,6 +300,8 @@
 /* Tex label above the Donate button */
 "donate_description" = "एक साथ सर्वोत्तम मानचित्र बनाने के लिए दान करें!";
 
+"already_donated" = "पहले से दान";
+
 /* Button in the main Help dialog */
 "copyright" = "कॉपीराइट";
 

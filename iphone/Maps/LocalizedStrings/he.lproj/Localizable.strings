@@ -300,6 +300,8 @@
 /* Tex label above the Donate button */
 "donate_description" = "תרמו כדי לבנות יחד את המפות הטובות ביותר!";
 
+"already_donated" = "כבר נתרם";
+
 /* Button in the main Help dialog */
 "copyright" = "זכויות יוצרים";
 

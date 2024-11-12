@@ -300,6 +300,8 @@
 /* Tex label above the Donate button */
 "donate_description" = "Дарете, за да създадем заедно най-добрите карти!";
 
+"already_donated" = "Вече Дарено";
+
 /* Button in the main Help dialog */
 "copyright" = "Авторски права";
 

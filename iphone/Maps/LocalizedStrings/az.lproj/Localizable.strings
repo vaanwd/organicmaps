@@ -300,6 +300,8 @@
 /* Tex label above the Donate button */
 "donate_description" = "Ən yaxşı xəritələri birlikdə qurmaq üçün ianə edin!";
 
+"already_donated" = "Artıq İanə Edildi";
+
 /* Button in the main Help dialog */
 "copyright" = "Müəllif hüququ";
 

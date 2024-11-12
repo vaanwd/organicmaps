@@ -300,6 +300,8 @@
 /* Tex label above the Donate button */
 "donate_description" = "Annetage, et ehitada koos parimaid kaarte!";
 
+"already_donated" = "Juba Annetatud";
+
 /* Button in the main Help dialog */
 "copyright" = "Autoriõigused";
 
