@@ -110,9 +110,9 @@ final class SynchronizationFileWriter {
     LOG(.info, "Write file \(localMetadataItem.fileName) to the cloud directory")
     let targetCloudFileUrl = localMetadataItem.relatedCloudItemUrl(to: cloudDirectoryUrl)
     var coordinationError: NSError?
-    fileCoordinator.coordinate(readingItemAt: localMetadataItem.fileUrl, writingItemAt: targetCloudFileUrl, error: &coordinationError) { readingUrl, writingUrl in
+    fileCoordinator.coordinate(writingItemAt: targetCloudFileUrl, error: &coordinationError) { writingUrl in
       do {
-        try fileManager.replaceFileSafe(at: writingUrl, with: readingUrl)
+        try fileManager.replaceFileSafe(at: writingUrl, with: localMetadataItem.fileUrl)
         LOG(.debug, "File \(localMetadataItem.fileName) is copied to the cloud directory successfully")
         completion(.success)
       } catch {
