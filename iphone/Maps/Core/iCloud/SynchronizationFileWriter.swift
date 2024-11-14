@@ -250,6 +250,7 @@ private extension FileManager {
     let tmpUrl = tmpDirectoryUrl.appendingPathComponent(sourceUrl.lastPathComponent)
     try copyItem(at: sourceUrl, to: tmpUrl)
     try replaceItem(at: targetUrl, withItemAt: tmpUrl, backupItemName: nil, options: [.usingNewMetadataOnly], resultingItemURL: nil)
+    try removeItem(at: tmpDirectoryUrl)
     LOG(.debug, "File \(targetUrl.lastPathComponent) was replaced successfully.")
   }
 }
