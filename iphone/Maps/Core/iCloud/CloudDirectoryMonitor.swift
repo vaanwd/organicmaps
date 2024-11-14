@@ -19,7 +19,7 @@ final class iCloudDocumentsMonitor: NSObject, CloudDirectoryMonitor {
   private static let sharedContainerIdentifier: String = {
     var identifier = "iCloud.app.organicmaps"
     #if DEBUG
-    identifier.append(".debug")
+    identifier.append(".info")
     #endif
     return identifier
   }()
@@ -57,9 +57,10 @@ final class iCloudDocumentsMonitor: NSObject, CloudDirectoryMonitor {
       case .failure(let error):
         completion?(.failure(error))
       case .success(let url):
-        LOG(.debug, "Start cloud monitor.")
+        LOG(.info, "Start cloud monitor.")
         self.startQuery()
         self.state = .started
+        LOG(.info, "Ubiquity directory URL: \(url)")
         completion?(.success(url))
       }
     }
@@ -67,7 +68,7 @@ final class iCloudDocumentsMonitor: NSObject, CloudDirectoryMonitor {
 
   func stop() {
     guard state != .stopped else { return }
-    LOG(.debug, "Stop cloud monitor.")
+    LOG(.info, "Stop cloud monitor.")
     stopQuery()
     state = .stopped
     previouslyChangedContents = CloudContentsUpdate()
@@ -75,14 +76,14 @@ final class iCloudDocumentsMonitor: NSObject, CloudDirectoryMonitor {
 
   func resume() {
     guard state != .started else { return }
-    LOG(.debug, "Resume cloud monitor.")
+    LOG(.info, "Resume cloud monitor.")
     metadataQuery?.enableUpdates()
     state = .started
   }
 
   func pause() {
     guard state != .paused else { return }
-    LOG(.debug, "Pause cloud monitor.")
+    LOG(.info, "Pause cloud monitor.")
     metadataQuery?.disableUpdates()
     state = .paused
   }
@@ -100,14 +101,13 @@ final class iCloudDocumentsMonitor: NSObject, CloudDirectoryMonitor {
       }
       let documentsContainerUrl = containerUrl.appendingPathComponent(kDocumentsDirectoryName)
       if !self.fileManager.fileExists(atPath: documentsContainerUrl.path) {
-        LOG(.debug, "Creating directory at path: \(documentsContainerUrl.path)...")
+        LOG(.info, "There is no iCloud directory. Creating directory at path: \(documentsContainerUrl.path)...")
         do {
           try self.fileManager.createDirectory(at: documentsContainerUrl, withIntermediateDirectories: true)
         } catch {
           completion?(.failure(SynchronizationError.containerNotFound))
         }
       }
-      LOG(.debug, "Ubiquity directory URL: \(documentsContainerUrl)")
       self.ubiquitousDocumentsDirectory = documentsContainerUrl
       completion?(.success(documentsContainerUrl))
     }
@@ -143,12 +143,12 @@ private extension iCloudDocumentsMonitor {
   func startQuery() {
     metadataQuery = Self.buildMetadataQuery(for: fileType)
     guard let metadataQuery, !metadataQuery.isStarted else { return }
-    LOG(.debug, "Start metadata query")
+    LOG(.info, "Start metadata query")
     metadataQuery.start()
   }
 
   func stopQuery() {
-    LOG(.debug, "Stop metadata query")
+    LOG(.info, "Stop metadata query")
     metadataQuery?.stop()
     metadataQuery = nil
   }
@@ -156,7 +156,7 @@ private extension iCloudDocumentsMonitor {
   @objc func queryDidFinishGathering(_ notification: Notification) {
     guard isCloudAvailable() else { return }
     metadataQuery?.disableUpdates()
-    LOG(.debug, "Query did finish gathering")
+    LOG(.info, "Query did finish gathering")
     do {
       let currentContents = try Self.getCurrentContents(notification)
       delegate?.didFinishGathering(currentContents)
@@ -169,7 +169,7 @@ private extension iCloudDocumentsMonitor {
   @objc func queryDidUpdate(_ notification: Notification) {
     guard isCloudAvailable() else { return }
     metadataQuery?.disableUpdates()
-    LOG(.debug, "Query did update")
+    LOG(.info, "Query did update")
     do {
       let changedContents = try Self.getChangedContents(notification)
       /* The metadataQuery can send the same changes multiple times with only uploading/downloading process updates.
@@ -180,6 +180,7 @@ private extension iCloudDocumentsMonitor {
         LOG(.info, "Updated in the cloud content: \n\(changedContents.updated.shortDebugDescription)")
         LOG(.info, "Removed from the cloud content: \n\(changedContents.removed.shortDebugDescription)")
         let currentContents = try Self.getCurrentContents(notification)
+        LOG(.info, "Current cloud content: \n\(currentContents.shortDebugDescription)")
         delegate?.didUpdate(currentContents, changedContents)
       }
     } catch {

@@ -109,7 +109,7 @@ private extension iCloudSynchronizaionManager {
     LOG(.info, "Start synchronization...")
     switch cloudDirectoryMonitor.state {
     case .started:
-      LOG(.debug, "Synchronization is already started")
+      LOG(.info, "Synchronization is already started")
       return
     case .paused:
       resumeSynchronization()
@@ -128,7 +128,7 @@ private extension iCloudSynchronizaionManager {
               self.fileWriter = SynchronizationFileWriter(fileManager: self.fileManager,
                                                           localDirectoryUrl: localDirectoryUrl,
                                                           cloudDirectoryUrl: cloudDirectoryUrl)
-              LOG(.debug, "Synchronization is started successfully")
+              LOG(.info, "Synchronization is started successfully")
             }
           }
         }

@@ -63,11 +63,11 @@ final class FileSystemDispatchSourceMonitor: LocalDirectoryMonitor {
     guard state != .started else { return }
 
     let nowTimer = Timer.scheduledTimer(withTimeInterval: .zero, repeats: false) { [weak self] _ in
-      LOG(.debug, "Initial timer firing...")
+      LOG(.info, "Initial timer firing...")
       self?.debounceTimerDidFire()
     }
 
-    LOG(.debug, "Start local monitor.")
+    LOG(.info, "Start local monitor.")
     if let dispatchSource {
       dispatchSourceDebounceState = .debounce(source: dispatchSource, timer: nowTimer)
       resume()
@@ -93,7 +93,7 @@ final class FileSystemDispatchSourceMonitor: LocalDirectoryMonitor {
 
   func stop() {
     guard state == .started else { return }
-    LOG(.debug, "Stop.")
+    LOG(.info, "Stop.")
     suspendDispatchSource()
     didFinishGatheringIsCalled = false
     dispatchSourceDebounceState = .stopped
@@ -103,14 +103,14 @@ final class FileSystemDispatchSourceMonitor: LocalDirectoryMonitor {
 
   func pause() {
     guard state == .started else { return }
-    LOG(.debug, "Pause.")
+    LOG(.info, "Pause.")
     suspendDispatchSource()
     state = .paused
   }
 
   func resume() {
     guard state != .started else { return }
-    LOG(.debug, "Resume.")
+    LOG(.info, "Resume.")
     resumeDispatchSource()
     state = .started
   }
@@ -136,9 +136,9 @@ final class FileSystemDispatchSourceMonitor: LocalDirectoryMonitor {
   }
 
   private func debounceTimerDidFire() {
-    LOG(.debug, "Debounce timer did fire.")
+    LOG(.info, "Debounce timer did fire.")
     guard state == .started else {
-      LOG(.debug, "State is not started. Skip iteration.")
+      LOG(.info, "State is not started. Skip iteration.")
       return
     }
     guard case .debounce(let source, let timer) = dispatchSourceDebounceState else { fatalError() }
@@ -152,12 +152,12 @@ final class FileSystemDispatchSourceMonitor: LocalDirectoryMonitor {
       let currentContents = try files.map { try LocalMetadataItem(fileUrl: $0) }
 
       if !didFinishGatheringIsCalled {
-        LOG(.debug, "didFinishGathering will be called")
+        LOG(.info, "didFinishGathering will be called")
         didFinishGatheringIsCalled = true
         contents = currentContents
         delegate?.didFinishGathering(currentContents)
       } else {
-        LOG(.debug, "didUpdate will be called")
+        LOG(.info, "didUpdate will be called")
         let changedContents = Self.getChangedContents(oldContents: contents, newContents: currentContents)
         contents = currentContents
         LOG(.info, "Added to the local content: \n\(changedContents.added.shortDebugDescription)")
@@ -183,7 +183,7 @@ final class FileSystemDispatchSourceMonitor: LocalDirectoryMonitor {
 
   private func suspendDispatchSource() {
     if !dispatchSourceIsSuspended {
-      LOG(.debug, "Suspend dispatch source.")
+      LOG(.info, "Suspend dispatch source.")
       dispatchSource?.suspend()
       dispatchSourceIsSuspended = true
       dispatchSourceIsResumed = false
@@ -192,7 +192,7 @@ final class FileSystemDispatchSourceMonitor: LocalDirectoryMonitor {
 
   private func resumeDispatchSource() {
     if !dispatchSourceIsResumed {
-      LOG(.debug, "Resume dispatch source.")
+      LOG(.info, "Resume dispatch source.")
       dispatchSource?.resume()
       dispatchSourceIsResumed = true
       dispatchSourceIsSuspended = false

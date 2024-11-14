@@ -69,7 +69,7 @@ final class SynchronizationFileWriter {
     fileCoordinator.coordinate(readingItemAt: cloudMetadataItem.fileUrl, writingItemAt: targetLocalFileUrl, error: &coordinationError) { readingUrl, writingUrl in
       do {
         try fileManager.replaceFileSafe(at: writingUrl, with: readingUrl)
-        LOG(.debug, "File \(cloudMetadataItem.fileName) is copied to local directory successfully. Start reloading bookmarks...")
+        LOG(.info, "File \(cloudMetadataItem.fileName) is copied to local directory successfully. Start reloading bookmarks...")
         completion(.reloadCategoriesAtURLs([writingUrl]))
       } catch {
         completion(.failure(error))
@@ -113,7 +113,7 @@ final class SynchronizationFileWriter {
     fileCoordinator.coordinate(writingItemAt: targetCloudFileUrl, error: &coordinationError) { writingUrl in
       do {
         try fileManager.replaceFileSafe(at: writingUrl, with: localMetadataItem.fileUrl)
-        LOG(.debug, "File \(localMetadataItem.fileName) is copied to the cloud directory successfully")
+        LOG(.info, "File \(localMetadataItem.fileName) is copied to the cloud directory successfully")
         completion(.success)
       } catch {
         completion(.failure(error))
@@ -242,16 +242,20 @@ final class SynchronizationFileWriter {
 private extension FileManager {
   func replaceFileSafe(at targetUrl: URL, with sourceUrl: URL) throws {
     guard fileExists(atPath: targetUrl.path) else {
-      LOG(.debug, "Source file \(targetUrl.lastPathComponent) doesn't exist. The file will be copied.")
+      LOG(.info, "Source file \(targetUrl.lastPathComponent) doesn't exist. The file will be copied.")
       try copyItem(at: sourceUrl, to: targetUrl)
       return
     }
+    LOG(.info, "Creating tmp file for replacing...")
     let tmpDirectoryUrl = try url(for: .itemReplacementDirectory, in: .userDomainMask, appropriateFor: targetUrl, create: true)
     let tmpUrl = tmpDirectoryUrl.appendingPathComponent(sourceUrl.lastPathComponent)
+    LOG(.info, "Tmp file URL: \(tmpUrl)")
     try copyItem(at: sourceUrl, to: tmpUrl)
+    LOG(.info, "File \(sourceUrl.path) was copied to the tmp \(tmpUrl.path) successfully.")
     try replaceItem(at: targetUrl, withItemAt: tmpUrl, backupItemName: nil, options: [.usingNewMetadataOnly], resultingItemURL: nil)
+    LOG(.info, "Target file \(targetUrl.path) was replaced with \(tmpUrl.path) successfully.")
     try removeItem(at: tmpDirectoryUrl)
-    LOG(.debug, "File \(targetUrl.lastPathComponent) was replaced successfully.")
+    LOG(.info, "Tmp directory \(tmpDirectoryUrl.path) was removed successfully.")
   }
 }
 

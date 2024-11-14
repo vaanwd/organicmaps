@@ -58,15 +58,19 @@ final class iCloudSynchronizationStateResolver: SynchronizationStateResolver {
     let outgoingEvents: [OutgoingSynchronizationEvent]
     switch event {
     case .didFinishGatheringLocalContents(let contents):
+      LOG(.info, "Local contents gathering is finished")
       localContentsGatheringIsFinished = true
       outgoingEvents = resolveDidFinishGathering(localContents: contents, cloudContents: currentCloudContents)
     case .didFinishGatheringCloudContents(let contents):
+      LOG(.info, "Cloud contents gathering is finished")
       cloudContentGatheringIsFinished = true
       outgoingEvents = resolveDidFinishGathering(localContents: currentLocalContents, cloudContents: contents)
     case .didUpdateLocalContents(let contents, let update):
+      LOG(.info, "Local contents update")
       currentLocalContents = contents
       outgoingEvents = resolveDidUpdateLocalContents(update)
     case .didUpdateCloudContents(let contents, let update):
+        LOG(.info, "Cloud contents update")
       currentCloudContents = contents
       outgoingEvents = resolveDidUpdateCloudContents(update)
     }
@@ -82,7 +86,7 @@ final class iCloudSynchronizationStateResolver: SynchronizationStateResolver {
   }
 
   func resetState() {
-    LOG(.debug, "Resetting state")
+    LOG(.info, "Resetting state")
     currentLocalContents.removeAll()
     currentCloudContents.removeAll()
     localContentsGatheringIsFinished = false
@@ -100,14 +104,21 @@ final class iCloudSynchronizationStateResolver: SynchronizationStateResolver {
 
     switch (localContents.isEmpty, cloudContents.isEmpty) {
     case (true, true):
+      LOG(.info, "No items to synchronize")
       return []
     case (true, false):
+      LOG(.info, "Local container is empty: creating local items...")
+      LOG(.info, "Cloud contents: \(cloudContents.shortDebugDescription)")
       return cloudContents.map { .createLocalItem(with: $0) }
     case (false, true):
+      LOG(.info, "iCloud container is empty: creating cloud items...")
+      LOG(.info, "Local contents: \(localContents.shortDebugDescription)")
       return localContents.map { .createCloudItem(with: $0) }
     case (false, false):
+      LOG(.info, "Both containers have items: merging files...")
       var events = [OutgoingSynchronizationEvent]()
       if isInitialSynchronization {
+        LOG(.info, "Initial synchronization branch...")
         /* During the initial synchronization:
          - all conflicted local and cloud items will be saved to avoid a data loss
          - all items that are in the cloud but not in the local container will be created in the local container
@@ -128,6 +139,7 @@ final class iCloudSynchronizationStateResolver: SynchronizationStateResolver {
         events.append(.didFinishInitialSynchronization)
         isInitialSynchronization = false
       } else {
+        LOG(.info, "Regular synchronization branch...")
         cloudContents.getErrors.forEach { events.append(.didReceiveError($0)) }
         cloudContents.withUnresolvedConflicts.forEach { events.append(.resolveVersionsConflict($0)) }
 
