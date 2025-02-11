@@ -571,7 +571,7 @@
 
 "editor_example_values" = "Giá trị ví dụ";
 
-"editor_add_select_location" = "Vị trí";
+"editor_add_select_location" = "Chọn vị trí";
 
 "editor_done_dialog_1" = "Bạn đã thay đổi bản đồ thế giới. Đừng giấu điều đó! Hãy cho các bạn khác biết và cùng nhau chỉnh sửa.";
 
@@ -683,7 +683,7 @@
 
 "editor_profile_changes" = "Các thay đổi đã được xác thực";
 
-"editor_focus_map_on_location" = "Kéo bản đồ để chọn vị trí chính xác của đối tượng";
+"editor_focus_map_on_location" = "Kéo bản đồ để đặt dấu thập vào vị trí của địa điểm hoặc doanh nghiệp.";
 
 "editor_add_select_category" = "Chọn thể loại";
 
@@ -737,7 +737,7 @@
 "error_enter_correct_zip_code" = "Nhập Mã ZIP chính xác";
 
 /* Place Page title for long tap */
-"core_placepage_unknown_place" = "Địa Điểm Chưa Biết";
+"core_placepage_unknown_place" = "Điểm bản đồ";
 
 /* Title for OSM note section in the editor */
 "editor_other_info" = "Lưu ý dành cho tình nguyện viên OpenStreetMap (tùy chọn)";
@@ -819,6 +819,9 @@
 
 /* A confirmation button text in the explanation dialog that opens hotel details page on Kayak website. */
 "dialog_kayak_button" = "Chi tiết trên Kayak";
+
+/* A disable button text in the explanation dialog that opens hotel details page on Kayak website. */
+"dialog_kayak_disable_button" = "Vô hiệu hóa Kayak";
 
 "placepage_call_button" = "Gọi";
 
@@ -1225,9 +1228,9 @@
 
 "elevation_profile_descent" = "Đi xuống";
 
-"elevation_profile_minaltitude" = "Độ cao tối thiểu";
+"elevation_profile_min_elevation" = "Min. độ cao";
 
-"elevation_profile_maxaltitude" = "Độ cao tối đa";
+"elevation_profile_max_elevation" = "Max. độ cao";
 
 "elevation_profile_difficulty" = "Độ khó";
 
@@ -1253,6 +1256,9 @@
 
 /* Delete track button on track edit screen */
 "placepage_delete_track_button" = "Delete Track";
+
+/* The track deletion confirmaion alert message. */
+"placepage_delete_track_confirmation_alert_message" = "Bạn có chắc chắn muốn xóa bản nhạc này không?";
 
 /* Placeholder for track name input on track edit screen */
 "placepage_track_name_hint" = "Track Name";
@@ -1370,6 +1376,9 @@
 /* Title for the "Open In Another App" button on the PlacePage. */
 "open_in_app" = "Mở trong ứng dụng khác";
 
+/* To indicate if the place proposed self service... */
+"self_service" = "Tự phục vụ";
+
 /* To indicate if restaurant or other place has outdoor seating */
 "outdoor_seating" = "Chỗ ngồi ngoài trời";
 
@@ -1405,6 +1414,8 @@
 
 /* Message for the toast when saving the track recording is finished but nothing to save. */
 "track_recording_toast_nothing_to_save" = "Tuyến đường trống - không có gì để lưu";
+
+"edit_track" = "Chỉnh sửa tuyến đường";
 
 
 /********** Types **********/
@@ -2893,7 +2904,11 @@
 
 "type.place.locality" = "Thôn";
 
-"type.place.neighbourhood" = "Vùng lân cận";
+/* Named part of a city or town, bigger than place=neighbourhood and smaller than place=suburb (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dquarter) */
+"type.place.quarter" = "Vùng lân cận";
+
+/* Named part of a city, town or suburb, smaller than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Neighbourhood) */
+"type.place.neighbourhood" = "Hàng xóm";
 
 "type.place.ocean" = "Đại dương";
 
@@ -2907,6 +2922,7 @@
 
 "type.place.state.USA" = "Hạt";
 
+/* Named part of a city or town, bigger than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dsuburb) */
 "type.place.suburb" = "Đảo";
 
 "type.place.town" = "Thành phố";

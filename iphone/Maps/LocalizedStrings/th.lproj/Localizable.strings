@@ -571,7 +571,7 @@
 
 "editor_example_values" = "ตัวอย่างของค่าที่ตั้งไว้";
 
-"editor_add_select_location" = "ตำแหน่ง";
+"editor_add_select_location" = "เลือกสถานที่";
 
 "editor_done_dialog_1" = "คุณได้เปลี่ยนแผนที่โลก อย่าซ่อนมันไว้! บอกเพื่อนคุณ แล้วมาแก้ไขมันไปด้วยกัน";
 
@@ -683,7 +683,7 @@
 
 "editor_profile_changes" = "การเปลี่ยนแปลงที่อนุมัติแล้ว";
 
-"editor_focus_map_on_location" = "ดึงแผนที่เพื่อเลือกตำแหน่งวัตถุที่ถูกต้อง";
+"editor_focus_map_on_location" = "ลากแผนที่เพื่อวางกากบาทที่ตำแหน่งของสถานที่หรือธุรกิจ";
 
 "editor_add_select_category" = "เลือกหมวดหมู่";
 
@@ -737,7 +737,7 @@
 "error_enter_correct_zip_code" = "กรุณาใส่รหัสไปรษณีย์ที่ถูกต้อง";
 
 /* Place Page title for long tap */
-"core_placepage_unknown_place" = "ไม่ทราบชื่อสถานที่";
+"core_placepage_unknown_place" = "จุดแผนที่";
 
 /* Title for OSM note section in the editor */
 "editor_other_info" = "หมายเหตุถึงอาสาสมัคร OpenStreetMap (ไม่บังคับ)";
@@ -819,6 +819,9 @@
 
 /* A confirmation button text in the explanation dialog that opens hotel details page on Kayak website. */
 "dialog_kayak_button" = "รายละเอียดบน Kayak";
+
+/* A disable button text in the explanation dialog that opens hotel details page on Kayak website. */
+"dialog_kayak_disable_button" = "ปดการใชงาน Kayak";
 
 "placepage_call_button" = "โทร";
 
@@ -1225,9 +1228,9 @@
 
 "elevation_profile_descent" = "การลง";
 
-"elevation_profile_minaltitude" = "ระดับความสูงต่ำสุด";
+"elevation_profile_min_elevation" = "ต่ำสุด";
 
-"elevation_profile_maxaltitude" = "ระดับความสูงสูงสุด";
+"elevation_profile_max_elevation" = "สูงสุด";
 
 "elevation_profile_difficulty" = "ลำบาก";
 
@@ -1253,6 +1256,9 @@
 
 /* Delete track button on track edit screen */
 "placepage_delete_track_button" = "Delete Track";
+
+/* The track deletion confirmaion alert message. */
+"placepage_delete_track_confirmation_alert_message" = "คุณแน่ใจหรือไม่ว่าต้องการลบแทร็กนี้";
 
 /* Placeholder for track name input on track edit screen */
 "placepage_track_name_hint" = "Track Name";
@@ -1370,6 +1376,9 @@
 /* Title for the "Open In Another App" button on the PlacePage. */
 "open_in_app" = "เปิดในแอปอื่น";
 
+/* To indicate if the place proposed self service... */
+"self_service" = "บริการตนเอง";
+
 /* To indicate if restaurant or other place has outdoor seating */
 "outdoor_seating" = "ที่นั่งกลางแจ้ง";
 
@@ -1405,6 +1414,8 @@
 
 /* Message for the toast when saving the track recording is finished but nothing to save. */
 "track_recording_toast_nothing_to_save" = "เส้นทางว่างเปล่า - ไม่มีอะไรจะบันทึก";
+
+"edit_track" = "แก้ไขเส้นทาง";
 
 
 /********** Types **********/
@@ -2893,6 +2904,10 @@
 
 "type.place.locality" = "ท้องถิ่น";
 
+/* Named part of a city or town, bigger than place=neighbourhood and smaller than place=suburb (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dquarter) */
+"type.place.quarter" = "ละแวกบ้าน";
+
+/* Named part of a city, town or suburb, smaller than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Neighbourhood) */
 "type.place.neighbourhood" = "ละแวกบ้าน";
 
 "type.place.ocean" = "มหาสมุทร";
@@ -2907,6 +2922,7 @@
 
 "type.place.state.USA" = "รัฐ";
 
+/* Named part of a city or town, bigger than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dsuburb) */
 "type.place.suburb" = "ชานเมือง";
 
 "type.place.town" = "เมือง";

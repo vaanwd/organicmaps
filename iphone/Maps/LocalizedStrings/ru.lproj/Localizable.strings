@@ -571,7 +571,7 @@
 
 "editor_example_values" = "Примеры значений";
 
-"editor_add_select_location" = "Местоположение";
+"editor_add_select_location" = "Выберите местоположение";
 
 "editor_done_dialog_1" = "Вы изменили карту мира. Не скрывайте это, расскажите друзьям и редактируйте вместе.";
 
@@ -683,7 +683,7 @@
 
 "editor_profile_changes" = "Учтённые правки";
 
-"editor_focus_map_on_location" = "Потяните карту, чтобы выбрать правильное местоположение объекта.";
+"editor_focus_map_on_location" = "Перетащите карту, чтобы поместить крестик на место расположения добавляемого объекта или заведения.";
 
 "editor_add_select_category" = "Выбрать категорию";
 
@@ -737,7 +737,7 @@
 "error_enter_correct_zip_code" = "Введите корректный почтовый индекс";
 
 /* Place Page title for long tap */
-"core_placepage_unknown_place" = "Неизвестное место";
+"core_placepage_unknown_place" = "Точка на карте";
 
 /* Title for OSM note section in the editor */
 "editor_other_info" = "Примечание для волонтеров OpenStreetMap (необязательно)";
@@ -819,6 +819,9 @@
 
 /* A confirmation button text in the explanation dialog that opens hotel details page on Kayak website. */
 "dialog_kayak_button" = "Подробнее на Kayak";
+
+/* A disable button text in the explanation dialog that opens hotel details page on Kayak website. */
+"dialog_kayak_disable_button" = "Отключить Kayak";
 
 "placepage_call_button" = "Позвонить";
 
@@ -1225,9 +1228,9 @@
 
 "elevation_profile_descent" = "Спуск";
 
-"elevation_profile_minaltitude" = "Мин. высота";
+"elevation_profile_min_elevation" = "Мин. высота";
 
-"elevation_profile_maxaltitude" = "Макс. высота";
+"elevation_profile_max_elevation" = "Макс. высота";
 
 "elevation_profile_difficulty" = "Сложность";
 
@@ -1253,6 +1256,9 @@
 
 /* Delete track button on track edit screen */
 "placepage_delete_track_button" = "Удалить трек";
+
+/* The track deletion confirmaion alert message. */
+"placepage_delete_track_confirmation_alert_message" = "Вы уверены, что хотите удалить этот трек?";
 
 /* Placeholder for track name input on track edit screen */
 "placepage_track_name_hint" = "Название трека";
@@ -1370,6 +1376,9 @@
 /* Title for the "Open In Another App" button on the PlacePage. */
 "open_in_app" = "Открыть в другом приложении";
 
+/* To indicate if the place proposed self service... */
+"self_service" = "Самообслуживание";
+
 /* To indicate if restaurant or other place has outdoor seating */
 "outdoor_seating" = "Сидения на открытом воздухе";
 
@@ -1405,6 +1414,8 @@
 
 /* Message for the toast when saving the track recording is finished but nothing to save. */
 "track_recording_toast_nothing_to_save" = "Трек пуст - нечего сохранять";
+
+"edit_track" = "Редактировать трек";
 
 
 /********** Types **********/
@@ -2893,7 +2904,11 @@
 
 "type.place.locality" = "Местность";
 
-"type.place.neighbourhood" = "Микрорайон";
+/* Named part of a city or town, bigger than place=neighbourhood and smaller than place=suburb (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dquarter) */
+"type.place.quarter" = "Район / Микрорайон";
+
+/* Named part of a city, town or suburb, smaller than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Neighbourhood) */
+"type.place.neighbourhood" = "Микрорайон / ЖК";
 
 "type.place.ocean" = "Океан";
 
@@ -2907,7 +2922,8 @@
 
 "type.place.state.USA" = "Штат";
 
-"type.place.suburb" = "Район";
+/* Named part of a city or town, bigger than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dsuburb) */
+"type.place.suburb" = "Район / Пригород";
 
 "type.place.town" = "Город";
 

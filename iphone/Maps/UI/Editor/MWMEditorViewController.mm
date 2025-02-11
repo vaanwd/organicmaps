@@ -68,6 +68,8 @@ std::map<MWMEditorCellID, Class> const kCellType2Class {
     {MetadataID::FMD_CUISINE, [MWMEditorSelectTableViewCell class]},
     {MetadataID::FMD_INTERNET, [MWMEditorSwitchTableViewCell class]},
     {MetadataID::FMD_DRIVE_THROUGH, [MWMEditorSegmentedTableViewCell class]},
+    {MetadataID::FMD_SELF_SERVICE, [MWMEditorSegmentedTableViewCell class]},
+    {MetadataID::FMD_OUTDOOR_SEATING, [MWMEditorSegmentedTableViewCell class]},
     {MWMEditorCellTypeNote, [MWMNoteCell class]},
     {MWMEditorCellTypeReportButton, [MWMButtonCell class]}
 };
@@ -91,14 +93,6 @@ void cleanupAdditionalLanguages(std::vector<osm::LocalizedName> const & names,
                                     [x](osm::LocalizedName const & name) { return name.m_code == x; });
                   return it != names.end();
                 });
-}
-
-std::vector<NSInteger> extractLanguageCodes(const std::vector<osm::LocalizedName>& names) 
-{
-  std::vector<NSInteger> languageCodes;
-  for (const auto& name : names)
-    languageCodes.push_back(static_cast<NSInteger>(name.m_code));
-  return languageCodes;
 }
 
 std::vector<MWMEditorCellID> cellsForAdditionalNames(osm::NamesDataSource const & ds,
@@ -658,6 +652,24 @@ void registerCellsForTableView(std::vector<MWMEditorCellID> const & cells, UITab
                          value:feature::YesNoUnknownFromString(m_mapObject.GetMetadata(feature::Metadata::FMD_DRIVE_THROUGH))];
     break;
   }
+  case MetadataID::FMD_SELF_SERVICE:
+  {
+    MWMEditorSegmentedTableViewCell * tCell = static_cast<MWMEditorSegmentedTableViewCell *>(cell);
+    [tCell configWithDelegate:self
+                         icon:[UIImage imageNamed:@"ic_placepage_self_service"]
+                         text:L(@"self_service")
+                         value:feature::YesNoUnknownFromString(m_mapObject.GetMetadata(feature::Metadata::FMD_SELF_SERVICE))];
+    break;
+  }
+  case MetadataID::FMD_OUTDOOR_SEATING:
+  {
+    MWMEditorSegmentedTableViewCell * tCell = static_cast<MWMEditorSegmentedTableViewCell *>(cell);
+    [tCell configWithDelegate:self
+                         icon:[UIImage imageNamed:@"ic_placepage_outdoor_seating"]
+                         text:L(@"outdoor_seating")
+                         value:feature::YesNoUnknownFromString(m_mapObject.GetMetadata(feature::Metadata::FMD_OUTDOOR_SEATING))];
+    break;
+  } 
   case MetadataID::FMD_CONTACT_FACEBOOK:
   {
     [self configTextViewCell:cell
@@ -979,6 +991,37 @@ void registerCellsForTableView(std::vector<MWMEditorCellID> const & cells, UITab
           break;
       }
       break;
+
+    case MetadataID::FMD_SELF_SERVICE:
+      switch (changeSegmented)
+      {
+        case Yes:
+          m_mapObject.SetMetadata(feature::Metadata::FMD_SELF_SERVICE, "yes");
+          break;
+        case No:
+          m_mapObject.SetMetadata(feature::Metadata::FMD_SELF_SERVICE, "no");
+          break;
+        case Unknown:
+          m_mapObject.SetMetadata(feature::Metadata::FMD_SELF_SERVICE, "");
+          break;
+      }
+      break;
+
+    case MetadataID::FMD_OUTDOOR_SEATING:
+      switch (changeSegmented)
+      {
+        case Yes:
+          m_mapObject.SetMetadata(feature::Metadata::FMD_OUTDOOR_SEATING, "yes");
+          break;
+        case No:
+          m_mapObject.SetMetadata(feature::Metadata::FMD_OUTDOOR_SEATING, "no");
+          break;
+        case Unknown:
+          m_mapObject.SetMetadata(feature::Metadata::FMD_OUTDOOR_SEATING, "");
+          break;
+      }
+      break;
+
   default: NSAssert(false, @"Invalid field for changeSegmented"); break;
   }
 }

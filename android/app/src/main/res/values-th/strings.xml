@@ -252,6 +252,9 @@
     <string name="faq">คำถามและคำตอบ</string>
     <!-- Button in the main menu -->
     <string name="donate">บริจาค</string>
+    <string name="already_donated">บริจาคแล้ว</string>
+    <string name="remind_me_later">เตือนภายหลัง</string>
+    <string name="support_organic_maps">สนับสนุน Organic Maps</string>
     <!-- Button in the main Help dialog -->
     <string name="how_to_support_us">สนับสนุนโครงการ</string>
     <!-- Button in the main Help dialog -->
@@ -293,6 +296,10 @@
     <string name="google_play_services">บริการตำแหน่งของ Google Play</string>
     <!-- Preference text -->
     <string name="pref_use_google_play">ระบุตำแหน่งโดยประมาณของคุณอย่างรวดเร็วโดยใช้บลูทูธ WiFi หรือเครือข่ายมือถือ</string>
+    <!-- Preference title -->
+    <string name="pref_display_kayak_title">ลงคโรงแรม Kayak.com</string>
+    <!-- Preference description -->
+    <string name="pref_display_kayak_text">รปภาพ รวว ลงกการจองจะแสดงสำหรบโรงแรมทมรายการขอมลบน Kayak.com โบนสผแนะนำทไดรบสำหรบการจองแตละครงผานลงกเหลานจะนำไปใชในการพฒนา Organic Maps</string>
     <!-- Text for routing error dialog -->
     <string name="routing_download_maps_along">ดาวน์โหลดแผนที่ตามเส้นทาง</string>
     <!-- Text for routing error dialog -->
@@ -407,7 +414,7 @@
     <string name="editor_hours_closed">ปิดเวลา</string>
     <string name="editor_example_values">ตัวอย่างของค่าที่ตั้งไว้</string>
     <string name="editor_correct_mistake">แก้ไขข้อผิดพลาด</string>
-    <string name="editor_add_select_location">ตำแหน่ง</string>
+    <string name="editor_add_select_location">เลือกสถานที่</string>
     <string name="editor_report_problem_desription_1">กรุณาอธิบายปัญหาโดยละเอียดเพื่อที่ชุมชน OpenStreetMap จะสามารถแก้ไขข้อผิดพลาดได้</string>
     <string name="editor_report_problem_desription_2">หรือทำด้วยตัวคุณเองที่ https://www.openstreetmap.org/</string>
     <string name="editor_report_problem_send_button">ส่ง</string>
@@ -439,6 +446,8 @@
     <!-- Editable House Number text field (in address block). -->
     <string name="house_number">บ้านเลขที่</string>
     <string name="details">รายละเอียด</string>
+    <string name="social_media">โซเชียลมีเดีย</string>
+    <string name="building">อาคาร</string>
     <!-- Text field to enter non-existing street name, below list of known streets around -->
     <string name="add_street">เพิ่มถนน</string>
     <string name="choose_language">เลือกภาษา</string>
@@ -458,7 +467,7 @@
     <string name="downloader_no_space_message">กรุณาลบข้อมูลที่ไม่จำเป็น</string>
     <string name="editor_login_error_dialog">ข้อผิดพลาดในการล็อกอิน</string>
     <string name="editor_profile_changes">การเปลี่ยนแปลงที่อนุมัติแล้ว</string>
-    <string name="editor_focus_map_on_location">ดึงแผนที่เพื่อเลือกตำแหน่งวัตถุที่ถูกต้อง</string>
+    <string name="editor_focus_map_on_location">ลากแผนที่เพื่อวางกากบาทที่ตำแหน่งของสถานที่หรือธุรกิจ</string>
     <string name="editor_edit_place_title">กำลังแก้ไข</string>
     <string name="editor_add_place_title">กำลังเพิ่ม</string>
     <string name="editor_edit_place_name_hint">ชื่อสถานที่</string>
@@ -486,7 +495,7 @@
     <string name="editor_zip_code">รหัสไปรษณีย์</string>
     <string name="error_enter_correct_zip_code">กรุณาใส่รหัสไปรษณีย์ที่ถูกต้อง</string>
     <!-- Place Page title for long tap -->
-    <string name="core_placepage_unknown_place">ไม่ทราบชื่อสถานที่</string>
+    <string name="core_placepage_unknown_place">จุดแผนที่</string>
     <!-- Title for OSM note section in the editor -->
     <string name="editor_other_info">หมายเหตุถึงอาสาสมัคร OpenStreetMap (ไม่บังคับ)</string>
     <!-- Hint of the input field in the OSM note section of the editor -->
@@ -494,6 +503,8 @@
     <!-- Information about OSM at the top of the editing page -->
     <string name="editor_about_osm">การแก้ไขของคุณจะถูกอัปโหลดไปยังฐานข้อมูล <a href="https://wiki.openstreetmap.org/wiki/About_OpenStreetMap">OpenStreetMap</a> สาธารณะ กรุณาอย่าเพิ่มข้อมูลส่วนบุคคลหรือข้อมูลที่มีลิขสิทธิ์</string>
     <string name="editor_more_about_osm">ข้อมูลเพิ่มเติมเกี่ยวกับ OpenStreetMap</string>
+    <string name="editor_osm_history">ประวัติการแก้ไขของคุณ</string>
+    <string name="editor_osm_notes">บันทึกข้อมูลแผนที่ของคุณ</string>
     <string name="editor_operator">ตัวดำเนินการ</string>
     <!-- To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... -->
     <string name="operator">ตัวดำเนินการ: %s</string>
@@ -523,6 +534,8 @@
     <string name="dialog_kayak_disclaimer">โบนัสการแนะนำที่ได้รับสำหรับการจองแต่ละครั้งผ่านลิงก์นี้จะนำไปใช้ในการพัฒนาแผนที่ทั่วไป</string>
     <!-- A confirmation button text in the explanation dialog that opens hotel details page on Kayak website. -->
     <string name="dialog_kayak_button">รายละเอียดบน Kayak</string>
+    <!-- A disable button text in the explanation dialog that opens hotel details page on Kayak website. -->
+    <string name="dialog_kayak_disable_button">ปดการใชงาน Kayak</string>
     <string name="placepage_edit_bookmark_button">แก้ไข Bookmark</string>
     <string name="editor_comment_hint">ข้อคิดเห็น</string>
     <string name="editor_reset_edits_message">ตั้งค่าการเปลี่ยนแปลงท้องถิ่นทั้งหมด</string>
@@ -725,8 +738,8 @@
     <string name="isolines_location_error_dialog">เลเยอร์แผนที่ภูมิประเทศยังใช้งานไม่ได้ในพื้นที่นี้</string>
     <string name="elevation_profile_ascent">การขึ้น</string>
     <string name="elevation_profile_descent">การลง</string>
-    <string name="elevation_profile_minaltitude">ระดับความสูงต่ำสุด</string>
-    <string name="elevation_profile_maxaltitude">ระดับความสูงสูงสุด</string>
+    <string name="elevation_profile_min_elevation">ต่ำสุด</string>
+    <string name="elevation_profile_max_elevation">สูงสุด</string>
     <string name="elevation_profile_difficulty">ลำบาก</string>
     <string name="elevation_profile_distance">ระยะทาง</string>
     <string name="elevation_profile_time">เวลา:</string>
@@ -768,11 +781,13 @@
     <!-- Displayed on the Android Auto or CarPlay screen. Button to display maps on the car screen instead of a phone. Must be no more than 18 symbols! -->
     <string name="car_continue_in_the_car">ไปที่หน้าจอรถ</string>
     <!-- Ask user to grant location permissions -->
-    <string name="aa_location_permissions_request">แอปพลิเคชันนี้ต้องการการเข้าถึงตำแหน่งของคุณเพื่อจุดประสงค์ในการนำทาง</string>
-    <!-- Displayed on the Android Auto screen. Grant Permissions button. Must be no more than 18 symbols! -->
+    <string name="aa_location_permissions_request">แผนที่ทั่วไปจำเป็นต้องเข้าถึงตำแหน่ง เมื่อปลอดภัยแล้ว ให้ตรวจสอบการแจ้งเตือนบนโทรศัพท์ของคุณ</string>
+    <!-- Notification title for permission request from AA. -->
+    <string name="aa_request_permission_notification">แอพนี้ต้องได้รับอนุญาตจากคุณ</string>
+    <!-- The text in the activity for location permission request. -->
+    <string name="aa_request_permission_activity_text">แผนที่ทั่วไปใน Android Auto ต้องได้รับอนุญาตจากตำแหน่งจึงจะทำงานได้อย่างมีประสิทธิภาพ</string>
+    <!-- Grant Permissions button. -->
     <string name="aa_grant_permissions">ให้สิทธิ์</string>
-    <!-- Text that will be displayed in the notification title when the app is connected to Android Auto. -->
-    <string name="aa_connected_to_car_notification_title">เชื่อมต่อกับรถยนต์</string>
     <!-- Outdoors/hiking map style (activity) name in the Styles and Layers dialog -->
     <string name="button_layer_outdoor">การเดินป่า</string>
     <!-- Text displayed when a webview or a browser are disabled, and external links can't be opened. -->
@@ -1470,6 +1485,9 @@
     <string name="type.place.islet">เกาะ</string>
     <string name="type.place.isolated_dwelling">ที่อยู่อาศัยโดดเดี่ยว</string>
     <string name="type.place.locality">ท้องถิ่น</string>
+    <!-- Named part of a city or town, bigger than place=neighbourhood and smaller than place=suburb (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dquarter) -->
+    <string name="type.place.quarter">ละแวกบ้าน</string>
+    <!-- Named part of a city, town or suburb, smaller than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Neighbourhood) -->
     <string name="type.place.neighbourhood">ละแวกบ้าน</string>
     <string name="type.place.ocean">มหาสมุทร</string>
     <string name="type.place.region">ภูมิภาค</string>
@@ -1477,6 +1495,7 @@
     <string name="type.place.square">ช่องว่าง</string>
     <string name="type.place.state">รัฐ</string>
     <string name="type.place.state.USA">รัฐ</string>
+    <!-- Named part of a city or town, bigger than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dsuburb) -->
     <string name="type.place.suburb">ชานเมือง</string>
     <string name="type.place.town">เมือง</string>
     <string name="type.place.village">หมู่บ้าน</string>

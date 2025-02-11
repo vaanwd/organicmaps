@@ -79,12 +79,14 @@
       android:resizeableActivity="true"
       android:supportsRtl="true"
       android:networkSecurityConfig="@xml/network_security_config"
+      android:manageSpaceActivity="${applicationId}.ManageSpaceActivity"
       tools:targetApi="33">
 
     <!-- Allows for config and orientation change without killing/restarting main activity -->
     <activity
       android:name="app.organicmaps.SplashActivity"
       android:configChanges="orientation|screenSize|smallestScreenSize|density|screenLayout|uiMode|keyboard|keyboardHidden|navigation"
+      android:screenOrientation="fullUser"
       android:exported="true">
 
       <intent-filter>
@@ -119,7 +121,7 @@
         <data android:scheme="https"/>
         <data android:host="omaps.app"/>
       </intent-filter>
-        
+
       <intent-filter>
         <action android:name="android.intent.action.VIEW" />
 
@@ -343,7 +345,8 @@
 
     <activity
         android:name="app.organicmaps.DownloadResourcesLegacyActivity"
-        android:configChanges="orientation|screenLayout|screenSize"/>
+        android:configChanges="orientation|screenLayout|screenSize"
+        android:screenOrientation="fullUser"/>
 
     <activity-alias
       android:name="app.organicmaps.DownloadResourcesActivity"
@@ -360,11 +363,18 @@
         android:name="app.organicmaps.MwmActivity"
         android:launchMode="singleTask"
         android:configChanges="uiMode"
+        android:screenOrientation="fullUser"
         android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+
+    <activity-alias
+        android:name="${applicationId}.ManageSpaceActivity"
+        android:exported="true"
+        android:targetActivity=".SplashActivity" />
 
     <activity
         android:name="app.organicmaps.downloader.DownloaderActivity"
         android:configChanges="orientation|screenLayout|screenSize"
+        android:screenOrientation="fullUser"
         android:label="@string/download_maps"
         android:parentActivityName="app.organicmaps.MwmActivity"
         android:windowSoftInputMode="adjustResize" />
@@ -372,6 +382,7 @@
     <activity
         android:name="app.organicmaps.search.SearchActivity"
         android:configChanges="orientation|screenLayout|screenSize"
+        android:screenOrientation="fullUser"
         android:label="@string/search_map"
         android:parentActivityName="app.organicmaps.MwmActivity"
         android:windowSoftInputMode="stateVisible|adjustResize" />
@@ -379,6 +390,7 @@
     <activity
         android:name="app.organicmaps.settings.SettingsActivity"
         android:configChanges="orientation|screenLayout|screenSize"
+        android:screenOrientation="fullUser"
         android:label="@string/settings"
         android:parentActivityName="app.organicmaps.MwmActivity" />
 
@@ -396,6 +408,7 @@
     <activity
         android:name="app.organicmaps.bookmarks.BookmarkCategoriesActivity"
         android:configChanges="orientation|screenLayout|screenSize"
+        android:screenOrientation="fullUser"
         android:label="@string/bookmarks_and_tracks"
         android:parentActivityName="app.organicmaps.MwmActivity"
         android:windowSoftInputMode="adjustResize" />
@@ -403,6 +416,7 @@
     <activity
         android:name="app.organicmaps.bookmarks.BookmarkListActivity"
         android:configChanges="orientation|screenLayout|screenSize"
+        android:screenOrientation="fullUser"
         android:label="@string/bookmarks"
         android:parentActivityName="app.organicmaps.bookmarks.BookmarkCategoriesActivity"
         android:windowSoftInputMode="adjustResize" />
@@ -410,6 +424,7 @@
     <activity
         android:name="app.organicmaps.editor.EditorActivity"
         android:configChanges="orientation|screenLayout|screenSize"
+        android:screenOrientation="fullUser"
         android:label="@string/edit_place"
         android:parentActivityName="app.organicmaps.MwmActivity"
         android:windowSoftInputMode="adjustResize" />
@@ -443,17 +458,21 @@
       android:label="@string/driving_options_title"/>
     <activity
         android:name="app.organicmaps.MapPlaceholderActivity"/>
+    <activity
+        android:name="app.organicmaps.car.screens.permissions.RequestPermissionsActivity"/>
     <service
         android:name="app.organicmaps.car.CarAppService"
         android:exported="true"
-        android:foregroundServiceType="specialUse"
         tools:ignore="ExportedService">
       <intent-filter>
         <action android:name="androidx.car.app.CarAppService" />
         <category android:name="androidx.car.app.category.NAVIGATION" />
       </intent-filter>
-      <property android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
-          android:value="@string/android_auto_fgs_explanation_for_special_use"/>
+      <intent-filter>
+        <action android:name="androidx.car.app.action.NAVIGATE" />
+        <category android:name="android.intent.category.DEFAULT"/>
+        <data android:scheme="geo" />
+      </intent-filter>
     </service>
 
     <service
@@ -485,8 +504,8 @@
     <meta-data android:name="android.webkit.WebView.EnableSafeBrowsing" android:value="false" />
     <!-- Disable Google's anonymous stats collection -->
     <meta-data android:name="android.webkit.WebView.MetricsOptOut" android:value="true" />
-    
-    <!-- Version >= 3.0. Dex Dual Mode support for compatible Samsung devices. 
+
+    <!-- Version >= 3.0. Dex Dual Mode support for compatible Samsung devices.
          See the documentation: https://developer.samsung.com/samsung-dex/modify-optimizing.html //-->
     <meta-data android:name="com.samsung.android.multidisplay.keep_process_alive" android:value="true" />
 

@@ -571,7 +571,7 @@
 
 "editor_example_values" = "Exempelvärden";
 
-"editor_add_select_location" = "Plats";
+"editor_add_select_location" = "Välj plats";
 
 "editor_done_dialog_1" = "Du har ändrat världskartan. Dela det med dina vänner och redigera den tillsammans.";
 
@@ -683,7 +683,7 @@
 
 "editor_profile_changes" = "Verifierade ändringar";
 
-"editor_focus_map_on_location" = "Dra på kartan för att välja objektets rätta plats.";
+"editor_focus_map_on_location" = "Dra kartan för att placera korset på platsen för platsen eller företaget.";
 
 "editor_add_select_category" = "Välj kategori";
 
@@ -737,7 +737,7 @@
 "error_enter_correct_zip_code" = "Ange korrekt postnr";
 
 /* Place Page title for long tap */
-"core_placepage_unknown_place" = "Okänd plats";
+"core_placepage_unknown_place" = "Kartpunkt";
 
 /* Title for OSM note section in the editor */
 "editor_other_info" = "Meddelande till OpenStreetMap-volontärer (valfritt)";
@@ -819,6 +819,9 @@
 
 /* A confirmation button text in the explanation dialog that opens hotel details page on Kayak website. */
 "dialog_kayak_button" = "Information på Kayak";
+
+/* A disable button text in the explanation dialog that opens hotel details page on Kayak website. */
+"dialog_kayak_disable_button" = "Inaktivera Kayak";
 
 "placepage_call_button" = "Ring";
 
@@ -1225,9 +1228,9 @@
 
 "elevation_profile_descent" = "Backe";
 
-"elevation_profile_minaltitude" = "Min. höjd";
+"elevation_profile_min_elevation" = "Min. höjd";
 
-"elevation_profile_maxaltitude" = "Max. höjd";
+"elevation_profile_max_elevation" = "Max. höjd";
 
 "elevation_profile_difficulty" = "Svårighet";
 
@@ -1253,6 +1256,9 @@
 
 /* Delete track button on track edit screen */
 "placepage_delete_track_button" = "Delete Track";
+
+/* The track deletion confirmaion alert message. */
+"placepage_delete_track_confirmation_alert_message" = "Är du säker på att du vill radera det här spåret?";
 
 /* Placeholder for track name input on track edit screen */
 "placepage_track_name_hint" = "Track Name";
@@ -1370,6 +1376,9 @@
 /* Title for the "Open In Another App" button on the PlacePage. */
 "open_in_app" = "Öppna i en annan app";
 
+/* To indicate if the place proposed self service... */
+"self_service" = "Självbetjäning";
+
 /* To indicate if restaurant or other place has outdoor seating */
 "outdoor_seating" = "Sittplatser utomhus";
 
@@ -1405,6 +1414,8 @@
 
 /* Message for the toast when saving the track recording is finished but nothing to save. */
 "track_recording_toast_nothing_to_save" = "Routen är tom - inget att spara";
+
+"edit_track" = "Redigera rutt";
 
 
 /********** Types **********/
@@ -2893,7 +2904,11 @@
 
 "type.place.locality" = "Lokalitet";
 
-"type.place.neighbourhood" = "Grannskap";
+/* Named part of a city or town, bigger than place=neighbourhood and smaller than place=suburb (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dquarter) */
+"type.place.quarter" = "Grannskap";
+
+/* Named part of a city, town or suburb, smaller than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Neighbourhood) */
+"type.place.neighbourhood" = "Grannskapet";
 
 "type.place.ocean" = "Ocean";
 
@@ -2907,6 +2922,7 @@
 
 "type.place.state.USA" = "Stat";
 
+/* Named part of a city or town, bigger than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dsuburb) */
 "type.place.suburb" = "Förort";
 
 "type.place.town" = "Stad";

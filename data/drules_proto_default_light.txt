@@ -21464,7 +21464,7 @@ cont {
     lines {
       width: 5.0
       color: 1307438043
-      priority: 50
+      priority: 154
       cap: BUTTCAP
     }
     lines {
@@ -21474,7 +21474,7 @@ cont {
         dd: 2.0
         dd: 2.0
       }
-      priority: 40
+      priority: 153
       cap: BUTTCAP
     }
     path_text {
@@ -21500,7 +21500,7 @@ cont {
     lines {
       width: 7.0
       color: 1307438043
-      priority: 50
+      priority: 154
       cap: BUTTCAP
     }
     lines {
@@ -21510,7 +21510,7 @@ cont {
         dd: 2.0
         dd: 2.0
       }
-      priority: 40
+      priority: 153
       cap: BUTTCAP
     }
     path_text {
@@ -21536,7 +21536,7 @@ cont {
     lines {
       width: 9.0
       color: 1307438043
-      priority: 50
+      priority: 154
       cap: BUTTCAP
     }
     lines {
@@ -21546,7 +21546,7 @@ cont {
         dd: 2.0
         dd: 2.0
       }
-      priority: 40
+      priority: 153
       cap: BUTTCAP
     }
     path_text {
@@ -21572,7 +21572,7 @@ cont {
     lines {
       width: 9.0
       color: 1307438043
-      priority: 50
+      priority: 154
       cap: BUTTCAP
     }
     lines {
@@ -21582,7 +21582,7 @@ cont {
         dd: 2.0
         dd: 2.0
       }
-      priority: 40
+      priority: 153
       cap: BUTTCAP
     }
     path_text {
@@ -22486,7 +22486,7 @@ cont {
     lines {
       width: 4.8
       color: 1307438043
-      priority: 50
+      priority: 154
       cap: BUTTCAP
     }
     lines {
@@ -22496,7 +22496,7 @@ cont {
         dd: 2.0
         dd: 2.0
       }
-      priority: 40
+      priority: 153
       cap: BUTTCAP
     }
     path_text {
@@ -22518,7 +22518,7 @@ cont {
     lines {
       width: 7.2
       color: 1307438043
-      priority: 50
+      priority: 154
       cap: BUTTCAP
     }
     lines {
@@ -22528,7 +22528,7 @@ cont {
         dd: 2.0
         dd: 2.0
       }
-      priority: 40
+      priority: 153
       cap: BUTTCAP
     }
     path_text {
@@ -22550,7 +22550,7 @@ cont {
     lines {
       width: 8.6
       color: 1307438043
-      priority: 50
+      priority: 154
       cap: BUTTCAP
     }
     lines {
@@ -22560,7 +22560,7 @@ cont {
         dd: 2.0
         dd: 2.0
       }
-      priority: 40
+      priority: 153
       cap: BUTTCAP
     }
     path_text {
@@ -22582,7 +22582,7 @@ cont {
     lines {
       width: 8.6
       color: 1307438043
-      priority: 50
+      priority: 154
       cap: BUTTCAP
     }
     lines {
@@ -22592,7 +22592,7 @@ cont {
         dd: 2.0
         dd: 2.0
       }
-      priority: 40
+      priority: 153
       cap: BUTTCAP
     }
     path_text {
@@ -23437,7 +23437,7 @@ cont {
     lines {
       width: 5.8
       color: 1307438043
-      priority: 50
+      priority: 154
       cap: BUTTCAP
     }
     lines {
@@ -23447,7 +23447,7 @@ cont {
         dd: 2.0
         dd: 2.0
       }
-      priority: 40
+      priority: 153
       cap: BUTTCAP
     }
     path_text {
@@ -23473,7 +23473,7 @@ cont {
     lines {
       width: 7.4
       color: 1307438043
-      priority: 50
+      priority: 154
       cap: BUTTCAP
     }
     lines {
@@ -23483,7 +23483,7 @@ cont {
         dd: 2.0
         dd: 2.0
       }
-      priority: 40
+      priority: 153
       cap: BUTTCAP
     }
     path_text {
@@ -23509,7 +23509,7 @@ cont {
     lines {
       width: 9.4
       color: 1307438043
-      priority: 50
+      priority: 154
       cap: BUTTCAP
     }
     lines {
@@ -23519,7 +23519,7 @@ cont {
         dd: 2.0
         dd: 2.0
       }
-      priority: 40
+      priority: 153
       cap: BUTTCAP
     }
     path_text {
@@ -23545,7 +23545,7 @@ cont {
     lines {
       width: 9.4
       color: 1307438043
-      priority: 50
+      priority: 154
       cap: BUTTCAP
     }
     lines {
@@ -23555,7 +23555,7 @@ cont {
         dd: 2.0
         dd: 2.0
       }
-      priority: 40
+      priority: 153
       cap: BUTTCAP
     }
     path_text {
@@ -27234,7 +27234,7 @@ cont {
     lines {
       width: 5.0
       color: 1307438043
-      priority: 50
+      priority: 154
       cap: BUTTCAP
     }
     lines {
@@ -27244,7 +27244,7 @@ cont {
         dd: 2.0
         dd: 2.0
       }
-      priority: 40
+      priority: 153
       cap: BUTTCAP
     }
     path_text {
@@ -27270,7 +27270,7 @@ cont {
     lines {
       width: 6.6
       color: 1307438043
-      priority: 50
+      priority: 154
       cap: BUTTCAP
     }
     lines {
@@ -27280,7 +27280,7 @@ cont {
         dd: 2.0
         dd: 2.0
       }
-      priority: 40
+      priority: 153
       cap: BUTTCAP
     }
     path_text {
@@ -27306,7 +27306,7 @@ cont {
     lines {
       width: 8.4
       color: 1307438043
-      priority: 50
+      priority: 154
       cap: BUTTCAP
     }
     lines {
@@ -27316,7 +27316,7 @@ cont {
         dd: 2.0
         dd: 2.0
       }
-      priority: 40
+      priority: 153
       cap: BUTTCAP
     }
     path_text {
@@ -27342,7 +27342,7 @@ cont {
     lines {
       width: 8.4
       color: 1307438043
-      priority: 50
+      priority: 154
       cap: BUTTCAP
     }
     lines {
@@ -27352,7 +27352,7 @@ cont {
         dd: 2.0
         dd: 2.0
       }
-      priority: 40
+      priority: 153
       cap: BUTTCAP
     }
     path_text {
@@ -33893,7 +33893,7 @@ cont {
     lines {
       width: 7.0
       color: 1307438043
-      priority: 50
+      priority: 154
       cap: BUTTCAP
     }
     lines {
@@ -33903,7 +33903,7 @@ cont {
         dd: 2.0
         dd: 2.0
       }
-      priority: 40
+      priority: 153
       cap: BUTTCAP
     }
     path_text {
@@ -33929,7 +33929,7 @@ cont {
     lines {
       width: 9.0
       color: 1307438043
-      priority: 50
+      priority: 154
       cap: BUTTCAP
     }
     lines {
@@ -33939,7 +33939,7 @@ cont {
         dd: 2.0
         dd: 2.0
       }
-      priority: 40
+      priority: 153
       cap: BUTTCAP
     }
     path_text {
@@ -33965,7 +33965,7 @@ cont {
     lines {
       width: 11.0
       color: 1307438043
-      priority: 50
+      priority: 154
       cap: BUTTCAP
     }
     lines {
@@ -33975,7 +33975,7 @@ cont {
         dd: 2.0
         dd: 2.0
       }
-      priority: 40
+      priority: 153
       cap: BUTTCAP
     }
     path_text {
@@ -34001,7 +34001,7 @@ cont {
     lines {
       width: 11.0
       color: 1307438043
-      priority: 50
+      priority: 154
       cap: BUTTCAP
     }
     lines {
@@ -34011,7 +34011,7 @@ cont {
         dd: 2.0
         dd: 2.0
       }
-      priority: 40
+      priority: 153
       cap: BUTTCAP
     }
     path_text {
@@ -35855,7 +35855,7 @@ cont {
     lines {
       width: 6.0
       color: 1307438043
-      priority: 50
+      priority: 154
       cap: BUTTCAP
     }
     lines {
@@ -35865,7 +35865,7 @@ cont {
         dd: 2.0
         dd: 2.0
       }
-      priority: 40
+      priority: 153
       cap: BUTTCAP
     }
     path_text {
@@ -35891,7 +35891,7 @@ cont {
     lines {
       width: 7.6
       color: 1307438043
-      priority: 50
+      priority: 154
       cap: BUTTCAP
     }
     lines {
@@ -35901,7 +35901,7 @@ cont {
         dd: 2.0
         dd: 2.0
       }
-      priority: 40
+      priority: 153
       cap: BUTTCAP
     }
     path_text {
@@ -35927,7 +35927,7 @@ cont {
     lines {
       width: 9.4
       color: 1307438043
-      priority: 50
+      priority: 154
       cap: BUTTCAP
     }
     lines {
@@ -35937,7 +35937,7 @@ cont {
         dd: 2.0
         dd: 2.0
       }
-      priority: 40
+      priority: 153
       cap: BUTTCAP
     }
     path_text {
@@ -35963,7 +35963,7 @@ cont {
     lines {
       width: 9.4
       color: 1307438043
-      priority: 50
+      priority: 154
       cap: BUTTCAP
     }
     lines {
@@ -35973,7 +35973,7 @@ cont {
         dd: 2.0
         dd: 2.0
       }
-      priority: 40
+      priority: 153
       cap: BUTTCAP
     }
     path_text {
@@ -53134,33 +53134,132 @@ cont {
   }
 }
 cont {
-  name: "man_made-tower-communication"
+  name: "man_made-tower"
+  element {
+    scale: 16
+    symbol {
+      name: "mast-m"
+      priority: 850
+    }
+  }
   element {
     scale: 17
     symbol {
-      name: "dot-m"
+      name: "mast-m"
       priority: 850
     }
   }
   element {
     scale: 18
     symbol {
-      name: "dot-m"
+      name: "mast-m"
       priority: 850
+    }
+    caption {
+      primary {
+        height: 10
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -9150
     }
   }
   element {
     scale: 19
     symbol {
-      name: "dot-m"
+      name: "mast-m"
       priority: 850
+    }
+    caption {
+      primary {
+        height: 10
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -9150
     }
   }
   element {
     scale: 20
     symbol {
-      name: "dot-m"
+      name: "mast-m"
       priority: 850
+    }
+    caption {
+      primary {
+        height: 10
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -9150
+    }
+  }
+}
+cont {
+  name: "man_made-tower-communication"
+  element {
+    scale: 16
+    symbol {
+      name: "mast-m"
+      priority: 850
+    }
+  }
+  element {
+    scale: 17
+    symbol {
+      name: "mast-m"
+      priority: 850
+    }
+  }
+  element {
+    scale: 18
+    symbol {
+      name: "mast-m"
+      priority: 850
+    }
+    caption {
+      primary {
+        height: 10
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -9150
+    }
+  }
+  element {
+    scale: 19
+    symbol {
+      name: "mast-m"
+      priority: 850
+    }
+    caption {
+      primary {
+        height: 10
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -9150
+    }
+  }
+  element {
+    scale: 20
+    symbol {
+      name: "mast-m"
+      priority: 850
+    }
+    caption {
+      primary {
+        height: 10
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -9150
     }
   }
 }
@@ -67486,6 +67585,129 @@ cont {
   }
 }
 cont {
+  name: "place-quarter"
+  element {
+    scale: 13
+    caption {
+      primary {
+        height: 11
+        color: 8355711
+      }
+      secondary {
+        height: 9
+        color: 8355711
+        offset_y: 1
+      }
+      priority: 5750
+    }
+  }
+  element {
+    scale: 14
+    caption {
+      primary {
+        height: 12
+        color: 8355711
+      }
+      secondary {
+        height: 10
+        color: 8355711
+        offset_y: 1
+      }
+      priority: 5750
+    }
+  }
+  element {
+    scale: 15
+    caption {
+      primary {
+        height: 14
+        color: 8355711
+      }
+      secondary {
+        height: 12
+        color: 8355711
+        offset_y: 1
+      }
+      priority: 5750
+    }
+  }
+  element {
+    scale: 16
+    caption {
+      primary {
+        height: 14
+        color: 8355711
+      }
+      secondary {
+        height: 12
+        color: 8355711
+        offset_y: 1
+      }
+      priority: 5750
+    }
+  }
+  element {
+    scale: 17
+    caption {
+      primary {
+        height: 14
+        color: 8355711
+      }
+      secondary {
+        height: 12
+        color: 8355711
+        offset_y: 1
+      }
+      priority: 5750
+    }
+  }
+  element {
+    scale: 18
+    caption {
+      primary {
+        height: 14
+        color: 8355711
+      }
+      secondary {
+        height: 12
+        color: 8355711
+        offset_y: 1
+      }
+      priority: 5750
+    }
+  }
+  element {
+    scale: 19
+    caption {
+      primary {
+        height: 14
+        color: 8355711
+      }
+      secondary {
+        height: 12
+        color: 8355711
+        offset_y: 1
+      }
+      priority: 5750
+    }
+  }
+  element {
+    scale: 20
+    caption {
+      primary {
+        height: 14
+        color: 8355711
+      }
+      secondary {
+        height: 12
+        color: 8355711
+        offset_y: 1
+      }
+      priority: 5750
+    }
+  }
+}
+cont {
   name: "place-sea"
   element {
     scale: 4
@@ -67923,11 +68145,11 @@ cont {
     scale: 14
     caption {
       primary {
-        height: 12
+        height: 14
         color: 8355711
       }
       secondary {
-        height: 10
+        height: 12
         color: 8355711
         offset_y: 1
       }
@@ -69938,7 +70160,7 @@ cont {
     lines {
       width: 4.0
       color: 871230427
-      priority: 50
+      priority: 150
       cap: BUTTCAP
     }
     lines {
@@ -69953,7 +70175,7 @@ cont {
     lines {
       width: 4.4
       color: 871230427
-      priority: 50
+      priority: 150
       cap: BUTTCAP
     }
     lines {
@@ -69968,7 +70190,7 @@ cont {
     lines {
       width: 4.8
       color: 871230427
-      priority: 50
+      priority: 150
       cap: BUTTCAP
     }
     lines {
@@ -69983,13 +70205,13 @@ cont {
     lines {
       width: 7.0
       color: 1300267136
-      priority: 40
+      priority: 140
       cap: BUTTCAP
     }
     lines {
       width: 5.8
       color: 871230427
-      priority: 50
+      priority: 150
       cap: BUTTCAP
     }
     lines {
@@ -70012,13 +70234,13 @@ cont {
     lines {
       width: 10.0
       color: 1300267136
-      priority: 40
+      priority: 140
       cap: BUTTCAP
     }
     lines {
       width: 8.6
       color: 871230427
-      priority: 50
+      priority: 150
       cap: BUTTCAP
     }
     lines {
@@ -70041,13 +70263,13 @@ cont {
     lines {
       width: 12.8
       color: 1300267136
-      priority: 40
+      priority: 140
       cap: BUTTCAP
     }
     lines {
       width: 11.0
       color: 871230427
-      priority: 50
+      priority: 150
       cap: BUTTCAP
     }
     lines {
@@ -70070,13 +70292,13 @@ cont {
     lines {
       width: 12.8
       color: 1300267136
-      priority: 40
+      priority: 140
       cap: BUTTCAP
     }
     lines {
       width: 11.0
       color: 871230427
-      priority: 50
+      priority: 150
       cap: BUTTCAP
     }
     lines {
@@ -70099,13 +70321,13 @@ cont {
     lines {
       width: 12.8
       color: 1300267136
-      priority: 40
+      priority: 140
       cap: BUTTCAP
     }
     lines {
       width: 11.0
       color: 871230427
-      priority: 50
+      priority: 150
       cap: BUTTCAP
     }
     lines {
@@ -75280,7 +75502,7 @@ cont {
   element {
     scale: 12
     symbol {
-      name: "train-s"
+      name: "funicular-s"
       priority: 6250
     }
     caption {
@@ -75304,7 +75526,7 @@ cont {
   element {
     scale: 13
     symbol {
-      name: "train-s"
+      name: "funicular-s"
       priority: 6250
     }
     caption {
@@ -75328,7 +75550,7 @@ cont {
   element {
     scale: 14
     symbol {
-      name: "train-s"
+      name: "funicular-s"
       priority: 6250
     }
     caption {
@@ -76209,71 +76431,30 @@ cont {
 cont {
   name: "railway-station-monorail"
   element {
-    scale: 12
-    symbol {
-      name: "train-s"
-      priority: 6250
-    }
-    caption {
-      primary {
-        height: 9
-        color: 2236962
-        stroke_color: 1728053247
-        offset_y: 1
-        is_optional: true
-      }
-      secondary {
-        height: 8
-        color: 2236962
-        stroke_color: 1728053247
-        offset_y: 1
-        is_optional: true
-      }
-      priority: -3750
-    }
-  }
-  element {
     scale: 13
     symbol {
-      name: "train-s"
+      name: "monorail-s"
       priority: 6250
-    }
-    caption {
-      primary {
-        height: 10
-        color: 2236962
-        stroke_color: 1728053247
-        offset_y: 1
-        is_optional: true
-      }
-      secondary {
-        height: 9
-        color: 2236962
-        stroke_color: 1728053247
-        offset_y: 1
-        is_optional: true
-      }
-      priority: -3750
     }
   }
   element {
     scale: 14
     symbol {
-      name: "train-s"
+      name: "monorail-s"
       priority: 6250
     }
     caption {
       primary {
         height: 11
         color: 2236962
-        stroke_color: 1308622847
+        stroke_color: 872415231
         offset_y: 1
         is_optional: true
       }
       secondary {
-        height: 10
+        height: 9
         color: 2236962
-        stroke_color: 1308622847
+        stroke_color: 872415231
         offset_y: 1
         is_optional: true
       }
@@ -76283,7 +76464,7 @@ cont {
   element {
     scale: 15
     symbol {
-      name: "train-m"
+      name: "monorail-m"
       priority: 6250
     }
     caption {
@@ -76307,7 +76488,7 @@ cont {
   element {
     scale: 16
     symbol {
-      name: "train-m"
+      name: "monorail-m"
       priority: 6250
     }
     caption {
@@ -76331,7 +76512,7 @@ cont {
   element {
     scale: 17
     symbol {
-      name: "train-m"
+      name: "monorail-m"
       priority: 6250
     }
     caption {
@@ -76343,7 +76524,7 @@ cont {
         is_optional: true
       }
       secondary {
-        height: 12
+        height: 11
         color: 2236962
         stroke_color: 452984831
         offset_y: 1
@@ -76355,7 +76536,7 @@ cont {
   element {
     scale: 18
     symbol {
-      name: "train-m"
+      name: "monorail-m"
       priority: 6250
     }
     caption {
@@ -76367,7 +76548,7 @@ cont {
         is_optional: true
       }
       secondary {
-        height: 12
+        height: 11
         color: 2236962
         stroke_color: 452984831
         offset_y: 1
@@ -76379,7 +76560,7 @@ cont {
   element {
     scale: 19
     symbol {
-      name: "train-m"
+      name: "monorail-m"
       priority: 6250
     }
     caption {
@@ -76391,7 +76572,7 @@ cont {
         is_optional: true
       }
       secondary {
-        height: 12
+        height: 11
         color: 2236962
         stroke_color: 452984831
         offset_y: 1
@@ -76403,7 +76584,7 @@ cont {
   element {
     scale: 20
     symbol {
-      name: "train-m"
+      name: "monorail-m"
       priority: 6250
     }
     caption {
@@ -76415,7 +76596,7 @@ cont {
         is_optional: true
       }
       secondary {
-        height: 12
+        height: 11
         color: 2236962
         stroke_color: 452984831
         offset_y: 1
@@ -116681,24 +116862,36 @@ cont {
   name: "shop-pasta"
   element {
     scale: 16
+    symbol {
+      name: "shop-m"
+      priority: 2550
+      min_distance: 10
+    }
     caption {
       primary {
         height: 10
         color: 4473924
         offset_y: 1
+        is_optional: true
       }
-      priority: 2550
+      priority: -7450
     }
   }
   element {
     scale: 17
+    symbol {
+      name: "shop-m"
+      priority: 2550
+      min_distance: 10
+    }
     caption {
       primary {
         height: 10
         color: 4473924
         offset_y: 1
+        is_optional: true
       }
-      priority: 2550
+      priority: -7450
     }
   }
   element {

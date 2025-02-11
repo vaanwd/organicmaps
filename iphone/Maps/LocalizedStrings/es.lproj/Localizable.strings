@@ -571,7 +571,7 @@
 
 "editor_example_values" = "Valores de ejemplo";
 
-"editor_add_select_location" = "Ubicación";
+"editor_add_select_location" = "Seleccione la ubicación";
 
 "editor_done_dialog_1" = "Ha cambiado el mapa del mundo. ¡No se lo guarde para usted! Dígaselo a sus amigos y edítenlo juntos.";
 
@@ -683,7 +683,7 @@
 
 "editor_profile_changes" = "Cambios verificados";
 
-"editor_focus_map_on_location" = "Arrastre el mapa para seleccionar la ubicación correcta del objeto.";
+"editor_focus_map_on_location" = "Arrastre el mapa para colocar la cruz en la ubicación del lugar o negocio.";
 
 "editor_add_select_category" = "Seleccionar categoría";
 
@@ -737,7 +737,7 @@
 "error_enter_correct_zip_code" = "Introduzca el código postal correcto";
 
 /* Place Page title for long tap */
-"core_placepage_unknown_place" = "Lugar desconocido";
+"core_placepage_unknown_place" = "Punto del mapa";
 
 /* Title for OSM note section in the editor */
 "editor_other_info" = "Nota para los voluntarios de OpenStreetMap (opcional)";
@@ -819,6 +819,9 @@
 
 /* A confirmation button text in the explanation dialog that opens hotel details page on Kayak website. */
 "dialog_kayak_button" = "Detalles en Kayak";
+
+/* A disable button text in the explanation dialog that opens hotel details page on Kayak website. */
+"dialog_kayak_disable_button" = "Desactivar Kayak";
 
 "placepage_call_button" = "Llamar";
 
@@ -1225,9 +1228,9 @@
 
 "elevation_profile_descent" = "Descenso";
 
-"elevation_profile_minaltitude" = "Altura mínima";
+"elevation_profile_min_elevation" = "Elevación mín.";
 
-"elevation_profile_maxaltitude" = "Altura máxima";
+"elevation_profile_max_elevation" = "Elevación máx.";
 
 "elevation_profile_difficulty" = "Dificultad";
 
@@ -1253,6 +1256,9 @@
 
 /* Delete track button on track edit screen */
 "placepage_delete_track_button" = "Borrar ruta";
+
+/* The track deletion confirmaion alert message. */
+"placepage_delete_track_confirmation_alert_message" = "¿Está seguro de que desea borrar esta pista?";
 
 /* Placeholder for track name input on track edit screen */
 "placepage_track_name_hint" = "Nombre de la ruta";
@@ -1370,6 +1376,9 @@
 /* Title for the "Open In Another App" button on the PlacePage. */
 "open_in_app" = "Abrir en otra aplicación";
 
+/* To indicate if the place proposed self service... */
+"self_service" = "Autoservicio";
+
 /* To indicate if restaurant or other place has outdoor seating */
 "outdoor_seating" = "Asientos al aire libre";
 
@@ -1405,6 +1414,8 @@
 
 /* Message for the toast when saving the track recording is finished but nothing to save. */
 "track_recording_toast_nothing_to_save" = "La ruta está vacía - no hay nada que guardar";
+
+"edit_track" = "Editar traza";
 
 
 /********** Types **********/
@@ -2893,6 +2904,10 @@
 
 "type.place.locality" = "Localidad";
 
+/* Named part of a city or town, bigger than place=neighbourhood and smaller than place=suburb (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dquarter) */
+"type.place.quarter" = "Barrio";
+
+/* Named part of a city, town or suburb, smaller than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Neighbourhood) */
 "type.place.neighbourhood" = "Vecindario";
 
 "type.place.ocean" = "Océano";
@@ -2907,6 +2922,7 @@
 
 "type.place.state.USA" = "Estado";
 
+/* Named part of a city or town, bigger than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dsuburb) */
 "type.place.suburb" = "Barrio";
 
 "type.place.town" = "Pueblo";

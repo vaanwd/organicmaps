@@ -271,6 +271,9 @@
     <string name="faq">Vragen en antwoorden</string>
     <!-- Button in the main menu -->
     <string name="donate">Doneer</string>
+    <string name="already_donated">Reeds gedoneerd</string>
+    <string name="remind_me_later">Herinner later</string>
+    <string name="support_organic_maps">Ondersteun Organic Maps</string>
     <!-- Button in the main Help dialog -->
     <string name="how_to_support_us">Steun het project</string>
     <!-- Button in the main Help dialog -->
@@ -312,6 +315,10 @@
     <string name="google_play_services">Google Play-locatieservices</string>
     <!-- Preference text -->
     <string name="pref_use_google_play">Bepaal snel je locatie bij benadering via Bluetooth, WiFi of een mobiel netwerk</string>
+    <!-- Preference title -->
+    <string name="pref_display_kayak_title">Kayak.com Hotellinks</string>
+    <!-- Preference description -->
+    <string name="pref_display_kayak_text">Foto\'s, beoordelingen en reserveringslinks worden weergegeven voor hotels die een vermelding op Kayak.com hebben. De verwijzingsbonus die voor elke boeking via deze links wordt ontvangen, gaat naar de ontwikkeling van Organic Maps.</string>
     <!-- Text for routing error dialog -->
     <string name="routing_download_maps_along">Download kaarten op de route</string>
     <!-- Text for routing error dialog -->
@@ -426,7 +433,7 @@
     <string name="editor_hours_closed">Sluitingstijden</string>
     <string name="editor_example_values">Voorbeeldwaarden</string>
     <string name="editor_correct_mistake">Corrigeer fout</string>
-    <string name="editor_add_select_location">Locatie</string>
+    <string name="editor_add_select_location">Locatie selecteren</string>
     <string name="editor_report_problem_desription_1">Beschrijf het probleem gedetailleerd, zodat de OpenStreetMap-community de fout kan oplossen.</string>
     <string name="editor_report_problem_desription_2">Of doe het zelf op https://www.openstreetmap.org/</string>
     <string name="editor_report_problem_send_button">Verzend</string>
@@ -460,6 +467,8 @@
     <!-- Editable House Number text field (in address block). -->
     <string name="house_number">Huisnummer</string>
     <string name="details">Details</string>
+    <string name="social_media">Sociale media</string>
+    <string name="building">Gebouw</string>
     <!-- Text field to enter non-existing street name, below list of known streets around -->
     <string name="add_street">Voeg een straat toe</string>
     <!-- Error to display when a new street name is not entered in the New street dialog -->
@@ -482,7 +491,7 @@
     <string name="downloader_no_space_message">Verwijder overbodige gegevens</string>
     <string name="editor_login_error_dialog">Inlogfout.</string>
     <string name="editor_profile_changes">Gecontroleerde wijzigingen</string>
-    <string name="editor_focus_map_on_location">Versleep de kaart om de juiste locatie van het object te selecteren.</string>
+    <string name="editor_focus_map_on_location">Sleep de kaart om het kruis op de locatie van de plaats of het bedrijf te plaatsen.</string>
     <string name="editor_edit_place_title">Bewerken</string>
     <string name="editor_add_place_title">Toevoegen</string>
     <string name="editor_edit_place_name_hint">Naam van de plaats</string>
@@ -494,7 +503,7 @@
     <string name="placepage_add_business_button">Voeg een organisatie toe</string>
     <string name="message_invalid_feature_position">Hier kan geen object worden geplaatst</string>
     <!-- Text in About and OSM Login screens. First %@ is replaced by a local, human readable date. -->
-    <string name="osm_presentation">Door de gemeenschap gemaakte OpenStreetMap-gegevens vanaf %s. Lees meer over hoe je de kaart kunt bewerken en bijwerken op OpenStreetMap.org</string>
+    <string name="osm_presentation">Door de gemeenschap gemaakte OpenStreetMap-gegevens tot %s. Lees meer over hoe je de kaart kunt bewerken en bijwerken op OpenStreetMap.org</string>
     <!-- OSM explanation on Android login screen -->
     <string name="login_osm_presentation">OpenStreetMap.org (OSM) is een gemeenschapsproject om een vrije en open kaart te bouwen. Het is de belangrijkste bron van kaartgegevens in Organic Maps en werkt ongeveer hetzelfde als Wikipedia. U kunt plaatsen toevoegen of bewerken en deze worden dan beschikbaar voor miljoenen gebruikers over de hele wereld.
 \nSluit u aan bij de gemeenschap en help mee om een betere kaart voor iedereen te maken!</string>
@@ -510,7 +519,7 @@
     <string name="editor_zip_code">Postcode</string>
     <string name="error_enter_correct_zip_code">Voer een geldige postcode in</string>
     <!-- Place Page title for long tap -->
-    <string name="core_placepage_unknown_place">Onbekende locatie</string>
+    <string name="core_placepage_unknown_place">Kaartpunt</string>
     <!-- Title for OSM note section in the editor -->
     <string name="editor_other_info">Opmerking voor OpenStreetMap vrijwilligers (optioneel)</string>
     <!-- Hint of the input field in the OSM note section of the editor -->
@@ -518,6 +527,8 @@
     <!-- Information about OSM at the top of the editing page -->
     <string name="editor_about_osm">Uw bewerkingen worden geüpload naar de openbare <a href="https://wiki.openstreetmap.org/wiki/NL:About">OpenStreetMap</a> database. Voeg geen persoonlijke of auteursrechtelijk beschermde informatie toe.</string>
     <string name="editor_more_about_osm">Meer over OpenStreetMap</string>
+    <string name="editor_osm_history">Uw bewerkingsgeschiedenis</string>
+    <string name="editor_osm_notes">Opmerkingen over uw kaartgegevens</string>
     <string name="editor_operator">Exploitant</string>
     <!-- To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... -->
     <string name="operator">Exploitant: %s</string>
@@ -547,6 +558,8 @@
     <string name="dialog_kayak_disclaimer">De doorverwijsbonus die je ontvangt voor elke boeking via deze link gaat naar de ontwikkeling van Organic Maps.</string>
     <!-- A confirmation button text in the explanation dialog that opens hotel details page on Kayak website. -->
     <string name="dialog_kayak_button">Details op Kayak</string>
+    <!-- A disable button text in the explanation dialog that opens hotel details page on Kayak website. -->
+    <string name="dialog_kayak_disable_button">Kayak uitschakelen</string>
     <string name="placepage_edit_bookmark_button">Bewerk bladwijzer</string>
     <string name="editor_comment_hint">Reactie…</string>
     <string name="editor_reset_edits_message">Alle lokale wijzigingen weggooien?</string>
@@ -757,8 +770,8 @@
     <string name="isolines_location_error_dialog">Hoogtelijnen zijn nog niet beschikbaar in deze regio</string>
     <string name="elevation_profile_ascent">Stijging</string>
     <string name="elevation_profile_descent">Daling</string>
-    <string name="elevation_profile_minaltitude">Min. hoogte</string>
-    <string name="elevation_profile_maxaltitude">Max. hoogte</string>
+    <string name="elevation_profile_min_elevation">Min. hoogte</string>
+    <string name="elevation_profile_max_elevation">Max. hoogte</string>
     <string name="elevation_profile_difficulty">Moeilijkheid</string>
     <string name="elevation_profile_distance">Afst.:</string>
     <string name="elevation_profile_time">Tijd:</string>
@@ -819,11 +832,13 @@
     <!-- Displayed on the Android Auto or CarPlay screen. Button to display maps on the car screen instead of a phone. Must be no more than 18 symbols! -->
     <string name="car_continue_in_the_car">Naar het autoscherm</string>
     <!-- Ask user to grant location permissions -->
-    <string name="aa_location_permissions_request">Deze applicatie vereist toegang tot je locatie voor navigatiedoeleinden.</string>
-    <!-- Displayed on the Android Auto screen. Grant Permissions button. Must be no more than 18 symbols! -->
+    <string name="aa_location_permissions_request">Organic Maps heeft locatietoegang nodig. Als het veilig is, controleer je de melding op je telefoon.</string>
+    <!-- Notification title for permission request from AA. -->
+    <string name="aa_request_permission_notification">Deze app heeft je toestemming nodig</string>
+    <!-- The text in the activity for location permission request. -->
+    <string name="aa_request_permission_activity_text">Organic Maps in Android Auto heeft een locatie toestemming nodig om effectief te werken</string>
+    <!-- Grant Permissions button. -->
     <string name="aa_grant_permissions">Geef toestemming</string>
-    <!-- Text that will be displayed in the notification title when the app is connected to Android Auto. -->
-    <string name="aa_connected_to_car_notification_title">Verbonden met auto</string>
     <!-- Outdoors/hiking map style (activity) name in the Styles and Layers dialog -->
     <string name="button_layer_outdoor">Wandelen</string>
     <!-- Text displayed when a webview or a browser are disabled, and external links can't be opened. -->
@@ -1624,6 +1639,9 @@
     <string name="type.place.islet">Eilandje</string>
     <string name="type.place.isolated_dwelling">Geïsoleerde woning</string>
     <string name="type.place.locality">Plaats</string>
+    <!-- Named part of a city or town, bigger than place=neighbourhood and smaller than place=suburb (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dquarter) -->
+    <string name="type.place.quarter">Wijk</string>
+    <!-- Named part of a city, town or suburb, smaller than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Neighbourhood) -->
     <string name="type.place.neighbourhood">Buurt</string>
     <string name="type.place.ocean">Oceaan</string>
     <string name="type.place.region">Regio</string>
@@ -1631,6 +1649,7 @@
     <string name="type.place.square">Plein</string>
     <string name="type.place.state">Deelstaat</string>
     <string name="type.place.state.USA">Deelstaat</string>
+    <!-- Named part of a city or town, bigger than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dsuburb) -->
     <string name="type.place.suburb">Buitenwijk</string>
     <string name="type.place.town">Stad</string>
     <string name="type.place.village">Dorp</string>

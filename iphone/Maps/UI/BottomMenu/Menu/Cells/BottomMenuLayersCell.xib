@@ -83,16 +83,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g13-pK-Eig" userLabel="Outdoor Button" customClass="BottomMenuLayerButton" customModule="Organic_Maps" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="102.5" height="64"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="btn_menu_outdoors"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="spacing">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="numberOfLines">
-                                        <integer key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="button_layer_outdoor"/>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="onOutdoorButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="UQ2-jj-fPc"/>
                                 </connections>
@@ -100,16 +90,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="edA-Mo-3Vx" customClass="BottomMenuLayerButton" customModule="Organic_Maps" customModuleProvider="target">
                                 <rect key="frame" x="102.5" y="0.0" width="103" height="64"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="btn_menu_isomaps"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="spacing">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="numberOfLines">
-                                        <integer key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="button_layer_isolines"/>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="onIsoLinesButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="3LS-C2-2Mc"/>
                                 </connections>
@@ -117,16 +97,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4US-fZ-cyg" customClass="BottomMenuLayerButton" customModule="Organic_Maps" customModuleProvider="target">
                                 <rect key="frame" x="205.5" y="0.0" width="102.5" height="64"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="btn_menu_subway"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="spacing">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="numberOfLines">
-                                        <integer key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="button_layer_subway"/>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="onSubwayButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="xxM-kP-gT1"/>
                                 </connections>
@@ -154,16 +124,6 @@
                             </mask>
                         </variation>
                     </stackView>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="75k-vD-FSR" userLabel="Separator">
-                        <rect key="frame" x="0.0" y="164" width="340" height="1"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.12" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="1" id="olJ-Rf-VTO"/>
-                        </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="Divider"/>
-                        </userDefinedRuntimeAttributes>
-                    </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
@@ -179,11 +139,6 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-            <constraints>
-                <constraint firstItem="75k-vD-FSR" firstAttribute="trailing" secondItem="njF-e1-oar" secondAttribute="trailing" id="6Po-s2-mvn"/>
-                <constraint firstItem="njF-e1-oar" firstAttribute="bottom" secondItem="75k-vD-FSR" secondAttribute="bottom" id="mtK-Ba-kQj"/>
-                <constraint firstItem="njF-e1-oar" firstAttribute="leading" secondItem="75k-vD-FSR" secondAttribute="leading" id="nhe-Sa-Mlo"/>
-            </constraints>
             <connections>
                 <outlet property="closeButton" destination="2xW-dK-D9y" id="RQI-hb-JpS"/>
                 <outlet property="isoLinesButton" destination="edA-Mo-3Vx" id="qoC-8w-EqY"/>
@@ -193,9 +148,4 @@
             <point key="canvasLocation" x="137.6953125" y="201.953125"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="btn_menu_isomaps" width="151" height="151"/>
-        <image name="btn_menu_outdoors" width="151" height="151"/>
-        <image name="btn_menu_subway" width="151" height="151"/>
-    </resources>
 </document>

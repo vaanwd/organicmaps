@@ -571,7 +571,7 @@
 
 "editor_example_values" = "أمثلة على القيم";
 
-"editor_add_select_location" = "الموقع";
+"editor_add_select_location" = "اختر الموقع";
 
 "editor_done_dialog_1" = "لقد ساهمت بتحسين خريطة العالم. لا تخفي ذلك! أخبر أصدقائك، وحسنوها معاً.";
 
@@ -683,7 +683,7 @@
 
 "editor_profile_changes" = "التعديلات التي تم التحقق منها";
 
-"editor_focus_map_on_location" = "اسحب الخريطة لتحدد موقع الإضافة.";
+"editor_focus_map_on_location" = "اسحب الخريطة لوضع الصليب في موقع المكان أو النشاط التجاري.";
 
 "editor_add_select_category" = "اختر الفئة";
 
@@ -737,7 +737,7 @@
 "error_enter_correct_zip_code" = "أدخل الرمز البريدي صالح";
 
 /* Place Page title for long tap */
-"core_placepage_unknown_place" = "مكان غير معروف";
+"core_placepage_unknown_place" = "نقطة الخريطة";
 
 /* Title for OSM note section in the editor */
 "editor_other_info" = "ملاحظة لمتطوعي OpenStreetMap (اختياري)";
@@ -819,6 +819,9 @@
 
 /* A confirmation button text in the explanation dialog that opens hotel details page on Kayak website. */
 "dialog_kayak_button" = "التفاصيل على Kayak";
+
+/* A disable button text in the explanation dialog that opens hotel details page on Kayak website. */
+"dialog_kayak_disable_button" = "تعطيل Kayak";
 
 "placepage_call_button" = "اتصال";
 
@@ -1225,9 +1228,9 @@
 
 "elevation_profile_descent" = "تنازلي";
 
-"elevation_profile_minaltitude" = "الحد الأدنى للارتفاع";
+"elevation_profile_min_elevation" = "أقل ارتفاع";
 
-"elevation_profile_maxaltitude" = "الحد الأقصى للارتفاع";
+"elevation_profile_max_elevation" = "أعلى ارتفاع";
 
 "elevation_profile_difficulty" = "درجة الصعوبة";
 
@@ -1253,6 +1256,9 @@
 
 /* Delete track button on track edit screen */
 "placepage_delete_track_button" = "حذف المسار";
+
+/* The track deletion confirmaion alert message. */
+"placepage_delete_track_confirmation_alert_message" = "هل أنت متأكد من رغبتك في حذف هذا المسار؟";
 
 /* Placeholder for track name input on track edit screen */
 "placepage_track_name_hint" = "اسم المسار";
@@ -1370,6 +1376,9 @@
 /* Title for the "Open In Another App" button on the PlacePage. */
 "open_in_app" = "فتح في تطبيق آخر";
 
+/* To indicate if the place proposed self service... */
+"self_service" = "الخدمة الذاتية";
+
 /* To indicate if restaurant or other place has outdoor seating */
 "outdoor_seating" = "مقاعد خارجية";
 
@@ -1405,6 +1414,8 @@
 
 /* Message for the toast when saving the track recording is finished but nothing to save. */
 "track_recording_toast_nothing_to_save" = "المسار فارغ - لا يوجد شيء للحفظ";
+
+"edit_track" = "تعديل المسار";
 
 
 /********** Types **********/
@@ -2893,7 +2904,11 @@
 
 "type.place.locality" = "منطقة مجاورة";
 
-"type.place.neighbourhood" = "حي سكني";
+/* Named part of a city or town, bigger than place=neighbourhood and smaller than place=suburb (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dquarter) */
+"type.place.quarter" = "حي سكني";
+
+/* Named part of a city, town or suburb, smaller than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Neighbourhood) */
+"type.place.neighbourhood" = "الحي";
 
 "type.place.ocean" = "محيط";
 
@@ -2907,6 +2922,7 @@
 
 "type.place.state.USA" = "ولاية";
 
+/* Named part of a city or town, bigger than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dsuburb) */
 "type.place.suburb" = "ضاحية";
 
 "type.place.town" = "بلدة";

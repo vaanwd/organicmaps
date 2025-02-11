@@ -1287,7 +1287,9 @@ public class MwmActivity extends BaseMwmFragmentActivity
     if (isFullscreen())
     {
       closePlacePage();
-      showFullscreenToastIfNeeded();
+      // Show the toast every time so that users don't forget and don't get trapped in the FS mode.
+      // TODO(pastk): there are better solutions, see https://github.com/organicmaps/organicmaps/issues/9344
+      Toast.makeText(this, R.string.long_tap_toast, Toast.LENGTH_LONG).show();
     }
   }
 
@@ -1309,14 +1311,14 @@ public class MwmActivity extends BaseMwmFragmentActivity
         Framework.nativeGetChoosePositionMode() == Framework.ChoosePositionMode.NONE;
   }
 
-  private void showFullscreenToastIfNeeded()
-  {
-    // Show the toast only once so new behaviour doesn't confuse users
-    if (!Config.wasLongTapToastShown(this))
-    {
-      Toast.makeText(this, R.string.long_tap_toast, Toast.LENGTH_LONG).show();
-      Config.setLongTapToastShown(this, true);
+  @Override
+  public boolean dispatchGenericMotionEvent(MotionEvent event) {
+    if (event.getActionMasked() == MotionEvent.ACTION_SCROLL) {
+      int exponent = event.getAxisValue(MotionEvent.AXIS_VSCROLL) < 0 ? -1 : 1;
+      Map.onScale(Math.pow(1.7f, exponent), event.getX(), event.getY(), true);
+      return true;
     }
+    return super.onGenericMotionEvent(event);
   }
 
   @Override
@@ -1726,7 +1728,8 @@ public class MwmActivity extends BaseMwmFragmentActivity
 
   public void openKayakLink(@NonNull String url)
   {
-    if (Config.isKayakDisclaimerAccepted() || !Config.isKayakReferralAllowed())
+    // The disclaimer is not needed if a user had explicitly opted-in via the setting.
+    if (Config.isKayakDisclaimerAccepted() || Config.isKayakDisplayEnabled())
     {
       Utils.openUrl(this, url);
       return;
@@ -1736,12 +1739,16 @@ public class MwmActivity extends BaseMwmFragmentActivity
     mAlertDialog = new MaterialAlertDialogBuilder(this, R.style.MwmTheme_AlertDialog)
         .setTitle(R.string.how_to_support_us)
         .setMessage(R.string.dialog_kayak_disclaimer)
-        .setCancelable(false)
+        .setCancelable(true)
         .setPositiveButton(R.string.dialog_kayak_button, (dlg, which) -> {
           Config.acceptKayakDisclaimer();
           Utils.openUrl(this, url);
         })
         .setNegativeButton(R.string.cancel, null)
+        .setNeutralButton(R.string.dialog_kayak_disable_button, (dlg, which) -> {
+          Config.setKayakDisplay(false);
+          UiUtils.hide(findViewById(R.id.ll__place_kayak));
+        })
         .setOnDismissListener(dialog -> mAlertDialog = null)
         .show();
   }

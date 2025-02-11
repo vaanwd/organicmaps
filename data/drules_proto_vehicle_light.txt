@@ -26356,6 +26356,20 @@ cont {
 cont {
   name: "landuse-allotments"
   element {
+    scale: 12
+    area {
+      color: 13031851
+      priority: -1930
+    }
+  }
+  element {
+    scale: 13
+    area {
+      color: 13031851
+      priority: -1930
+    }
+  }
+  element {
     scale: 14
     area {
       color: 13031851
@@ -26771,6 +26785,20 @@ cont {
 }
 cont {
   name: "landuse-field"
+  element {
+    scale: 12
+    area {
+      color: 13031851
+      priority: -1930
+    }
+  }
+  element {
+    scale: 13
+    area {
+      color: 13031851
+      priority: -1930
+    }
+  }
   element {
     scale: 14
     area {
@@ -28185,6 +28213,20 @@ cont {
 cont {
   name: "landuse-grass"
   element {
+    scale: 12
+    area {
+      color: 13031851
+      priority: -1920
+    }
+  }
+  element {
+    scale: 13
+    area {
+      color: 13031851
+      priority: -1920
+    }
+  }
+  element {
     scale: 14
     area {
       color: 13031851
@@ -28413,6 +28455,20 @@ cont {
 }
 cont {
   name: "landuse-meadow"
+  element {
+    scale: 12
+    area {
+      color: 13031851
+      priority: -1930
+    }
+  }
+  element {
+    scale: 13
+    area {
+      color: 13031851
+      priority: -1930
+    }
+  }
   element {
     scale: 14
     area {
@@ -28724,6 +28780,20 @@ cont {
 cont {
   name: "landuse-orchard"
   element {
+    scale: 12
+    area {
+      color: 13031851
+      priority: -1930
+    }
+  }
+  element {
+    scale: 13
+    area {
+      color: 13031851
+      priority: -1930
+    }
+  }
+  element {
     scale: 14
     area {
       color: 13031851
@@ -28949,6 +29019,20 @@ cont {
 }
 cont {
   name: "landuse-recreation_ground"
+  element {
+    scale: 12
+    area {
+      color: 13031851
+      priority: -1930
+    }
+  }
+  element {
+    scale: 13
+    area {
+      color: 13031851
+      priority: -1930
+    }
+  }
   element {
     scale: 14
     area {
@@ -29377,6 +29461,20 @@ cont {
 cont {
   name: "landuse-village_green"
   element {
+    scale: 12
+    area {
+      color: 13031851
+      priority: -1930
+    }
+  }
+  element {
+    scale: 13
+    area {
+      color: 13031851
+      priority: -1930
+    }
+  }
+  element {
     scale: 14
     area {
       color: 13031851
@@ -29428,6 +29526,20 @@ cont {
 }
 cont {
   name: "landuse-vineyard"
+  element {
+    scale: 12
+    area {
+      color: 13031851
+      priority: -1930
+    }
+  }
+  element {
+    scale: 13
+    area {
+      color: 13031851
+      priority: -1930
+    }
+  }
   element {
     scale: 14
     area {
@@ -29735,6 +29847,20 @@ cont {
 cont {
   name: "leisure-golf_course"
   element {
+    scale: 12
+    area {
+      color: 13031851
+      priority: -1910
+    }
+  }
+  element {
+    scale: 13
+    area {
+      color: 13031851
+      priority: -1910
+    }
+  }
+  element {
     scale: 14
     area {
       color: 13031851
@@ -29786,6 +29912,20 @@ cont {
 }
 cont {
   name: "leisure-miniature_golf"
+  element {
+    scale: 12
+    area {
+      color: 13031851
+      priority: -1910
+    }
+  }
+  element {
+    scale: 13
+    area {
+      color: 13031851
+      priority: -1910
+    }
+  }
   element {
     scale: 14
     area {
@@ -32857,6 +32997,20 @@ cont {
 cont {
   name: "natural-grassland"
   element {
+    scale: 12
+    area {
+      color: 13031851
+      priority: -1920
+    }
+  }
+  element {
+    scale: 13
+    area {
+      color: 13031851
+      priority: -1920
+    }
+  }
+  element {
     scale: 14
     area {
       color: 13031851
@@ -32908,6 +33062,20 @@ cont {
 }
 cont {
   name: "natural-heath"
+  element {
+    scale: 12
+    area {
+      color: 13031851
+      priority: -1920
+    }
+  }
+  element {
+    scale: 13
+    area {
+      color: 13031851
+      priority: -1920
+    }
+  }
   element {
     scale: 14
     area {
@@ -33103,6 +33271,20 @@ cont {
 }
 cont {
   name: "natural-scrub"
+  element {
+    scale: 12
+    area {
+      color: 13031851
+      priority: -1930
+    }
+  }
+  element {
+    scale: 13
+    area {
+      color: 13031851
+      priority: -1930
+    }
+  }
   element {
     scale: 14
     area {
@@ -43041,7 +43223,7 @@ cont {
     lines {
       width: 4.7
       color: 15066325
-      priority: 40
+      priority: 110
       cap: BUTTCAP
     }
     lines {
@@ -43056,7 +43238,7 @@ cont {
     lines {
       width: 6.0
       color: 15066325
-      priority: 40
+      priority: 110
       cap: BUTTCAP
     }
     lines {
@@ -43071,13 +43253,13 @@ cont {
     lines {
       width: 7.4
       color: 8421504
-      priority: 30
+      priority: 100
       cap: BUTTCAP
     }
     lines {
       width: 6.2
       color: 15066325
-      priority: 40
+      priority: 110
       cap: BUTTCAP
     }
     lines {
@@ -43100,13 +43282,13 @@ cont {
     lines {
       width: 10.8
       color: 8421504
-      priority: 30
+      priority: 100
       cap: BUTTCAP
     }
     lines {
       width: 9.4
       color: 15066325
-      priority: 40
+      priority: 110
       cap: BUTTCAP
     }
     lines {
@@ -43129,13 +43311,13 @@ cont {
     lines {
       width: 15.4
       color: 8421504
-      priority: 30
+      priority: 100
       cap: BUTTCAP
     }
     lines {
       width: 13.6
       color: 15066325
-      priority: 40
+      priority: 110
       cap: BUTTCAP
     }
     lines {
@@ -43158,13 +43340,13 @@ cont {
     lines {
       width: 18.8
       color: 8421504
-      priority: 30
+      priority: 100
       cap: BUTTCAP
     }
     lines {
       width: 17.0
       color: 15066325
-      priority: 40
+      priority: 110
       cap: BUTTCAP
     }
     lines {
@@ -43187,13 +43369,13 @@ cont {
     lines {
       width: 18.8
       color: 8421504
-      priority: 30
+      priority: 100
       cap: BUTTCAP
     }
     lines {
       width: 17.0
       color: 15066325
-      priority: 40
+      priority: 110
       cap: BUTTCAP
     }
     lines {
@@ -48993,54 +49175,30 @@ cont {
 cont {
   name: "railway-station-monorail"
   element {
-    scale: 12
+    scale: 13
     symbol {
-      name: "train-s"
+      name: "monorail-s"
       priority: 2900
     }
   }
   element {
-    scale: 13
+    scale: 14
     symbol {
-      name: "train-m"
+      name: "monorail-s"
       priority: 2900
     }
     caption {
       primary {
         height: 11
         color: 3355443
-        stroke_color: 1728053247
+        stroke_color: 872415231
         offset_y: 1
         is_optional: true
       }
       secondary {
         height: 9
         color: 3355443
-        stroke_color: 1728053247
-        offset_y: 1
-        is_optional: true
-      }
-      priority: -7100
-    }
-  }
-  element {
-    scale: 14
-    symbol {
-      name: "train-m"
-      priority: 2900
-    }
-    caption {
-      primary {
-        height: 12
-        color: 3355443
-        stroke_color: 1308622847
-        offset_y: 1
-        is_optional: true
-      }
-      secondary {
-        height: 10
-        color: 3355443
-        stroke_color: 1308622847
+        stroke_color: 872415231
         offset_y: 1
         is_optional: true
       }
@@ -49050,7 +49208,7 @@ cont {
   element {
     scale: 15
     symbol {
-      name: "train-m"
+      name: "monorail-m"
       priority: 2900
     }
     caption {
@@ -49074,7 +49232,7 @@ cont {
   element {
     scale: 16
     symbol {
-      name: "train-m"
+      name: "monorail-m"
       priority: 2900
     }
     caption {
@@ -49098,19 +49256,19 @@ cont {
   element {
     scale: 17
     symbol {
-      name: "train-m"
+      name: "monorail-m"
       priority: 2900
     }
     caption {
       primary {
-        height: 14
+        height: 13
         color: 3355443
         stroke_color: 452984831
         offset_y: 1
         is_optional: true
       }
       secondary {
-        height: 12
+        height: 11
         color: 3355443
         stroke_color: 452984831
         offset_y: 1
@@ -49122,19 +49280,19 @@ cont {
   element {
     scale: 18
     symbol {
-      name: "train-m"
+      name: "monorail-m"
       priority: 2900
     }
     caption {
       primary {
-        height: 14
+        height: 13
         color: 3355443
         stroke_color: 452984831
         offset_y: 1
         is_optional: true
       }
       secondary {
-        height: 12
+        height: 11
         color: 3355443
         stroke_color: 452984831
         offset_y: 1
@@ -49146,19 +49304,19 @@ cont {
   element {
     scale: 19
     symbol {
-      name: "train-m"
+      name: "monorail-m"
       priority: 2900
     }
     caption {
       primary {
-        height: 14
+        height: 13
         color: 3355443
         stroke_color: 452984831
         offset_y: 1
         is_optional: true
       }
       secondary {
-        height: 12
+        height: 11
         color: 3355443
         stroke_color: 452984831
         offset_y: 1
@@ -49170,19 +49328,19 @@ cont {
   element {
     scale: 20
     symbol {
-      name: "train-m"
+      name: "monorail-m"
       priority: 2900
     }
     caption {
       primary {
-        height: 14
+        height: 13
         color: 3355443
         stroke_color: 452984831
         offset_y: 1
         is_optional: true
       }
       secondary {
-        height: 12
+        height: 11
         color: 3355443
         stroke_color: 452984831
         offset_y: 1

@@ -250,6 +250,9 @@
     <string name="faq">Câu hỏi và trả lời</string>
     <!-- Button in the main menu -->
     <string name="donate">Quyên tặng</string>
+    <string name="already_donated">Đã quyên góp</string>
+    <string name="remind_me_later">Nhắc sau</string>
+    <string name="support_organic_maps">Hỗ trợ Organic Maps</string>
     <!-- Button in the main Help dialog -->
     <string name="how_to_support_us">Hỗ trợ dự án</string>
     <!-- Button in the main Help dialog -->
@@ -291,6 +294,10 @@
     <string name="google_play_services">Dịch vụ vị trí của Google Play</string>
     <!-- Preference text -->
     <string name="pref_use_google_play">Nhanh chóng xác định vị trí gần đúng của bạn bằng Bluetooth, WiFi hoặc mạng di động</string>
+    <!-- Preference title -->
+    <string name="pref_display_kayak_title">Liên kết khách sạn Kayak.com</string>
+    <!-- Preference description -->
+    <string name="pref_display_kayak_text">Hình ảnh, đánh giá, liên kết đặt phòng được hiển thị cho các khách sạn có danh sách trên Kayak.com. Phần thưởng giới thiệu nhận được cho mỗi lần đặt phòng thông qua các liên kết này sẽ hướng tới sự phát triển của Organic Maps.</string>
     <!-- Text for routing error dialog -->
     <string name="routing_download_maps_along">Tải xuống bản đồ theo tuyến đường</string>
     <!-- Text for routing error dialog -->
@@ -405,7 +412,7 @@
     <string name="editor_hours_closed">Giờ đóng cửa</string>
     <string name="editor_example_values">Giá trị ví dụ</string>
     <string name="editor_correct_mistake">Sửa lỗi</string>
-    <string name="editor_add_select_location">Vị trí</string>
+    <string name="editor_add_select_location">Chọn vị trí</string>
     <string name="editor_report_problem_desription_1">Xin mô tả chi tiết vấn đề để cộng đồng OpenStreetMap có thể sửa lỗi đó.</string>
     <string name="editor_report_problem_desription_2">Hoặc bạn có thể tự sửa tại https://www.openstreetmap.org/</string>
     <string name="editor_report_problem_send_button">Gửi</string>
@@ -437,6 +444,8 @@
     <!-- Editable House Number text field (in address block). -->
     <string name="house_number">Số nhà</string>
     <string name="details">Chi tiết</string>
+    <string name="social_media">Truyền thông xã hội</string>
+    <string name="building">Xây dựng</string>
     <!-- Text field to enter non-existing street name, below list of known streets around -->
     <string name="add_street">Thêm con đường</string>
     <string name="choose_language">Đã chọn ngôn ngữ</string>
@@ -456,7 +465,7 @@
     <string name="downloader_no_space_message">Xin xóa dữ liệu không cần thiết</string>
     <string name="editor_login_error_dialog">Lỗi đăng nhập.</string>
     <string name="editor_profile_changes">Các thay đổi đã được xác thực</string>
-    <string name="editor_focus_map_on_location">Kéo bản đồ để chọn vị trí chính xác của đối tượng</string>
+    <string name="editor_focus_map_on_location">Kéo bản đồ để đặt dấu thập vào vị trí của địa điểm hoặc doanh nghiệp.</string>
     <string name="editor_edit_place_title">Chỉnh sửa</string>
     <string name="editor_add_place_title">Nhập</string>
     <string name="editor_edit_place_name_hint">Tên địa điểm</string>
@@ -484,7 +493,7 @@
     <string name="editor_zip_code">Mã ZIP</string>
     <string name="error_enter_correct_zip_code">Nhập Mã ZIP chính xác</string>
     <!-- Place Page title for long tap -->
-    <string name="core_placepage_unknown_place">Địa Điểm Chưa Biết</string>
+    <string name="core_placepage_unknown_place">Điểm bản đồ</string>
     <!-- Title for OSM note section in the editor -->
     <string name="editor_other_info">Lưu ý dành cho tình nguyện viên OpenStreetMap (tùy chọn)</string>
     <!-- Hint of the input field in the OSM note section of the editor -->
@@ -492,6 +501,8 @@
     <!-- Information about OSM at the top of the editing page -->
     <string name="editor_about_osm">Các chỉnh sửa của bạn sẽ được tải lên cơ sở dữ liệu <a href="https://wiki.openstreetmap.org/wiki/About_OpenStreetMap">OpenStreetMap</a> công khai. Vui lòng không thêm thông tin cá nhân hoặc có bản quyền.</string>
     <string name="editor_more_about_osm">Thông tin bổ sung về OpenStreetMap</string>
+    <string name="editor_osm_history">Lịch sử chỉnh sửa của bạn</string>
+    <string name="editor_osm_notes">Ghi chú dữ liệu bản đồ của bạn</string>
     <string name="editor_operator">Toán tử</string>
     <!-- To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... -->
     <string name="operator">Toán tử: %s</string>
@@ -521,6 +532,8 @@
     <string name="dialog_kayak_disclaimer">Phần thưởng giới thiệu nhận được cho mỗi lần đặt phòng thông qua liên kết này sẽ hướng tới việc phát triển bản đồ không phải trả tiền.</string>
     <!-- A confirmation button text in the explanation dialog that opens hotel details page on Kayak website. -->
     <string name="dialog_kayak_button">Chi tiết trên Kayak</string>
+    <!-- A disable button text in the explanation dialog that opens hotel details page on Kayak website. -->
+    <string name="dialog_kayak_disable_button">Vô hiệu hóa Kayak</string>
     <string name="placepage_edit_bookmark_button">Sửa Dấu Trang</string>
     <string name="editor_comment_hint">Nhận xét…</string>
     <string name="editor_reset_edits_message">Cài đặt lại tất cả thay đổi cục bộ?</string>
@@ -723,8 +736,8 @@
     <string name="isolines_location_error_dialog">Đường hiển thị độ cao hiện chưa khả dụng tại khu vực này</string>
     <string name="elevation_profile_ascent">Đi lên</string>
     <string name="elevation_profile_descent">Đi xuống</string>
-    <string name="elevation_profile_minaltitude">Độ cao tối thiểu</string>
-    <string name="elevation_profile_maxaltitude">Độ cao tối đa</string>
+    <string name="elevation_profile_min_elevation">Min. độ cao</string>
+    <string name="elevation_profile_max_elevation">Max. độ cao</string>
     <string name="elevation_profile_difficulty">Độ khó</string>
     <string name="elevation_profile_distance">Khoảng cách</string>
     <string name="elevation_profile_time">Giờ:</string>
@@ -766,11 +779,13 @@
     <!-- Displayed on the Android Auto or CarPlay screen. Button to display maps on the car screen instead of a phone. Must be no more than 18 symbols! -->
     <string name="car_continue_in_the_car">Đến màn hình ô tô</string>
     <!-- Ask user to grant location permissions -->
-    <string name="aa_location_permissions_request">Ứng dụng này yêu cầu quyền truy cập vào vị trí của bạn cho mục đích điều hướng.</string>
-    <!-- Displayed on the Android Auto screen. Grant Permissions button. Must be no more than 18 symbols! -->
+    <string name="aa_location_permissions_request">Bản đồ không phải trả tiền cần quyền truy cập vị trí. Khi an toàn, hãy kiểm tra thông báo trên điện thoại của bạn.</string>
+    <!-- Notification title for permission request from AA. -->
+    <string name="aa_request_permission_notification">Ứng dụng này cần sự cho phép của bạn</string>
+    <!-- The text in the activity for location permission request. -->
+    <string name="aa_request_permission_activity_text">Bản đồ không phải trả tiền trong Android Auto cần có quyền truy cập vị trí để hoạt động hiệu quả</string>
+    <!-- Grant Permissions button. -->
     <string name="aa_grant_permissions">Cấp quyền</string>
-    <!-- Text that will be displayed in the notification title when the app is connected to Android Auto. -->
-    <string name="aa_connected_to_car_notification_title">Đã kết nối với ô tô</string>
     <!-- Outdoors/hiking map style (activity) name in the Styles and Layers dialog -->
     <string name="button_layer_outdoor">Đi bộ đường dài</string>
     <!-- Text displayed when a webview or a browser are disabled, and external links can't be opened. -->
@@ -1464,13 +1479,17 @@
     <string name="type.place.islet">Tỉnh</string>
     <string name="type.place.isolated_dwelling">Nhà ở Biệt lập</string>
     <string name="type.place.locality">Thôn</string>
-    <string name="type.place.neighbourhood">Vùng lân cận</string>
+    <!-- Named part of a city or town, bigger than place=neighbourhood and smaller than place=suburb (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dquarter) -->
+    <string name="type.place.quarter">Vùng lân cận</string>
+    <!-- Named part of a city, town or suburb, smaller than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Neighbourhood) -->
+    <string name="type.place.neighbourhood">Hàng xóm</string>
     <string name="type.place.ocean">Đại dương</string>
     <string name="type.place.region">Vùng</string>
     <string name="type.place.sea">Biển</string>
     <string name="type.place.square">Quảng trường</string>
     <string name="type.place.state">Hạt</string>
     <string name="type.place.state.USA">Hạt</string>
+    <!-- Named part of a city or town, bigger than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dsuburb) -->
     <string name="type.place.suburb">Đảo</string>
     <string name="type.place.town">Thành phố</string>
     <string name="type.place.village">Xóm</string>

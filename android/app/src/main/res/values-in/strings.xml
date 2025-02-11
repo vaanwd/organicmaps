@@ -251,6 +251,9 @@
     <string name="faq">Pertanyaan dan jawaban</string>
     <!-- Button in the main menu -->
     <string name="donate">Menyumbangkan</string>
+    <string name="already_donated">Sudah disumbang</string>
+    <string name="remind_me_later">Ingatkan nanti</string>
+    <string name="support_organic_maps">Mendukung Organic Maps</string>
     <!-- Button in the main Help dialog -->
     <string name="how_to_support_us">Mendukung proyek</string>
     <!-- Button in the main Help dialog -->
@@ -292,6 +295,10 @@
     <string name="google_play_services">Layanan Lokasi Google Play</string>
     <!-- Preference text -->
     <string name="pref_use_google_play">Dengan cepat menentukan perkiraan lokasi Anda melalui Bluetooth, WiFi, atau jaringan seluler</string>
+    <!-- Preference title -->
+    <string name="pref_display_kayak_title">Tautan Hotel Kayak.com</string>
+    <!-- Preference description -->
+    <string name="pref_display_kayak_text">Foto, ulasan, tautan pemesanan ditampilkan untuk hotel yang memiliki daftar di Kayak.com. Bonus rujukan yang diterima untuk setiap pemesanan melalui tautan ini digunakan untuk pengembangan Organic Maps.</string>
     <!-- Text for routing error dialog -->
     <string name="routing_download_maps_along">Unduh peta bersama rute</string>
     <!-- Text for routing error dialog -->
@@ -406,7 +413,7 @@
     <string name="editor_hours_closed">Jam Tutup</string>
     <string name="editor_example_values">Contoh Nilai</string>
     <string name="editor_correct_mistake">Koreksi kesalahan</string>
-    <string name="editor_add_select_location">Lokasi</string>
+    <string name="editor_add_select_location">Pilih Lokasi</string>
     <string name="editor_report_problem_desription_1">Harap menggambarkan masalah secara rinci sehingga komunitas OpenStreetMap dapat memperbaiki kesalahan.</string>
     <string name="editor_report_problem_desription_2">Atau Anda bisa melakukan sendiri di https://www.openstreetmap.org/</string>
     <string name="editor_report_problem_send_button">Kirim</string>
@@ -438,6 +445,8 @@
     <!-- Editable House Number text field (in address block). -->
     <string name="house_number">Nomor rumah</string>
     <string name="details">Detail</string>
+    <string name="social_media">Media Sosial</string>
+    <string name="building">Bangunan</string>
     <!-- Text field to enter non-existing street name, below list of known streets around -->
     <string name="add_street">Tambahkan jalan</string>
     <string name="choose_language">Pilih bahasa</string>
@@ -457,7 +466,7 @@
     <string name="downloader_no_space_message">Harap menghapus data yang tidak diperlukan</string>
     <string name="editor_login_error_dialog">Kesalahan masuk.</string>
     <string name="editor_profile_changes">Perubahan Terverifikasi</string>
-    <string name="editor_focus_map_on_location">Tarik peta untuk memilih lokasi yang benar dari obyek.</string>
+    <string name="editor_focus_map_on_location">Seret peta untuk menempatkan tanda silang di lokasi tempat atau bisnis.</string>
     <string name="editor_edit_place_title">Mengedit</string>
     <string name="editor_add_place_title">Menambahkan</string>
     <string name="editor_edit_place_name_hint">Nama tempat</string>
@@ -485,7 +494,7 @@
     <string name="editor_zip_code">Kode Pos</string>
     <string name="error_enter_correct_zip_code">Masukkan Kode Pos yang benar</string>
     <!-- Place Page title for long tap -->
-    <string name="core_placepage_unknown_place">Tempat Tidak Dikenal</string>
+    <string name="core_placepage_unknown_place">Titik Peta</string>
     <!-- Title for OSM note section in the editor -->
     <string name="editor_other_info">Catatan untuk relawan OpenStreetMap (opsional)</string>
     <!-- Hint of the input field in the OSM note section of the editor -->
@@ -493,6 +502,8 @@
     <!-- Information about OSM at the top of the editing page -->
     <string name="editor_about_osm">Hasil editan Anda akan diunggah ke database <a href="https://wiki.openstreetmap.org/wiki/About_OpenStreetMap">OpenStreetMap</a> publik. Mohon untuk tidak menambahkan informasi pribadi atau informasi yang memiliki hak cipta.</string>
     <string name="editor_more_about_osm">Selengkapnya tentang OpenStreetMap</string>
+    <string name="editor_osm_history">Riwayat pengeditan Anda</string>
+    <string name="editor_osm_notes">Catatan data peta Anda</string>
     <string name="editor_operator">Operator</string>
     <!-- To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... -->
     <string name="operator">Operator: %s</string>
@@ -522,6 +533,8 @@
     <string name="dialog_kayak_disclaimer">Bonus rujukan yang diterima untuk setiap pemesanan melalui tautan ini digunakan untuk pengembangan Organic Maps.</string>
     <!-- A confirmation button text in the explanation dialog that opens hotel details page on Kayak website. -->
     <string name="dialog_kayak_button">Perincian di Kayak</string>
+    <!-- A disable button text in the explanation dialog that opens hotel details page on Kayak website. -->
+    <string name="dialog_kayak_disable_button">Nonaktifkan Kayak</string>
     <string name="placepage_edit_bookmark_button">Edit Bookmark</string>
     <string name="editor_comment_hint">Komentar…</string>
     <string name="editor_reset_edits_message">Atur ulang perubahan lokal?</string>
@@ -724,8 +737,8 @@
     <string name="isolines_location_error_dialog">Lapisan topografi belum tersedia untuk wilayah ini</string>
     <string name="elevation_profile_ascent">Menanjak</string>
     <string name="elevation_profile_descent">Menurun</string>
-    <string name="elevation_profile_minaltitude">Ketinggian Min.</string>
-    <string name="elevation_profile_maxaltitude">Ketinggian Maks.</string>
+    <string name="elevation_profile_min_elevation">Min. tinggi</string>
+    <string name="elevation_profile_max_elevation">Maks. tinggi</string>
     <string name="elevation_profile_difficulty">Kesulitan</string>
     <string name="elevation_profile_distance">Jarak:</string>
     <string name="elevation_profile_time">Waktu:</string>
@@ -769,11 +782,13 @@
     <!-- Displayed on the Android Auto or CarPlay screen. Button to display maps on the car screen instead of a phone. Must be no more than 18 symbols! -->
     <string name="car_continue_in_the_car">Ke layar mobil</string>
     <!-- Ask user to grant location permissions -->
-    <string name="aa_location_permissions_request">Aplikasi ini memerlukan akses ke lokasi Anda untuk tujuan navigasi.</string>
-    <!-- Displayed on the Android Auto screen. Grant Permissions button. Must be no more than 18 symbols! -->
+    <string name="aa_location_permissions_request">Organic Maps membutuhkan akses lokasi. Jika sudah aman, periksa notifikasi di ponsel Anda.</string>
+    <!-- Notification title for permission request from AA. -->
+    <string name="aa_request_permission_notification">Aplikasi ini membutuhkan izin Anda</string>
+    <!-- The text in the activity for location permission request. -->
+    <string name="aa_request_permission_activity_text">Organic Maps di Android Auto membutuhkan izin lokasi agar dapat bekerja secara efektif</string>
+    <!-- Grant Permissions button. -->
     <string name="aa_grant_permissions">Memberikan Izin</string>
-    <!-- Text that will be displayed in the notification title when the app is connected to Android Auto. -->
-    <string name="aa_connected_to_car_notification_title">Terhubung ke mobil</string>
     <!-- Outdoors/hiking map style (activity) name in the Styles and Layers dialog -->
     <string name="button_layer_outdoor">Pendakian</string>
     <!-- Text displayed when a webview or a browser are disabled, and external links can't be opened. -->
@@ -1460,6 +1475,9 @@
     <string name="type.place.islet">Pulau</string>
     <string name="type.place.isolated_dwelling">Tempat Tinggal Terisolasi</string>
     <string name="type.place.locality">Wilayah</string>
+    <!-- Named part of a city or town, bigger than place=neighbourhood and smaller than place=suburb (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dquarter) -->
+    <string name="type.place.quarter">Lingkungan</string>
+    <!-- Named part of a city, town or suburb, smaller than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Neighbourhood) -->
     <string name="type.place.neighbourhood">Lingkungan</string>
     <string name="type.place.ocean">Samudra</string>
     <string name="type.place.region">Wilayah</string>
@@ -1467,6 +1485,7 @@
     <string name="type.place.square">Lapangan kota</string>
     <string name="type.place.state">Negara bagian</string>
     <string name="type.place.state.USA">Negara bagian</string>
+    <!-- Named part of a city or town, bigger than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dsuburb) -->
     <string name="type.place.suburb">Pinggiran kota</string>
     <string name="type.place.town">Kota</string>
     <string name="type.place.village">Desa</string>

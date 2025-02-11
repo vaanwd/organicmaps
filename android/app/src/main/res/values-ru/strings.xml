@@ -276,6 +276,9 @@
     <string name="faq">Вопросы и ответы</string>
     <!-- Button in the main menu -->
     <string name="donate">Поддержать деньгами</string>
+    <string name="already_donated">Уже пожертвовано</string>
+    <string name="remind_me_later">Напомнить позже</string>
+    <string name="support_organic_maps">Поддержать Organic Maps</string>
     <!-- Button in the main Help dialog -->
     <string name="how_to_support_us">Помочь проекту</string>
     <!-- Button in the main Help dialog -->
@@ -317,6 +320,10 @@
     <string name="google_play_services">Службы определения местоположения в Google Play</string>
     <!-- Preference text -->
     <string name="pref_use_google_play">Быстрое определение приблизительного местоположения с помощью Bluetooth, WiFi или мобильной сети</string>
+    <!-- Preference title -->
+    <string name="pref_display_kayak_title">Ссылки в гостиницах на Kayak.com</string>
+    <!-- Preference description -->
+    <string name="pref_display_kayak_text">Ссылки \"Фотографии, отзывы, бронирование\" отображаются для отелей, подключенных к Kayak.com. Реферальный бонус, полученный за каждое бронирование по этим ссылкам, идет на развитие Organic Maps.</string>
     <!-- Text for routing error dialog -->
     <string name="routing_download_maps_along">Загрузите все карты по пути следования</string>
     <!-- Text for routing error dialog -->
@@ -433,7 +440,7 @@
     <string name="editor_hours_closed">Перерыв</string>
     <string name="editor_example_values">Примеры значений</string>
     <string name="editor_correct_mistake">Исправьте ошибку</string>
-    <string name="editor_add_select_location">Местоположение</string>
+    <string name="editor_add_select_location">Выберите местоположение</string>
     <string name="editor_report_problem_desription_1">Пожалуйста, напишите подробно о проблеме, чтобы сообщество OpenStreetMap исправило ошибку.</string>
     <string name="editor_report_problem_desription_2">Или сделайте это самостоятельно на сайте https://www.openstreetmap.org/</string>
     <string name="editor_report_problem_send_button">Отправить</string>
@@ -467,6 +474,8 @@
     <!-- Editable House Number text field (in address block). -->
     <string name="house_number">Номер дома</string>
     <string name="details">Подробнее</string>
+    <string name="social_media">Социальные сети</string>
+    <string name="building">Здание</string>
     <!-- Text field to enter non-existing street name, below list of known streets around -->
     <string name="add_street">Добавить улицу</string>
     <!-- Error to display when a new street name is not entered in the New street dialog -->
@@ -491,7 +500,7 @@
     <string name="downloader_no_space_message">Удалите ненужные данные</string>
     <string name="editor_login_error_dialog">Произошла ошибка при авторизации.</string>
     <string name="editor_profile_changes">Учтённые правки</string>
-    <string name="editor_focus_map_on_location">Потяните карту, чтобы выбрать правильное местоположение объекта.</string>
+    <string name="editor_focus_map_on_location">Перетащите карту, чтобы поместить крестик на место расположения добавляемого объекта или заведения.</string>
     <string name="editor_edit_place_title">Редактирование</string>
     <string name="editor_add_place_title">Добавление</string>
     <string name="editor_edit_place_name_hint">Название места</string>
@@ -519,7 +528,7 @@
     <string name="editor_zip_code">Почтовый индекс</string>
     <string name="error_enter_correct_zip_code">Введите корректный почтовый индекс</string>
     <!-- Place Page title for long tap -->
-    <string name="core_placepage_unknown_place">Неизвестное место</string>
+    <string name="core_placepage_unknown_place">Точка на карте</string>
     <!-- Title for OSM note section in the editor -->
     <string name="editor_other_info">Примечание для волонтеров OpenStreetMap (необязательно)</string>
     <!-- Hint of the input field in the OSM note section of the editor -->
@@ -527,6 +536,8 @@
     <!-- Information about OSM at the top of the editing page -->
     <string name="editor_about_osm">Ваши правки будут загружены в общедоступную базу данных <a href="https://wiki.openstreetmap.org/wiki/RU:О_проекте">OpenStreetMap</a>. Пожалуйста, не добавляйте личную информацию или информацию, защищенную авторским правом.</string>
     <string name="editor_more_about_osm">Подробнее об OpenStreetMap</string>
+    <string name="editor_osm_history">Ваша история редактирования</string>
+    <string name="editor_osm_notes">Ваши заметки о данных карты</string>
     <string name="editor_operator">Оператор</string>
     <!-- To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... -->
     <string name="operator">Оператор: %s</string>
@@ -556,6 +567,8 @@
     <string name="dialog_kayak_disclaimer">Реферальный бонус, полученный за каждое бронирование по этой ссылке, идёт на разработку Organic Maps.</string>
     <!-- A confirmation button text in the explanation dialog that opens hotel details page on Kayak website. -->
     <string name="dialog_kayak_button">Подробнее на Kayak</string>
+    <!-- A disable button text in the explanation dialog that opens hotel details page on Kayak website. -->
+    <string name="dialog_kayak_disable_button">Отключить Kayak</string>
     <string name="placepage_edit_bookmark_button">Редактировать метку</string>
     <string name="editor_comment_hint">Коментарий…</string>
     <string name="editor_reset_edits_message">Сбросить все локальные правки?</string>
@@ -771,8 +784,8 @@
     <string name="isolines_location_error_dialog">Линии высот пока не доступны в этом регионе</string>
     <string name="elevation_profile_ascent">Подъём</string>
     <string name="elevation_profile_descent">Спуск</string>
-    <string name="elevation_profile_minaltitude">Мин. высота</string>
-    <string name="elevation_profile_maxaltitude">Макс. высота</string>
+    <string name="elevation_profile_min_elevation">Мин. высота</string>
+    <string name="elevation_profile_max_elevation">Макс. высота</string>
     <string name="elevation_profile_difficulty">Сложность</string>
     <string name="elevation_profile_distance">Расст.:</string>
     <string name="elevation_profile_time">В пути:</string>
@@ -837,11 +850,13 @@
     <!-- Displayed on the Android Auto or CarPlay screen. Button to display maps on the car screen instead of a phone. Must be no more than 18 symbols! -->
     <string name="car_continue_in_the_car">Продолжить в авто</string>
     <!-- Ask user to grant location permissions -->
-    <string name="aa_location_permissions_request">Этому приложению необходим доступ к вашему местоположению для навигации.</string>
-    <!-- Displayed on the Android Auto screen. Grant Permissions button. Must be no more than 18 symbols! -->
+    <string name="aa_location_permissions_request">Organic Maps нужен доступ к местоположению. Когда будет безопасно, проверьте уведомление на телефоне.</string>
+    <!-- Notification title for permission request from AA. -->
+    <string name="aa_request_permission_notification">Этому приложению нужно ваше разрешение</string>
+    <!-- The text in the activity for location permission request. -->
+    <string name="aa_request_permission_activity_text">Organic Maps в Android Auto для эффективной работы необходимо разрешение на определение местоположения</string>
+    <!-- Grant Permissions button. -->
     <string name="aa_grant_permissions">Разрешить</string>
-    <!-- Text that will be displayed in the notification title when the app is connected to Android Auto. -->
-    <string name="aa_connected_to_car_notification_title">Подключено к автомобилю</string>
     <!-- Outdoors/hiking map style (activity) name in the Styles and Layers dialog -->
     <string name="button_layer_outdoor">Активный отдых</string>
     <!-- Text displayed when a webview or a browser are disabled, and external links can't be opened. -->
@@ -1651,14 +1666,18 @@
     <string name="type.place.islet">Остров</string>
     <string name="type.place.isolated_dwelling">Хутор</string>
     <string name="type.place.locality">Местность</string>
-    <string name="type.place.neighbourhood">Микрорайон</string>
+    <!-- Named part of a city or town, bigger than place=neighbourhood and smaller than place=suburb (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dquarter) -->
+    <string name="type.place.quarter">Район / Микрорайон</string>
+    <!-- Named part of a city, town or suburb, smaller than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Neighbourhood) -->
+    <string name="type.place.neighbourhood">Микрорайон / ЖК</string>
     <string name="type.place.ocean">Океан</string>
     <string name="type.place.region">Район</string>
     <string name="type.place.sea">Море</string>
     <string name="type.place.square">Площадь</string>
     <string name="type.place.state">Штат</string>
     <string name="type.place.state.USA">Штат</string>
-    <string name="type.place.suburb">Район</string>
+    <!-- Named part of a city or town, bigger than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dsuburb) -->
+    <string name="type.place.suburb">Район / Пригород</string>
     <string name="type.place.town">Город</string>
     <string name="type.place.village">Деревня</string>
     <string name="type.power">Энергетика</string>

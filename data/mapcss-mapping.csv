@@ -409,7 +409,7 @@ mountain_pass;[mountain_pass];;name;int_name;307;
 highway|raceway;308;
 highway|primary|tunnel;[highway=primary][tunnel?];;name;int_name;309;
 highway|primary_link|bridge;[highway=primary_link][bridge?];;name;int_name;310;
-man_made|tower|communication;[man_made=tower][tower:type=communication];;name;int_name;311;
+man_made|tower|communication;[man_made=tower][tower:type=communication],[man_made=mast][tower:type=communication];;name;int_name;311;
 sport|equestrian;312;
 tourism|information|office;[tourism=information][information=office];;name;int_name;313;
 deprecated:highway|footway|hiking:04.2024;[highway=footway][sac_scale=hiking];x;name;int_name;314;highway|path
@@ -687,7 +687,7 @@ deprecated|deprecated;573;x
 deprecated|deprecated;574;x
 aerialway|rope_tow;575;
 natural|pond;576;natural|water|pond
-railway|station|funicular;[railway=station][station=funicular];;name;int_name;577;
+railway|station|funicular;[railway=station][station=funicular],[railway=halt][station=funicular];;name;int_name;577;
 highway|secondary_link|tunnel;[highway=secondary_link][tunnel?];;name;int_name;578;
 deprecated|deprecated;579;x
 deprecated|deprecated;580;x
@@ -1018,7 +1018,7 @@ deprecated|deprecated;903;x
 railway|subway|lightblue;[railway=subway][colour=lightblue];x;name;int_name;904;railway|subway|tunnel
 deprecated|deprecated;905;x
 railway|subway|lightgreen;[railway=subway][colour=lightgreen];x;name;int_name;906;railway|subway|tunnel
-deprecated|deprecated;907;x
+place|quarter;907;
 railway|subway|violet;[railway=subway][colour=violet];x;name;int_name;908;railway|subway|tunnel
 shop|rental;909;
 railway|subway|grey;[railway=subway][colour=grey];x;name;int_name;910;railway|subway|tunnel
@@ -1073,7 +1073,7 @@ craft|electronics_repair;958;
 shop|appliance;959;
 amenity|casino;960;
 amenity|brothel;961;
-place|neighbourhood;[place=neighbourhood],[place=quarter];;name;int_name;962;
+place|neighbourhood;962;
 place|isolated_dwelling;963;
 historic|wayside_cross;964;
 historic|wayside_shrine;965;
@@ -1124,7 +1124,7 @@ public_transport|platform;1008;
 junction;[junction];;name;int_name;1009;
 aeroway|aerodrome|international;[aeroway=aerodrome][aerodrome=international],[aeroway=aerodrome][aerodrome:type=international];;name;int_name;1010;
 railway|station|light_rail;[railway=station][station=light_rail],[railway=station][transport=light_rail];;name;int_name;1011;
-railway|station|monorail;[railway=station][station=monorail],[railway=station][transport=monorail];;name;int_name;1012;
+railway|station|monorail;[railway=station][station=monorail],[railway=station][transport=monorail],[railway=halt][station=monorail];;name;int_name;1012;
 railway|station|subway|london;[railway=station][transport=subway][city=london],[railway=station][station=subway][city=london];;name;int_name;1013;
 railway|station|subway|newyork;[railway=station][transport=subway][city=newyork],[railway=station][station=subway][city=newyork];;name;int_name;1014;
 railway|station|subway|moscow;[railway=station][transport=subway][city=moscow],[railway=station][station=subway][city=moscow];;name;int_name;1015;

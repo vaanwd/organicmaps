@@ -141,6 +141,7 @@ enum class SuburbType
 {
   Residential = 0,
   Neighbourhood,
+  Quarter,
   Suburb,
   Count
 };
@@ -291,6 +292,10 @@ public:
   TwoLevelPOIChecker();
 };
 
+// Used in:
+// - search ranking (POIs are ranked somewhat higher than "unclassified" features, see search/model.hpp)
+// - add type's translation into complex PP subtitle (see GetLocalizedAllTypes())
+// - building lists of popular places (generator/popular_places_section_builder.cpp)
 class IsPoiChecker
 {
 public:

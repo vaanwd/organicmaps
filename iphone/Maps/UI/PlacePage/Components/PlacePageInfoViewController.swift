@@ -53,13 +53,13 @@ class InfoItemViewController: UIViewController {
   func setStyle(_ style: Style) {
     switch style {
     case .regular:
-      imageView?.setStyleAndApply("MWMBlack")
-      infoLabel?.setStyleAndApply("blackPrimaryText")
+      imageView?.setStyleAndApply(.black)
+      infoLabel?.setFontStyleAndApply(.blackPrimary)
     case .link:
-      imageView?.setStyleAndApply("MWMBlue")
-      infoLabel?.setStyleAndApply("linkBlueText")
+      imageView?.setStyleAndApply(.blue)
+      infoLabel?.setFontStyleAndApply(.linkBlue)
     }
-    accessoryButton.setStyleAndApply("MWMBlack")
+    accessoryButton.setStyleAndApply(.black)
     self.style = style
   }
 
@@ -74,7 +74,6 @@ class InfoItemViewController: UIViewController {
 protocol PlacePageInfoViewControllerDelegate: AnyObject {
   var shouldShowOpenInApp: Bool { get }
 
-  func viewWillAppear()
   func didPressCall()
   func didPressWebsite()
   func didPressWebsiteMenu()
@@ -142,11 +141,6 @@ class PlacePageInfoViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     setupViews()
-  }
-
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    delegate?.viewWillAppear()
   }
 
   // MARK: private
@@ -455,9 +449,7 @@ class PlacePageInfoViewController: UIViewController {
 private extension UIStackView {
   func addArrangedSubviewWithSeparator(_ view: UIView, insets: UIEdgeInsets = .zero) {
     if !arrangedSubviews.isEmpty {
-      view.addSeparator(thickness: CGFloat(1.0),
-                        color: StyleManager.shared.theme?.colors.blackDividers,
-                        insets: insets)
+      view.addSeparator(thickness: CGFloat(1.0), insets: insets)
     }
     addArrangedSubview(view)
   }

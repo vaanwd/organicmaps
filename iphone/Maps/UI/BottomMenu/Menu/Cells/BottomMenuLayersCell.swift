@@ -25,8 +25,15 @@ class BottomMenuLayersCell: UITableViewCell {
     super.awakeFromNib()
     MapOverlayManager.add(self)
     closeButton.setImage(UIImage(named: "ic_close"))
+    setupButtons()
   }
-  
+
+  private func setupButtons() {
+    outdoorButton.setupWith(image: UIImage(resource: .btnMenuOutdoors), text: L("button_layer_outdoor"))
+    isoLinesButton.setupWith(image: UIImage(resource: .btnMenuIsomaps), text: L("button_layer_isolines"))
+    subwayButton.setupWith(image: UIImage(resource: .btnMenuSubway), text: L("button_layer_subway"))
+  }
+
   deinit {
     MapOverlayManager.remove(self)
   }
@@ -37,17 +44,17 @@ class BottomMenuLayersCell: UITableViewCell {
   
   private func updateSubwayButton() {
     let enabled = MapOverlayManager.transitEnabled()
-    subwayButton.setStyleAndApply(enabled ? "MenuButtonEnabled" : "MenuButtonDisabled")
+    subwayButton.setStyleAndApply(styleFor(enabled))
   }
   
   private func updateIsoLinesButton() {
     let enabled = MapOverlayManager.isoLinesEnabled()
-    isoLinesButton.setStyleAndApply(enabled ? "MenuButtonEnabled" : "MenuButtonDisabled")
+    isoLinesButton.setStyleAndApply(styleFor(enabled))
   }
     
   private func updateOutdoorButton() {
     let enabled = MapOverlayManager.outdoorEnabled()
-    outdoorButton.setStyleAndApply(enabled ? "MenuButtonEnabled" : "MenuButtonDisabled")
+    outdoorButton.setStyleAndApply(styleFor(enabled))
   }
   
   @IBAction func onCloseButtonPressed(_ sender: Any) {
@@ -81,5 +88,20 @@ extension BottomMenuLayersCell: MapOverlayManagerObserver {
     
   func onOutdoorStateUpdated() {
     updateOutdoorButton()
+  }
+}
+
+private extension BottomMenuLayersCell {
+  func styleFor(_ enabled: Bool) -> MapStyleSheet {
+    enabled ? .mapMenuButtonEnabled : .mapMenuButtonDisabled
+  }
+}
+
+private extension BottomMenuLayerButton {
+  func setupWith(image: UIImage, text: String) {
+    self.image = image
+    spacing = 10
+    numberOfLines = 2
+    localizedText = text
   }
 }

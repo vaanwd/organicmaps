@@ -259,6 +259,9 @@
     <string name="faq">Perguntas frequentes</string>
     <!-- Button in the main menu -->
     <string name="donate">Doar</string>
+    <string name="already_donated">Já doei</string>
+    <string name="remind_me_later">Lembre-me mais tarde</string>
+    <string name="support_organic_maps">Apoie o Organic Maps</string>
     <!-- Button in the main Help dialog -->
     <string name="how_to_support_us">Apoie o projeto</string>
     <!-- Button in the main Help dialog -->
@@ -300,6 +303,10 @@
     <string name="google_play_services">Serviços de localização do Google Play</string>
     <!-- Preference text -->
     <string name="pref_use_google_play">Determina rapidamente a tua localização aproximada através de Bluetooth, WiFi ou rede móvel</string>
+    <!-- Preference title -->
+    <string name="pref_display_kayak_title">Ligações de hotéis do Kayak.com</string>
+    <!-- Preference description -->
+    <string name="pref_display_kayak_text">São apresentadas fotografias, críticas e ligações de reserva para os hotéis que estão listados no Kayak.com. O bónus de referência recebido por cada reserva efetuada através destas ligações destina-se ao desenvolvimento do Organic Maps.</string>
     <!-- Text for routing error dialog -->
     <string name="routing_download_maps_along">Descarregar todos os mapas ao longo do trajeto</string>
     <!-- Text for routing error dialog -->
@@ -416,7 +423,7 @@
     <string name="editor_hours_closed">Horas sem funcionamento</string>
     <string name="editor_example_values">Valores de exemplo</string>
     <string name="editor_correct_mistake">Corrigir erro</string>
-    <string name="editor_add_select_location">Local</string>
+    <string name="editor_add_select_location">Selecione a localização</string>
     <string name="editor_report_problem_desription_1">Por favor, descreva o problema ao pormenor para que a comunidade OpenStreetMap possa corrigir o erro.</string>
     <string name="editor_report_problem_desription_2">Ou faça-o em https://www.openstreetmap.org/</string>
     <string name="editor_report_problem_send_button">Enviar</string>
@@ -448,6 +455,8 @@
     <!-- Editable House Number text field (in address block). -->
     <string name="house_number">Nº de porta</string>
     <string name="details">Detalhes</string>
+    <string name="social_media">Redes sociais</string>
+    <string name="building">Edifício</string>
     <!-- Text field to enter non-existing street name, below list of known streets around -->
     <string name="add_street">Adicionar uma rua</string>
     <string name="choose_language">Escolher um idioma</string>
@@ -467,7 +476,7 @@
     <string name="downloader_no_space_message">Por favor, remova os dados desnecessários</string>
     <string name="editor_login_error_dialog">Erro de início de sessão.</string>
     <string name="editor_profile_changes">Alterações verificadas</string>
-    <string name="editor_focus_map_on_location">Mova o mapa para selecionar o lugar correto do objeto.</string>
+    <string name="editor_focus_map_on_location">Mova o mapa para colocar a cruz na localização da empresa ou do local.</string>
     <string name="editor_edit_place_title">Edição</string>
     <string name="editor_add_place_title">A adicionar</string>
     <string name="editor_edit_place_name_hint">Nome do lugar</string>
@@ -495,7 +504,7 @@
     <string name="editor_zip_code">Código Postal</string>
     <string name="error_enter_correct_zip_code">Introduza o código postal correto</string>
     <!-- Place Page title for long tap -->
-    <string name="core_placepage_unknown_place">Local desconhecido</string>
+    <string name="core_placepage_unknown_place">Ponto do mapa</string>
     <!-- Title for OSM note section in the editor -->
     <string name="editor_other_info">Nota para os voluntários do OpenStreetMap (opcional)</string>
     <!-- Hint of the input field in the OSM note section of the editor -->
@@ -503,6 +512,8 @@
     <!-- Information about OSM at the top of the editing page -->
     <string name="editor_about_osm">As suas edições são carregadas para a base de dados pública <a href="https://wiki.openstreetmap.org/wiki/Pt:Sobre_o_OpenStreetMap">OpenStreetMap</a>. Por favor, não adicione informações pessoais ou protegidas por direitos de autor.</string>
     <string name="editor_more_about_osm">Mais sobre o OpenStreetMap</string>
+    <string name="editor_osm_history">O seu histórico de edições</string>
+    <string name="editor_osm_notes">As suas notas de dados do mapa</string>
     <string name="editor_operator">Operador</string>
     <!-- To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... -->
     <string name="operator">Operador: %s</string>
@@ -532,6 +543,8 @@
     <string name="dialog_kayak_disclaimer">O bónus de referência recebido por cada reserva efectuada através desta ligação reverte a favor do desenvolvimento do Organic Maps.</string>
     <!-- A confirmation button text in the explanation dialog that opens hotel details page on Kayak website. -->
     <string name="dialog_kayak_button">Detalhes em Kayak</string>
+    <!-- A disable button text in the explanation dialog that opens hotel details page on Kayak website. -->
+    <string name="dialog_kayak_disable_button">Desativar Kayak</string>
     <string name="placepage_edit_bookmark_button">Editar favorito</string>
     <string name="editor_comment_hint">Comentário…</string>
     <string name="editor_reset_edits_message">Eliminar todas as alterações locais?</string>
@@ -735,8 +748,8 @@
     <string name="isolines_location_error_dialog">A camada Terreno ainda não está disponível nesta área</string>
     <string name="elevation_profile_ascent">Subida</string>
     <string name="elevation_profile_descent">Descida</string>
-    <string name="elevation_profile_minaltitude">Altura mínima</string>
-    <string name="elevation_profile_maxaltitude">Altura máxima</string>
+    <string name="elevation_profile_min_elevation">Elevação mín.</string>
+    <string name="elevation_profile_max_elevation">Elevação máx.</string>
     <string name="elevation_profile_difficulty">Dificuldade</string>
     <string name="elevation_profile_distance">Distância:</string>
     <string name="elevation_profile_time">Tempo:</string>
@@ -783,11 +796,13 @@
     <!-- Displayed on the Android Auto or CarPlay screen. Button to display maps on the car screen instead of a phone. Must be no more than 18 symbols! -->
     <string name="car_continue_in_the_car">Para ecrã do carro</string>
     <!-- Ask user to grant location permissions -->
-    <string name="aa_location_permissions_request">Esta aplicação requer acesso à sua localização para fins de navegação.</string>
-    <!-- Displayed on the Android Auto screen. Grant Permissions button. Must be no more than 18 symbols! -->
+    <string name="aa_location_permissions_request">O Organic Maps precisa de acesso à localização. Quando for seguro, verifica a notificação no teu telemóvel.</string>
+    <!-- Notification title for permission request from AA. -->
+    <string name="aa_request_permission_notification">Esta aplicação precisa da tua autorização</string>
+    <!-- The text in the activity for location permission request. -->
+    <string name="aa_request_permission_activity_text">Os Organic Maps no Android Auto precisam de uma permissão de localização para funcionarem eficazmente</string>
+    <!-- Grant Permissions button. -->
     <string name="aa_grant_permissions">Conceder permissão</string>
-    <!-- Text that will be displayed in the notification title when the app is connected to Android Auto. -->
-    <string name="aa_connected_to_car_notification_title">Ligado ao automóvel</string>
     <!-- Outdoors/hiking map style (activity) name in the Styles and Layers dialog -->
     <string name="button_layer_outdoor">Caminhadas</string>
     <!-- Text displayed when a webview or a browser are disabled, and external links can't be opened. -->
@@ -1571,6 +1586,9 @@
     <string name="type.place.islet">Ilhéu</string>
     <string name="type.place.isolated_dwelling">Habitação isolada</string>
     <string name="type.place.locality">Localidade</string>
+    <!-- Named part of a city or town, bigger than place=neighbourhood and smaller than place=suburb (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dquarter) -->
+    <string name="type.place.quarter">Bairro</string>
+    <!-- Named part of a city, town or suburb, smaller than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Neighbourhood) -->
     <string name="type.place.neighbourhood">Bairro</string>
     <string name="type.place.ocean">Oceano</string>
     <string name="type.place.region">Região</string>
@@ -1578,6 +1596,7 @@
     <string name="type.place.square">Praça ou largo</string>
     <string name="type.place.state">Estado</string>
     <string name="type.place.state.USA">Estado</string>
+    <!-- Named part of a city or town, bigger than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dsuburb) -->
     <string name="type.place.suburb">Subúrbio</string>
     <string name="type.place.town">Cidade</string>
     <string name="type.place.village">Vila</string>
