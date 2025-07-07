@@ -27,6 +27,8 @@ set(SRC
   draw_widget.hpp
   editor_dialog.cpp
   editor_dialog.hpp
+  html_processor.cpp
+  html_processor.hpp
   info_dialog.cpp
   info_dialog.hpp
   main.cpp
@@ -70,6 +72,7 @@ target_link_libraries(${PROJECT_NAME}
   qt_common
   map
   gflags::gflags
+  location_service
 )
 
 if (BUILD_DESIGNER)
@@ -107,6 +110,7 @@ endfunction()
 
 copy_resources(
   countries-strings
+  fonts
   resources-default
   resources-mdpi_light
   resources-hdpi_light
@@ -124,32 +128,17 @@ copy_resources(
   countries.txt
   drules_proto_default_light.bin
   drules_proto_default_dark.bin
+  drules_proto_outdoors_light.bin
+  drules_proto_outdoors_dark.bin
   drules_proto_vehicle_light.bin
   drules_proto_vehicle_dark.bin
   editor.config
-  fonts_blacklist.txt
-  fonts_whitelist.txt
   packed_polygons.bin
   patterns.txt
   transit_colors.txt
   types.txt
-  unicode_blocks.txt
   World.mwm
   WorldCoasts.mwm
-
-  00_NotoNaskhArabic-Regular.ttf
-  00_NotoSansBengali-Regular.ttf
-  00_NotoSansHebrew-Regular.ttf
-  00_NotoSansMalayalam-Regular.ttf
-  00_NotoSansThai-Regular.ttf
-  00_NotoSerifDevanagari-Regular.ttf
-  01_dejavusans.ttf
-  02_droidsans-fallback.ttf
-  03_jomolhari-id-a3d.ttf
-  04_padauk.ttf
-  05_khmeros.ttf
-  06_code2000.ttf
-  07_roboto_medium.ttf
 )
 
 install(TARGETS ${PROJECT_NAME} DESTINATION ${CMAKE_INSTALL_PREFIX}/bin/)

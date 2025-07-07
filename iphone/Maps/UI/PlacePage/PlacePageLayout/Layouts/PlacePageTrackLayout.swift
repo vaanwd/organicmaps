@@ -22,7 +22,7 @@ class PlacePageTrackLayout: IPlacePageLayout {
   }()
 
   lazy var headerViewController: PlacePageHeaderViewController = {
-    PlacePageHeaderBuilder.build(data: placePageData.previewData, delegate: interactor, headerType: .flexible)
+    PlacePageHeaderBuilder.build(data: placePageData, delegate: interactor, headerType: .flexible)
   }()
 
   lazy var previewViewController: PlacePagePreviewViewController = {
@@ -32,7 +32,7 @@ class PlacePageTrackLayout: IPlacePageLayout {
   }()
 
   lazy var placePageNavigationViewController: PlacePageHeaderViewController = {
-    return PlacePageHeaderBuilder.build(data: placePageData.previewData, delegate: interactor, headerType: .fixed)
+    return PlacePageHeaderBuilder.build(data: placePageData, delegate: interactor, headerType: .fixed)
   }()
 
   lazy var editTrackViewController: PlacePageEditBookmarkOrTrackViewController = {
@@ -43,13 +43,10 @@ class PlacePageTrackLayout: IPlacePageLayout {
   }()
 
   lazy var elevationMapViewController: ElevationProfileViewController? = {
-    guard trackData.trackInfo.hasElevationInfo(),
-          let elevationProfileData = trackData.elevationProfileData else {
+    guard trackData.trackInfo.hasElevationInfo, trackData.elevationProfileData != nil else {
       return nil
     }
-    return ElevationProfileBuilder.build(trackInfo: trackData.trackInfo,
-                                         elevationProfileData: elevationProfileData,
-                                         delegate: interactor)
+    return ElevationProfileBuilder.build(trackData: trackData, delegate: interactor)
   }()
 
   lazy var actionBarViewController: ActionBarViewController = {
@@ -104,9 +101,6 @@ class PlacePageTrackLayout: IPlacePageLayout {
     }
     let previewFrame = scrollView.convert(previewView.bounds, from: previewView)
     steps.append(.preview(previewFrame.maxY - scrollHeight))
-    if !compact {
-      steps.append(.expanded(-scrollHeight * 0.55))
-    }
     steps.append(.full(0))
     return steps
   }

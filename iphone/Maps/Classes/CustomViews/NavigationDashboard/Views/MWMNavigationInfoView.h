@@ -25,9 +25,9 @@ typedef NS_ENUM(NSUInteger, MWMNavigationInfoViewState) {
 @property(weak, nonatomic) UIView * ownerView;
 @property(nonatomic) CGRect availableArea;
 
-- (void)onNavigationInfoUpdated:(MWMNavigationDashboardEntity *)info;
+- (void)setSearchState:(NavigationSearchState)searchState animated:(BOOL)animated;
 
-- (void)setMapSearch;
+- (void)onNavigationInfoUpdated:(MWMNavigationDashboardEntity *)info;
 
 - (void)updateToastView;
 

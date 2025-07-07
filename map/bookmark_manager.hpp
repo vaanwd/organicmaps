@@ -29,7 +29,6 @@
 #include <string>
 #include <vector>
 
-
 namespace storage
 {
 class CountryInfoGetter;
@@ -179,7 +178,6 @@ public:
 
   void InitRegionAddressGetter(DataSource const & dataSource,
                                storage::CountryInfoGetter const & infoGetter);
-  void ResetRegionAddressGetter();
 
   void SetBookmarksChangedCallback(BookmarksChangedCallback && callback);
   void SetCategoriesChangedCallback(CategoriesChangedCallback && callback);
@@ -355,6 +353,7 @@ public:
 
   using SharingHandler = platform::SafeCallback<void(SharingResult const & result)>;
   void PrepareFileForSharing(kml::GroupIdCollection && categoriesIds, SharingHandler && handler, KmlFileType kmlFileType);
+  void PrepareTrackFileForSharing(kml::TrackId trackId, SharingHandler && handler, KmlFileType kmlFileType);
   void PrepareAllFilesForSharing(SharingHandler && handler);
 
   bool AreAllCategoriesEmpty() const;
@@ -364,8 +363,6 @@ public:
   bool AreAllCategoriesVisible() const;
   bool AreAllCategoriesInvisible() const;
   void SetAllCategoriesVisibility(bool visible);
-  bool AreAllCompilationsVisible(kml::MarkGroupId categoryId, kml::CompilationType compilationType) const;
-  bool AreAllCompilationsInvisible(kml::MarkGroupId categoryId, kml::CompilationType compilationType) const;
   void SetChildCategoriesVisibility(kml::MarkGroupId categoryId, kml::CompilationType compilationType,
                                     bool visible);
 
@@ -434,9 +431,11 @@ public:
   bool IsCompilation(kml::MarkGroupId id) const;
   kml::CompilationType GetCompilationType(kml::MarkGroupId id) const;
 
-  void SaveTrackRecording(std::string trackName);
+  kml::TrackId SaveTrackRecording(std::string trackName);
   std::string GenerateTrackRecordingName() const;
   dp::Color GenerateTrackRecordingColor() const;
+
+  kml::TrackId SaveRoute(std::vector<geometry::PointWithAltitude> const & points, std::string const & from, std::string const & to);
 
 private:
   class MarksChangesTracker : public df::UserMarksProvider
@@ -596,7 +595,6 @@ private:
   void SetCategoryAccessRules(kml::MarkGroupId categoryId, kml::AccessRules accessRules);
   void SetCategoryCustomProperty(kml::MarkGroupId categoryId, std::string const & key, std::string const & value);
   bool DeleteBmCategory(kml::MarkGroupId groupId, bool permanently);
-  void ClearCategories();
 
   void MoveBookmark(kml::MarkId bmID, kml::MarkGroupId curGroupID, kml::MarkGroupId newGroupID);
   void UpdateBookmark(kml::MarkId bmId, kml::BookmarkData const & bm);
@@ -627,6 +625,7 @@ private:
   void CleanupInvalidMetadata();
   std::string GetMetadataEntryName(kml::MarkGroupId groupId) const;
 
+  std::string GenerateSavedRouteName(std::string const & from, std::string const & to);
   void NotifyAboutStartAsyncLoading();
   void NotifyAboutFinishAsyncLoading(KMLDataCollectionPtr && collection);
   void NotifyAboutFile(bool success, std::string const & filePath, bool isTemporaryFile);
@@ -653,12 +652,12 @@ private:
 
   std::unique_ptr<kml::FileData> CollectBmGroupKMLData(BookmarkCategory const * group) const;
   KMLDataCollectionPtr PrepareToSaveBookmarks(kml::GroupIdCollection const & groupIdCollection);
+  KMLDataCollectionPtr PrepareToSaveBookmarksForTrack(kml::TrackId trackId);
 
   bool HasDuplicatedIds(kml::FileData const & fileData) const;
   template <typename UniquityChecker>
   void SetUniqueName(kml::CategoryData & data, UniquityChecker checker);
   bool CheckVisibility(bool isVisible) const;
-  bool CheckCompilationsVisibility(kml::MarkGroupId categoryId, kml::CompilationType compilationType, bool isVisible) const;
 
   struct SortBookmarkData
   {
@@ -722,7 +721,6 @@ private:
   int GetTrackSelectionMarkMinZoom(kml::TrackId trackId) const;
   void SetTrackSelectionMark(kml::TrackId trackId, m2::PointD const & pt, double distance);
   void DeleteTrackSelectionMark(kml::TrackId trackId);
-  void SetTrackInfoMark(kml::TrackId trackId, m2::PointD const & pt);
   void ResetTrackInfoMark(kml::TrackId trackId);
 
   void UpdateTrackMarksMinZoom();
@@ -836,6 +834,7 @@ private:
 
   Metadata m_metadata;
 
+  // Switch some operations in bookmark manager to synchronous mode to simplify unit-testing.
   bool m_testModeEnabled = false;
 
   CategoriesCollection m_compilations;

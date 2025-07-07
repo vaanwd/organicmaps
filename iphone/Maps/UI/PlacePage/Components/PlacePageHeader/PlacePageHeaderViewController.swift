@@ -2,9 +2,9 @@ protocol PlacePageHeaderViewProtocol: AnyObject {
   var presenter: PlacePageHeaderPresenterProtocol?  { get set }
   var isExpandViewHidden: Bool { get set }
   var isShadowViewHidden: Bool { get set }
-  var isShareButtonHidden: Bool { get set }
 
   func setTitle(_ title: String?, secondaryTitle: String?)
+  func showShareTrackMenu()
 }
 
 class PlacePageHeaderViewController: UIViewController {
@@ -33,6 +33,10 @@ class PlacePageHeaderViewController: UIViewController {
     }
     closeButton.setImage(UIImage(named: "ic_close")!)
     shareButton.setImage(UIImage(named: "ic_share")!)
+
+    if presenter?.objectType == .track {
+      configureTrackSharingMenu()
+    }
   }
 
   @objc func onExpandPressed(sender: UITapGestureRecognizer) {
@@ -73,15 +77,6 @@ extension PlacePageHeaderViewController: PlacePageHeaderViewProtocol {
     }
   }
 
-  var isShareButtonHidden: Bool {
-    get {
-      shareButton.isHidden
-    }
-    set {
-      shareButton.isHidden = newValue
-    }
-  }
-
   func setTitle(_ title: String?, secondaryTitle: String?) {
     titleText = title
     secondaryText = secondaryTitle
@@ -113,5 +108,41 @@ extension PlacePageHeaderViewController: PlacePageHeaderViewProtocol {
 
     attributedText.append(NSAttributedString(string: "\n" + unwrappedSecondaryTitle, attributes: secondaryTitleAttributes))
     titleLabel?.attributedText = attributedText
+  }
+
+  func showShareTrackMenu() {
+    if #available(iOS 14.0, *) {
+      // The menu will be shown by the shareButton itself
+    } else {
+      let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+      let kmlAction = UIAlertAction(title: L("export_file"), style: .default) { [weak self] _ in
+        guard let self else { return }
+        self.presenter?.onExportTrackButtonPress(.text, from: self.shareButton)
+      }
+      let gpxAction = UIAlertAction(title: L("export_file_gpx"), style: .default) { [weak self] _ in
+        guard let self else { return }
+        self.presenter?.onExportTrackButtonPress(.gpx, from: self.shareButton)
+      }
+      alert.addAction(kmlAction)
+      alert.addAction(gpxAction)
+      present(alert, animated: true, completion: nil)
+    }
+  }
+
+  private func configureTrackSharingMenu() {
+    if #available(iOS 14.0, *) {
+      let menu = UIMenu(title: "", image: nil, children: [
+        UIAction(title: L("export_file"), image: nil, handler: { [weak self] _ in
+          guard let self else { return }
+          self.presenter?.onExportTrackButtonPress(.text, from: self.shareButton)
+        }),
+        UIAction(title: L("export_file_gpx"), image: nil, handler: { [weak self] _ in
+          guard let self else { return }
+          self.presenter?.onExportTrackButtonPress(.gpx, from: self.shareButton)
+        }),
+      ])
+      shareButton.menu = menu
+      shareButton.showsMenuAsPrimaryAction = true
+    }
   }
 }

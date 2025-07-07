@@ -6,9 +6,7 @@ final class BaseRoutePreviewStatus: SolidTouchView {
   @IBOutlet private weak var manageRouteBox: UIView!
   @IBOutlet weak var manageRouteBoxBackground: UIView! {
     didSet {
-      iPhoneSpecific {
         manageRouteBoxBackground.setStyle(.blackOpaqueBackground)
-      }
     }
   }
 
@@ -26,6 +24,18 @@ final class BaseRoutePreviewStatus: SolidTouchView {
   @IBOutlet private weak var manageRouteButtonCompact: UIButton? {
     didSet {
       configManageRouteButton(manageRouteButtonCompact!)
+    }
+  }
+
+  @IBOutlet private weak var saveRouteAsTrackButtonRegular: UIButton! {
+    didSet {
+      configSaveRouteAsTrackButton(saveRouteAsTrackButtonRegular)
+    }
+  }
+
+  @IBOutlet private weak var saveRouteAsTrackButtonCompact: UIButton! {
+    didSet {
+      configSaveRouteAsTrackButton(saveRouteAsTrackButtonCompact)
     }
   }
 
@@ -53,12 +63,8 @@ final class BaseRoutePreviewStatus: SolidTouchView {
 
   private var isVisible = false {
     didSet {
-      guard isVisible != oldValue else { return }
-      if isVisible {
-        addView()
-      } else {
-        self.removeFromSuperview()
-      }
+      addView()
+      isHidden = !isVisible
     }
   }
 
@@ -70,6 +76,7 @@ final class BaseRoutePreviewStatus: SolidTouchView {
     leadingAnchor.constraint(equalTo: lg.leadingAnchor).isActive = true
     trailingAnchor.constraint(equalTo: lg.trailingAnchor).isActive = true
     bottomAnchor.constraint(equalTo: lg.bottomAnchor).isActive = true
+    ownerView.layoutIfNeeded()
   }
 
   private func updateHeight() {
@@ -89,6 +96,12 @@ final class BaseRoutePreviewStatus: SolidTouchView {
     button.setTitle(L("planning_route_manage_route"), for: .normal)
   }
 
+  private func configSaveRouteAsTrackButton(_ button: UIButton) {
+    button.setImagePadding(8)
+    button.setTitle(L("save"), for: .normal)
+    button.setTitle(L("saved"), for: .disabled)
+  }
+
   override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
     super.traitCollectionDidChange(previousTraitCollection)
     updateManageRouteVisibility()
@@ -100,6 +113,7 @@ final class BaseRoutePreviewStatus: SolidTouchView {
     let isCompact = traitCollection.verticalSizeClass == .compact
     manageRouteBox.isHidden = isCompact || resultsBox.isHidden
     manageRouteButtonCompact?.isHidden = !isCompact
+    saveRouteAsTrackButtonCompact.isHidden = !isCompact
   }
 
   @objc func hide() {
@@ -112,9 +126,7 @@ final class BaseRoutePreviewStatus: SolidTouchView {
     resultsBox.isHidden = true
     heightBox.isHidden = true
     manageRouteBox.isHidden = true
-
     errorLabel.text = message
-
     updateHeight()
   }
 
@@ -135,8 +147,18 @@ final class BaseRoutePreviewStatus: SolidTouchView {
     } else {
       heightBox.isHidden = true
     }
+    setRouteAsTrackButtonEnabled(true)
     updateManageRouteVisibility()
     updateHeight()
+  }
+
+  @objc func setRouteSaved(_ isSaved: Bool) {
+    setRouteAsTrackButtonEnabled(!isSaved)
+  }
+
+  private func setRouteAsTrackButtonEnabled(_ isEnabled: Bool) {
+    saveRouteAsTrackButtonRegular.isEnabled = isEnabled
+    saveRouteAsTrackButtonCompact.isEnabled = isEnabled
   }
 
   private func updateResultsLabel() {

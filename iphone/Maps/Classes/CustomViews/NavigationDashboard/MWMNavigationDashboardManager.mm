@@ -19,7 +19,7 @@ NSString *const kNavigationControlViewXibName = @"NavigationControlView";
 
 @end
 
-@interface MWMNavigationDashboardManager () <MWMSearchManagerObserver, MWMRoutePreviewDelegate>
+@interface MWMNavigationDashboardManager () <SearchOnMapManagerObserver, MWMRoutePreviewDelegate>
 
 @property(copy, nonatomic) NSDictionary *etaAttributes;
 @property(copy, nonatomic) NSDictionary *etaSecondaryAttributes;
@@ -50,6 +50,10 @@ NSString *const kNavigationControlViewXibName = @"NavigationControlView";
     _ownerView = view;
   }
   return self;
+}
+
+- (SearchOnMapManager *)searchManager {
+  return [[MapViewController sharedController] searchManager];
 }
 
 - (void)loadPreviewWithStatusBoxes {
@@ -134,20 +138,21 @@ NSString *const kNavigationControlViewXibName = @"NavigationControlView";
   self.navigationInfoView = nil;
   _navigationControlView.isVisible = NO;
   _navigationControlView = nil;
-  [_baseRoutePreviewStatus hide];
-  _baseRoutePreviewStatus = nil;
+  [self.baseRoutePreviewStatus hide];
   [_transportRoutePreviewStatus hide];
   _transportRoutePreviewStatus = nil;
 }
 
 - (void)statePrepare {
   self.navigationInfoView.state = MWMNavigationInfoViewStatePrepare;
+  if (self.searchManager.isSearching)
+    [self.navigationInfoView setSearchState:NavigationSearchState::MinimizedSearch animated:YES];
   auto routePreview = self.routePreview;
   [routePreview addToView:self.ownerView];
   [routePreview statePrepare];
   [routePreview selectRouter:[MWMRouter type]];
   [self updateGoButtonTitle];
-  [_baseRoutePreviewStatus hide];
+  [self.baseRoutePreviewStatus hide];
   [_transportRoutePreviewStatus hide];
   for (MWMRouteStartButton *button in self.goButtons)
     [button statePrepare];
@@ -204,8 +209,7 @@ NSString *const kNavigationControlViewXibName = @"NavigationControlView";
   self.routePreview = nil;
   self.navigationInfoView.state = MWMNavigationInfoViewStateNavigation;
   self.navigationControlView.isVisible = YES;
-  [_baseRoutePreviewStatus hide];
-  _baseRoutePreviewStatus = nil;
+  [self.baseRoutePreviewStatus hide];
   [_transportRoutePreviewStatus hide];
   _transportRoutePreviewStatus = nil;
   [self onNavigationInfoUpdated];
@@ -224,6 +228,11 @@ NSString *const kNavigationControlViewXibName = @"NavigationControlView";
   [[MapViewController sharedController] presentViewController:routeManager animated:YES completion:nil];
 }
 
+- (IBAction)saveRouteAsTrack:(id)sender {
+  [MWMFrameworkHelper saveRouteAsTrack];
+  [self.baseRoutePreviewStatus setRouteSaved:YES];
+}
+
 #pragma mark - MWMNavigationControlView
 
 - (IBAction)ttsButtonAction {
@@ -238,14 +247,21 @@ NSString *const kNavigationControlViewXibName = @"NavigationControlView";
 - (IBAction)stopRoutingButtonAction {
   [MWMSearch clear];
   [MWMRouter stopRouting];
+  [self.searchManager close];
 }
 
-#pragma mark - MWMSearchManagerObserver
+#pragma mark - SearchOnMapManagerObserver
 
-- (void)onSearchManagerStateChanged {
-  auto state = [MWMSearchManager manager].state;
-  if (state == MWMSearchManagerStateMapSearch)
-    [self setMapSearch];
+- (void)searchManagerWithDidChangeState:(SearchOnMapState)state {
+  switch (state) {
+    case SearchOnMapStateClosed:
+      [self.navigationInfoView setSearchState:NavigationSearchState::MinimizedNormal animated:YES];
+      break;
+    case SearchOnMapStateHidden:
+    case SearchOnMapStateSearching:
+      [self.navigationInfoView setSearchState:NavigationSearchState::MinimizedSearch animated:YES];
+      break;
+  }
 }
 
 #pragma mark - Available area
@@ -261,9 +277,9 @@ NSString *const kNavigationControlViewXibName = @"NavigationControlView";
 
 - (void)setState:(MWMNavigationDashboardState)state {
   if (state == MWMNavigationDashboardStateHidden)
-    [MWMSearchManager removeObserver:self];
+    [self.searchManager removeObserver:self];
   else
-    [MWMSearchManager addObserver:self];
+    [self.searchManager addObserver:self];
   switch (state) {
     case MWMNavigationDashboardStateHidden:
       [self stateHidden];
@@ -339,10 +355,6 @@ NSString *const kNavigationControlViewXibName = @"NavigationControlView";
   if (!_entity)
     _entity = [[MWMNavigationDashboardEntity alloc] init];
   return _entity;
-}
-
-- (void)setMapSearch {
-  [_navigationInfoView setMapSearch];
 }
 
 #pragma mark - MWMRoutePreviewDelegate

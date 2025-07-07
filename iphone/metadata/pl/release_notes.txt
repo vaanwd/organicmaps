@@ -1,20 +1,25 @@
-• Nowe dane OpenStreetMap z 21 stycznia
-• Dotknij zarejestrowanej trasy, aby wyświetlić statystyki oraz interaktywny profil wysokości
-• Osobny przycisk do rejestracji trasy
-• Widżet Live Activity ze statystykami nagrywanej trasy (iOS 16.2 i nowsze)
-• Dodano języki serbski (cyrylica) i łotewski
-• Dodano POI dla wieży
+We're getting back on track! Now you can save planned routes as tracks and see details about the currently recorded track.
+There is fresh OpenStreetMap data as of June 8, 2025, and also many other improvements:
 
-• Dodano własne ikony dla metra w Hong Kongu i Shenzhen oraz kolei miejskiej w Berlinie, osobną ikonę dla kolei jednoszynowej
-• Dodano menu kontekstowe do przycisku ze współrzędnymi w szczegółach POI
-• Komunikat z przypomnieniem pokazuje się z każdym wejściem w tryb pełnoekranowy
-• Wyświetlanie wyjaśnienia, gdy wyszukiwarka kategorii edytora OSM nic nie znajdzie
-• Rozróżnienie kolorów trawnika i łąki
-• Mniej nasycony kolor ogrodów przydomowych
-• Poprawiono żółte tarcze dróg wyświetlające się jako zielone w trybie nocnym
-• Wyświetlanie pokrycia terenu roślinnością na mniejszym przybliżeniu w trybie nawigacji samochodowej
-• Wyświetlanie złożonych nienumerycznych poziomów dla POI w budynkach
-• Ulepszone wyszukiwanie szczytów i przełęczy
-• Angielski jest dodatkowym językiem wyszukiwania kategorii w edytorze OSM
-• Zaktualizowane tłumaczenia dla estońskiego, fińskiego, niemieckiego, włoskiego, tureckiego
-• ...oraz więcej poprawek błędów i ulepszeń interfejsu użytkownika
+• Fixed route planning error when the current location was unknown
+• Prevent iCloud sync from failing when the cloud file doesn't exist
+• Fix counter in special "?edits" search command
+• Fix Wikipedia section visibility on the Place page
+• Fully expand the track information page when opened
+• Increased the search screen top inset from the safe area
+• Smoother modal screen and side buttons animation
+• Save planned route as a track
+• Show detailed information about the recording track
+• App translations updates from the Weblate community
+
+Map:
+• Less annoying icons for car charging stations
+• Display plant nurseries, crash/traffic barriers, radio/tv/music studios, firepits, ladders, cranes, and love hotels
+• Qingdao metro icons
+
+Search:
+• Updated sewing/tailor synonyms
+• Fixed category search for Lithuanian and other languages
+• Fixed search on the map and in the list
+• Fixed search suggestions
+• Search history is not duplicated anymore

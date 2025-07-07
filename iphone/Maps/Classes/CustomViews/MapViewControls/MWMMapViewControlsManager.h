@@ -1,11 +1,18 @@
 #import "MWMBottomMenuState.h"
 #import "MWMMapDownloaderMode.h"
 #import "MWMNavigationDashboardManager.h"
-#import "MWMSearchManager.h"
 
 @class MapViewController;
 @class BottomTabBarViewController;
-@class TrackRecordingViewController;
+@class TrackRecordingButtonViewController;
+@class SearchQuery;
+
+typedef NS_ENUM(NSUInteger, TrackRecordingButtonState) {
+  TrackRecordingButtonStateHidden,
+  TrackRecordingButtonStateVisible,
+  TrackRecordingButtonStateClosed,
+};
+
 @protocol MWMFeatureHolder;
 
 @interface MWMMapViewControlsManager : NSObject
@@ -20,7 +27,7 @@
 @property(nonatomic) MWMBottomMenuState menuRestoreState;
 @property(nonatomic) BOOL isDirectionViewHidden;
 @property(nonatomic) BottomTabBarViewController * tabBarController;
-@property(nonatomic) TrackRecordingViewController * trackRecordingButton;
+@property(nonatomic) TrackRecordingButtonViewController * trackRecordingButton;
 
 - (instancetype)init __attribute__((unavailable("init is not available")));
 - (instancetype)initWithParentController:(MapViewController *)controller;
@@ -34,6 +41,8 @@
 - (void)viewWillTransitionToSize:(CGSize)size
        withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator;
 
+- (void)setTrackRecordingButtonState:(TrackRecordingButtonState)state;
+
 #pragma mark - MWMNavigationDashboardManager
 
 - (void)onRoutePrepare;
@@ -45,9 +54,8 @@
 #pragma mark - MWMSearchManager
 
 - (void)actionDownloadMaps:(MWMMapDownloaderMode)mode;
-- (BOOL)searchText:(NSString *)text forInputLocale:(NSString *)locale;
-- (void)searchTextOnMap:(NSString *)text forInputLocale:(NSString *)locale;
-- (void)hideSearch;
+- (BOOL)search:(SearchQuery *)query;
+- (void)searchOnMap:(SearchQuery *)query;
 
 #pragma mark - MWMFeatureHolder
 

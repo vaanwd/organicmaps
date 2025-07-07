@@ -7,6 +7,8 @@ class PlacePageInteractor: NSObject {
   var presenter: PlacePagePresenterProtocol?
   weak var viewController: UIViewController?
   weak var mapViewController: MapViewController?
+  weak var trackActivePointPresenter: TrackActivePointPresenter?
+
   private let bookmarksManager = BookmarksManager.shared()
   private var placePageData: PlacePageData
   private var viewWillAppearIsCalledForTheFirstTime = false
@@ -17,21 +19,55 @@ class PlacePageInteractor: NSObject {
     self.mapViewController = mapViewController
     super.init()
     addToBookmarksManagerObserverList()
+    subscribeOnTrackActivePointUpdates()
   }
 
   deinit {
     removeFromBookmarksManagerObserverList()
+    unsubscribeFromTrackActivePointUpdates()
   }
 
   private func updatePlacePageIfNeeded() {
-    let isBookmark = placePageData.bookmarkData != nil && bookmarksManager.hasBookmark(placePageData.bookmarkData!.bookmarkId)
-    let isTrack = placePageData.trackData != nil && bookmarksManager.hasTrack(placePageData.trackData!.trackId)
-    guard isBookmark || isTrack else {
-      presenter?.closeAnimated()
-      return
+    func updatePlacePage() {
+      FrameworkHelper.updatePlacePageData()
+      placePageData.updateBookmarkStatus()
     }
-    FrameworkHelper.updatePlacePageData()
-    placePageData.updateBookmarkStatus()
+
+    switch placePageData.objectType {
+    case .POI, .trackRecording:
+      break
+    case .bookmark:
+      guard let bookmarkData = placePageData.bookmarkData, bookmarksManager.hasBookmark(bookmarkData.bookmarkId) else {
+        presenter?.closeAnimated()
+        return
+      }
+      updatePlacePage()
+    case .track:
+      guard let trackData = placePageData.trackData, bookmarksManager.hasTrack(trackData.trackId) else {
+        presenter?.closeAnimated()
+        return
+      }
+      updatePlacePage()
+    @unknown default:
+      fatalError("Unknown object type")
+    }
+  }
+
+  private func subscribeOnTrackActivePointUpdates() {
+    guard placePageData.objectType == .track, let trackData = placePageData.trackData else { return }
+    bookmarksManager.setElevationActivePointChanged(trackData.trackId) { [weak self] distance in
+      self?.trackActivePointPresenter?.updateActivePointDistance(distance)
+      trackData.updateActivePointDistance(distance)
+    }
+    bookmarksManager.setElevationMyPositionChanged(trackData.trackId) { [weak self] distance in
+      self?.trackActivePointPresenter?.updateMyPositionDistance(distance)
+    }
+  }
+
+  private func unsubscribeFromTrackActivePointUpdates() {
+    guard placePageData.trackData?.onActivePointChangedHandler != nil else { return }
+    bookmarksManager.resetElevationActivePointChanged()
+    bookmarksManager.resetElevationMyPositionChanged()
   }
 
   private func addToBookmarksManagerObserverList() {
@@ -65,8 +101,8 @@ extension PlacePageInteractor: PlacePageInfoViewControllerDelegate {
     !OpenInApplication.availableApps.isEmpty
   }
 
-  func didPressCall() {
-    MWMPlacePageManagerHelper.call(placePageData)
+  func didPressCall(to phone: PlacePagePhone) {
+    MWMPlacePageManagerHelper.call(phone)
   }
 
   func didPressWebsite() {
@@ -75,22 +111,6 @@ extension PlacePageInteractor: PlacePageInfoViewControllerDelegate {
 
   func didPressWebsiteMenu() {
     MWMPlacePageManagerHelper.openWebsiteMenu(placePageData)
-  }
-
-  func didPressKayak() {
-    let kUDDidShowKayakInformationDialog = "kUDDidShowKayakInformationDialog"
-    
-    if UserDefaults.standard.bool(forKey: kUDDidShowKayakInformationDialog) {
-      MWMPlacePageManagerHelper.openKayak(placePageData)
-    } else { 
-      let alert = UIAlertController(title: nil, message: L("dialog_kayak_disclaimer"), preferredStyle: .alert)
-      alert.addAction(UIAlertAction(title: L("cancel"), style: .cancel))
-      alert.addAction(UIAlertAction(title: L("dialog_kayak_button"), style: .default, handler: { _ in
-        UserDefaults.standard.set(true, forKey: kUDDidShowKayakInformationDialog)
-        MWMPlacePageManagerHelper.openKayak(self.placePageData)
-      }))
-      presenter?.showAlert(alert)
-    }
   }
 
   func didPressWikipedia() {
@@ -129,7 +149,7 @@ extension PlacePageInteractor: PlacePageInfoViewControllerDelegate {
     UIPasteboard.general.string = content
     let message = String(format: L("copied_to_clipboard"), content)
     UIImpactFeedbackGenerator(style: .medium).impactOccurred()
-    Toast.toast(withText: message).show(withAlignment: .bottom)
+    Toast.show(withText: message, alignment: .bottom)
   }
 
   func didPressOpenInApp(from sourceView: UIView) {
@@ -204,7 +224,15 @@ extension PlacePageInteractor: ActionBarViewControllerDelegate {
         MWMPlacePageManagerHelper.addBookmark(placePageData)
       }
     case .call:
-      MWMPlacePageManagerHelper.call(placePageData)
+      // since `.call` is a case in an obj-c enum, it can't have associated data, so there is no easy way to
+      // pass the exact phone, and we have to ask the user here which one to use, if there are multiple ones
+      let phones = placePageData.infoData?.phones ?? []
+      let hasOnePhoneNumber = phones.count == 1
+      if hasOnePhoneNumber {
+        MWMPlacePageManagerHelper.call(phones[0])
+      } else if (phones.count > 1) {
+        showPhoneNumberPicker(phones, handler: MWMPlacePageManagerHelper.call)
+      }
     case .download:
       guard let mapNodeAttributes = placePageData.mapNodeAttributes else {
         fatalError("Download button can't be displayed if mapNodeAttributes is empty")
@@ -239,9 +267,19 @@ extension PlacePageInteractor: ActionBarViewControllerDelegate {
       fatalError("More button should've been handled in ActionBarViewContoller")
     case .track:
       guard placePageData.trackData != nil else { return }
-      // TODO: This is temporary solution. Remove the dialog and use the MWMPlacePageManagerHelper.removeTrack
+      // TODO: (KK) This is temporary solution. Remove the dialog and use the MWMPlacePageManagerHelper.removeTrack
       // directly here when the track recovery mechanism will be implemented.
       showTrackDeletionConfirmationDialog()
+    case .saveTrackRecording:
+      // TODO: (KK) pass name typed by user
+      TrackRecordingManager.shared.stopAndSave() { [weak self] result in
+        switch result {
+        case .success:
+          break
+        case .trackIsEmpty:
+          self?.presenter?.closeAnimated()
+        }
+      }
     @unknown default:
       fatalError()
     }
@@ -267,6 +305,20 @@ extension PlacePageInteractor: ActionBarViewControllerDelegate {
     }
     viewController.present(alert, animated: true)
   }
+
+  private func showPhoneNumberPicker(_ phones: [PlacePagePhone], handler: @escaping (PlacePagePhone) -> Void) {
+    guard let viewController else { return }
+
+    let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+    phones.forEach({phone in
+      alert.addAction(UIAlertAction(title: phone.phone, style: .default, handler: { _ in
+        handler(phone)
+      }))
+    })
+    alert.addAction(UIAlertAction(title: L("cancel"), style: .cancel))
+
+    viewController.present(alert, animated: true)
+  }
 }
 
 // MARK: - ElevationProfileViewControllerDelegate
@@ -277,8 +329,9 @@ extension PlacePageInteractor: ElevationProfileViewControllerDelegate {
   }
 
   func updateMapPoint(_ point: CLLocationCoordinate2D, distance: Double) {
-    guard let trackId = placePageData.trackData?.trackId else { return }
-    BookmarksManager.shared().setElevationActivePoint(point, distance: distance, trackId: trackId)
+    guard let trackData = placePageData.trackData, trackData.elevationProfileData?.isTrackRecording == false else { return }
+    bookmarksManager.setElevationActivePoint(point, distance: distance, trackId: trackData.trackId)
+    placePageData.trackData?.updateActivePointDistance(distance)
   }
 }
 
@@ -295,8 +348,47 @@ extension PlacePageInteractor: PlacePageHeaderViewControllerDelegate {
 
   func previewDidPressShare(from sourceView: UIView) {
     guard let mapViewController else { return }
-    let shareViewController = ActivityViewController.share(forPlacePage: placePageData)
-    shareViewController.present(inParentViewController: mapViewController, anchorView: sourceView)
+    switch placePageData.objectType {
+    case .POI, .bookmark:
+      let shareViewController = ActivityViewController.share(forPlacePage: placePageData)
+      shareViewController.present(inParentViewController: mapViewController, anchorView: sourceView)
+    case .track:
+      presenter?.showShareTrackMenu()
+    default:
+      guard let coordinates = LocationManager.lastLocation()?.coordinate else {
+        viewController?.present(UIAlertController.unknownCurrentPosition(), animated: true, completion: nil)
+        return
+      }
+      let activity = ActivityViewController.share(forMyPosition: coordinates)
+      activity.present(inParentViewController: mapViewController, anchorView: sourceView)
+    }
+  }
+
+  func previewDidPressExportTrack(_ type: KmlFileType, from sourceView: UIView) {
+    guard let trackId = placePageData.trackData?.trackId else {
+      fatalError("Track data should not be nil during the track export")
+    }
+    bookmarksManager.shareTrack(trackId, fileType: type) { [weak self] status, url in
+      guard let self, let mapViewController else { return }
+      switch status {
+      case .success:
+        guard let url else { fatalError("Invalid sharing url") }
+        let shareViewController = ActivityViewController.share(for: url, message: self.placePageData.previewData.title!) { _,_,_,_ in
+          self.bookmarksManager.finishSharing()
+        }
+        shareViewController.present(inParentViewController: mapViewController, anchorView: sourceView)
+      case .emptyCategory:
+        self.showAlert(withTitle: L("bookmarks_error_title_share_empty"),
+                        message: L("bookmarks_error_message_share_empty"))
+      case .archiveError, .fileError:
+        self.showAlert(withTitle: L("dialog_routing_system_error"),
+                        message: L("bookmarks_error_message_share_general"))
+      }
+    }
+  }
+
+  private func showAlert(withTitle title: String, message: String) {
+    MWMAlertViewController.activeAlert().presentInfoAlert(title, text: message)
   }
 }
 

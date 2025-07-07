@@ -30,6 +30,9 @@
 extern NSString *const kMap2FBLoginSegue = @"Map2FBLogin";
 extern NSString *const kMap2GoogleLoginSegue = @"Map2GoogleLogin";
 
+static CGFloat kPlacePageCompactWidth = 350;
+static CGFloat kPlacePageLeadingOffset = IPAD ? 20 : 0;
+
 typedef NS_ENUM(NSUInteger, UserTouchesAction) { UserTouchesActionNone, UserTouchesActionDrag, UserTouchesActionScale };
 
 namespace {
@@ -72,6 +75,8 @@ NSString *const kSettingsSegue = @"Map2Settings";
                                  UIGestureRecognizerDelegate>
 
 @property(nonatomic, readwrite) MWMMapViewControlsManager *controlsManager;
+@property(nonatomic, readwrite) SearchOnMapManager *searchManager;
+@property(nonatomic, readwrite) TrackRecordingManager *trackRecordingManager;
 
 @property(nonatomic) BOOL disableStandbyOnLocationStateMode;
 
@@ -97,7 +102,11 @@ NSString *const kSettingsSegue = @"Map2Settings";
 @property(nonatomic) BOOL needDeferFocusNotification;
 @property(nonatomic) BOOL deferredFocusValue;
 @property(nonatomic) PlacePageViewController *placePageVC;
-@property(nonatomic) IBOutlet UIView *placePageContainer;
+@property(nonatomic) UIView *placePageContainer;
+
+@property(nonatomic) NSLayoutConstraint *placePageWidthConstraint;
+@property(nonatomic) NSLayoutConstraint *placePageLeadingConstraint;
+@property(nonatomic) NSLayoutConstraint *placePageTrailingConstraint;
 
 @end
 
@@ -108,31 +117,88 @@ NSString *const kSettingsSegue = @"Map2Settings";
   return [MapsAppDelegate theApp].mapViewController;
 }
 
-#pragma mark - Map Navigation
+#pragma mark - PlacePage
 
 - (void)showOrUpdatePlacePage:(PlacePageData *)data {
+  if (self.searchManager.isSearching)
+    [self.searchManager setPlaceOnMapSelected:YES];
+
   self.controlsManager.trafficButtonHidden = YES;
   if (self.placePageVC != nil) {
-    [PlacePageBuilder update:(PlacePageViewController *)self.placePageVC with:data];
+    [PlacePageBuilder update:self.placePageVC with:data];
     return;
   }
+
   [self showPlacePageFor:data];
 }
 
 - (void)showPlacePageFor:(PlacePageData *)data {
-  self.placePageVC = [PlacePageBuilder buildFor:data];
   self.placePageContainer.hidden = NO;
-  self.placePageVC.view.translatesAutoresizingMaskIntoConstraints = NO;
+  self.placePageVC = [PlacePageBuilder buildFor:data];
   [self.placePageContainer addSubview:self.placePageVC.view];
-  [self.view bringSubviewToFront:self.placePageContainer];
-  [NSLayoutConstraint activateConstraints:@[
-    [self.placePageVC.view.topAnchor constraintEqualToAnchor:self.placePageContainer.safeAreaLayoutGuide.topAnchor],
-    [self.placePageVC.view.leftAnchor constraintEqualToAnchor:self.placePageContainer.leftAnchor],
-    [self.placePageVC.view.bottomAnchor constraintEqualToAnchor:self.placePageContainer.bottomAnchor],
-    [self.placePageVC.view.rightAnchor constraintEqualToAnchor:self.placePageContainer.rightAnchor]
-  ]];
   [self addChildViewController:self.placePageVC];
   [self.placePageVC didMoveToParentViewController:self];
+  self.placePageVC.view.translatesAutoresizingMaskIntoConstraints = NO;
+  [NSLayoutConstraint activateConstraints:@[
+    [self.placePageVC.view.topAnchor constraintEqualToAnchor:self.placePageContainer.topAnchor],
+    [self.placePageVC.view.leadingAnchor constraintEqualToAnchor:self.placePageContainer.leadingAnchor],
+    [self.placePageVC.view.bottomAnchor constraintEqualToAnchor:self.placePageContainer.bottomAnchor],
+    [self.placePageVC.view.trailingAnchor constraintEqualToAnchor:self.placePageContainer.trailingAnchor]
+  ]];
+  [self updatePlacePageContainerConstraints];
+}
+
+- (void)setupPlacePageContainer {
+  self.placePageContainer = [[TouchTransparentView alloc] initWithFrame:self.view.bounds];
+  self.placePageContainer.translatesAutoresizingMaskIntoConstraints = NO;
+  [self.view addSubview:self.placePageContainer];
+  [self.view bringSubviewToFront:self.placePageContainer];
+
+  self.placePageLeadingConstraint = [self.placePageContainer.leadingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.leadingAnchor constant:kPlacePageLeadingOffset];
+  if (IPAD)
+    self.placePageLeadingConstraint.priority = UILayoutPriorityDefaultLow;
+
+  self.placePageWidthConstraint = [self.placePageContainer.widthAnchor constraintEqualToConstant:kPlacePageCompactWidth];
+  self.placePageTrailingConstraint = [self.placePageContainer.trailingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.trailingAnchor];
+
+  NSLayoutConstraint * topConstraint = [self.placePageContainer.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor];
+
+  NSLayoutConstraint * bottomConstraint;
+  if (IPAD)
+    bottomConstraint = [self.placePageContainer.bottomAnchor constraintLessThanOrEqualToAnchor:self.view.bottomAnchor];
+  else
+    bottomConstraint = [self.placePageContainer.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor];
+
+  [NSLayoutConstraint activateConstraints:@[
+    self.placePageLeadingConstraint,
+    topConstraint,
+    bottomConstraint,
+  ]];
+
+  [self updatePlacePageContainerConstraints];
+}
+
+- (void)setupSearchContainer {
+  if (self.searchContainer != nil)
+    return;
+  self.searchContainer = [[TouchTransparentView alloc] initWithFrame:self.view.bounds];
+  [self.view addSubview:self.searchContainer];
+  [self.view bringSubviewToFront:self.searchContainer];
+  self.searchContainer.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+}
+
+- (void)updatePlacePageContainerConstraints {
+  const BOOL isLimitedWidth = IPAD || self.traitCollection.verticalSizeClass == UIUserInterfaceSizeClassCompact;
+
+  if (IPAD && self.searchViewAvailableArea != nil) {
+    NSLayoutConstraint * leadingToSearchConstraint = [self.placePageContainer.leadingAnchor constraintEqualToAnchor:self.searchViewAvailableArea.trailingAnchor constant:kPlacePageLeadingOffset];
+    leadingToSearchConstraint.priority = UILayoutPriorityDefaultHigh;
+    leadingToSearchConstraint.active = isLimitedWidth;
+  }
+
+  [self.placePageWidthConstraint setActive:isLimitedWidth];
+  [self.placePageTrailingConstraint setActive:!isLimitedWidth];
+  [self.view layoutIfNeeded];
 }
 
 - (void)dismissPlacePage {
@@ -140,6 +206,7 @@ NSString *const kSettingsSegue = @"Map2Settings";
 }
 
 - (void)hideRegularPlacePage {
+  [self stopObservingTrackRecordingUpdates];
   [self.placePageVC closeAnimatedWithCompletion:^{
     [self.placePageVC.view removeFromSuperview];
     [self.placePageVC willMoveToParentViewController:nil];
@@ -160,16 +227,10 @@ NSString *const kSettingsSegue = @"Map2Settings";
 - (void)onMapObjectDeselected {
   [self hidePlacePage];
 
-  MWMSearchManager * searchManager = MWMSearchManager.manager;
-  BOOL const isSearchResult = searchManager.state == MWMSearchManagerStateResult;
+  BOOL const isSearching = self.searchManager.isSearching;
   BOOL const isNavigationDashboardHidden = [MWMNavigationDashboardManager sharedManager].state == MWMNavigationDashboardStateHidden;
-  if (isSearchResult) {
-    if (isNavigationDashboardHidden) {
-      searchManager.state = MWMSearchManagerStateMapSearch;
-    } else {
-      searchManager.state = MWMSearchManagerStateHidden;
-    }
-  }
+  if (isSearching)
+    [self.searchManager setPlaceOnMapSelected:!isNavigationDashboardHidden];
   // Always show the controls during the navigation or planning mode.
   if (!isNavigationDashboardHidden)
     self.controlsManager.hidden = NO;
@@ -177,8 +238,7 @@ NSString *const kSettingsSegue = @"Map2Settings";
 
 - (void)onSwitchFullScreen {
   BOOL const isNavigationDashboardHidden = MWMNavigationDashboardManager.sharedManager.state == MWMNavigationDashboardStateHidden;
-  BOOL const isSearchHidden = MWMSearchManager.manager.state == MWMSearchManagerStateHidden;
-  if (isSearchHidden && isNavigationDashboardHidden) {
+  if (!self.searchManager.isSearching && isNavigationDashboardHidden) {
     if (!self.controlsManager.hidden)
       [self dismissPlacePage];
     self.controlsManager.hidden = !self.controlsManager.hidden;
@@ -190,6 +250,7 @@ NSString *const kSettingsSegue = @"Map2Settings";
     return;
   }
   PlacePageData * data = [[PlacePageData alloc] initWithLocalizationProvider:[[OpeinigHoursLocalization alloc] init]];
+  [self stopObservingTrackRecordingUpdates];
   [self showOrUpdatePlacePage:data];
 }
 
@@ -215,6 +276,7 @@ NSString *const kSettingsSegue = @"Map2Settings";
   if ([MWMCarPlayService shared].isCarplayActivated) {
     return;
   }
+
   NSArray *allTouches = [[event allTouches] allObjects];
   if ([allTouches count] < 1)
     return;
@@ -225,6 +287,10 @@ NSString *const kSettingsSegue = @"Map2Settings";
   df::TouchEvent e;
   UITouch *touch = [allTouches objectAtIndex:0];
   CGPoint const pt = [touch locationInView:v];
+
+  // Check if the tap is inside searchView)
+  if (self.searchManager.isSearching && type == df::TouchEvent::TOUCH_MOVE && !CGRectContainsPoint(self.searchViewAvailableArea.frame, pt))
+    [self.searchManager setMapIsDragging];
 
   e.SetTouchType(type);
 
@@ -287,6 +353,12 @@ NSString *const kSettingsSegue = @"Map2Settings";
   [self.controlsManager viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
 }
 
+- (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
+  [super traitCollectionDidChange:previousTraitCollection];
+  if (self.traitCollection.verticalSizeClass != previousTraitCollection.verticalSizeClass)
+    [self updatePlacePageContainerConstraints];
+}
+
 - (void)didReceiveMemoryWarning {
   GetFramework().MemoryWarning();
   [super didReceiveMemoryWarning];
@@ -305,8 +377,7 @@ NSString *const kSettingsSegue = @"Map2Settings";
 - (void)viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
 
-  if ([MWMNavigationDashboardManager sharedManager].state == MWMNavigationDashboardStateHidden &&
-      [MWMSearchManager manager].state == MWMSearchManagerStateHidden)
+  if ([MWMNavigationDashboardManager sharedManager].state == MWMNavigationDashboardStateHidden)
     self.controlsManager.menuState = self.controlsManager.menuRestoreState;
 
   [self updateStatusBarStyle];
@@ -319,6 +390,8 @@ NSString *const kSettingsSegue = @"Map2Settings";
 
 - (void)viewDidLoad {
   [super viewDidLoad];
+  [self setupPlacePageContainer];
+  [self setupSearchContainer];
 
   if (@available(iOS 14.0, *))
     [self setupTrackPadGestureRecognizers];
@@ -355,6 +428,9 @@ NSString *const kSettingsSegue = @"Map2Settings";
   // Added in https://github.com/organicmaps/organicmaps/pull/7333
   // After all users migrate to OAuth2 we can remove next code
   [self migrateOAuthCredentials];
+
+  if (self.trackRecordingManager.isActive)
+    [self showTrackRecordingPlacePage];
 
   /// @todo: Uncomment update dialog when will be ready to handle big traffic bursts.
   /*
@@ -441,8 +517,7 @@ NSString *const kSettingsSegue = @"Map2Settings";
 - (void)viewWillDisappear:(BOOL)animated {
   [super viewWillDisappear:animated];
 
-  if ([MWMNavigationDashboardManager sharedManager].state == MWMNavigationDashboardStateHidden &&
-      [MWMSearchManager manager].state == MWMSearchManagerStateHidden)
+  if ([MWMNavigationDashboardManager sharedManager].state == MWMNavigationDashboardStateHidden)
     self.controlsManager.menuRestoreState = self.controlsManager.menuState;
   GetFramework().SetRenderingDisabled(false);
 }
@@ -544,10 +619,6 @@ NSString *const kSettingsSegue = @"Map2Settings";
   [self.navigationController pushViewController:descriptionViewController animated:YES];
 }
 
-- (void)searchText:(NSString *)text {
-  [self.controlsManager searchText:text forInputLocale:[[AppInfo sharedInfo] languageId]];
-}
-
 - (void)openDrivingOptions {
   UIStoryboard *sb = [UIStoryboard instance:MWMStoryboardDrivingOptions];
   UIViewController *vc = [sb instantiateInitialViewController];
@@ -605,15 +676,13 @@ NSString *const kSettingsSegue = @"Map2Settings";
 - (void)performAction:(NSString *)action {
   [self.navigationController popToRootViewControllerAnimated:NO];
   if (self.isViewLoaded) {
-    auto searchState = MWMSearchManagerStateHidden;
     [MWMRouter stopRouting];
     if ([action isEqualToString:@"app.organicmaps.3daction.bookmarks"])
       [self.bookmarksCoordinator open];
     else if ([action isEqualToString:@"app.organicmaps.3daction.search"])
-      searchState = MWMSearchManagerStateDefault;
+      [self.searchManager startSearchingWithIsRouting:NO];
     else if ([action isEqualToString:@"app.organicmaps.3daction.route"])
       [self.controlsManager onRoutePrepare];
-    [MWMSearchManager manager].state = searchState;
   } else {
     dispatch_async(dispatch_get_main_queue(), ^{
       [self performAction:action];
@@ -674,9 +743,26 @@ NSString *const kSettingsSegue = @"Map2Settings";
   return _controlsManager;
 }
 
+- (SearchOnMapManager *)searchManager {
+  if (!_searchManager)
+    _searchManager = [[SearchOnMapManager alloc] init];
+  return _searchManager;
+}
+
+- (TrackRecordingManager *)trackRecordingManager {
+  if (!_trackRecordingManager)
+    _trackRecordingManager = TrackRecordingManager.shared;
+  return _trackRecordingManager;
+}
+
+- (UIView * _Nullable)searchViewAvailableArea {
+  return self.searchManager.viewController.availableAreaView;
+}
+
 - (BOOL)hasNavigationBar {
   return NO;
 }
+
 - (MWMMapDownloadDialog *)downloadDialog {
   if (!_downloadDialog)
     _downloadDialog = [MWMMapDownloadDialog dialogForController:self];
@@ -686,9 +772,6 @@ NSString *const kSettingsSegue = @"Map2Settings";
 - (void)setPlacePageTopBound:(CGFloat)bound duration:(double)duration {
   self.visibleAreaBottom.constant = bound;
   self.sideButtonsAreaBottom.constant = bound;
-  [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
-    [self.view layoutIfNeeded];
-  } completion:nil];
 }
 
 + (void)setViewport:(double)lat lon:(double)lon zoomLevel:(int)zoomLevel {
@@ -786,6 +869,50 @@ NSString *const kSettingsSegue = @"Map2Settings";
   if (backURL != nil) {
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString: backURL] options:@{} completionHandler:nil];
   }
+}
+
+// MARK: - Track Recording Place Page
+
+- (void)showTrackRecordingPlacePage {
+  if ([self.trackRecordingManager contains:self]) {
+    [self dismissPlacePage];
+    return;
+  }
+  PlacePageData * placePageData = [[PlacePageData alloc] initWithTrackInfo:self.trackRecordingManager.trackRecordingInfo
+                                                             elevationInfo:self.trackRecordingManager.trackRecordingElevationProfileData];
+  [self.controlsManager setTrackRecordingButtonState:TrackRecordingButtonStateHidden];
+  [self showOrUpdatePlacePage:placePageData];
+  [self startObservingTrackRecordingUpdatesForPlacePageData:placePageData];
+}
+
+- (void)startObservingTrackRecordingUpdatesForPlacePageData:(PlacePageData *)placePageData {
+  __weak __typeof(self) weakSelf = self;
+  [self.trackRecordingManager addObserver:self
+        recordingIsActiveDidChangeHandler:^(TrackRecordingState state,
+                                            TrackInfo * _Nonnull trackInfo,
+                                            ElevationProfileData * _Nonnull (^ _Nullable elevationData) ()) {
+    __strong __typeof(weakSelf) self = weakSelf;
+    if (!self) return;
+    switch (state) {
+      case TrackRecordingStateInactive:
+        [self stopObservingTrackRecordingUpdates];
+        [self.controlsManager setTrackRecordingButtonState:TrackRecordingButtonStateClosed];
+        break;
+      case TrackRecordingStateActive:
+        if (UIApplication.sharedApplication.applicationState != UIApplicationStateActive)
+          return;
+        [self.controlsManager setTrackRecordingButtonState:TrackRecordingButtonStateHidden];
+        [placePageData updateWithTrackInfo:trackInfo
+                             elevationInfo:elevationData()];
+        break;
+    }
+  }];
+}
+
+- (void)stopObservingTrackRecordingUpdates {
+  [self.trackRecordingManager removeObserver:self];
+  if (self.trackRecordingManager.isActive)
+    [self.controlsManager setTrackRecordingButtonState:TrackRecordingButtonStateVisible];
 }
 
 // MARK: - Handle macOS trackpad gestures

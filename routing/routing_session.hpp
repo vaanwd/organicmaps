@@ -94,9 +94,9 @@ public:
   bool GetRouteAltitudesAndDistancesM(std::vector<double> & routeSegDistanceM,
                                       geometry::Altitudes & routeAltitudesM) const;
 
-  /// \brief returns coordinates of route junctions.
+  /// \brief returns points of route junctions.
   /// \returns true if there is valid route information. If the route is not valid returns false.
-  bool GetRouteJunctionPoints(std::vector<m2::PointD> & routeJunctionPoints) const;
+  bool GetRouteJunctionPoints(std::vector<geometry::PointWithAltitude> & routeJunctionPoints) const;
 
   SessionState OnLocationPositionChanged(location::GpsInfo const & info);
   void GetRouteFollowingInfo(FollowingInfo & info) const;
@@ -234,6 +234,7 @@ private:
   double m_passedDistanceOnRouteMeters = 0.0;
   // Rerouting count
   int m_routingRebuildCount = -1; // -1 for the first rebuild called in BuildRoute().
+  int m_routingRebuildAnnounceCount = 0; // track TTS announcement state (ignore the first build)
   mutable double m_lastCompletionPercent = 0.0;
 
   DECLARE_THREAD_CHECKER(m_threadChecker);

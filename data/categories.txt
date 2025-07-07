@@ -93,7 +93,7 @@ hu:Hol lehet enni valamit|Élelmiszer
 id:Tempat makan|Makanan
 it:Dove mangiare|Cibo
 ja:食事場所|飲食|飲食店
-ko:어디서먹을까|음식
+ko:어디서 먹을까|음식
 lv:Kur paēst|Ēst|Ēdiens
 mr:जेवायचे ठिकाण|जेवण|अन्न|भोजन
 nb:Spisesteder|Mat
@@ -105,15 +105,15 @@ es:Dónde comer|Comer|Comida
 et:Kus süüa|Toit
 eu:Non jan|Jaten
 sr:Где јести|Јело|Храна|Gde jesti|Jelo|Hrana
-sv:Var att äta|Mat
+sv:Matmöjligheter|Mat
 th:กินร้านไหนดี|อาหาร
 tr:Nerede yenir|Yemek
 uk:Де поїсти|Їжа
 vi:Ăn ở đâu|ẩm thực
 zh-Hans:在哪儿吃|食物
-zh-Hant:在哪兒吃|飲食
-el:Πού να φάμε|Φαγητό
-he:אוכל
+zh-Hant:在哪裡吃|飲食
+el:Μέρη για φαγητό|Φαγητό
+he:איפה לאכול|אוכל
 sk:Kde sa najesť|Jedlo
 sw:Sehemu ya kula
 fa:غذا|کجا غذا بخوریم
@@ -136,7 +136,7 @@ eu:Produktuak|Jan
 fa:غذا|فروشگاه|عطاری
 fi:Elintarvikkeet|Ruoka
 fr:4Epiceries|5Nourriture|5Alimentation
-he:חניה
+he:מצרכים
 hi:3किराने का सामान
 hu:Élelmiszer|Ennivaló|Üzlet
 id:Toserba|Makanan|Toko
@@ -153,7 +153,7 @@ pt-BR:Mercados|Alimentação
 ro:4Alimentare|Produse|Alimentație|Mâncare
 sk:Potraviny|Jedlo
 sr:Намирнице|Храна|Namirnice|Hrana
-sv:Produkter|Mat
+sv:Matvaror|Produkter|Mat
 sw:Migahawani
 th:ซื้อของกินของใช้|อาหาร
 tr:3Market|Bakkal|Yiyecek
@@ -177,7 +177,7 @@ fi:Liikenne
 fr:5Transport
 de:Verkehr
 hi:4सार्वजनिक परिवहन
-hu:Közlekedés
+hu:Közlekedés|Tömegközlekedés
 id:5Transportasi
 it:5Trasporto
 ja:交通機関
@@ -203,13 +203,13 @@ zh-Hant:交通
 el:Συγκοινωνία
 he:תחבורה
 sk:Doprava
-fa:حمل و مواصلات
+fa:حمل و نقل
 
 # First keyword should match [category_fuel] definition in strings.txt!
 @category_fuel
 en:2Gas|Gasoline|3Petrol|4Diesel|3Fuel
-ru:3бензин|3дизель|4топливо|газ
-be:3бензін|3дызель|4паліва|газ
+ru:3бензин|3дизель|4топливо|газ|АЗС
+be:3бензін|3дызель|4паліва|газ|АЗС
 bg:Гориво|Бензиностанция
 ar:1وقود|بنزين|سولار|ديزل|وقود الحافلات
 ca:Benzinera
@@ -239,12 +239,12 @@ sr:5Гориво|4Бензин|3Дизел|Гас|Бензинска стани�
 sv:3Bensin
 th:ก๊าซ
 tr:3Benzinlik|3Yakıt|3Akaryakıt|2Dizel|2Gaz
-uk:3бензин|3дызель|4паліва|газ
+uk:3бензин|3дызель|4паліва|газ|АЗС
 vi:Khí đốt
 zh-Hans:加油站
 zh-Hant:加油站
-el:Υγρά Καύσιμα
-he:גז
+el:Βενζινάδικο|Υγρά Καύσιμα
+he:דלק
 sk:3Čerpacia stanica
 sw:Sheli
 fa:سوخت|بنزین|دیزل|گازوئیل
@@ -312,14 +312,14 @@ eu:4Erosketak
 fa:فروشگاه|خرید کردن
 fi:Ostokset
 fr:4Shopping
-he:חנות
+he:קניות
 hi:4खरीदारी
 hu:Bevásárlás
 id:Berbelanja
-it:4Shopping
+it:4Shopping|Negozi
 ja:ショッピング
 ko:쇼핑
-lv:4iepirkšanās
+lv:4Iepirkšanās
 mr:खरेदी|शॉपिंग
 nb:4Shopping
 nl:Winkelen
@@ -330,7 +330,7 @@ ro:4Shopping|Cumpărături
 sk:Nakupovanie
 sr:Шопинг|Куповина|Šoping|Kupovina
 sw:Manunuzi
-sv:4Shopping
+sv:4Shopping|Handel
 th:ช็อปปิง
 tr:4Alışveriş
 uk:3Шопінг
@@ -357,7 +357,7 @@ hi:4होटल
 hu:Szálloda|Szállodák|Hotel|Hotelek
 id:Hotel|Hotel
 it:Hôtel|Alberghi
-ja:ホテル
+ja:ホテル|宿|宿泊|旅館
 ko:호텔
 lv:Viesnīca|Hotelis
 mr:मुक्कामगृह|लॉज|निवासगृह|हॉटेल
@@ -376,7 +376,7 @@ tr:Otel|Oteller
 uk:4Готель|готелі
 vi:Khách sạn
 zh-Hans:酒店|旅店|賓館
-zh-Hant:旅馆|飯店|酒店|宾馆
+zh-Hant:旅館|旅馆|飯店|酒店|宾馆
 el:4Ξενοδοχείο|Διαμονή|Ξενοδοχεία
 he:מלון|בתי
 sk:Hotel|Hotely
@@ -391,14 +391,14 @@ be:4Славутасці|4турызм
 bg:5Забележителности|4Туризъм
 ar:سياحة
 ca:Turisme
-cs:Pamětihodnost
+cs:Pamětihodnost|Památky
 da:5Seværdigheder|4Turisme|3sightseeing
 nl:5Bezienswaardigheden|4Toerisme
 fi:4Nähtävyydet
 fr:5Sites touristiques|4Tourisme|4Attraction
 de:4Sehenswürdigkeit|4Attraktion|4Tourismus|Touristenattraktion|Sehenswürdigkeiten
 hi:जगहें
-hu:4Látnivaló|4Túrizmus
+hu:4Látnivalók|4Túrizmus
 id:Pemandangan
 it:5Luoghi turistici|4Turistico
 ja:観光
@@ -413,7 +413,7 @@ ro:5Obiective turistice|4Turism
 es:4Turismo
 et:Vaatamisväärsused
 eu:4Turismoa
-sr:5Атракција|5Атракције|6Знаменитости|5Туризам|5Atrakcija|5Atrakcije|6Znamenitosti|5Turizam
+sr:5Туристичка атракција|5Атракција|5Атракције|6Знаменитости|5Туризам|5Turistička atrakcija|5Atrakcija|5Atrakcije|6Znamenitosti|5Turizam
 sv:4Sevärdheter|4Attraktion|4Turism
 th:สถานที่ท่องเที่ยว
 tr:4Görülecek yerler|3Turizm
@@ -437,14 +437,14 @@ ar:ترفيه وتسلية|تسلية
 ca:Entreteniment
 cs:Zábava
 da:Underholdning
-nl:Uitgaan
+nl:Amusement|Uitgaan
 fi:Viihde
 fr:Divertissement
 de:Unterhaltung
 hi:मनोरंजन
 hu:Szórakozás
 id:Hiburan
-it:Divertimento
+it:Intrattenimento|Divertimento
 ja:エンターテイメント
 ko:엔터테인먼트
 lv:3Izklaide|Atpūta
@@ -485,6 +485,7 @@ nl:Nachtleven
 fi:Yöelämä
 fr:Vie nocturne
 de:Nachtleben
+he:חיי לילה
 hi:रात्रि जीवन
 hu:Éjjeli élet
 id:Kehidupan Malam
@@ -492,7 +493,7 @@ it:Vita notturna
 ja:ナイトライフ
 ko:유흥|나이트 라이프|밤의 생활
 lv:Naktsdzīve
-mr:नाईटलाईफ
+mr:नाईटलाईफ|रात्रीजीवन
 nb:Nattliv
 pl:Życie nocne
 pt:Vida noturna
@@ -502,7 +503,7 @@ es:Vida nocturna|noche
 et:Ööelu
 eu:Gaueko bizitza
 sr:Ноћни живот|Noćni život
-sv:Nattliv
+sv:Nattliv|Nöjesliv
 th:ไนท์ไลฟ์
 tr:Gece hayatı
 uk:Нічне життя
@@ -529,8 +530,9 @@ nl:Gezinsvakantie
 fi:Vapaa-aikaa lasten kanssa
 fr:Vacances en famille
 de:Freizeit mit Kindern
+he:שעשועים
 hi:पारिवारिक अवकाश
-hu:Pihenés a gyerekekkel
+hu:Családi kiruccanás
 id:Liburan keluarga
 it:Divertimento in famiglia|Vacanze bambini
 ja:家族の休日
@@ -539,14 +541,14 @@ lv:Atpūta ģimenei|Ģimene
 mr:कौटुंबिक सुट्टी
 nb:Familieferie
 pl:Wypoczynek z dziećmi
-pt:Atividades com crianças
+pt:Passeios com crianças
 pt-BR:Feriados em família
 ro:Divertisment cu copiii|Divertisment cu familia|Vacanță cu copiii
 es:Ocio en familia|Diversión en familia
 et:Perepuhkus
 eu:Umeekin atseden hartu
-sr:Породични одмор|Porodični odmor
-sv:Semester med barn
+sr:Све за децу|Sve za decu
+sv:Familjesemester
 th:วันหยุดสำหรับครอบครัว
 tr:Aile tatili
 uk:Відпочинок з дітьми
@@ -573,7 +575,7 @@ nl:3Geldautomaat
 fi:Pankkiautomaatti
 fr:DAB|GAB|argent|Distributeur de billets
 de:3Geldautomat|4Bankautomat|7Bargeldautomat
-hi:3एटीएम|3स्वचालित गणक मशीन (एटीएम)
+hi:3एटीएम|3स्वचालित गणक मशीन
 hu:4Pénzautomata
 id:2ATM
 it:3Bancomat
@@ -601,7 +603,7 @@ el:ATM
 he:כספומט
 sk:3Bankomat
 sw:Benki|fedha
-fa:خود پرداز
+fa:خود‌پرداز
 
 
 # First keyword should match [category_rv] definition in strings.txt!
@@ -618,15 +620,17 @@ el:Για RV
 es:5Caravanas|5Autocaravanas|5Motorhome|camper
 et:Haagiselamud
 eu:Karabanak
-fa:RV ﯼﺍﺮﺑ
+fa:امکانات ماشین کاروان
 fi:Karavaanaritilat
 fr:Aménagements pour camping-car|4caravane|mobile home
-he:םינאוורק רובע
-hu:RV számára
+he:עבור קרוואנים
+hi:आरवी सुविधाएं
+hu:Lakókocsis létesítmények
 id:Untuk RV
 ja:RV用
 ko:RV용
 lv:4Treileru laukumi|4Treileri|5Karavāna
+mr:कँपिंग वाहन सोयी
 it:Per camper
 nb:Bobilanlegg
 nl:Caravan faciliteiten|4Caravans|5Campers
@@ -640,7 +644,7 @@ sr:За кампер возила|Za kamper vozila
 sv:För husbil
 sw:Kwa RV
 th:สำหรับ RV
-tr:4Karavan Tesisleri
+tr:4Karavan tesisleri
 uk:Для автобудинків|5Автодім|5Автобудинок|5Трейлер|5Караван|Будинок на колесах
 vi:Đối với RV
 zh-Hans:房车设施
@@ -700,6 +704,7 @@ nl:3Bank
 fi:3Pankki
 fr:3Banque
 de:3Bank
+hi:3बैंक
 hu:3Bank
 id:3Bank
 it:3Banca
@@ -738,7 +743,7 @@ be:4Сэканд-хэнд
 bg:Втора употреба
 ca:Segona mà
 cs:Second-hand
-da:Brugt
+da:Brugt|Genbrugsbutikker
 de:Second-hand
 el:Μεταχειρισμένα
 es:Segunda mano
@@ -748,7 +753,8 @@ fa:دست دوم
 fi:Käytetyt tavarat
 fr:D'occasion
 he:יד שניה
-hu:Second-hand
+hi:सेकंड हैंड
+hu:Second-hand|Használt cikk
 id:Tangan kedua
 it:Di seconda mano
 ja:中古品
@@ -764,14 +770,14 @@ ro:La mâna a doua
 ru:4Секонд-хенд
 sk:Second-hand
 sr:6Секонд-хенд|6Sekond-hend
-sv:Begagnad
+sv:Begagnad|Begagnat
 sw:Mtumba
 th:มือสอง
 tr:İkinci el
 uk:Секонд-хенд
 vi:Đồ cũ
 zh-Hans:二手货
-zh-Hant:二手貨
+zh-Hant:二手商店
 
 amenity-bank|@category_bank
 en:money|U+1F3E6|U+1F4B0|U+1F4B2|U+1F4B3|U+1F4B4|U+1F4B5|U+1F4B6|U+1F4B7
@@ -784,7 +790,6 @@ da:3penge
 nl:geld
 fr:argent
 de:3Bankfiliale|Geld
-hi:3बैंक
 hu:pénz
 id:uang
 it:soldi
@@ -821,11 +826,13 @@ bg:Рециклиране|Преизползване|Разделно събир
 ar:إعادة تدوير|استغلال المخلفات|المواد القابلة لإعادة التدوير|جمع القمامة بشكل منفصل|فرز النفايات|إعادة الاستخدام
 ca:Reciclatge|Reciclatge de residus|Eliminació de residus|Materials reciclables|Recollida selectiva d’escombraries|Classificació de residus|Reutilització
 cs:Recyklace|Využití odpadu|Recyklovatelné|Oddělený sběr odpadků|Třídění odpadu|Opětovné použití
-da:Genbrug|Affaldsudnyttelse|Genanvendelig|Separate dagrenovationer|Affaldssortering
+da:Recirkulering|Genbrug|Affaldsudnyttelse|Genanvendelig|Separate dagrenovationer|Affaldssortering
 nl:Recycling|Afvalgebruik|Recyclebaar materiaal|Gescheiden afvalinzameling|Afval sorteren|Hergebruik
 fi:Jätteiden kierrätys|Jätteiden hyötykäyttö|Kierrätyskelpoinen jäte|Jätelajittelu|Jätteiden lajittelu|Hyötykäyttö
 fr:4Recyclage|Traitement des déchets|Dépôt de matières recyclables|Tri de déchets|Tri des déchets|Réutilisation
 de:Recycling|Abfallverwertung|Recyclebares Material|Getrennte Müllsammlung|Müllsortierung|Wiederverwendung
+he:מיחזור
+hi:पुनर्चक्रण
 hu:Újrahasznosítás|Hulladékhasznosítás|Újrahasznosítható|Elkülönített hulladékgyűjtés|Hulladék válogatás|Újrafelhasználás
 id:Mendaur ulang|Pemanfaatan limbah|Dapat didaur ulang|Pemisahan pengumpulan sampah|Pemilahan limbah|Penggunaan kembali
 it:Riciclo|Utilizzazione dei rifiuti|Ritiro dei materiali riciclabili|Separazione dei rifiuti|Raccolta differenziata|Riutilizzo
@@ -837,13 +844,13 @@ nb:Resirkulering|Avfallsutnytting|Gjenvinningsstasjon|Kildesortering|Gjenbruk
 pl:Recykling|Recyrkulacja|Utylizacja odpadów|Do recyklingu|Segregacja śmieci|Sortowanie śmieci|Odzysk
 pt:Reciclagem|Ecoponto|Recicláveis|Separação de lixo|Reutilização
 pt-BR:Reciclagem|Utilização de resíduos|Recicláveis|Coleta de seletiva|Separação de lixo|Reuso
-ro:Reciclarea deșeurilor|Reciclare|Recepționarea reciclării|Colectarea separată a gunoiului|Sortarea gunoiului|Reutilizare
+ro:Reciclarea deșeurilor|4Reciclare|Recepționarea reciclării|Colectarea separată a gunoiului|Sortarea gunoiului|Reutilizare
 es:Reciclaje|Reciclaje de residuos|Eliminación de residuos|Materiales reciclables|Recogida selectiva de basura|Clasificación de residuos|Reutilización
 eu:Hondakinen birziklapena|Hondakinak ezabatzea|Material birziklagarriak|Zabor bilketa selektiboa|Hondakinak sailkatzea|Berrerabilpena
 et:Taaskasutus|Jäätmete kasutamine|Jäätmete äraandmine|Taaskasutatavad|Prügi eraldi korjamine|Prügi sorteerimne|Taaskasutus
 es-MX:Reciclaje|Reciclaje de desechos|Eliminación de desechos|Materiales reciclables|Recogida separada de basura|Clasificación de desechos|Reutilización
 sr:6Рециклажа|6Reciklaža
-sv:Återvinning av avfall|Avfallsbehandling|Återvinningsbart avfall|Separat sopinsamling|Sopsortering|Återanvändning
+sv:Återvinning|Avfallsbehandling|Återvinningsbart avfall|Separat sopinsamling|Sopsortering|Återanvändning
 th:การรีไซเคิล|การใช้ประโยชน์จากขยะ|รีไซเคิลได้|ที่รวบรวมขยะแยกประเภท|การแยกขยะ|รียูส
 tr:4Geri dönüşüm|4Atık kullanımı|4Geri dönüştürülebilir nesneler|4Ayrı çöp toplama|4Atık ayırma|5Yeniden kullanım
 uk:5Переробка відходів|Утилізація відходів|5Прийом вторсировини|5Здати вторсировину|5Роздільний збір сміття|Сортування сміття|Повторне використання
@@ -894,6 +901,8 @@ el:Συνάλλαγμα|ανταλλακτήριο|χρήματα
 sk:3Zmenáreň|peniaze
 fa:صرافی
 
+amenity-studio
+en:Studio
 
 amenity-bar|amenity-pub|@category_eat|@category_nightlife
 en:2Bar|2pub|beer|drink|U+1F37A|U+1F37B|U+1F376|tavern|bars and pubs|brew pub|cocktail lounge
@@ -1086,7 +1095,7 @@ pl:3Stacja paliw
 pt:3Posto de combustível|3Bomba de combustível|3gasolina|3gasóleo
 pt-BR:3Posto de combustível|3gasolina
 ro:3Benzinărie
-sr:Бензинска пумпа|Бензинска станица|Benzinska pumpa|Benzinska stanica
+sr:4Бензинска пумпа|4Бензинска станица|4Benzinska pumpa|4Benzinska stanica
 sv:3Bensinstation|3bränsle|2gas
 th:3ปั๊มน้ำมัน|เชื้อเพลิง
 tr:3Yakıt|3Benzin istasyonu|2gaz|Benzinlik
@@ -1390,6 +1399,47 @@ ru:Здоровая еда
 sr:6Здрава храна|6Zdrava hrana
 tr:Sağlıklı Gıda
 es:Alimentos saludables
+
+shop-hearing_aids|@shop
+en:Hearing Aids
+ar:المعينات السمعية
+be:Слыхавыя апараты
+bg:Слухови апарати
+ca:Audiòfons
+cs:Sluchadla
+da:Høreapparater
+de:Hörgeräte
+el:Βοηθήματα ακοής
+es:Audífonos
+et:Kuuldeaparaadid
+eu:Entzungailuak
+fa:چادرهای
+fi:Kuulolaitteet
+fr:Aides auditives
+he:מכשירי שמיעה
+hi:कान की मशीन
+hu:Hallókészülékek
+id:Alat bantu dengar
+it:Apparecchi acustici
+ja:補聴器
+ko:보청기
+lv:Dzirdes aparāti
+mr:श्रवणयंत्र
+nb:Høreapparater
+nl:Hoortoestellen
+pl:Aparaty słuchowe
+pt:Aparelhos auditivos
+ro:Aparate auditive
+ru:Слуховые аппараты
+sk:Sluchové pomôcky
+sv:Hörselhjälpmedel
+sw:Misaada ya kusikia
+th:เครื่องช่วยฟัง
+tr:İşitme Cihazları
+uk:Слухові апарати
+vi:Máy trợ thính
+zh-Hans:助听器
+zh-Hant:助聽器
 
 shop-mobile_phone|@shop
 en:4Cell Phones|4Mobile Phones|6smartphones|electronics store|U+1F4F1|U+1F4F2
@@ -4732,6 +4782,9 @@ vi:Diểm tham quan
 zh-Hans:陵墓
 zh-Hant:陵墓
 
+man_made-cross
+en:Cross
+
 historic-wayside_cross
 en:Wayside cross
 ar:صليب مسيحي
@@ -4833,6 +4886,9 @@ fi:Koirapuisto
 he:גינת כלבים
 ja:ドッグラン
 
+leisure-dance|@category_entertainment
+en:4Dance|Dancing school
+
 leisure-garden
 en:3Garden
 ru:Сад
@@ -4871,6 +4927,9 @@ el:Κήπος αναψυχής|αξιοθέατα
 sk:2Záhrada
 sw:Bustani
 fa:باغ تفریحی
+
+leisure-firepit
+en:5Firepit
 
 amenity-bench
 en:Bench
@@ -5056,6 +5115,48 @@ el:Ενοικίαση αυτοκινήτου|αυτοκίνητο|ενοικιά
 sk:3Autopožičovňa|požičovňa áut
 sw:Kodi ya gari|gari|kodi
 fa:مکان اجاره ماشین
+
+amenity-motorcycle_rental
+en:4Motorcycle Rental|bike|hire|4scooter
+ar:تأجير الدراجات النارية
+be:Пракат матацыклаў
+bg:Мотоциклети под наем
+ca:Lloguer de motos
+cs:Půjčovna motocyklů
+da:Udlejning af motorcykler
+de:Motorradvermietung
+el:Ενοικίαση μοτοσικλέτας
+es:Alquiler de motos
+et:Mootorratta rentimine
+eu:Motorren alokairua
+fa:اجاره موتور سیکلت
+fi:Moottoripyörän vuokraus
+fr:Location de motos
+he:השכרת אופנועים
+hi:मटरसइकल करय
+hu:Motorkerékpár bérlés
+id:Penyewaan Sepeda Motor
+it:Noleggio moto
+ja:レンタルバイク
+ko:오토바이 대여
+lv:Motociklu noma
+mr:मटरसयकल भडयन
+nb:Utleie av motorsykkel
+nl:Motorverhuur
+pl:Wynajem motocykli
+pt:Aluguer de motociclos
+pt-BR:Aluguel de motocicletas
+ro:Închiriere motociclete
+ru:5Прокат мотоциклов|аренда|скутеров
+sk:Požičovňa motocyklov
+sv:Motorcykeluthyrning
+sw:Kukodisha pikipiki
+th:รถมอเตอรไซค
+tr:Motosiklet Kiralama
+uk:Оренда мотоциклів
+vi:Cho thuê xe máy
+zh-Hans:摩托车租赁
+zh-Hant:摩托車租賃
 
 amenity-cinema|@category_entertainment
 en:3Cinema|U+1F3A6|U+1F3AC
@@ -5258,6 +5359,9 @@ el:Πορνείο|οίκος ανοχής
 sk:Nevestinec|verejný dom
 sw:Danguro
 fa:فاحشه خانه|جنده خانه
+
+amenity-love_hotel|@category_hotel
+en:4Love Hotel|3Sex Hotel|4Adult Hotel
 
 @gambling
 en:Gambling
@@ -5634,6 +5738,7 @@ nl:4Ziekenhuis|4hospitaal
 fi:5Sairaala
 fr:4Hôpital
 de:4Krankenhaus
+hi:3चिकित्सालय
 hu:4Kórház
 id:5Rumahsakit|Rumah sakit
 it:4Ospedale
@@ -5674,7 +5779,6 @@ nl:kliniek|hospitaal|3dokter|3eerste hulp
 fr:clinique|3médecin|3docteur
 de:4Spital|Klinik|3Arzt|Doktor|Medizinische Einrichtung|Medizinisches Zentrum|Gesundheitswesen|3Ambulanz|Gesundheitsdienstleistungen|Erste Hilfe
 et:Haigla|kliinik|3arst|meditsiinikeskus|terviseteenused|esmaabi
-hi:3चिकित्सालय
 hu:rendelőintézet|3orvos
 ja:クリニック|医師|医者|ドクター|救急|診療
 lv:Slimnīca|klīnika|poliklīnika|ārsts|dakteris|medicīnas centrs|medicīniskie pakalpojumi|ambulance
@@ -5707,11 +5811,10 @@ nl:4Kliniek|ziekenhuis|hospitaal
 fi:4Klinikka|sairaala
 fr:4Clinique|hôpital
 de:4Klinik|Krankenhaus|Ambulanz|Arzt|Diagnostik|Gesundheitsdienstleistungen|4Doktor
-hi:3चिकित्सालय
 hu:Rendelőintézet|kórház|szanatórium
 id:4Klinik|rumah sakit
 it:4Clinica|ospedale
-ja:クリニック|病院、診療所|病院
+ja:クリニック|病院、診療所
 lv:Klīnika|slimnīca|poliklīnika|U+1F3E5|U+1F489
 mr:चिकित्सालय|क्लिनिक|दवाखाना
 nb:4Klinikk|sykehus
@@ -5749,7 +5852,7 @@ hi:3चिकित्सक
 hu:Rendelő|Klinika|orvosi rendelő|kórház
 id:Praktik dokter|Klinik|rumah sakit
 it:Studio medico|Clinica|ambulatorio|ospedale
-ja:医者のオフィス|クリニック|病院
+ja:医者のオフィス|クリニック
 lv:Ārsts|dakteris|klīnika|poliklīnika|U+1F489|U+1F3E5|U+1F691
 mr:वैद्य|डॉक्टर|चिकित्सक
 nb:Legekontor|Klinikk|legesenter|sykehus
@@ -7378,6 +7481,7 @@ sk:Záchody
 sw:Choo
 fa:دستشویی|توالت
 mr:शौचालय
+hi:3शौचालय
 
 amenity-toilets|toilets-yes|@category_toilet
 en:wc|5restroom|4bathroom|loo|lavatory|U+1F6BD|U+1F6BE|U+1F4A9|U+1F6BB|U+1F6B9|U+1F6BA
@@ -7388,7 +7492,6 @@ cs:wc|toalety
 nl:WC|toilet
 fr:wc
 de:WC
-hi:3शौचालय
 hu:WC
 it:WC
 ja:お手洗い|便所|厠
@@ -7405,7 +7508,6 @@ tr:WC|tuvalet|umumi tuvalet
 zh-Hant:2洗手間|wc
 el:μπάνιο|χώρος ανάγκης|αποχωρητήριο|wc
 sk:3Toalety|wc
-mr:शौचालय
 
 amenity-university
 en:4University|U+1F393|Uni
@@ -8420,7 +8522,7 @@ tr:3Pansiyon|motel
 uk:3Хостел|отель|мотель|вітальниця
 vi:Nhà trọ
 zh-Hans:2旅馆|旅店
-zh-Hant:1旅舍|旅館|青年旅舍|青年旅館|住宿|飯店|3汽車旅館|3motel
+zh-Hant:1旅舍|青年旅舍|青年旅館|住宿|飯店|3汽車旅館|3motel
 el:Πανδοχείο|ξενοδοχείο|μοτέλ
 sk:3Hostel|ubytovňa|motel
 sw:Bweni
@@ -8440,7 +8542,7 @@ de:Gasthaus
 hi:3होटल
 hu:Szálloda|hotel|motel|szállás
 it:albergo
-ja:宿|宿泊|旅館
+ja:ホテル
 lv:motelis|U+1F3E8|U+1F62A|U+1F634|
 pl:Hotel
 pt:motel
@@ -8454,7 +8556,7 @@ th:โมเทล
 tr:motel
 uk:мотель
 zh-Hans:2宾馆|汽车旅馆|旅店
-zh-Hant:1飯店|1汽車旅館|旅館|住宿|賓館|招待所
+zh-Hant:1飯店|1汽車旅館|住宿|賓館|招待所
 el:μοτέλ
 sk:ubytovňa|motel
 sw:Hoteli
@@ -8492,7 +8594,7 @@ tr:Misafir evi|pansiyon|misafirhane
 uk:5Гостинний дім|хостел|постояльний двір
 vi:Nhà khách
 zh-Hans:1招待所์|์旅馆์|์旅社|旅店
-zh-Hant:1賓館|旅館|飯店|旅舍|住宿|招待所
+zh-Hant:1賓館|飯店|旅舍|住宿|招待所
 el:Ξενώνας|ξενοδοχείο|ξενώνας
 sk:Penzión|hostel|ubytovňa
 sw:Gesti
@@ -8532,7 +8634,7 @@ tr:3Motel|pansiyon
 uk:3Мотель|хостел
 vi:Nhà nghỉ
 zh-Hans:1汽车旅馆|旅店
-zh-Hant:1汽車旅館|3motel|旅館|飯店|住宿|
+zh-Hant:1汽車旅館|3motel|飯店|住宿|
 el:Μοτέλ|ξενοδοχείο|ξενώνας
 sk:3Motel|penzión|hostel|ubytovňa
 fa:مُتل
@@ -8569,7 +8671,7 @@ tr:3Dağda konaklama|otel
 uk:4Гірський притулок|4будиночок|3хибара|турпритулок|4притулок|гірський готель|гірська хатинка
 vi:Nhà ở trên núi|khách sạn
 zh-Hans:山上住宿|旅馆|旅店
-zh-Hant:1山上住宿|飯店|旅館|住宿|旅舍|2高山住宿
+zh-Hant:1山上住宿|飯店|住宿|旅舍|2高山住宿
 el:Ορεινό καταφύγιο|ξενοδοχείο|ξενώνας|αλπική καλύβα
 sk:4Horská chata|horský hotel|hotel
 
@@ -10034,7 +10136,7 @@ mr:इमारत|बिल्डिंग|वाडा
 @category_police
 en:4Police
 ru:4Полиция|милиция
-be:4Паліцыя
+be:4Паліцыя|міліція
 bg:4Полиция
 ca:Policia
 ar:شرطة
@@ -10044,17 +10146,18 @@ nl:4Politie
 fi:4Poliisi
 fr:4Police|4gendarmerie
 de:Polizeistation|4Polizei
+hi:3थाना
 hu:4Rendőrség
 id:4Polisi
 it:4Polizia
 ja:警察
-ko:경찰
+ko:치안대
 lv:4Policija
 nb:4Politi
 pl:4Policja
 pt:4Polícia
 pt-BR:4Polícia
-ro:4Poliție
+ro:4Poliție|Poliția
 es:4Policía
 et:4Politsei
 eu:4Poliziak
@@ -10081,7 +10184,6 @@ ca:Policia
 cs:4bezpečnost
 de:Polizeiwache|Polizei
 fr:Poste de police|Commissariat
-hi:3थाना
 it:6Commissariato|5Questura|4Caserma|4Guardia|5Carabinieri
 ja:1屯所|ポリス|交番|お巡りさん|おまわりさん|通報
 ko:보안대
@@ -10208,6 +10310,7 @@ fa:اب
 fi:3Vesi
 fr:3Eau|L'eau
 he:מים
+hi:जल
 hu:3Víz
 id:3Air
 it:3Acqua
@@ -10225,7 +10328,7 @@ sr:Вода|Voda
 sv:3Vatten
 sw:4Maji
 th:น้ำ
-tr:Su Kaynağı
+tr:Su Kaynağı|Su
 uk:3Вода|джерело води
 vi:Nước
 zh-Hans:水
@@ -10789,7 +10892,7 @@ de:3Autowerkstatt|Kfz|Reparaturwerkstatt|Auto|4Werkstatt
 hi:3वाहन मरम्मत की दुकान
 hu:3Autószerelő|Autószerviz|Gépkocsiszerviz|Autójavító|4javítóműhely|kocsi
 id:Bengkel mobil
-it:3Riparazione auto|auto|macchina|3automobile|vettura
+it:Meccanico|3Riparazione auto|auto|macchina|3automobile|vettura
 ja:1自動車修理|車|自動車|カー|リペア|修理|カーリペア
 ko:자동차 수리|정비|자동차 수리소|차 수리소
 lv:Autoserviss|serviss|remonts|mehāniķis|U+1F527
@@ -11989,14 +12092,14 @@ pl:Krawiec
 pt-BR:Alfaiate|costureiro|conserto de roupas
 pt:Alfaiate
 ro:Croitor
-ru:4Ателье|портной|4ремонт одежды|швейная мастерская|5пошив одежды
+ru:4Ателье|Портной|4Ремонт одежды|4Швейная мастерская|5Пошив одежды|Кройка|Шитьё
 sk:Krajčírstvo
 sr:Кројач|Krojač
 sv:Skräddare
 sw:Mshonaji nguo
 th:ช่างตัดเสื้อ
 tr:Terzi
-uk:4Ательє|4Ремонт одягу|швейна майстерня
+uk:4Ательє|4Ремонт одягу|4Швейна майстерня
 vi:Thợ may
 zh-Hans:裁缝
 zh-Hant:裁縫師
@@ -12335,8 +12438,8 @@ sk:Stožiar
 tr:Direk
 uk:Щогла|вишка
 
-man_made-tower-communication
-en:Communications Tower|cell tower|cellular tower
+man_made-communications_tower|man_made-tower-communication
+en:Communications Tower|cell tower|cellular tower|mast
 ar:برج الاتصالات
 be:Вежа сувязі|вышка сувязі|сотавая вышка
 bg:Комуникационна кула
@@ -12365,7 +12468,7 @@ pl:Wieża komunikacyjna
 pt:Torre de Comunicações
 pt-BR:Torre de Comunicações
 ro:Turnul de comunicații
-ru:Вышка связи|cотовая вышка|башня связи
+ru:Вышка связи|cотовая вышка|телекоммуникационная башня
 sk:Komunikačná veža
 sr:Комуникациони торањ|Komunikacioni toranj
 sv:Kommunikationstorn
@@ -12376,6 +12479,48 @@ uk:Вежа зв'язку|Стільникова вежа
 vi:Tháp truyền thông
 zh-Hans:通讯塔
 zh-Hant:通訊塔
+
+# Please avoid synonyms like Gas/Fuel so that Gas station search doesn't return Gas wells :)
+man_made-petroleum_well
+en:Petroleum Well|Oil Well|Boring
+ar:بئر النفط
+be:4Нафтавая свідравіна|Свідравіна
+bg:4Нефтено находище|Сондаж
+cs:4Ropný vrt
+da:4Oliebrønd
+de:4Erdölbohrung|Ölquelle
+el:Πετρελαιοπηγή
+es:Pozo de petróleo|Pozo petrolífero
+et:Naftakaev
+eu:Petrolio putzua
+fa:چاه نفت
+fi:5Öljylähde
+fr:Puits de pétrole
+hi:तेल का कुआँ
+hu:Olajkút
+id:Sumur Minyak
+it:4Pozzo petrolifero
+ja:油井
+ko:유정
+lv:4Naftas urbums
+mr:तेल विहीर
+nb:4Oljebrønn
+nl:4Oliebron
+pl:4Szyb naftowy
+pt:Poço de petróleo
+pt-BR:4Poço de petróleo
+ro:4Puț de petrol
+ru:4Нефтяная скважина|Скважина
+sk:4Ropná studňa
+sr:Нафтна бушотина|Нафтна бушотина
+sv:4Oljebrunn
+sw:Kisima cha Mafuta
+th:บ่อน้ำมัน
+tr:Petrol Kuyusu
+uk:4Нафтова свердловина|Свердловина
+vi:Giếng dầu
+zh-Hans:石油井
+zh-Hant:石油井
 
 organic-only|organic-yes
 en:4organic|bio|biological|eco|ecological|healthy
@@ -13833,6 +13978,7 @@ et:Tankimisautomaat
 hi:3ईंधन डिस्पेंसर
 lv:Degvielas sūknis
 ru:Топливная колонка|бензоколонка|топливораздаточная колонка
+sr:Самоуслужно точење горива|Samouslužno točenje goriva
 tr:Yakıt dağıtıcı
 uk:Паливна колонка|бензоколонка|пальнороздавальна колонка
 mr:इंधन विक्रीयंत्र
@@ -13975,7 +14121,11 @@ el:Καμινάδα εργοστασίου
 sk:Komín
 mr:कारखाना चिमणी
 
-man_made-tower
+man_made-crane
+en:Crane
+ru:Кран
+
+man_made-tower|man_made-flare
 en:Tower
 ru:Башня
 bg:Кула
@@ -15710,6 +15860,88 @@ zh-Hant:消防栓
 fa:شیر آتش‌نشانی
 mr:अग्निशामक नाळ|फायर हायड्रंट
 
+emergency-lifeguard
+en:Lifeguard|Lifesaver
+ar: منقذ الطوارئ
+be: Ратавальнік
+bg: Спасител при извънредни ситуации | Спасител
+cs: Záchranář pohotovosti
+da: Nødlivredder
+de: Notfall-Rettungsschwimmer
+el: Επείγον ναυαγοσώστης
+es: Socorrista de emergencia
+et: Kiirabipäästja
+eu: Larrialdietako soroslea
+fa: نجات‌غریق اضطراری
+fi: Hätäpelastaja
+fr: Sauveteur d’urgence
+hi: आपातकालीन जीवनरक्षक
+hu: Sürgősségi vízimentő
+id: Penjaga Pantai Darurat
+it: Bagnino d’emergenza
+ja: 緊急救助員
+ko: 긴급 구조 요원
+lv: Ārkārtas glābējs
+mr: आपत्कालीन जीवरक्षक
+nb: Nødredder
+nl: Noodstrandwacht
+pl: Ratownik awaryjny
+pt: Salva-vidas|Guarda-vidas|Nadador-salvador|Socorrista
+pt-BR: Salva-vidas|Guarda-vidas|Nadador-salvador|Socorrista
+ro: Salvamar de urgență
+ru: Спасатель-экстренщик | Спасатель
+sk: Záchranár v núdzi
+sr: Хитан спасиоц | Спасиоц
+sv: Nödlivräddare
+sw: Mwokozi wa Dharura
+th: ผู้ช่วยชีวิตฉุกเฉิน
+tr: Acil Can Kurtaran
+uk: Рятувальник екстреної допомоги | Рятувальник
+vi: Cứu hộ khẩn cấp
+zh-Hans: 紧急救生员
+zh-Hant: 緊急救生員
+
+emergency-mountain_rescue
+en:Mountain Rescue Station|Search and Rescue
+ar:الإنقاذ الجبلي الطارئ
+be:4Аварыйна-выратавальная служба ў гарах|Горная выратавальная служба
+bg:4Спасителна служба в планината|Планинско спасяване
+cs:4Horská záchranná služba
+da:4Nød-bjergredning
+de:4Bergrettung Notdienst
+el:Επείγουσα ορεινή διάσωση
+es:Puesto de rescate de montaña
+et:Hädaolukorra mäepääste
+eu:Mendiko erreskate postua|Mendiko salbamendu postua
+fa:نجات کوهستانی اضطراری
+fi:5Hätävuoristopelastus
+fr:Sauveteurs en montagne d’urgence
+hi:आपातकालीन पर्वतीय बचाव
+hu:Hegyi mentőszolgálat sürgősségi
+id:Penyelamatan Gunung Darurat
+it:4Soccorso alpino di emergenza
+ja:緊急山岳救助
+ko:긴급 산악 구조
+lv:4Ārkārtas kalnu glābšana
+mr:आपत्कालीन पर्वतीय बचाव
+nb:4Nød-fjellredning
+nl:4Nood-bergredding
+pl:4Ratownictwo górskie awaryjne
+pt:Resgate de montanha de emergência
+pt-BR:4Resgate de montanha de emergência
+ro:4Salvare montană de urgență
+ru:4Аварийно-спасательная служба в горах|Горная спасательная служба
+sk:4Horská záchranná služba v núdzi
+sr:Хитна планинска спасилачка служба|Планинска спасилачка служба
+sv:4Nöd-bergskärning
+sw:Uokoaji wa Dharura Milimani
+th:กู้ภัยภูเขาฉุกเฉิน
+tr:Acil Dağ Kurtarma
+uk:4Аварійно-рятувальна служба в горах|Гірська рятувальна служба
+vi:Cứu hộ khẩn cấp trên núi
+zh-Hans:紧急山地救援
+zh-Hant:緊急山地救援
+
 leisure-fitness_station
 en:3Fitness Station|street workout
 ru:4Спортивные снаряды
@@ -16740,6 +16972,7 @@ lv:Auduma veikals|tekstilu veikals
 nl:Stoffenwinkel
 pt:Loja de tecidos
 pt-BR:Loja de aviamentos
+ru:Текстиль|Ткани
 sr:Текстил|Метража|Tekstil|Metraža
 tr:Kumaş mağazası|Tekstil mağazası
 es:Mercería
@@ -17402,7 +17635,7 @@ zh-Hant:香水
 shop-sewing|@shop
 en:3Sewing Supplies|4Haberdashery
 ar:معدات الخياطة
-be:Швейныя прыналежнасці
+be:4Швейныя прыналежнасці
 bg:Шивашки консумативи
 ca:Material de costura|Mercería
 cs:Šicí potřeby
@@ -17429,14 +17662,14 @@ pl:Przybory do szycia
 pt:Materiais de costura
 pt-BR:Materiais de costura
 ro:Rechizite de cusut
-ru:Швейные принадлежности
+ru:4Швейные принадлежности|Кройка|Шитьё
 sk:Šijacie potreby
 sr:Пазамантерија|Pozamanterija
 sv:Sytillbehör
 sw:Vifaa vya kushona
 th:อุปกรณ์เย็บผ้า
 tr:Dikiş malzemeleri
-uk:Швейні приладдя
+uk:4Швейні приладдя
 vi:Nguồn cung cấp may
 zh-Hans:缝纫用品
 zh-Hant:縫紉用品

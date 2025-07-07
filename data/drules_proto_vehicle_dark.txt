@@ -2105,6 +2105,57 @@ cont {
   }
 }
 cont {
+  name: "amenity-motorcycle_rental"
+  element {
+    scale: 18
+    symbol {
+      name: "motorcycle_rental-m"
+      priority: 2400
+    }
+    caption {
+      primary {
+        height: 14
+        color: 6710886
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -7600
+    }
+  }
+  element {
+    scale: 19
+    symbol {
+      name: "motorcycle_rental-m"
+      priority: 2400
+    }
+    caption {
+      primary {
+        height: 14
+        color: 6710886
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -7600
+    }
+  }
+  element {
+    scale: 20
+    symbol {
+      name: "motorcycle_rental-m"
+      priority: 2400
+    }
+    caption {
+      primary {
+        height: 14
+        color: 6710886
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -7600
+    }
+  }
+}
+cont {
   name: "amenity-parcel_locker"
   element {
     scale: 17
@@ -6030,6 +6081,41 @@ cont {
     lines {
       width: 1.3
       color: 1715749956
+      priority: 260
+    }
+  }
+}
+cont {
+  name: "barrier-guard_rail"
+  element {
+    scale: 17
+    lines {
+      width: 1.0
+      color: 3007595588
+      priority: 260
+    }
+  }
+  element {
+    scale: 18
+    lines {
+      width: 1.3
+      color: 2571387972
+      priority: 260
+    }
+  }
+  element {
+    scale: 19
+    lines {
+      width: 1.3
+      color: 2571387972
+      priority: 260
+    }
+  }
+  element {
+    scale: 20
+    lines {
+      width: 1.3
+      color: 2571387972
       priority: 260
     }
   }
@@ -32136,6 +32222,96 @@ cont {
     area {
       color: 856822290
       priority: 10
+    }
+  }
+}
+cont {
+  name: "man_made-communications_tower"
+  element {
+    scale: 15
+    symbol {
+      name: "mast-m"
+      priority: 1950
+    }
+  }
+  element {
+    scale: 16
+    symbol {
+      name: "mast-m"
+      priority: 1950
+    }
+    caption {
+      primary {
+        height: 11
+        color: 6710886
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -8050
+    }
+  }
+  element {
+    scale: 17
+    symbol {
+      name: "mast-m"
+      priority: 1950
+    }
+    caption {
+      primary {
+        height: 11
+        color: 6710886
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -8050
+    }
+  }
+  element {
+    scale: 18
+    symbol {
+      name: "mast-m"
+      priority: 1950
+    }
+    caption {
+      primary {
+        height: 11
+        color: 6710886
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -8050
+    }
+  }
+  element {
+    scale: 19
+    symbol {
+      name: "mast-m"
+      priority: 1950
+    }
+    caption {
+      primary {
+        height: 11
+        color: 6710886
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -8050
+    }
+  }
+  element {
+    scale: 20
+    symbol {
+      name: "mast-m"
+      priority: 1950
+    }
+    caption {
+      primary {
+        height: 11
+        color: 6710886
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -8050
     }
   }
 }
@@ -62921,6 +63097,167 @@ cont {
   }
 }
 cont {
+  name: "railway-station-subway-qingdao"
+  element {
+    scale: 13
+    symbol {
+      name: "subway-qingdao-s"
+      priority: 2000
+    }
+  }
+  element {
+    scale: 14
+    symbol {
+      name: "subway-qingdao-s"
+      priority: 2000
+    }
+  }
+  element {
+    scale: 15
+    symbol {
+      name: "subway-qingdao-m"
+      priority: 2000
+    }
+    caption {
+      primary {
+        height: 12
+        color: 8947848
+        stroke_color: 856032768
+        offset_y: 1
+        is_optional: true
+      }
+      secondary {
+        height: 10
+        color: 8947848
+        stroke_color: 856032768
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -8000
+    }
+  }
+  element {
+    scale: 16
+    symbol {
+      name: "subway-qingdao-m"
+      priority: 2000
+    }
+    caption {
+      primary {
+        height: 13
+        color: 8947848
+        stroke_color: 856032768
+        offset_y: 1
+        is_optional: true
+      }
+      secondary {
+        height: 11
+        color: 8947848
+        stroke_color: 856032768
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -8000
+    }
+  }
+  element {
+    scale: 17
+    symbol {
+      name: "subway-qingdao-m"
+      priority: 2000
+    }
+    caption {
+      primary {
+        height: 13
+        color: 8947848
+        stroke_color: 436602368
+        offset_y: 1
+        is_optional: true
+      }
+      secondary {
+        height: 11
+        color: 8947848
+        stroke_color: 436602368
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -8000
+    }
+  }
+  element {
+    scale: 18
+    symbol {
+      name: "subway-qingdao-m"
+      priority: 2000
+    }
+    caption {
+      primary {
+        height: 13
+        color: 8947848
+        stroke_color: 436602368
+        offset_y: 1
+        is_optional: true
+      }
+      secondary {
+        height: 11
+        color: 8947848
+        stroke_color: 436602368
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -8000
+    }
+  }
+  element {
+    scale: 19
+    symbol {
+      name: "subway-qingdao-m"
+      priority: 2000
+    }
+    caption {
+      primary {
+        height: 13
+        color: 8947848
+        stroke_color: 436602368
+        offset_y: 1
+        is_optional: true
+      }
+      secondary {
+        height: 11
+        color: 8947848
+        stroke_color: 436602368
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -8000
+    }
+  }
+  element {
+    scale: 20
+    symbol {
+      name: "subway-qingdao-m"
+      priority: 2000
+    }
+    caption {
+      primary {
+        height: 13
+        color: 8947848
+        stroke_color: 436602368
+        offset_y: 1
+        is_optional: true
+      }
+      secondary {
+        height: 11
+        color: 8947848
+        stroke_color: 436602368
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -8000
+    }
+  }
+}
+cont {
   name: "railway-station-subway-rennes"
   element {
     scale: 13
@@ -77097,6 +77434,112 @@ cont {
     scale: 20
     symbol {
       name: "subway-pyongyang-s"
+      priority: 550
+    }
+    caption {
+      primary {
+        height: 13
+        color: 8947848
+        stroke_color: 436602368
+        offset_y: 1
+        is_optional: true
+      }
+      secondary {
+        height: 11
+        color: 8947848
+        stroke_color: 436602368
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -9450
+    }
+  }
+}
+cont {
+  name: "railway-subway_entrance-qingdao"
+  element {
+    scale: 16
+    symbol {
+      name: "subway-qingdao-s"
+      priority: 550
+    }
+  }
+  element {
+    scale: 17
+    symbol {
+      name: "subway-qingdao-s"
+      priority: 550
+    }
+    caption {
+      primary {
+        height: 13
+        color: 8947848
+        stroke_color: 436602368
+        offset_y: 1
+        is_optional: true
+      }
+      secondary {
+        height: 11
+        color: 8947848
+        stroke_color: 436602368
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -9450
+    }
+  }
+  element {
+    scale: 18
+    symbol {
+      name: "subway-qingdao-s"
+      priority: 550
+    }
+    caption {
+      primary {
+        height: 13
+        color: 8947848
+        stroke_color: 436602368
+        offset_y: 1
+        is_optional: true
+      }
+      secondary {
+        height: 11
+        color: 8947848
+        stroke_color: 436602368
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -9450
+    }
+  }
+  element {
+    scale: 19
+    symbol {
+      name: "subway-qingdao-s"
+      priority: 550
+    }
+    caption {
+      primary {
+        height: 13
+        color: 8947848
+        stroke_color: 436602368
+        offset_y: 1
+        is_optional: true
+      }
+      secondary {
+        height: 11
+        color: 8947848
+        stroke_color: 436602368
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -9450
+    }
+  }
+  element {
+    scale: 20
+    symbol {
+      name: "subway-qingdao-s"
       priority: 550
     }
     caption {

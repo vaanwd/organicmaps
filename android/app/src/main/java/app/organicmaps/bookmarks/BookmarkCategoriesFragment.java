@@ -13,8 +13,8 @@ import android.os.Bundle;
 import android.provider.DocumentsContract;
 import android.view.View;
 import android.widget.Toast;
-
 import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.CallSuper;
 import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
@@ -24,41 +24,34 @@ import app.organicmaps.MwmApplication;
 import app.organicmaps.R;
 import app.organicmaps.adapter.OnItemClickListener;
 import app.organicmaps.base.BaseMwmRecyclerFragment;
-import app.organicmaps.bookmarks.data.BookmarkCategory;
-import app.organicmaps.bookmarks.data.BookmarkManager;
-import app.organicmaps.bookmarks.data.BookmarkSharingResult;
-import app.organicmaps.bookmarks.data.KmlFileType;
 import app.organicmaps.dialog.EditTextDialogFragment;
+import app.organicmaps.sdk.bookmarks.data.BookmarkCategory;
+import app.organicmaps.sdk.bookmarks.data.BookmarkManager;
+import app.organicmaps.sdk.bookmarks.data.BookmarkSharingResult;
+import app.organicmaps.sdk.bookmarks.data.DataChangedListener;
+import app.organicmaps.sdk.bookmarks.data.KmlFileType;
+import app.organicmaps.sdk.util.StorageUtils;
+import app.organicmaps.sdk.util.concurrency.ThreadPool;
+import app.organicmaps.sdk.util.concurrency.UiThread;
+import app.organicmaps.sdk.util.log.Logger;
 import app.organicmaps.util.SharingUtils;
 import app.organicmaps.util.Utils;
-import app.organicmaps.widget.PlaceholderView;
-import app.organicmaps.widget.recycler.DividerItemDecorationWithPadding;
-import app.organicmaps.util.StorageUtils;
 import app.organicmaps.util.bottomsheet.MenuBottomSheetFragment;
 import app.organicmaps.util.bottomsheet.MenuBottomSheetItem;
-import app.organicmaps.util.concurrency.ThreadPool;
-import app.organicmaps.util.concurrency.UiThread;
-import app.organicmaps.util.log.Logger;
-
+import app.organicmaps.widget.PlaceholderView;
+import app.organicmaps.widget.recycler.DividerItemDecorationWithPadding;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class BookmarkCategoriesFragment extends BaseMwmRecyclerFragment<BookmarkCategoriesAdapter>
-    implements BookmarkManager.BookmarksLoadingListener,
-               CategoryListCallback,
-               OnItemClickListener<BookmarkCategory>,
-               OnItemMoreClickListener<BookmarkCategory>,
-               OnItemLongClickListener<BookmarkCategory>,
-               BookmarkManager.BookmarksSharingListener,
-               MenuBottomSheetFragment.MenuBottomSheetInterface
+    implements BookmarkManager.BookmarksLoadingListener, CategoryListCallback, OnItemClickListener<BookmarkCategory>,
+               OnItemMoreClickListener<BookmarkCategory>, OnItemLongClickListener<BookmarkCategory>,
+               BookmarkManager.BookmarksSharingListener, MenuBottomSheetFragment.MenuBottomSheetInterface
 
 {
   private static final String TAG = BookmarkCategoriesFragment.class.getSimpleName();
-
-  static final int REQ_CODE_DELETE_CATEGORY = 102;
-  static final int REQ_CODE_IMPORT_DIRECTORY = 103;
 
   private static final int MAX_CATEGORY_NAME_LENGTH = 60;
 
@@ -74,6 +67,25 @@ public class BookmarkCategoriesFragment extends BaseMwmRecyclerFragment<Bookmark
   @SuppressWarnings("NullableProblems")
   @NonNull
   private DataChangedListener mCategoriesAdapterObserver;
+
+  private final ActivityResultLauncher<Intent> startBookmarkListForResult =
+      registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), activityResult -> {
+        if (activityResult.getResultCode() == Activity.RESULT_OK)
+          onDeleteActionSelected(getSelectedCategory());
+      });
+
+  private final ActivityResultLauncher<Intent> startImportDirectoryForResult =
+      registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), activityResult -> {
+        if (activityResult.getResultCode() == Activity.RESULT_OK)
+          onImportDirectoryResult(activityResult.getData());
+      });
+
+  private final ActivityResultLauncher<Intent> startBookmarkSettingsForResult =
+      registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
+                                activityResult
+                                -> {
+                                    // not handled at the moment
+                                });
 
   @Override
   @LayoutRes
@@ -103,7 +115,8 @@ public class BookmarkCategoriesFragment extends BaseMwmRecyclerFragment<Bookmark
     getAdapter().setCategoryListCallback(this);
 
     RecyclerView rw = getRecyclerView();
-    if (rw == null) return;
+    if (rw == null)
+      return;
 
     rw.setNestedScrollingEnabled(false);
     RecyclerView.ItemDecoration decor = new DividerItemDecorationWithPadding(requireContext());
@@ -132,7 +145,7 @@ public class BookmarkCategoriesFragment extends BaseMwmRecyclerFragment<Bookmark
     BookmarkManager.INSTANCE.addLoadingListener(this);
     BookmarkManager.INSTANCE.addSharingListener(this);
   }
-  
+
   @Override
   public void onStop()
   {
@@ -165,7 +178,7 @@ public class BookmarkCategoriesFragment extends BaseMwmRecyclerFragment<Bookmark
   {
     mSelectedCategory = item;
     MenuBottomSheetFragment.newInstance(BOOKMARKS_CATEGORIES_MENU_ID, item.getName())
-            .show(getChildFragmentManager(), BOOKMARKS_CATEGORIES_MENU_ID);
+        .show(getChildFragmentManager(), BOOKMARKS_CATEGORIES_MENU_ID);
   }
 
   @Override
@@ -175,28 +188,19 @@ public class BookmarkCategoriesFragment extends BaseMwmRecyclerFragment<Bookmark
     ArrayList<MenuBottomSheetItem> items = new ArrayList<>();
     if (mSelectedCategory != null)
     {
-      items.add(new MenuBottomSheetItem(
-          R.string.edit,
-          R.drawable.ic_settings,
-          () -> onSettingsActionSelected(mSelectedCategory)));
-      items.add(new MenuBottomSheetItem(
-          mSelectedCategory.isVisible() ? R.string.hide : R.string.show,
-          mSelectedCategory.isVisible() ? R.drawable.ic_hide : R.drawable.ic_show,
-          () -> onShowActionSelected(mSelectedCategory)));
-      items.add(new MenuBottomSheetItem(
-          R.string.export_file,
-          R.drawable.ic_file_kmz,
-          () -> onShareActionSelected(mSelectedCategory, KmlFileType.Text)));
-      items.add(new MenuBottomSheetItem(
-          R.string.export_file_gpx,
-          R.drawable.ic_file_gpx,
-          () -> onShareActionSelected(mSelectedCategory, KmlFileType.Gpx)));
+      items.add(new MenuBottomSheetItem(R.string.edit, R.drawable.ic_settings,
+                                        () -> onSettingsActionSelected(mSelectedCategory)));
+      items.add(new MenuBottomSheetItem(mSelectedCategory.isVisible() ? R.string.hide : R.string.show,
+                                        mSelectedCategory.isVisible() ? R.drawable.ic_hide : R.drawable.ic_show,
+                                        () -> onShowActionSelected(mSelectedCategory)));
+      items.add(new MenuBottomSheetItem(R.string.export_file, R.drawable.ic_file_kmz,
+                                        () -> onShareActionSelected(mSelectedCategory, KmlFileType.Text)));
+      items.add(new MenuBottomSheetItem(R.string.export_file_gpx, R.drawable.ic_file_gpx,
+                                        () -> onShareActionSelected(mSelectedCategory, KmlFileType.Gpx)));
       // Disallow deleting the last category
       if (getAdapter().getBookmarkCategories().size() > 1)
-        items.add(new MenuBottomSheetItem(
-            R.string.delete,
-            R.drawable.ic_delete,
-            () -> onDeleteActionSelected(mSelectedCategory)));
+        items.add(new MenuBottomSheetItem(R.string.delete, R.drawable.ic_delete,
+                                          () -> onDeleteActionSelected(mSelectedCategory)));
     }
     return items;
   }
@@ -229,15 +233,10 @@ public class BookmarkCategoriesFragment extends BaseMwmRecyclerFragment<Bookmark
   {
     mCategoryEditor = BookmarkManager.INSTANCE::createCategory;
 
-    EditTextDialogFragment dialogFragment =
-        EditTextDialogFragment.show(getString(R.string.bookmarks_create_new_group),
-                                    getString(R.string.bookmarks_new_list_hint),
-                                    getString(R.string.bookmark_set_name),
-                                    getString(R.string.create),
-                                    getString(R.string.cancel),
-                                    MAX_CATEGORY_NAME_LENGTH,
-                                    this,
-                                    new CategoryValidator());
+    EditTextDialogFragment dialogFragment = EditTextDialogFragment.show(
+        getString(R.string.bookmarks_create_new_group), getString(R.string.bookmarks_new_list_hint),
+        getString(R.string.bookmark_set_name), getString(R.string.create), getString(R.string.cancel),
+        MAX_CATEGORY_NAME_LENGTH, this, new CategoryValidator());
     dialogFragment.setTextSaveListener(this::onSaveText);
   }
 
@@ -259,12 +258,13 @@ public class BookmarkCategoriesFragment extends BaseMwmRecyclerFragment<Bookmark
 
     PackageManager packageManager = requireActivity().getPackageManager();
     if (intent.resolveActivity(packageManager) != null)
-      startActivityForResult(intent, REQ_CODE_IMPORT_DIRECTORY);
+      startImportDirectoryForResult.launch(intent);
     else
       showNoFileManagerError();
   }
 
-  private void showNoFileManagerError() {
+  private void showNoFileManagerError()
+  {
     new AlertDialog.Builder(requireActivity())
         .setMessage(R.string.error_no_file_manager_app)
         .setPositiveButton(android.R.string.ok, (dialog, which) -> dialog.dismiss())
@@ -275,7 +275,7 @@ public class BookmarkCategoriesFragment extends BaseMwmRecyclerFragment<Bookmark
   public void onItemClick(@NonNull View v, @NonNull BookmarkCategory category)
   {
     mSelectedCategory = category;
-    BookmarkListActivity.startForResult(this, category);
+    BookmarkListActivity.startForResult(this, startBookmarkListForResult, category);
   }
 
   @Override
@@ -303,54 +303,41 @@ public class BookmarkCategoriesFragment extends BaseMwmRecyclerFragment<Bookmark
 
   private void onSettingsActionSelected(@NonNull BookmarkCategory category)
   {
-    BookmarkCategorySettingsActivity.startForResult(this, category);
+    BookmarkCategorySettingsActivity.startForResult(this, startBookmarkSettingsForResult, category);
   }
 
-  @Override
-  public final void onActivityResult(int requestCode, int resultCode, Intent data)
+  private void onImportDirectoryResult(Intent data)
   {
-    super.onActivityResult(requestCode, resultCode, data);
-    if (resultCode != Activity.RESULT_OK)
-      return;
-    switch (requestCode)
-    {
-      case REQ_CODE_DELETE_CATEGORY -> onDeleteActionSelected(getSelectedCategory());
-      case REQ_CODE_IMPORT_DIRECTORY ->
-      {
-        if (data == null)
-          throw new AssertionError("Data is null");
+    if (data == null)
+      throw new AssertionError("Data is null");
 
-        final Context context = requireActivity();
-        final Uri rootUri = data.getData();
-        final ProgressDialog dialog = new ProgressDialog(context, R.style.MwmTheme_ProgressDialog);
-        dialog.setMessage(getString(R.string.wait_several_minutes));
-        dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        dialog.setIndeterminate(true);
-        dialog.setCancelable(false);
-        dialog.show();
-        Logger.d(TAG, "Importing bookmarks from " + rootUri);
-        MwmApplication app = MwmApplication.from(context);
-        final File tempDir = new File(StorageUtils.getTempPath(app));
-        final ContentResolver resolver = context.getContentResolver();
-        ThreadPool.getStorage().execute(() -> {
-          AtomicInteger found = new AtomicInteger(0);
-          StorageUtils.listContentProviderFilesRecursively(
-              resolver, rootUri, uri -> {
-                if (BookmarkManager.INSTANCE.importBookmarksFile(resolver, uri, tempDir))
-                  found.incrementAndGet();
-              });
-          UiThread.run(() -> {
-            if (dialog.isShowing())
-              dialog.dismiss();
-            int found_val = found.get();
-            String message = context.getResources().getQuantityString(
-                R.plurals.bookmarks_detect_message, found_val, found_val);
-            Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show();
-          });
-        });
-      }
-      default -> throw new AssertionError("Invalid requestCode: " + requestCode);
-    }
+    final Context context = requireActivity();
+    final Uri rootUri = data.getData();
+    final ProgressDialog dialog = new ProgressDialog(context, R.style.MwmTheme_ProgressDialog);
+    dialog.setMessage(getString(R.string.wait_several_minutes));
+    dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+    dialog.setIndeterminate(true);
+    dialog.setCancelable(false);
+    dialog.show();
+    Logger.d(TAG, "Importing bookmarks from " + rootUri);
+    MwmApplication app = MwmApplication.from(context);
+    final File tempDir = new File(StorageUtils.getTempPath(app));
+    final ContentResolver resolver = context.getContentResolver();
+    ThreadPool.getStorage().execute(() -> {
+      AtomicInteger found = new AtomicInteger(0);
+      StorageUtils.listContentProviderFilesRecursively(resolver, rootUri, uri -> {
+        if (BookmarkManager.INSTANCE.importBookmarksFile(resolver, uri, tempDir))
+          found.incrementAndGet();
+      });
+      UiThread.run(() -> {
+        if (dialog.isShowing())
+          dialog.dismiss();
+        int found_val = found.get();
+        String message =
+            context.getResources().getQuantityString(R.plurals.bookmarks_detect_message, found_val, found_val);
+        Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show();
+      });
+    });
   }
 
   @Override

@@ -1,6 +1,5 @@
 package app.organicmaps.settings;
 
-import android.app.Application;
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -10,16 +9,14 @@ import android.os.Environment;
 import android.os.storage.StorageManager;
 import android.os.storage.StorageVolume;
 import android.text.TextUtils;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import app.organicmaps.Framework;
 import app.organicmaps.R;
-import app.organicmaps.downloader.MapManager;
-import app.organicmaps.util.Config;
-import app.organicmaps.util.StorageUtils;
-import app.organicmaps.util.log.Logger;
-
+import app.organicmaps.sdk.Framework;
+import app.organicmaps.sdk.downloader.MapManager;
+import app.organicmaps.sdk.util.Config;
+import app.organicmaps.sdk.util.StorageUtils;
+import app.organicmaps.sdk.util.log.Logger;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
@@ -31,7 +28,8 @@ public class StoragePathManager
   private static final String TAG = StoragePathManager.class.getSimpleName();
   private static final String DATA_FILE_EXT = Framework.nativeGetDataFileExt();
   private static final String[] MOVABLE_EXTS = Framework.nativeGetMovableFilesExts();
-  static final FilenameFilter MOVABLE_FILES_FILTER = (dir, filename) -> {
+  static final FilenameFilter MOVABLE_FILES_FILTER = (dir, filename) ->
+  {
     for (String ext : MOVABLE_EXTS)
       if (filename.endsWith(ext))
         return true;
@@ -72,8 +70,7 @@ public class StoragePathManager
   public void startExternalStorageWatching(final @Nullable OnStorageListChangedListener storagesChangedListener)
   {
     mStoragesChangedListener = storagesChangedListener;
-    mInternalReceiver = new BroadcastReceiver()
-    {
+    mInternalReceiver = new BroadcastReceiver() {
       @Override
       public void onReceive(Context context, Intent intent)
       {
@@ -147,11 +144,10 @@ public class StoragePathManager
     final long totalSize = dir.getTotalSpace();
     final long freeSize = dir.getUsableSpace();
 
-    String commentedPath = path + (StorageUtils.addTrailingSeparator(dir.getPath()).equals(path)
-                                   ? "" : " (" + dir.getPath() + ")") + " - " +
-                           (isCurrent ? "currently configured, " : "") +
-                           (isInternal ? "internal" : "external") + ", " +
-                           freeSize + " available of " + totalSize + " bytes";
+    String commentedPath =
+        path + (StorageUtils.addTrailingSeparator(dir.getPath()).equals(path) ? "" : " (" + dir.getPath() + ")") + " - "
+        + (isCurrent ? "currently configured, " : "") + (isInternal ? "internal" : "external") + ", " + freeSize
+        + " available of " + totalSize + " bytes";
 
     boolean isEmulated = false;
     boolean isRemovable = false;
@@ -165,9 +161,8 @@ public class StoragePathManager
         isEmulated = Environment.isExternalStorageEmulated(dir);
         isRemovable = Environment.isExternalStorageRemovable(dir);
         state = Environment.getExternalStorageState(dir);
-        commentedPath += (isEmulated ? ", emulated" : "") +
-                         (isRemovable ? ", removable" : "") +
-                         (state != null ? ", state=" + state : "");
+        commentedPath += (isEmulated ? ", emulated" : "") + (isRemovable ? ", removable" : "")
+                       + (state != null ? ", state=" + state : "");
       }
       catch (IllegalArgumentException e)
       {
@@ -186,9 +181,9 @@ public class StoragePathManager
           if (sv != null)
           {
             label = sv.getDescription(mContext);
-            commentedPath += (sv.isPrimary() ? ", primary" : "") +
-                             (!TextUtils.isEmpty(sv.getUuid()) ? ", uuid=" + sv.getUuid() : "") +
-                             (!TextUtils.isEmpty(label) ? ", label='" + label + "'" : "");
+            commentedPath += (sv.isPrimary() ? ", primary" : "")
+                           + (!TextUtils.isEmpty(sv.getUuid()) ? ", uuid=" + sv.getUuid() : "")
+                           + (!TextUtils.isEmpty(label) ? ", label='" + label + "'" : "");
           }
           else
             Logger.w(TAG, "Can't get StorageVolume for " + commentedPath);
@@ -198,8 +193,7 @@ public class StoragePathManager
       }
     }
 
-    if (state != null && !Environment.MEDIA_MOUNTED.equals(state)
-        && !Environment.MEDIA_MOUNTED_READ_ONLY.equals(state))
+    if (state != null && !Environment.MEDIA_MOUNTED.equals(state) && !Environment.MEDIA_MOUNTED_READ_ONLY.equals(state))
     {
       Logger.w(TAG, "Not mounted: " + commentedPath);
       return;
@@ -281,7 +275,9 @@ public class StoragePathManager
    */
   private static boolean containsMapData(String storagePath)
   {
-    return StorageUtils.getDirSizeRecursively(new File(storagePath), (dir, filename) -> filename.endsWith(DATA_FILE_EXT)) > 0;
+    return StorageUtils.getDirSizeRecursively(new File(storagePath),
+                                              (dir, filename) -> filename.endsWith(DATA_FILE_EXT))
+  > 0;
   }
 
   /**
@@ -293,8 +289,8 @@ public class StoragePathManager
     StorageItem res = null;
     for (StorageItem storage : mStorages)
     {
-      if ((res == null || res.mFreeSize < storage.mFreeSize)
-          && !storage.mIsReadonly && !storage.equals(mInternalStorage))
+      if ((res == null || res.mFreeSize < storage.mFreeSize) && !storage.mIsReadonly
+          && !storage.equals(mInternalStorage))
         res = storage;
     }
 
@@ -306,9 +302,9 @@ public class StoragePathManager
    * Checks the currently configured storage first, then scans other storages.
    * If no map files found uses getDefaultStorage().
    */
-  public static String findMapsStorage(@NonNull Application application)
+  public static String findMapsStorage(@NonNull Context context)
   {
-    StoragePathManager mgr = new StoragePathManager(application);
+    StoragePathManager mgr = new StoragePathManager(context);
     mgr.scanAvailableStorages();
     String path;
     final List<StorageItem> storages = mgr.mStorages;

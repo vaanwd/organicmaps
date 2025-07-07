@@ -1,8 +1,12 @@
-• Nouvelles données OpenStreetMap du 21 janvier
-• Afficher un panneau de limitation de vitesse en mode navigation
-• Ajout des langues serbe (cyrillique) et lettone
-• Android Auto : trier les signets, expérience de demande d'autorisation de localisation améliorée
-• Ajout de POI de tour
-• Ajout d'un paramètre pour les liens d'hôtel Kayak.com et d'une option de désinscription lors de la première utilisation
+• New OSM data as of June 8
+• Save planned routes as tracks
+• Display plant nurseries, traffic barriers, studios, firepits, ladders, cranes, and love hotels
+• Qingdao metro icons
+• Show azimuth when tapping on a small arrow with distance
+• Fixed crashes and white-on-white text on Android 5&6
+• Fixed search for Lithuanian and other languages
+• Fix location arrow jumps when navigation is active
+• Fixed Cancel Download button
+• Improved translations from Weblate
 
-…plus de détails sur omaps.org/news
+…more at omaps.org/news

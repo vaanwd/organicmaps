@@ -3,6 +3,7 @@
 #include "map/gps_tracker.hpp"
 #include "map/user_mark.hpp"
 #include "map/track_mark.hpp"
+#include "map/place_page_info.hpp"
 
 #include "ge0/url_generator.hpp"
 
@@ -1735,7 +1736,12 @@ void Framework::SetTrackRecordingUpdateHandler(TrackRecordingUpdateHandler && tr
 {
   m_trackRecordingUpdateHandler = std::move(trackRecordingDidUpdate);
   if (m_trackRecordingUpdateHandler)
-    m_trackRecordingUpdateHandler(GpsTracker::Instance().GetTrackInfo());
+    m_trackRecordingUpdateHandler(GpsTracker::Instance().GetTrackStatistics());
+}
+
+const ElevationInfo & Framework::GetTrackRecordingElevationInfo()
+{
+  return GpsTracker::Instance().GetElevationInfo();
 }
 
 void Framework::StopTrackRecording()
@@ -1750,9 +1756,11 @@ void Framework::StopTrackRecording()
 
 void Framework::SaveTrackRecordingWithName(std::string const & name)
 {
-  GetBookmarkManager().SaveTrackRecording(name);
+  auto const trackId = GetBookmarkManager().SaveTrackRecording(name);
   if (m_drapeEngine)
     m_drapeEngine->ClearGpsTrackPoints();
+  ShowTrack(trackId);
+  GpsTracker::Instance().Clear();
 }
 
 bool Framework::IsTrackRecordingEmpty() const
@@ -1765,9 +1773,15 @@ bool Framework::IsTrackRecordingEnabled() const
   return GpsTracker::Instance().IsEnabled();
 }
 
+void Framework::SaveRoute()
+{
+  auto const trackId = m_routingManager.SaveRoute();
+  ShowTrack(trackId);
+}
+
 void Framework::OnUpdateGpsTrackPointsCallback(vector<pair<size_t, location::GpsInfo>> && toAdd,
                                                pair<size_t, size_t> const & toRemove,
-                                               GpsTrackInfo const & trackInfo)
+                                               TrackStatistics const & trackStatistics)
 {
   ASSERT(m_drapeEngine.get() != nullptr, ());
 
@@ -1796,7 +1810,7 @@ void Framework::OnUpdateGpsTrackPointsCallback(vector<pair<size_t, location::Gps
   m_drapeEngine->UpdateGpsTrackPoints(std::move(pointsAdd), std::move(indicesRemove));
 
   if (m_trackRecordingUpdateHandler)
-    m_trackRecordingUpdateHandler(trackInfo);
+    m_trackRecordingUpdateHandler(trackStatistics);
 }
 
 void Framework::MarkMapStyle(MapStyle mapStyle)
@@ -2043,14 +2057,14 @@ void Framework::DeactivateMapSelection()
     m_currentPlacePageInfo = {};
 
     if (m_drapeEngine != nullptr)
-      m_drapeEngine->DeselectObject();
+      m_drapeEngine->DeselectObject(true);
   }
 }
 
-void Framework::DeactivateMapSelectionCircle()
+void Framework::DeactivateMapSelectionCircle(bool restoreViewport)
 {
     if (m_drapeEngine != nullptr)
-        m_drapeEngine->DeselectObject();
+        m_drapeEngine->DeselectObject(restoreViewport);
 }
 
 void Framework::SwitchFullScreen()
@@ -2838,6 +2852,21 @@ bool Framework::ParseRoutingDebugCommand(search::SearchParams const & params)
   return false;
 }
 
+bool Framework::ParseAllTypesDebugCommand(search::SearchParams const & params)
+{
+  if (params.m_query == "?all-types")
+  {
+    settings::Set(place_page::kDebugAllTypesSetting, true);
+    return true;
+  }
+  else if (params.m_query == "?no-all-types")
+  {
+    settings::Set(place_page::kDebugAllTypesSetting, false);
+    return true;
+  }
+  return false;
+}
+
 // Editable map object helper functions.
 namespace
 {
@@ -3239,6 +3268,8 @@ bool Framework::ParseSearchQueryCommand(search::SearchParams const & params)
     return true;
   if (ParseRoutingDebugCommand(params))
     return true;
+  if (ParseAllTypesDebugCommand(params))
+    return true;
   return false;
 }
 
@@ -3380,6 +3411,9 @@ bool Framework::ShouldShowProducts() const
     return false;
 
   if (!m_usageStats.IsLoyalUser())
+    return false;
+
+  if (!HasPlacePageInfo()) // happens after the POI is deleted via the editor
     return false;
 
   if (!storage::IsPointCoveredByDownloadedMaps(GetCurrentPlacePageInfo().GetMercator(), m_storage, *m_infoGetter))

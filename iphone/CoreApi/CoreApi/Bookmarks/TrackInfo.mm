@@ -1,49 +1,30 @@
 #import "TrackInfo+Core.h"
-#import "AltitudeFormatter.h"
-#import "DistanceFormatter.h"
-#import "DurationFormatter.h"
-
-#include "map/elevation_info.hpp"
+#import "StringUtils.h"
 
 @implementation TrackInfo
 
-- (BOOL)hasElevationInfo {
-  return _ascent != 0 || _descent != 0 || _maxElevation != 0 || _minElevation != 0;
-}
-
 + (TrackInfo *)emptyInfo {
-  return [[TrackInfo alloc] init];
+  return [[TrackInfo alloc] initWithTrackStatistics:TrackStatistics()];
 }
 
 @end
 
 @implementation TrackInfo (Core)
 
-- (instancetype)initWithGpsTrackInfo:(GpsTrackInfo const &)trackInfo {
+- (instancetype)initWithTrackStatistics:(TrackStatistics const &)statistics {
   if (self = [super init]) {
-    _distance = trackInfo.m_length;
-    _duration = trackInfo.m_duration;
-    _ascent = trackInfo.m_ascent;
-    _descent = trackInfo.m_descent;
-    _maxElevation = trackInfo.m_maxElevation;
-    _minElevation = trackInfo.m_minElevation;
+    _distance = ToNSString(statistics.GetFormattedLength());
+    _duration = ToNSString(statistics.GetFormattedDuration());
+    _ascent = ToNSString(statistics.GetFormattedAscent());
+    _descent = ToNSString(statistics.GetFormattedDescent());
+    _maxElevation = ToNSString(statistics.GetFormattedMaxElevation());
+    _minElevation = ToNSString(statistics.GetFormattedMinElevation());
+    _hasElevationInfo = statistics.m_ascent != 0 ||
+                        statistics.m_descent != 0 ||
+                        statistics.m_maxElevation != 0 ||
+                        statistics.m_minElevation != 0;
   }
   return self;
-}
-
-- (instancetype)initWithDistance:(double)distance duration:(double)duration {
-  if (self = [super init]) {
-    _distance = distance;
-    _duration = duration;
-  }
-  return self;
-}
-
-- (void)setElevationInfo:(ElevationInfo const &)elevationInfo {
-  _ascent = elevationInfo.GetAscent();
-  _descent = elevationInfo.GetDescent();
-  _maxElevation = elevationInfo.GetMaxAltitude();
-  _minElevation = elevationInfo.GetMinAltitude();
 }
 
 @end

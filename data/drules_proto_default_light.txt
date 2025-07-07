@@ -7304,6 +7304,57 @@ cont {
   }
 }
 cont {
+  name: "amenity-love_hotel"
+  element {
+    scale: 18
+    symbol {
+      name: "stripclub-m"
+      priority: 500
+    }
+    caption {
+      primary {
+        height: 11
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -9500
+    }
+  }
+  element {
+    scale: 19
+    symbol {
+      name: "stripclub-m"
+      priority: 500
+    }
+    caption {
+      primary {
+        height: 11
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -9500
+    }
+  }
+  element {
+    scale: 20
+    symbol {
+      name: "stripclub-m"
+      priority: 500
+    }
+    caption {
+      primary {
+        height: 11
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -9500
+    }
+  }
+}
+cont {
   name: "amenity-marketplace"
   element {
     scale: 16
@@ -7513,6 +7564,73 @@ cont {
         is_optional: true
       }
       priority: -9750
+    }
+  }
+}
+cont {
+  name: "amenity-motorcycle_rental"
+  element {
+    scale: 17
+    symbol {
+      name: "motorcycle_rental-m"
+      priority: 2500
+    }
+    caption {
+      primary {
+        height: 10
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -7500
+    }
+  }
+  element {
+    scale: 18
+    symbol {
+      name: "motorcycle_rental-m"
+      priority: 2500
+    }
+    caption {
+      primary {
+        height: 11
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -7500
+    }
+  }
+  element {
+    scale: 19
+    symbol {
+      name: "motorcycle_rental-m"
+      priority: 2500
+    }
+    caption {
+      primary {
+        height: 11
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -7500
+    }
+  }
+  element {
+    scale: 20
+    symbol {
+      name: "motorcycle_rental-m"
+      priority: 2500
+    }
+    caption {
+      primary {
+        height: 11
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -7500
     }
   }
 }
@@ -12436,6 +12554,93 @@ cont {
   }
 }
 cont {
+  name: "amenity-studio"
+  element {
+    scale: 16
+    symbol {
+      name: "studio-m"
+      priority: 1550
+    }
+    caption {
+      primary {
+        height: 10
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -8450
+    }
+  }
+  element {
+    scale: 17
+    symbol {
+      name: "studio-m"
+      priority: 1550
+      min_distance: 24
+    }
+    caption {
+      primary {
+        height: 10
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -8450
+    }
+  }
+  element {
+    scale: 18
+    symbol {
+      name: "studio-m"
+      priority: 1550
+      min_distance: 24
+    }
+    caption {
+      primary {
+        height: 10
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -8450
+    }
+  }
+  element {
+    scale: 19
+    symbol {
+      name: "studio-m"
+      priority: 1550
+      min_distance: 24
+    }
+    caption {
+      primary {
+        height: 10
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -8450
+    }
+  }
+  element {
+    scale: 20
+    symbol {
+      name: "studio-m"
+      priority: 1550
+      min_distance: 24
+    }
+    caption {
+      primary {
+        height: 10
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -8450
+    }
+  }
+}
+cont {
   name: "amenity-taxi"
   element {
     scale: 16
@@ -15307,6 +15512,14 @@ cont {
       }
       priority: 320
     }
+    path_text {
+      primary {
+        height: 9
+        color: 4473924
+        stroke_color: 871230427
+      }
+      priority: 2957
+    }
   }
   element {
     scale: 17
@@ -15320,6 +15533,14 @@ cont {
         dd: 4.0
       }
       priority: 320
+    }
+    path_text {
+      primary {
+        height: 9
+        color: 4473924
+        stroke_color: 871230427
+      }
+      priority: 2957
     }
   }
   element {
@@ -15335,6 +15556,14 @@ cont {
       }
       priority: 320
     }
+    path_text {
+      primary {
+        height: 10
+        color: 4473924
+        stroke_color: 871230427
+      }
+      priority: 2957
+    }
   }
   element {
     scale: 19
@@ -15349,6 +15578,14 @@ cont {
       }
       priority: 320
     }
+    path_text {
+      primary {
+        height: 10
+        color: 4473924
+        stroke_color: 871230427
+      }
+      priority: 2957
+    }
   }
   element {
     scale: 20
@@ -15362,6 +15599,14 @@ cont {
         dd: 8.0
       }
       priority: 320
+    }
+    path_text {
+      primary {
+        height: 10
+        color: 4473924
+        stroke_color: 871230427
+      }
+      priority: 2957
     }
   }
 }
@@ -15717,6 +15962,49 @@ cont {
         is_optional: true
       }
       priority: -7700
+    }
+  }
+}
+cont {
+  name: "barrier-guard_rail"
+  element {
+    scale: 16
+    lines {
+      width: 1.0
+      color: 3012069512
+      priority: 320
+    }
+  }
+  element {
+    scale: 17
+    lines {
+      width: 1.3
+      color: 2575861896
+      priority: 320
+    }
+  }
+  element {
+    scale: 18
+    lines {
+      width: 1.5
+      color: 1720223880
+      priority: 320
+    }
+  }
+  element {
+    scale: 19
+    lines {
+      width: 1.5
+      color: 1720223880
+      priority: 320
+    }
+  }
+  element {
+    scale: 20
+    lines {
+      width: 1.5
+      color: 1720223880
+      priority: 320
     }
   }
 }
@@ -20197,6 +20485,147 @@ cont {
   }
 }
 cont {
+  name: "emergency-lifeguard"
+  element {
+    scale: 17
+    symbol {
+      name: "lifeguard-m"
+      priority: 1500
+    }
+  }
+  element {
+    scale: 18
+    symbol {
+      name: "lifeguard-m"
+      priority: 1500
+    }
+    caption {
+      primary {
+        height: 11
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -8500
+    }
+  }
+  element {
+    scale: 19
+    symbol {
+      name: "lifeguard-m"
+      priority: 1500
+    }
+    caption {
+      primary {
+        height: 11
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -8500
+    }
+  }
+  element {
+    scale: 20
+    symbol {
+      name: "lifeguard-m"
+      priority: 1500
+    }
+    caption {
+      primary {
+        height: 11
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -8500
+    }
+  }
+}
+cont {
+  name: "emergency-mountain_rescue"
+  element {
+    scale: 16
+    symbol {
+      name: "hospital-m"
+      priority: 3900
+    }
+    caption {
+      primary {
+        height: 11
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -6100
+    }
+  }
+  element {
+    scale: 17
+    symbol {
+      name: "hospital-m"
+      priority: 3900
+    }
+    caption {
+      primary {
+        height: 11
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -6100
+    }
+  }
+  element {
+    scale: 18
+    symbol {
+      name: "hospital-m"
+      priority: 3900
+    }
+    caption {
+      primary {
+        height: 11
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -6100
+    }
+  }
+  element {
+    scale: 19
+    symbol {
+      name: "hospital-m"
+      priority: 3900
+    }
+    caption {
+      primary {
+        height: 11
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -6100
+    }
+  }
+  element {
+    scale: 20
+    symbol {
+      name: "hospital-m"
+      priority: 3900
+    }
+    caption {
+      primary {
+        height: 11
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -6100
+    }
+  }
+}
+cont {
   name: "emergency-phone"
   element {
     scale: 17
@@ -23727,6 +24156,37 @@ cont {
         stroke_color: 872415231
       }
       priority: 2850
+    }
+  }
+}
+cont {
+  name: "highway-ladder"
+  element {
+    scale: 17
+    symbol {
+      name: "ladder-s"
+      priority: 850
+    }
+  }
+  element {
+    scale: 18
+    symbol {
+      name: "ladder-s"
+      priority: 850
+    }
+  }
+  element {
+    scale: 19
+    symbol {
+      name: "ladder-s"
+      priority: 850
+    }
+  }
+  element {
+    scale: 20
+    symbol {
+      name: "ladder-s"
+      priority: 850
     }
   }
 }
@@ -41131,6 +41591,14 @@ cont {
       }
       priority: 360
     }
+    path_text {
+      primary {
+        height: 9
+        color: 4473924
+        stroke_color: 871230427
+      }
+      priority: 2957
+    }
   }
   element {
     scale: 17
@@ -41144,6 +41612,14 @@ cont {
         dd: 4.0
       }
       priority: 360
+    }
+    path_text {
+      primary {
+        height: 9
+        color: 4473924
+        stroke_color: 871230427
+      }
+      priority: 2957
     }
   }
   element {
@@ -41159,6 +41635,14 @@ cont {
       }
       priority: 360
     }
+    path_text {
+      primary {
+        height: 10
+        color: 4473924
+        stroke_color: 871230427
+      }
+      priority: 2957
+    }
   }
   element {
     scale: 19
@@ -41173,6 +41657,14 @@ cont {
       }
       priority: 360
     }
+    path_text {
+      primary {
+        height: 10
+        color: 4473924
+        stroke_color: 871230427
+      }
+      priority: 2957
+    }
   }
   element {
     scale: 20
@@ -41186,6 +41678,14 @@ cont {
         dd: 8.0
       }
       priority: 360
+    }
+    path_text {
+      primary {
+        height: 10
+        color: 4473924
+        stroke_color: 871230427
+      }
+      priority: 2957
     }
   }
 }
@@ -42838,9 +43338,8 @@ cont {
   element {
     scale: 16
     symbol {
-      name: "cross-m"
+      name: "wayside_cross-m"
       priority: 1550
-      min_distance: 8
     }
     caption {
       primary {
@@ -42855,9 +43354,8 @@ cont {
   element {
     scale: 17
     symbol {
-      name: "cross-m"
+      name: "wayside_cross-m"
       priority: 1550
-      min_distance: 8
     }
     caption {
       primary {
@@ -42872,9 +43370,8 @@ cont {
   element {
     scale: 18
     symbol {
-      name: "cross-m"
+      name: "wayside_cross-m"
       priority: 1550
-      min_distance: 8
     }
     caption {
       primary {
@@ -42889,9 +43386,8 @@ cont {
   element {
     scale: 19
     symbol {
-      name: "cross-m"
+      name: "wayside_cross-m"
       priority: 1550
-      min_distance: 8
     }
     caption {
       primary {
@@ -42906,9 +43402,8 @@ cont {
   element {
     scale: 20
     symbol {
-      name: "cross-m"
+      name: "wayside_cross-m"
       priority: 1550
-      min_distance: 8
     }
     caption {
       primary {
@@ -47092,6 +47587,124 @@ cont {
   }
 }
 cont {
+  name: "landuse-plant_nursery"
+  element {
+    scale: 12
+    area {
+      color: 13620648
+      priority: -1930
+    }
+  }
+  element {
+    scale: 13
+    area {
+      color: 13620648
+      priority: -1930
+    }
+  }
+  element {
+    scale: 14
+    area {
+      color: 13029267
+      priority: -1930
+    }
+  }
+  element {
+    scale: 15
+    area {
+      color: 13029267
+      priority: -1930
+    }
+  }
+  element {
+    scale: 16
+    area {
+      color: 13029267
+      priority: -1930
+    }
+  }
+  element {
+    scale: 17
+    area {
+      color: 13029267
+      priority: -1930
+    }
+    symbol {
+      name: "plant_nursery-m"
+      priority: 2450
+    }
+    caption {
+      primary {
+        height: 10
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -7550
+    }
+  }
+  element {
+    scale: 18
+    area {
+      color: 13029267
+      priority: -1930
+    }
+    symbol {
+      name: "plant_nursery-m"
+      priority: 2450
+    }
+    caption {
+      primary {
+        height: 10
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -7550
+    }
+  }
+  element {
+    scale: 19
+    area {
+      color: 13029267
+      priority: -1930
+    }
+    symbol {
+      name: "plant_nursery-m"
+      priority: 2450
+    }
+    caption {
+      primary {
+        height: 10
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -7550
+    }
+  }
+  element {
+    scale: 20
+    area {
+      color: 13029267
+      priority: -1930
+    }
+    symbol {
+      name: "plant_nursery-m"
+      priority: 2450
+    }
+    caption {
+      primary {
+        height: 10
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -7550
+    }
+  }
+}
+cont {
   name: "landuse-quarry"
   element {
     scale: 15
@@ -48426,46 +49039,70 @@ cont {
   name: "leisure-dance"
   element {
     scale: 17
+    symbol {
+      name: "dance-m"
+      priority: 1250
+      min_distance: 10
+    }
     caption {
       primary {
         height: 10
         color: 4473924
         offset_y: 1
+        is_optional: true
       }
-      priority: 1600
+      priority: -8750
     }
   }
   element {
     scale: 18
+    symbol {
+      name: "dance-m"
+      priority: 1250
+      min_distance: 10
+    }
     caption {
       primary {
         height: 10
         color: 4473924
         offset_y: 1
+        is_optional: true
       }
-      priority: 1600
+      priority: -8750
     }
   }
   element {
     scale: 19
+    symbol {
+      name: "dance-m"
+      priority: 1250
+      min_distance: 10
+    }
     caption {
       primary {
         height: 10
         color: 4473924
         offset_y: 1
+        is_optional: true
       }
-      priority: 1600
+      priority: -8750
     }
   }
   element {
     scale: 20
+    symbol {
+      name: "dance-m"
+      priority: 1250
+      min_distance: 10
+    }
     caption {
       primary {
         height: 10
         color: 4473924
         offset_y: 1
+        is_optional: true
       }
-      priority: 1600
+      priority: -8750
     }
   }
 }
@@ -48554,6 +49191,57 @@ cont {
         is_optional: true
       }
       priority: -7700
+    }
+  }
+}
+cont {
+  name: "leisure-firepit"
+  element {
+    scale: 18
+    symbol {
+      name: "firepit-m"
+      priority: 450
+    }
+    caption {
+      primary {
+        height: 11
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -9550
+    }
+  }
+  element {
+    scale: 19
+    symbol {
+      name: "firepit-m"
+      priority: 450
+    }
+    caption {
+      primary {
+        height: 11
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -9550
+    }
+  }
+  element {
+    scale: 20
+    symbol {
+      name: "firepit-m"
+      priority: 450
+    }
+    caption {
+      primary {
+        height: 11
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -9550
     }
   }
 }
@@ -52489,6 +53177,260 @@ cont {
   }
 }
 cont {
+  name: "man_made-communications_tower"
+  element {
+    scale: 14
+    symbol {
+      name: "mast-m"
+      priority: 5400
+    }
+  }
+  element {
+    scale: 15
+    symbol {
+      name: "mast-m"
+      priority: 5400
+    }
+    caption {
+      primary {
+        height: 10
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -4600
+    }
+  }
+  element {
+    scale: 16
+    symbol {
+      name: "mast-m"
+      priority: 5400
+    }
+    caption {
+      primary {
+        height: 10
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -4600
+    }
+  }
+  element {
+    scale: 17
+    symbol {
+      name: "mast-m"
+      priority: 5400
+    }
+    caption {
+      primary {
+        height: 11
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -4600
+    }
+  }
+  element {
+    scale: 18
+    symbol {
+      name: "mast-m"
+      priority: 5400
+    }
+    caption {
+      primary {
+        height: 11
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -4600
+    }
+  }
+  element {
+    scale: 19
+    symbol {
+      name: "mast-m"
+      priority: 5400
+    }
+    caption {
+      primary {
+        height: 11
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -4600
+    }
+  }
+  element {
+    scale: 20
+    symbol {
+      name: "mast-m"
+      priority: 5400
+    }
+    caption {
+      primary {
+        height: 11
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -4600
+    }
+  }
+}
+cont {
+  name: "man_made-crane"
+  element {
+    scale: 16
+    symbol {
+      name: "crane-m"
+      priority: 850
+    }
+  }
+  element {
+    scale: 17
+    symbol {
+      name: "crane-m"
+      priority: 850
+    }
+  }
+  element {
+    scale: 18
+    symbol {
+      name: "crane-m"
+      priority: 850
+    }
+    caption {
+      primary {
+        height: 11
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -9150
+    }
+  }
+  element {
+    scale: 19
+    symbol {
+      name: "crane-m"
+      priority: 850
+    }
+    caption {
+      primary {
+        height: 11
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -9150
+    }
+  }
+  element {
+    scale: 20
+    symbol {
+      name: "crane-m"
+      priority: 850
+    }
+    caption {
+      primary {
+        height: 11
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -9150
+    }
+  }
+}
+cont {
+  name: "man_made-cross"
+  element {
+    scale: 16
+    symbol {
+      name: "cross-m"
+      priority: 1550
+    }
+    caption {
+      primary {
+        height: 11
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -8450
+    }
+  }
+  element {
+    scale: 17
+    symbol {
+      name: "cross-m"
+      priority: 1550
+    }
+    caption {
+      primary {
+        height: 11
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -8450
+    }
+  }
+  element {
+    scale: 18
+    symbol {
+      name: "cross-m"
+      priority: 1550
+    }
+    caption {
+      primary {
+        height: 11
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -8450
+    }
+  }
+  element {
+    scale: 19
+    symbol {
+      name: "cross-m"
+      priority: 1550
+    }
+    caption {
+      primary {
+        height: 11
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -8450
+    }
+  }
+  element {
+    scale: 20
+    symbol {
+      name: "cross-m"
+      priority: 1550
+    }
+    caption {
+      primary {
+        height: 11
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -8450
+    }
+  }
+}
+cont {
   name: "man_made-cutline"
   element {
     scale: 14
@@ -52592,6 +53534,14 @@ cont {
       }
       priority: 100
     }
+    path_text {
+      primary {
+        height: 10
+        color: 4473924
+        stroke_color: 871230427
+      }
+      priority: 470
+    }
   }
   element {
     scale: 19
@@ -52606,6 +53556,14 @@ cont {
       }
       priority: 100
     }
+    path_text {
+      primary {
+        height: 10
+        color: 4473924
+        stroke_color: 871230427
+      }
+      priority: 470
+    }
   }
   element {
     scale: 20
@@ -52619,6 +53577,14 @@ cont {
         dd: 3.0
       }
       priority: 100
+    }
+    path_text {
+      primary {
+        height: 10
+        color: 4473924
+        stroke_color: 871230427
+      }
+      priority: 470
     }
   }
 }
@@ -52664,6 +53630,71 @@ cont {
     symbol {
       name: "dot-m"
       priority: 850
+    }
+  }
+}
+cont {
+  name: "man_made-flare"
+  element {
+    scale: 16
+    symbol {
+      name: "mast-m"
+      priority: 850
+    }
+  }
+  element {
+    scale: 17
+    symbol {
+      name: "mast-m"
+      priority: 850
+    }
+  }
+  element {
+    scale: 18
+    symbol {
+      name: "mast-m"
+      priority: 850
+    }
+    caption {
+      primary {
+        height: 10
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -9150
+    }
+  }
+  element {
+    scale: 19
+    symbol {
+      name: "mast-m"
+      priority: 850
+    }
+    caption {
+      primary {
+        height: 10
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -9150
+    }
+  }
+  element {
+    scale: 20
+    symbol {
+      name: "mast-m"
+      priority: 850
+    }
+    caption {
+      primary {
+        height: 10
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -9150
     }
   }
 }
@@ -52818,6 +53849,64 @@ cont {
     symbol {
       name: "dot-m"
       priority: 450
+    }
+  }
+}
+cont {
+  name: "man_made-petroleum_well"
+  element {
+    scale: 17
+    symbol {
+      name: "mast-m"
+      priority: 120
+    }
+  }
+  element {
+    scale: 18
+    symbol {
+      name: "mast-m"
+      priority: 120
+    }
+    caption {
+      primary {
+        height: 10
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -9880
+    }
+  }
+  element {
+    scale: 19
+    symbol {
+      name: "mast-m"
+      priority: 120
+    }
+    caption {
+      primary {
+        height: 10
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -9880
+    }
+  }
+  element {
+    scale: 20
+    symbol {
+      name: "mast-m"
+      priority: 120
+    }
+    caption {
+      primary {
+        height: 10
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -9880
     }
   }
 }
@@ -54624,6 +55713,14 @@ cont {
       }
       priority: 100
     }
+    path_text {
+      primary {
+        height: 9
+        color: 4473924
+        stroke_color: 871230427
+      }
+      priority: 1500
+    }
   }
   element {
     scale: 17
@@ -54637,6 +55734,14 @@ cont {
         dd: 1.4
       }
       priority: 100
+    }
+    path_text {
+      primary {
+        height: 9
+        color: 4473924
+        stroke_color: 871230427
+      }
+      priority: 1500
     }
   }
   element {
@@ -54652,6 +55757,14 @@ cont {
       }
       priority: 100
     }
+    path_text {
+      primary {
+        height: 10
+        color: 4473924
+        stroke_color: 871230427
+      }
+      priority: 1500
+    }
   }
   element {
     scale: 19
@@ -54666,6 +55779,14 @@ cont {
       }
       priority: 100
     }
+    path_text {
+      primary {
+        height: 10
+        color: 4473924
+        stroke_color: 871230427
+      }
+      priority: 1500
+    }
   }
   element {
     scale: 20
@@ -54679,6 +55800,14 @@ cont {
         dd: 1.9
       }
       priority: 100
+    }
+    path_text {
+      primary {
+        height: 10
+        color: 4473924
+        stroke_color: 871230427
+      }
+      priority: 1500
     }
   }
 }
@@ -91105,6 +92234,184 @@ cont {
   }
 }
 cont {
+  name: "railway-station-subway-qingdao"
+  element {
+    scale: 13
+    symbol {
+      name: "subway-qingdao-s"
+      priority: 6250
+    }
+  }
+  element {
+    scale: 14
+    symbol {
+      name: "subway-qingdao-s"
+      priority: 6250
+    }
+    caption {
+      primary {
+        height: 11
+        color: 2236962
+        stroke_color: 872415231
+        offset_y: 1
+        is_optional: true
+      }
+      secondary {
+        height: 9
+        color: 2236962
+        stroke_color: 872415231
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -3750
+    }
+  }
+  element {
+    scale: 15
+    symbol {
+      name: "subway-qingdao-m"
+      priority: 6250
+    }
+    caption {
+      primary {
+        height: 12
+        color: 2236962
+        stroke_color: 872415231
+        offset_y: 1
+        is_optional: true
+      }
+      secondary {
+        height: 10
+        color: 2236962
+        stroke_color: 872415231
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -3750
+    }
+  }
+  element {
+    scale: 16
+    symbol {
+      name: "subway-qingdao-m"
+      priority: 6250
+    }
+    caption {
+      primary {
+        height: 13
+        color: 2236962
+        stroke_color: 872415231
+        offset_y: 1
+        is_optional: true
+      }
+      secondary {
+        height: 11
+        color: 2236962
+        stroke_color: 872415231
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -3750
+    }
+  }
+  element {
+    scale: 17
+    symbol {
+      name: "subway-qingdao-m"
+      priority: 6250
+    }
+    caption {
+      primary {
+        height: 13
+        color: 2236962
+        stroke_color: 452984831
+        offset_y: 1
+        is_optional: true
+      }
+      secondary {
+        height: 11
+        color: 2236962
+        stroke_color: 452984831
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -3750
+    }
+  }
+  element {
+    scale: 18
+    symbol {
+      name: "subway-qingdao-m"
+      priority: 6250
+    }
+    caption {
+      primary {
+        height: 13
+        color: 2236962
+        stroke_color: 452984831
+        offset_y: 1
+        is_optional: true
+      }
+      secondary {
+        height: 11
+        color: 2236962
+        stroke_color: 452984831
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -3750
+    }
+  }
+  element {
+    scale: 19
+    symbol {
+      name: "subway-qingdao-m"
+      priority: 6250
+    }
+    caption {
+      primary {
+        height: 13
+        color: 2236962
+        stroke_color: 452984831
+        offset_y: 1
+        is_optional: true
+      }
+      secondary {
+        height: 11
+        color: 2236962
+        stroke_color: 452984831
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -3750
+    }
+  }
+  element {
+    scale: 20
+    symbol {
+      name: "subway-qingdao-m"
+      priority: 6250
+    }
+    caption {
+      primary {
+        height: 13
+        color: 2236962
+        stroke_color: 452984831
+        offset_y: 1
+        is_optional: true
+      }
+      secondary {
+        height: 11
+        color: 2236962
+        stroke_color: 452984831
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -3750
+    }
+  }
+}
+cont {
   name: "railway-station-subway-rennes"
   element {
     scale: 13
@@ -105904,6 +107211,112 @@ cont {
   }
 }
 cont {
+  name: "railway-subway_entrance-qingdao"
+  element {
+    scale: 16
+    symbol {
+      name: "subway-qingdao-s"
+      priority: 3700
+    }
+  }
+  element {
+    scale: 17
+    symbol {
+      name: "subway-qingdao-s"
+      priority: 3700
+    }
+    caption {
+      primary {
+        height: 13
+        color: 2236962
+        stroke_color: 452984831
+        offset_y: 1
+        is_optional: true
+      }
+      secondary {
+        height: 11
+        color: 2236962
+        stroke_color: 452984831
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -6300
+    }
+  }
+  element {
+    scale: 18
+    symbol {
+      name: "subway-qingdao-s"
+      priority: 3700
+    }
+    caption {
+      primary {
+        height: 13
+        color: 2236962
+        stroke_color: 452984831
+        offset_y: 1
+        is_optional: true
+      }
+      secondary {
+        height: 11
+        color: 2236962
+        stroke_color: 452984831
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -6300
+    }
+  }
+  element {
+    scale: 19
+    symbol {
+      name: "subway-qingdao-s"
+      priority: 3700
+    }
+    caption {
+      primary {
+        height: 13
+        color: 2236962
+        stroke_color: 452984831
+        offset_y: 1
+        is_optional: true
+      }
+      secondary {
+        height: 11
+        color: 2236962
+        stroke_color: 452984831
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -6300
+    }
+  }
+  element {
+    scale: 20
+    symbol {
+      name: "subway-qingdao-s"
+      priority: 3700
+    }
+    caption {
+      primary {
+        height: 13
+        color: 2236962
+        stroke_color: 452984831
+        offset_y: 1
+        is_optional: true
+      }
+      secondary {
+        height: 11
+        color: 2236962
+        stroke_color: 452984831
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -6300
+    }
+  }
+}
+cont {
   name: "railway-subway_entrance-rennes"
   element {
     scale: 16
@@ -110447,7 +111860,7 @@ cont {
 cont {
   name: "shop-auction"
   element {
-    scale: 16
+    scale: 18
     symbol {
       name: "auction-m"
       priority: 500
@@ -110464,45 +111877,11 @@ cont {
     }
   }
   element {
-    scale: 17
-    symbol {
-      name: "auction-m"
-      priority: 500
-      min_distance: 24
-    }
-    caption {
-      primary {
-        height: 10
-        color: 4473924
-        offset_y: 1
-        is_optional: true
-      }
-      priority: -9500
-    }
-  }
-  element {
-    scale: 18
-    symbol {
-      name: "auction-m"
-      priority: 500
-      min_distance: 24
-    }
-    caption {
-      primary {
-        height: 10
-        color: 4473924
-        offset_y: 1
-        is_optional: true
-      }
-      priority: -9500
-    }
-  }
-  element {
     scale: 19
     symbol {
       name: "auction-m"
       priority: 500
-      min_distance: 24
+      min_distance: 10
     }
     caption {
       primary {
@@ -110519,7 +111898,7 @@ cont {
     symbol {
       name: "auction-m"
       priority: 500
-      min_distance: 24
+      min_distance: 10
     }
     caption {
       primary {
@@ -111103,7 +112482,7 @@ cont {
 cont {
   name: "shop-bookmaker"
   element {
-    scale: 16
+    scale: 18
     symbol {
       name: "lottery-m"
       priority: 500
@@ -111120,45 +112499,11 @@ cont {
     }
   }
   element {
-    scale: 17
-    symbol {
-      name: "lottery-m"
-      priority: 500
-      min_distance: 24
-    }
-    caption {
-      primary {
-        height: 10
-        color: 4473924
-        offset_y: 1
-        is_optional: true
-      }
-      priority: -9500
-    }
-  }
-  element {
-    scale: 18
-    symbol {
-      name: "lottery-m"
-      priority: 500
-      min_distance: 24
-    }
-    caption {
-      primary {
-        height: 10
-        color: 4473924
-        offset_y: 1
-        is_optional: true
-      }
-      priority: -9500
-    }
-  }
-  element {
     scale: 19
     symbol {
       name: "lottery-m"
       priority: 500
-      min_distance: 24
+      min_distance: 10
     }
     caption {
       primary {
@@ -111175,7 +112520,7 @@ cont {
     symbol {
       name: "lottery-m"
       priority: 500
-      min_distance: 24
+      min_distance: 10
     }
     caption {
       primary {
@@ -112568,27 +113913,11 @@ cont {
 cont {
   name: "shop-collector"
   element {
-    scale: 16
-    symbol {
-      name: "shop-m"
-      priority: 500
-      min_distance: 10
-    }
-  }
-  element {
-    scale: 17
-    symbol {
-      name: "shop-m"
-      priority: 500
-      min_distance: 24
-    }
-  }
-  element {
     scale: 18
     symbol {
       name: "shop-m"
       priority: 500
-      min_distance: 24
+      min_distance: 10
     }
     caption {
       primary {
@@ -112605,7 +113934,7 @@ cont {
     symbol {
       name: "shop-m"
       priority: 500
-      min_distance: 24
+      min_distance: 10
     }
     caption {
       primary {
@@ -112622,7 +113951,7 @@ cont {
     symbol {
       name: "shop-m"
       priority: 500
-      min_distance: 24
+      min_distance: 10
     }
     caption {
       primary {
@@ -113822,40 +115151,6 @@ cont {
 cont {
   name: "shop-fabric"
   element {
-    scale: 16
-    symbol {
-      name: "shop-m"
-      priority: 500
-      min_distance: 10
-    }
-    caption {
-      primary {
-        height: 10
-        color: 4473924
-        offset_y: 1
-        is_optional: true
-      }
-      priority: -9500
-    }
-  }
-  element {
-    scale: 17
-    symbol {
-      name: "shop-m"
-      priority: 500
-      min_distance: 10
-    }
-    caption {
-      primary {
-        height: 10
-        color: 4473924
-        offset_y: 1
-        is_optional: true
-      }
-      priority: -9500
-    }
-  }
-  element {
     scale: 18
     symbol {
       name: "shop-m"
@@ -114194,7 +115489,7 @@ cont {
 cont {
   name: "shop-funeral_directors"
   element {
-    scale: 16
+    scale: 18
     symbol {
       name: "funeral_directors-m"
       priority: 500
@@ -114211,45 +115506,11 @@ cont {
     }
   }
   element {
-    scale: 17
-    symbol {
-      name: "funeral_directors-m"
-      priority: 500
-      min_distance: 24
-    }
-    caption {
-      primary {
-        height: 10
-        color: 4473924
-        offset_y: 1
-        is_optional: true
-      }
-      priority: -9500
-    }
-  }
-  element {
-    scale: 18
-    symbol {
-      name: "funeral_directors-m"
-      priority: 500
-      min_distance: 24
-    }
-    caption {
-      primary {
-        height: 10
-        color: 4473924
-        offset_y: 1
-        is_optional: true
-      }
-      priority: -9500
-    }
-  }
-  element {
     scale: 19
     symbol {
       name: "funeral_directors-m"
       priority: 500
-      min_distance: 24
+      min_distance: 10
     }
     caption {
       primary {
@@ -114266,7 +115527,7 @@ cont {
     symbol {
       name: "funeral_directors-m"
       priority: 500
-      min_distance: 24
+      min_distance: 10
     }
     caption {
       primary {
@@ -115038,6 +116299,60 @@ cont {
   }
 }
 cont {
+  name: "shop-hearing_aids"
+  element {
+    scale: 18
+    symbol {
+      name: "hearing_aids-m"
+      priority: 500
+      min_distance: 10
+    }
+    caption {
+      primary {
+        height: 10
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -9500
+    }
+  }
+  element {
+    scale: 19
+    symbol {
+      name: "hearing_aids-m"
+      priority: 500
+      min_distance: 10
+    }
+    caption {
+      primary {
+        height: 10
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -9500
+    }
+  }
+  element {
+    scale: 20
+    symbol {
+      name: "hearing_aids-m"
+      priority: 500
+      min_distance: 10
+    }
+    caption {
+      primary {
+        height: 10
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -9500
+    }
+  }
+}
+cont {
   name: "shop-herbalist"
   element {
     scale: 18
@@ -115680,7 +116995,7 @@ cont {
     symbol {
       name: "lottery-m"
       priority: 500
-      min_distance: 20
+      min_distance: 10
     }
     caption {
       primary {
@@ -115697,7 +117012,7 @@ cont {
     symbol {
       name: "lottery-m"
       priority: 500
-      min_distance: 20
+      min_distance: 10
     }
     caption {
       primary {
@@ -115714,7 +117029,7 @@ cont {
     symbol {
       name: "lottery-m"
       priority: 500
-      min_distance: 20
+      min_distance: 10
     }
     caption {
       primary {
@@ -119107,28 +120422,11 @@ cont {
 cont {
   name: "shop-wholesale"
   element {
-    scale: 17
-    symbol {
-      name: "wholesale-m"
-      priority: 500
-      min_distance: 24
-    }
-    caption {
-      primary {
-        height: 10
-        color: 4473924
-        offset_y: 1
-        is_optional: true
-      }
-      priority: -9500
-    }
-  }
-  element {
     scale: 18
     symbol {
       name: "wholesale-m"
       priority: 500
-      min_distance: 24
+      min_distance: 10
     }
     caption {
       primary {
@@ -119145,7 +120443,7 @@ cont {
     symbol {
       name: "wholesale-m"
       priority: 500
-      min_distance: 24
+      min_distance: 10
     }
     caption {
       primary {
@@ -119162,7 +120460,7 @@ cont {
     symbol {
       name: "wholesale-m"
       priority: 500
-      min_distance: 24
+      min_distance: 10
     }
     caption {
       primary {

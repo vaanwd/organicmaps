@@ -1,20 +1,19 @@
 package app.organicmaps.search;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.SparseArray;
 import android.view.View;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
-
-import com.google.android.material.tabs.TabLayout;
+import app.organicmaps.MwmApplication;
 import app.organicmaps.R;
+import app.organicmaps.sdk.util.Config;
 import app.organicmaps.util.Graphics;
-import app.organicmaps.util.Config;
-
+import com.google.android.material.tabs.TabLayout;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,8 +21,7 @@ class TabAdapter extends FragmentPagerAdapter
 {
   enum Tab
   {
-    HISTORY
-    {
+    HISTORY {
       @Override
       public int getTitleRes()
       {
@@ -37,8 +35,7 @@ class TabAdapter extends FragmentPagerAdapter
       }
     },
 
-    CATEGORIES
-    {
+    CATEGORIES {
       @Override
       public int getTitleRes()
       {
@@ -91,6 +88,9 @@ class TabAdapter extends FragmentPagerAdapter
     @Override
     public void onTabSelected(TabLayout.Tab tab)
     {
+      SharedPreferences.Editor editor = MwmApplication.prefs(mContext).edit();
+      editor.putInt(Config.KEY_PREF_LAST_SEARCHED_TAB, tab.getPosition());
+      editor.apply();
       super.onTabSelected(tab);
       Graphics.tint(mContext, tab.getIcon(), androidx.appcompat.R.attr.colorAccent);
     }
@@ -114,7 +114,7 @@ class TabAdapter extends FragmentPagerAdapter
     this.mTabs = tabs;
     for (Tab tab : Tab.values())
     {
-      if (tab==tab.HISTORY && !Config.isSearchHistoryEnabled())
+      if (tab == tab.HISTORY && !Config.isSearchHistoryEnabled())
         continue;
       mClasses.add(tab.getFragmentClass());
     }
@@ -151,7 +151,9 @@ class TabAdapter extends FragmentPagerAdapter
     ViewPager.OnPageChangeListener listener = new PageChangedListener(tabs);
     mPager.addOnPageChangeListener(listener);
     tabs.setOnTabSelectedListener(new OnTabSelectedListenerForViewPager(mPager));
-    listener.onPageSelected(0);
+    SharedPreferences preferences = MwmApplication.prefs(mPager.getContext());
+    int lastSelectedTabPosition = preferences.getInt(Config.KEY_PREF_LAST_SEARCHED_TAB, 0);
+    listener.onPageSelected(lastSelectedTabPosition);
   }
 
   void setTabSelectedListener(OnTabSelectedListener listener)
@@ -165,12 +167,13 @@ class TabAdapter extends FragmentPagerAdapter
     Fragment res = mFragments.get(position);
     if (res == null || res.getClass() != mClasses.get(position))
     {
-      //noinspection TryWithIdenticalCatches
+      // noinspection TryWithIdenticalCatches
       try
       {
         res = mClasses.get(position).newInstance();
         mFragments.put(position, res);
-      } catch (InstantiationException ignored)
+      }
+      catch (InstantiationException ignored)
       {}
       catch (IllegalAccessException ignored)
       {}

@@ -6,6 +6,12 @@
 @class EAGLView;
 @class MWMMapDownloadDialog;
 @class BookmarksCoordinator;
+@class SearchOnMapManager;
+@class SideButtonsArea;
+@class WidgetsArea;
+@class TrafficButtonArea;
+@class PlacePageArea;
+
 @protocol MWMLocationModeListener;
 
 @interface MapViewController : MWMViewController
@@ -30,8 +36,8 @@
 - (void)openEditor;
 - (void)openBookmarkEditor;
 - (void)openFullPlaceDescriptionWithHtml:(NSString *_Nonnull)htmlString;
-- (void)searchText:(NSString *_Nonnull)text;
 - (void)openDrivingOptions;
+- (void)showTrackRecordingPlacePage;
 
 - (void)setPlacePageTopBound:(CGFloat)bound duration:(double)duration;
 
@@ -46,11 +52,16 @@
 @property(nonatomic, readonly) MWMMapViewControlsManager * _Nonnull controlsManager;
 @property(nonatomic, readonly) MWMMapDownloadDialog * _Nonnull downloadDialog;
 @property(nonatomic, readonly) BookmarksCoordinator * _Nonnull bookmarksCoordinator;
+@property(nonatomic, readonly) SearchOnMapManager * _Nonnull searchManager;
 
 @property(nonatomic) MWMMyPositionMode currentPositionMode;
 @property(strong, nonatomic) IBOutlet EAGLView * _Nonnull mapView;
 @property(strong, nonatomic) IBOutlet UIView * _Nonnull controlsView;
-@property(strong, nonatomic) IBOutlet UIView * _Nonnull searchViewContainer;
-@property(strong, nonatomic) IBOutlet NSLayoutConstraint * _Nonnull searchViewContainerLeadingConstraint;
+@property(nonatomic) UIView * _Nonnull searchContainer;
+
+@property (weak, nonatomic) IBOutlet SideButtonsArea * sideButtonsArea;
+@property (weak, nonatomic) IBOutlet WidgetsArea * widgetsArea;
+@property (weak, nonatomic) IBOutlet TrafficButtonArea * trafficButtonArea;
+@property (weak, nonatomic) IBOutlet PlacePageArea * placePageArea;
 
 @end

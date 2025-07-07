@@ -153,7 +153,6 @@ final class PlacePageScrollView: UIScrollView {
 
   private func setupView() {
     let bgView = UIView()
-    bgView.setStyle(.ppBackgroundView)
     stackView.insertSubview(bgView, at: 0)
     bgView.alignToSuperview()
 
@@ -163,7 +162,7 @@ final class PlacePageScrollView: UIScrollView {
     stackView.backgroundColor = .clear
 
     let cornersToMask: CACornerMask = alternativeSizeClass(iPhone: [], iPad: [.layerMinXMaxYCorner, .layerMaxXMaxYCorner])
-    actionBarContainerView.layer.setCorner(radius: 16, corners: cornersToMask)
+    actionBarContainerView.layer.setCornerRadius(.modalSheet, maskedCorners: cornersToMask)
     actionBarContainerView.layer.masksToBounds = true
 
     // See https://github.com/organicmaps/organicmaps/issues/6917 for the details.
@@ -177,8 +176,10 @@ final class PlacePageScrollView: UIScrollView {
   private func setupLayout(_ layout: IPlacePageLayout) {
     setLayout(layout)
 
-    fillHeader(with: layout.headerViewControllers)
-    fillBody(with: layout.bodyViewControllers)
+    let showSeparator = layout.sectionSpacing > 0
+    stackView.spacing = layout.sectionSpacing
+    fillHeader(with: layout.headerViewControllers, showSeparator: showSeparator)
+    fillBody(with: layout.bodyViewControllers, showSeparator: showSeparator)
 
     beginDragging = false
     if let actionBar = layout.actionBar {
@@ -189,23 +190,27 @@ final class PlacePageScrollView: UIScrollView {
     }
   }
 
-  private func fillHeader(with viewControllers: [UIViewController]) {
+  private func fillHeader(with viewControllers: [UIViewController], showSeparator: Bool = true) {
     viewControllers.forEach { [self] viewController in
       if !stackView.arrangedSubviews.contains(headerStackView) {
         stackView.addArrangedSubview(headerStackView)
       }
       headerStackView.addArrangedSubview(viewController.view)
     }
-    headerStackView.addSeparator(.bottom)
+    if showSeparator {
+      headerStackView.addSeparator(.bottom)
+    }
   }
 
-  private func fillBody(with viewControllers: [UIViewController]) {
+  private func fillBody(with viewControllers: [UIViewController], showSeparator: Bool = true) {
     viewControllers.forEach { [self] viewController in
       addChild(viewController)
       stackView.addArrangedSubview(viewController.view)
       viewController.didMove(toParent: self)
-      viewController.view.addSeparator(.top)
-      viewController.view.addSeparator(.bottom)
+      if showSeparator {
+        viewController.view.addSeparator(.top)
+        viewController.view.addSeparator(.bottom)
+      }
     }
   }
 

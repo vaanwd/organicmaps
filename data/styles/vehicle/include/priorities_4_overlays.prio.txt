@@ -277,6 +277,7 @@ historic-fort                                       # icon z12- (also has captio
 
 amenity-car_rental                                  # icon z18- (also has caption(optional) z18-)
 amenity-car_sharing                                 # icon z18- (also has caption(optional) z18-)
+amenity-motorcycle_rental                           # icon z18- (also has caption(optional) z18-)
 shop-car                                            # icon z17-
 === 2400
 
@@ -392,6 +393,7 @@ railway-station-subway-panama                       # icon z13- (also has captio
 railway-station-subway-paris                        # icon z12- (also has caption(optional) z15-)
 railway-station-subway-philadelphia                 # icon z13- (also has caption(optional) z15-)
 railway-station-subway-pyongyang                    # icon z13- (also has caption(optional) z15-)
+railway-station-subway-qingdao                      # icon z13- (also has caption(optional) z15-)
 railway-station-subway-rennes                       # icon z13- (also has caption(optional) z15-)
 railway-station-subway-rio                          # icon z13- (also has caption(optional) z15-)
 railway-station-subway-roma                         # icon z12-16 (also has caption(optional) z15-16)
@@ -429,6 +431,7 @@ railway-station-subway-yokohama                     # icon z13- (also has captio
 barrier-border_control                              # icon z14- (also has caption(optional) z14-)
 historic-city_gate                                  # icon z13- (also has caption(optional) z15-)
 historic-monument                                   # icon z13- (also has caption(optional) z15-)
+man_made-communications_tower                       # icon z15- (also has caption(optional) z16-)
 === 1950
 
 place-hamlet                                        # caption z13-
@@ -638,6 +641,7 @@ railway-subway_entrance-panama                      # icon z16- (also has captio
 railway-subway_entrance-paris                       # icon z16- (also has caption(optional) z17-)
 railway-subway_entrance-philadelphia                # icon z16- (also has caption(optional) z17-)
 railway-subway_entrance-pyongyang                   # icon z16- (also has caption(optional) z17-)
+railway-subway_entrance-qingdao                     # icon z16- (also has caption(optional) z17-)
 railway-subway_entrance-rennes                      # icon z16- (also has caption(optional) z17-)
 railway-subway_entrance-rio                         # icon z16- (also has caption(optional) z17-)
 railway-subway_entrance-roma                        # icon z16- (also has caption(optional) z17-)
@@ -829,6 +833,7 @@ entrance-main                                       # icon z18- (also has captio
 
 # amenity-car_rental                                # caption(optional) z18- (also has icon z18-)
 # amenity-car_sharing                               # caption(optional) z18- (also has icon z18-)
+# amenity-motorcycle_rental                         # caption(optional) z18- (also has icon z18-)
 # === -7600
 
 # leisure-park                                      # caption(optional) z14- (also has icon z14-, area z10-)
@@ -922,6 +927,7 @@ entrance-main                                       # icon z18- (also has captio
 # railway-station-subway-paris                      # caption(optional) z15- (also has icon z12-)
 # railway-station-subway-philadelphia               # caption(optional) z15- (also has icon z13-)
 # railway-station-subway-pyongyang                  # caption(optional) z15- (also has icon z13-)
+# railway-station-subway-qingdao                    # caption(optional) z15- (also has icon z13-)
 # railway-station-subway-rennes                     # caption(optional) z15- (also has icon z13-)
 # railway-station-subway-rio                        # caption(optional) z15- (also has icon z13-)
 # railway-station-subway-roma                       # caption(optional) z15-16 (also has icon z12-16)
@@ -959,6 +965,7 @@ entrance-main                                       # icon z18- (also has captio
 # barrier-border_control                            # caption(optional) z14- (also has icon z14-)
 # historic-city_gate                                # caption(optional) z15- (also has icon z13-)
 # historic-monument                                 # caption(optional) z15- (also has icon z13-)
+# man_made-communications_tower                     # caption(optional) z16- (also has icon z15-)
 # === -8050
 
 # tourism-viewpoint                                 # caption(optional) z15- (also has icon z14-)
@@ -1122,6 +1129,7 @@ entrance-main                                       # icon z18- (also has captio
 # railway-subway_entrance-paris                     # caption(optional) z17- (also has icon z16-)
 # railway-subway_entrance-philadelphia              # caption(optional) z17- (also has icon z16-)
 # railway-subway_entrance-pyongyang                 # caption(optional) z17- (also has icon z16-)
+# railway-subway_entrance-qingdao                   # caption(optional) z17- (also has icon z16-)
 # railway-subway_entrance-rennes                    # caption(optional) z17- (also has icon z16-)
 # railway-subway_entrance-rio                       # caption(optional) z17- (also has icon z16-)
 # railway-subway_entrance-roma                      # caption(optional) z17- (also has icon z16-)

@@ -4,10 +4,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.text.TextUtils;
 import android.view.View;
-
 import app.organicmaps.R;
+import app.organicmaps.sdk.util.UiUtils;
 import app.organicmaps.widget.SearchToolbarController;
-import app.organicmaps.util.UiUtils;
 
 class DownloaderToolbarController extends SearchToolbarController
 {
@@ -58,10 +57,9 @@ class DownloaderToolbarController extends SearchToolbarController
   }
 
   @Override
-  @SuppressWarnings("deprecated") // https://github.com/organicmaps/organicmaps/issues/3630
-  protected void startVoiceRecognition(Intent intent, int code)
+  protected void startVoiceRecognition(Intent intent)
   {
-    mFragment.startActivityForResult(intent, code);
+    mFragment.startVoiceRecognitionForResult.launch(intent);
   }
 
   @Override

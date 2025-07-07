@@ -27,7 +27,7 @@ class PlacePageCommonLayout: NSObject, IPlacePageLayout {
   }
   
   lazy var headerViewController: PlacePageHeaderViewController = {
-    PlacePageHeaderBuilder.build(data: placePageData.previewData, delegate: interactor, headerType: .flexible)
+    PlacePageHeaderBuilder.build(data: placePageData, delegate: interactor, headerType: .flexible)
   }()
 
   lazy var previewViewController: PlacePagePreviewViewController = {
@@ -81,7 +81,7 @@ class PlacePageCommonLayout: NSObject, IPlacePageLayout {
   } ()
 
   lazy var placePageNavigationViewController: PlacePageHeaderViewController = {
-    return PlacePageHeaderBuilder.build(data: placePageData.previewData, delegate: interactor, headerType: .fixed)
+    return PlacePageHeaderBuilder.build(data: placePageData, delegate: interactor, headerType: .fixed)
   } ()
 
   init(interactor: PlacePageInteractor, storyboard: UIStoryboard, data: PlacePageData) {
@@ -93,18 +93,16 @@ class PlacePageCommonLayout: NSObject, IPlacePageLayout {
   private func configureViewControllers() -> [UIViewController] {
     var viewControllers = [UIViewController]()
 
-    viewControllers.append(wikiDescriptionViewController)
-    if let wikiDescriptionHtml = placePageData.wikiDescriptionHtml {
-      wikiDescriptionViewController.descriptionHtml = wikiDescriptionHtml
-      if placePageData.bookmarkData?.bookmarkDescription == nil {
-        wikiDescriptionViewController.view.isHidden = false
-      }
-    }
-
     viewControllers.append(editBookmarkViewController)
     if let bookmarkData = placePageData.bookmarkData {
       editBookmarkViewController.data = .bookmark(bookmarkData)
       editBookmarkViewController.view.isHidden = false
+    }
+
+    viewControllers.append(wikiDescriptionViewController)
+    if let wikiDescriptionHtml = placePageData.wikiDescriptionHtml {
+      wikiDescriptionViewController.descriptionHtml = wikiDescriptionHtml
+      wikiDescriptionViewController.view.isHidden = false
     }
 
     if placePageData.infoData != nil {

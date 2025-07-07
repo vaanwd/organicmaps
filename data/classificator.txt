@@ -83,9 +83,11 @@ world  +
         language_school  -
         library  -
         loading_dock  -
+        love_hotel  -
         marketplace  -
         money_transfer  -
         motorcycle_parking  -
+        motorcycle_rental  -
         music_school  -
         nightclub  -
         nursing_home  -
@@ -158,6 +160,7 @@ world  +
         shower  -
         social_facility  -
         stripclub  -
+        studio  -
         taxi  -
         telephone  -
         theatre  -
@@ -226,6 +229,7 @@ world  +
         entrance  -
         fence  -
         gate  -
+        guard_rail  -
         hedge  -
         kissing_gate  -
         lift_gate  -
@@ -388,6 +392,8 @@ world  +
         defibrillator  -
         emergency_ward_entrance  -
         fire_hydrant  -
+        lifeguard  -
+        mountain_rescue  -
         phone  -
         {}
     entrance  +
@@ -435,6 +441,7 @@ world  +
             tunnel  -
             {}
         ford  -
+        ladder  -
         living_street  +
             bridge  -
             tunnel  -
@@ -640,6 +647,7 @@ world  +
             danger_area  -
             {}
         orchard  -
+        plant_nursery  -
         quarry  -
         railway  -
         recreation_ground  -
@@ -658,6 +666,7 @@ world  +
         common  -
         dance  -
         dog_park  -
+        firepit  -
         fitness_centre  -
         fitness_station  -
         garden  +
@@ -698,11 +707,16 @@ world  +
         bridge  -
         cairn  -
         chimney  -
+        communications_tower  -
+        crane  -
+        cross  -
         cutline  -
         embankment  -
         flagpole  -
+        flare  -
         lighthouse  -
         mast  -
+        petroleum_well  -
         pier  -
         pipeline  -
         silo  -
@@ -712,6 +726,7 @@ world  +
         tower  +
             communication  -
             {}
+        utility_pole  -
         wastewater_plant  -
         water_tap  +
             drinking_water_no  -
@@ -876,6 +891,7 @@ world  +
             solar  -
             wind  -
             {}
+        pole  -
         station  -
         substation  -
         tower  -
@@ -1042,6 +1058,7 @@ world  +
                 paris  -
                 philadelphia  -
                 pyongyang  -
+                qingdao  -
                 rennes  -
                 rio  -
                 roma  -
@@ -1163,6 +1180,7 @@ world  +
             paris  -
             philadelphia  -
             pyongyang  -
+            qingdao  -
             rennes  -
             rio  -
             roma  -
@@ -1287,6 +1305,7 @@ world  +
         hairdresser  -
         hardware  -
         health_food  -
+        hearing_aids  -
         herbalist  -
         hifi  -
         houseware  -

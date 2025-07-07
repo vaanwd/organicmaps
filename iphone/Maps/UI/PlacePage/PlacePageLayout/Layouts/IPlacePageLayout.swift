@@ -24,9 +24,15 @@ enum PlacePageState {
 protocol IPlacePageLayout: AnyObject {
   var presenter: PlacePagePresenterProtocol? { get set }
   var headerViewControllers: [UIViewController] { get }
+  var headerViewController: PlacePageHeaderViewController { get }
   var bodyViewControllers: [UIViewController] { get }
   var actionBar: ActionBarViewController? { get }
   var navigationBar: UIViewController? { get }
+  var sectionSpacing: CGFloat { get }
 
   func calculateSteps(inScrollView scrollView: UIScrollView, compact: Bool) -> [PlacePageState]
+}
+
+extension IPlacePageLayout {
+  var sectionSpacing: CGFloat { return 24.0 }
 }

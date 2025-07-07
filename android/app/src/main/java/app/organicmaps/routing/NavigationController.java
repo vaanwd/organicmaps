@@ -5,27 +5,31 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import app.organicmaps.Framework;
+import androidx.lifecycle.ViewModelProvider;
+import app.organicmaps.MwmApplication;
 import app.organicmaps.R;
-import app.organicmaps.location.LocationHelper;
-import app.organicmaps.maplayer.traffic.TrafficManager;
-import app.organicmaps.util.UiUtils;
+import app.organicmaps.maplayer.MapButtonsViewModel;
+import app.organicmaps.sdk.Framework;
+import app.organicmaps.sdk.Router;
+import app.organicmaps.sdk.maplayer.traffic.TrafficManager;
+import app.organicmaps.sdk.routing.CarDirection;
+import app.organicmaps.sdk.routing.RoutingInfo;
+import app.organicmaps.sdk.util.StringUtils;
+import app.organicmaps.sdk.util.UiUtils;
 import app.organicmaps.util.Utils;
+import app.organicmaps.util.WindowInsetUtils;
 import app.organicmaps.widget.LanesView;
 import app.organicmaps.widget.SpeedLimitView;
-import app.organicmaps.util.WindowInsetUtils;
 import app.organicmaps.widget.menu.NavMenu;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
-public class NavigationController implements TrafficManager.TrafficCallback,
-                                             NavMenu.NavMenuListener
+public class NavigationController implements TrafficManager.TrafficCallback, NavMenu.NavMenuListener
 {
   private final View mFrame;
 
@@ -44,21 +48,26 @@ public class NavigationController implements TrafficManager.TrafficCallback,
   @NonNull
   private final SpeedLimitView mSpeedLimit;
 
+  private final MapButtonsViewModel mMapButtonsViewModel;
+
   private final NavMenu mNavMenu;
   View.OnClickListener mOnSettingsClickListener;
 
   private void addWindowsInsets(@NonNull View topFrame)
   {
-    ViewCompat.setOnApplyWindowInsetsListener(topFrame.findViewById(R.id.nav_next_turn_container), (view, windowInsets) -> {
-      view.setPadding(windowInsets.getInsets(WindowInsetsCompat.Type.systemBars()).left, view.getPaddingTop(),
-                      view.getPaddingEnd(), view.getPaddingBottom());
-      return windowInsets;
-    });
+    ViewCompat.setOnApplyWindowInsetsListener(
+        topFrame.findViewById(R.id.nav_next_turn_container), (view, windowInsets) -> {
+          view.setPadding(windowInsets.getInsets(WindowInsetsCompat.Type.systemBars()).left, view.getPaddingTop(),
+                          view.getPaddingEnd(), view.getPaddingBottom());
+          return windowInsets;
+        });
   }
 
   public NavigationController(AppCompatActivity activity, View.OnClickListener onSettingsClickListener,
                               NavMenu.OnMenuSizeChangedListener onMenuSizeChangedListener)
   {
+    mMapButtonsViewModel = new ViewModelProvider(activity).get(MapButtonsViewModel.class);
+
     mFrame = activity.findViewById(R.id.navigation_frame);
     mNavMenu = new NavMenu(activity, this, onMenuSizeChangedListener);
     mOnSettingsClickListener = onSettingsClickListener;
@@ -89,9 +98,8 @@ public class NavigationController implements TrafficManager.TrafficCallback,
       UiUtils.setViewInsetsPaddingNoBottom(v, windowInsets);
 
       final Insets safeDrawingInsets = windowInsets.getInsets(WindowInsetUtils.TYPE_SAFE_DRAWING);
-      nextTurnContainer.setPadding(
-          safeDrawingInsets.left, nextTurnContainer.getPaddingTop(),
-          nextTurnContainer.getPaddingEnd(), nextTurnContainer.getPaddingBottom());
+      nextTurnContainer.setPadding(safeDrawingInsets.left, nextTurnContainer.getPaddingTop(),
+                                   nextTurnContainer.getPaddingEnd(), nextTurnContainer.getPaddingBottom());
       navigationBarBackground.getLayoutParams().height = safeDrawingInsets.bottom;
       // The gesture navigation bar stays at the bottom in landscape
       // We need to add a background only above the nav menu
@@ -105,7 +113,7 @@ public class NavigationController implements TrafficManager.TrafficCallback,
     mNextTurnDistance.setText(Utils.formatDistance(mFrame.getContext(), info.distToTurn));
     info.carDirection.setTurnDrawable(mNextTurnImage);
 
-    if (RoutingInfo.CarDirection.isRoundAbout(info.carDirection))
+    if (CarDirection.isRoundAbout(info.carDirection))
       UiUtils.setTextAndShow(mCircleExit, String.valueOf(info.exitNum));
     else
       UiUtils.hide(mCircleExit);
@@ -139,7 +147,7 @@ public class NavigationController implements TrafficManager.TrafficCallback,
     if (info == null)
       return;
 
-    if (Framework.nativeGetRouter() == Framework.ROUTER_TYPE_PEDESTRIAN)
+    if (Router.get() == Router.Pedestrian)
       updatePedestrian(info);
     else
       updateVehicle(info);
@@ -156,6 +164,10 @@ public class NavigationController implements TrafficManager.TrafficCallback,
     UiUtils.visibleIf(hasStreet, mStreetFrame);
     if (!TextUtils.isEmpty(info.nextStreet))
       mNextStreet.setText(info.nextStreet);
+    int margin = UiUtils.dimen(mFrame.getContext(), R.dimen.nav_frame_padding);
+    if (hasStreet)
+      margin += mStreetFrame.getHeight();
+    mMapButtonsViewModel.setTopButtonsMarginTop(margin);
   }
 
   public void show(boolean show)
@@ -247,12 +259,13 @@ public class NavigationController implements TrafficManager.TrafficCallback,
 
   private void updateSpeedLimit(@NonNull final RoutingInfo info)
   {
-    final Location location = LocationHelper.from(mFrame.getContext()).getSavedLocation();
-    if (location == null) {
-      mSpeedLimit.setSpeedLimitMps(0);
+    final Location location = MwmApplication.from(mFrame.getContext()).getLocationHelper().getSavedLocation();
+    if (location == null)
+    {
+      mSpeedLimit.setSpeedLimit(0, false);
       return;
     }
-    mSpeedLimit.setCurrentSpeed(location.getSpeed());
-    mSpeedLimit.setSpeedLimitMps(info.speedLimitMps);
+    final boolean speedLimitExceeded = info.speedLimitMps < location.getSpeed();
+    mSpeedLimit.setSpeedLimit(StringUtils.nativeFormatSpeed(info.speedLimitMps), speedLimitExceeded);
   }
 }

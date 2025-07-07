@@ -7,7 +7,6 @@
 #include "base/assert.hpp"
 #include "base/bits.hpp"
 #include "base/logging.hpp"
-#include "base/macros.hpp"
 #include "base/math.hpp"
 #include "base/string_utils.hpp"
 
@@ -193,17 +192,20 @@ double MpsToUnits(double metersPerSecond, Units units)
 {
   switch (units)
   {
-  case Units::Imperial: return KmphToMiph(MpsToKmph(metersPerSecond)); break;
-  case Units::Metric: return MpsToKmph(metersPerSecond); break;
+  case Units::Imperial: return KmphToMiph(MpsToKmph(metersPerSecond));
+  case Units::Metric: return MpsToKmph(metersPerSecond);
   }
   UNREACHABLE();
 }
 
+int FormatSpeed(double metersPerSecond, Units units)
+{
+  return static_cast<int>(std::round(MpsToUnits(metersPerSecond, units)));
+}
+
 std::string FormatSpeedNumeric(double metersPerSecond, Units units)
 {
-  double const unitsPerHour = MpsToUnits(metersPerSecond, units);
-  double roundedValue = std::round(unitsPerHour);
-  return std::to_string(static_cast<int>(roundedValue));
+  return std::to_string(FormatSpeed(metersPerSecond, units));
 }
 
 std::string FormatOsmLink(double lat, double lon, int zoom)
@@ -232,8 +234,6 @@ std::string FormatOsmLink(double lat, double lon, int zoom)
 
 bool OSMDistanceToMeters(std::string const & osmRawValue, double & outMeters)
 {
-  using strings::is_finite;
-
   char * stop;
   char const * s = osmRawValue.c_str();
   outMeters = strtod(s, &stop);
@@ -242,7 +242,7 @@ bool OSMDistanceToMeters(std::string const & osmRawValue, double & outMeters)
   if (s == stop)
     return false;
 
-  if (!is_finite(outMeters))
+  if (!math::is_finite(outMeters))
     return false;
 
   switch (*stop)
@@ -256,7 +256,7 @@ bool OSMDistanceToMeters(std::string const & osmRawValue, double & outMeters)
       outMeters = FeetToMeters(outMeters);
       s = stop + 1;
       double const inches = strtod(s, &stop);
-      if (s != stop && *stop == '"' && is_finite(inches))
+      if (s != stop && *stop == '"' && math::is_finite(inches))
         outMeters += InchesToMeters(inches);
 
       return true;
@@ -270,7 +270,7 @@ bool OSMDistanceToMeters(std::string const & osmRawValue, double & outMeters)
     {
       s = stop + 1;
       double const newValue = strtod(s, &stop);
-      if (s != stop && is_finite(newValue))
+      if (s != stop && math::is_finite(newValue))
         outMeters = newValue;
     }
     break;

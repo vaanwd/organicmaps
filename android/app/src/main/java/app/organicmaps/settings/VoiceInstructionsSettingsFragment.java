@@ -1,5 +1,6 @@
 package app.organicmaps.settings;
 
+import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -10,7 +11,8 @@ import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.Toast;
-
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
@@ -18,15 +20,14 @@ import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.SeekBarPreference;
 import androidx.preference.TwoStatePreference;
-
-import app.organicmaps.Framework;
 import app.organicmaps.R;
-import app.organicmaps.sound.LanguageData;
-import app.organicmaps.sound.TtsPlayer;
-import app.organicmaps.util.Config;
-import app.organicmaps.util.UiUtils;
+import app.organicmaps.sdk.Framework;
+import app.organicmaps.sdk.settings.SpeedCameraMode;
+import app.organicmaps.sdk.sound.LanguageData;
+import app.organicmaps.sdk.sound.TtsPlayer;
+import app.organicmaps.sdk.util.Config;
+import app.organicmaps.sdk.util.UiUtils;
 import app.organicmaps.util.Utils;
-
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
@@ -35,8 +36,6 @@ import java.util.Map;
 
 public class VoiceInstructionsSettingsFragment extends BaseXmlSettingsFragment
 {
-  private static final int REQUEST_INSTALL_DATA = 1;
-
   @NonNull
   @SuppressWarnings("NotNullFieldNotInitialized")
   private TwoStatePreference mTtsPrefEnabled;
@@ -67,7 +66,16 @@ public class VoiceInstructionsSettingsFragment extends BaseXmlSettingsFragment
   private LanguageData mCurrentLanguage;
   private String mSelectedLanguage;
 
-  private final Preference.OnPreferenceChangeListener mEnabledListener = (preference, newValue) -> {
+  private final ActivityResultLauncher<Intent> startInstallDataIntentForResult =
+      registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), activityResult -> {
+        if (activityResult.getResultCode() == Activity.RESULT_OK)
+        {
+          onInstallDataResult();
+        }
+      });
+
+  private final Preference.OnPreferenceChangeListener mEnabledListener = (preference, newValue) ->
+  {
     final boolean set = (Boolean) newValue;
     if (!set)
     {
@@ -95,7 +103,8 @@ public class VoiceInstructionsSettingsFragment extends BaseXmlSettingsFragment
     return false;
   };
 
-  private final Preference.OnPreferenceChangeListener mLangListener = (preference, newValue) -> {
+  private final Preference.OnPreferenceChangeListener mLangListener = (preference, newValue) ->
+  {
     if (newValue == null)
       return false;
 
@@ -107,13 +116,14 @@ public class VoiceInstructionsSettingsFragment extends BaseXmlSettingsFragment
     if (lang.downloaded)
       setLanguage(lang);
     else
-      UiUtils.startActivityForResult(VoiceInstructionsSettingsFragment.this,
-          new Intent(TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA), REQUEST_INSTALL_DATA);
+      UiUtils.startActivityForResult(startInstallDataIntentForResult,
+                                     new Intent(TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA));
 
     return false;
   };
 
-  private final Preference.OnPreferenceChangeListener mStreetNameListener = (preference, newValue) -> {
+  private final Preference.OnPreferenceChangeListener mStreetNameListener = (preference, newValue) ->
+  {
     boolean set = (Boolean) newValue;
     Config.TTS.setAnnounceStreets(set);
 
@@ -140,13 +150,12 @@ public class VoiceInstructionsSettingsFragment extends BaseXmlSettingsFragment
     mTtsOpenSystemSettings.setOnPreferenceClickListener(pref -> {
       try
       {
-        final Intent intent = new Intent()
-                .setAction("com.android.settings.TTS_SETTINGS")
-                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        final Intent intent =
+            new Intent().setAction("com.android.settings.TTS_SETTINGS").setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
         return true;
       }
-      catch(ActivityNotFoundException e)
+      catch (ActivityNotFoundException e)
       {
         CharSequence noTtsSettingString = getString(R.string.pref_tts_no_system_tts);
         Toast.makeText(super.getSettingsActivity(), noTtsSettingString, Toast.LENGTH_LONG).show();
@@ -167,6 +176,12 @@ public class VoiceInstructionsSettingsFragment extends BaseXmlSettingsFragment
       return true;
     });
 
+    TtsPlayer.sOnReloadCallback = () ->
+    {
+      Toast.makeText(requireContext(), "TTS engine reloaded", Toast.LENGTH_SHORT).show();
+      updateTts();
+    };
+
     initVolume();
     initTtsLangInfoLink();
     initSpeedCamerasPrefs();
@@ -182,20 +197,19 @@ public class VoiceInstructionsSettingsFragment extends BaseXmlSettingsFragment
   }
 
   @Override
-  @SuppressWarnings("deprecation") // https://github.com/organicmaps/organicmaps/issues/3630
-  public void onActivityResult(int requestCode, int resultCode, Intent data)
+  public void onDestroyView()
   {
-    // Do not check resultCode here as it is always RESULT_CANCELED
-    super.onActivityResult(requestCode, resultCode, data);
+    TtsPlayer.sOnReloadCallback = null;
+    super.onDestroyView();
+  }
 
-    if (requestCode == REQUEST_INSTALL_DATA)
-    {
-      updateTts();
+  private void onInstallDataResult()
+  {
+    updateTts();
 
-      LanguageData lang = mLanguages.get(mSelectedLanguage);
-      if (lang != null && lang.downloaded)
-        setLanguage(lang);
-    }
+    LanguageData lang = mLanguages.get(mSelectedLanguage);
+    if (lang != null && lang.downloaded)
+      setLanguage(lang);
   }
 
   private void enableListeners(boolean enable)
@@ -240,8 +254,7 @@ public class VoiceInstructionsSettingsFragment extends BaseXmlSettingsFragment
     }
 
     final boolean enabled = TtsPlayer.isEnabled();
-    mTtsLangInfo.setSummary(enabled ? R.string.prefs_languages_information
-        : R.string.prefs_languages_information_off);
+    mTtsLangInfo.setSummary(enabled ? R.string.prefs_languages_information : R.string.prefs_languages_information_off);
 
     final CharSequence[] entries = new CharSequence[languages.size()];
     final CharSequence[] values = new CharSequence[languages.size()];
@@ -272,7 +285,8 @@ public class VoiceInstructionsSettingsFragment extends BaseXmlSettingsFragment
       // Update array of TTS test strings. Strings are taken from resources using selected TTS language.
       final Configuration config = new Configuration(getResources().getConfiguration());
       config.setLocale(mCurrentLanguage.locale);
-      mTtsTestStringArray = Arrays.asList(requireContext().createConfigurationContext(config).getResources().getStringArray(R.array.app_tips));
+      mTtsTestStringArray = Arrays.asList(
+          requireContext().createConfigurationContext(config).getResources().getStringArray(R.array.app_tips));
       Collections.shuffle(mTtsTestStringArray);
       mTestStringIndex = 0;
     }
@@ -312,8 +326,9 @@ public class VoiceInstructionsSettingsFragment extends BaseXmlSettingsFragment
     final String ttsLinkText = getString(R.string.prefs_languages_information_off_link);
     final Spannable link = new SpannableString(ttsLinkText + "↗");
     // Set link color.
-    link.setSpan(new ForegroundColorSpan(ContextCompat.getColor(requireContext(),
-            UiUtils.getStyledResourceId(requireContext(), androidx.appcompat.R.attr.colorAccent))),
+    link.setSpan(
+        new ForegroundColorSpan(ContextCompat.getColor(
+            requireContext(), UiUtils.getStyledResourceId(requireContext(), androidx.appcompat.R.attr.colorAccent))),
         0, ttsLinkText.length(), 0);
     ttsLangInfoLink.setSummary(link);
 
@@ -330,7 +345,7 @@ public class VoiceInstructionsSettingsFragment extends BaseXmlSettingsFragment
     pref.setSummary(pref.getEntry());
     pref.setOnPreferenceChangeListener((preference, newValue) -> {
       final String speedCamModeValue = (String) newValue;
-      final SettingsPrefsFragment.SpeedCameraMode newCamMode = SettingsPrefsFragment.SpeedCameraMode.valueOf(speedCamModeValue);
+      final SpeedCameraMode newCamMode = SpeedCameraMode.valueOf(speedCamModeValue);
       final CharSequence summary = pref.getEntries()[newCamMode.ordinal()];
       pref.setSummary(summary);
       if (pref.getValue().equals(newValue))
@@ -341,7 +356,7 @@ public class VoiceInstructionsSettingsFragment extends BaseXmlSettingsFragment
     });
   }
 
-  private void onSpeedCamerasPrefChanged(@NonNull SettingsPrefsFragment.SpeedCameraMode newCamMode)
+  private void onSpeedCamerasPrefChanged(@NonNull SpeedCameraMode newCamMode)
   {
     Framework.setSpeedCamerasMode(newCamMode);
   }

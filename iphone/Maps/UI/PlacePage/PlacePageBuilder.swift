@@ -13,14 +13,15 @@
     case .POI, .bookmark:
       layout = PlacePageCommonLayout(interactor: interactor, storyboard: storyboard, data: data)
     case .track:
-      layout = PlacePageTrackLayout(interactor: interactor, storyboard: storyboard, data: data)
+      let trackLayout = PlacePageTrackLayout(interactor: interactor, storyboard: storyboard, data: data)
+      interactor.trackActivePointPresenter = trackLayout.elevationMapViewController?.presenter
+      layout = trackLayout
     case .trackRecording:
-      // TODO: Implement PlacePageTrackRecordingLayout
-      fatalError("PlacePageTrackRecordingLayout is not implemented")
+      layout = PlacePageTrackRecordingLayout(interactor: interactor, storyboard: storyboard, data: data)
     @unknown default:
       fatalError()
     }
-    let presenter = PlacePagePresenter(view: viewController)
+    let presenter = PlacePagePresenter(view: viewController, headerView: layout.headerViewController)
     viewController.setLayout(layout)
     viewController.interactor = interactor
     interactor.presenter = presenter
@@ -34,18 +35,20 @@
                                          data: data,
                                          mapViewController: MapViewController.shared()!)
     let layout: IPlacePageLayout
+    let storyboard = viewController.storyboard!
     switch data.objectType {
     case .POI, .bookmark:
-      layout = PlacePageCommonLayout(interactor: interactor, storyboard: viewController.storyboard!, data: data)
+      layout = PlacePageCommonLayout(interactor: interactor, storyboard: storyboard, data: data)
     case .track:
-      layout = PlacePageTrackLayout(interactor: interactor, storyboard: viewController.storyboard!, data: data)
+      let trackLayout = PlacePageTrackLayout(interactor: interactor, storyboard: storyboard, data: data)
+      interactor.trackActivePointPresenter = trackLayout.elevationMapViewController?.presenter
+      layout = trackLayout
     case .trackRecording:
-      // TODO: Implement PlacePageTrackRecordingLayout
-      fatalError("PlacePageTrackRecordingLayout is not implemented")
+      layout = PlacePageTrackRecordingLayout(interactor: interactor, storyboard: storyboard, data: data)
     @unknown default:
       fatalError()
     }
-    let presenter = PlacePagePresenter(view: viewController)
+    let presenter = PlacePagePresenter(view: viewController, headerView: layout.headerViewController)
     viewController.interactor = interactor
     interactor.presenter = presenter
     layout.presenter = presenter

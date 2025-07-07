@@ -14,7 +14,6 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -22,17 +21,16 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import app.organicmaps.R;
-import app.organicmaps.bookmarks.data.Bookmark;
-import app.organicmaps.bookmarks.data.BookmarkManager;
-import app.organicmaps.bookmarks.data.MapObject;
-import app.organicmaps.util.StringUtils;
-import app.organicmaps.util.UiUtils;
+import app.organicmaps.sdk.bookmarks.data.Bookmark;
+import app.organicmaps.sdk.bookmarks.data.BookmarkManager;
+import app.organicmaps.sdk.bookmarks.data.MapObject;
+import app.organicmaps.sdk.util.StringUtils;
+import app.organicmaps.sdk.util.UiUtils;
 import app.organicmaps.util.Utils;
 import app.organicmaps.widget.placepage.EditBookmarkFragment;
 import app.organicmaps.widget.placepage.PlacePageViewModel;
 
-public class PlacePageBookmarkFragment extends Fragment implements View.OnClickListener,
-                                                                   View.OnLongClickListener,
+public class PlacePageBookmarkFragment extends Fragment implements View.OnClickListener, View.OnLongClickListener,
                                                                    Observer<MapObject>,
                                                                    EditBookmarkFragment.EditBookmarkListener
 {
@@ -47,7 +45,8 @@ public class PlacePageBookmarkFragment extends Fragment implements View.OnClickL
 
   @Nullable
   @Override
-  public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
+  public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+                           @Nullable Bundle savedInstanceState)
   {
     mViewModel = new ViewModelProvider(requireActivity()).get(PlacePageViewModel.class);
     return inflater.inflate(R.layout.place_page_bookmark_fragment, container, false);
@@ -124,11 +123,8 @@ public class PlacePageBookmarkFragment extends Fragment implements View.OnClickL
   public void onClick(View v)
   {
     final FragmentActivity activity = requireActivity();
-    EditBookmarkFragment.editBookmark(currentBookmark.getCategoryId(),
-                                      currentBookmark.getBookmarkId(),
-                                      activity,
-                                      activity.getSupportFragmentManager(),
-                                      PlacePageBookmarkFragment.this);
+    EditBookmarkFragment.editBookmark(currentBookmark.getCategoryId(), currentBookmark.getBookmarkId(), activity,
+                                      getChildFragmentManager(), PlacePageBookmarkFragment.this);
   }
 
   @Override

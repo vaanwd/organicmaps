@@ -1,20 +1,25 @@
-• Нові дані OpenStreetMap від 21 січня
-• Натисніть на трек, щоб побачити статистику та графік рельєфу
-• Окрема кнопка для запису треків
-• Абсолютно новій віджет із статистикою в реальномі часі (для iOS16.2 та піздніше)
-• Додано переклади сербською (кирилиця) та латиською мовами
-• Вежі відображаються на мапі
+We're getting back on track! Now you can save planned routes as tracks and see details about the currently recorded track.
+There is fresh OpenStreetMap data as of June 8, 2025, and also many other improvements:
 
-• Додано спеціальні іконки для метро в Гонконгу й Шеньчжені та для трамвайних ліній в Берліні
-• Кнопка з координатами отримала контексне меню в панені інформації для POI
-• Кожного разу при переході до повноекранного режиму відображається вспливаюча підказка
-• Додадкове пояснення для випадку відсутньої категорії в редакторі
-• Різні кольори для газонів та лугів
-• Меньш насичений колір для присадибних ділянок
-• Жовті щитки для доріг більше не відображаються зеленим кольором в нічному режимі
-• Ділянки з рослинами відображаються раніше в режимі автомобільної навігації 
-• Підтримка складних нецифрових номерів поверхів для POI
-• Покращено пошук для гірських вершин та сідловин
-• В OSM редакторі додано пошук англійською
-• Оновлення перекладів естонською, фінською, німецькою, італійською та турецькою мовами
-• ...та ще багано виправлень та покращень
+• Fixed route planning error when the current location was unknown
+• Prevent iCloud sync from failing when the cloud file doesn't exist
+• Fix counter in special "?edits" search command
+• Fix Wikipedia section visibility on the Place page
+• Fully expand the track information page when opened
+• Increased the search screen top inset from the safe area
+• Smoother modal screen and side buttons animation
+• Save planned route as a track
+• Show detailed information about the recording track
+• App translations updates from the Weblate community
+
+Map:
+• Less annoying icons for car charging stations
+• Display plant nurseries, crash/traffic barriers, radio/tv/music studios, firepits, ladders, cranes, and love hotels
+• Qingdao metro icons
+
+Search:
+• Updated sewing/tailor synonyms
+• Fixed category search for Lithuanian and other languages
+• Fixed search on the map and in the list
+• Fixed search suggestions
+• Search history is not duplicated anymore
