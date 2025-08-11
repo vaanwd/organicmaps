@@ -602,4 +602,15 @@
     <string name="enable_logging_warning_message">Virkjaðu þennan valkost tímabundið til að skrá og senda síðan handvirkt nákvæma greiningarskrá um vandamálið þitt með því að nota \"Tilkynna um villu\" í hjálparglugganum. Slíkar atvikaskrár geta innihaldið upplýsingar um staðsetningu.</string>
     <string name="error_no_file_manager_app">Mistókst að birta val á möppum þar sem ekkert hentugt forrit er uppsett á tækinu þínu. Settu upp skráastjóra og prófaðu svo aftur.</string>
     <string name="saved">Vistað</string>
+    <string name="osm_note_hint">Eða til dæmis skilja eftir athugasemd til þátttakenda í OpenStreetMap svo einhver annar geti bætt við stað hér eða lagfært.</string>
+    <string name="osm_note_toast">Athugasemd verður send til OpenStreetMap</string>
+    <string name="button_layer_hiking">Gönguleiðir</string>
+    <string name="button_layer_cycling">Hjólreiðar</string>
+    <string name="bookmarks_text_placement_title">Nöfn bókamerkja á kortinu</string>
+    <string name="bookmarks_text_placement_description">Ef það eru of mörg bókamerki, getur hægt á forritinu að birta nöfn þeirra á kortinu.</string>
+    <string name="show_to_the_right">Birta hægra megin</string>
+    <string name="show_at_the_bottom">Birta neðst</string>
+    <string name="delete_track_dialog_title">Eyða %s?</string>
+    <string name="routes_update_maps_text">Til að birta leiðir þarf að uppfæra landakort.</string>
+    <string name="share_track">Deila ferli</string>
 </resources>

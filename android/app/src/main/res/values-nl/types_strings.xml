@@ -588,7 +588,7 @@
     <string name="type.landuse.cemetery">Begraafplaats</string>
     <!-- In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. -->
     <string name="type.landuse.cemetery.christian">Christelijke begraafplaats</string>
-    <string name="type.landuse.churchyard">Kerkhof</string>
+    <string name="type.landuse.religious">Kerkhof</string>
     <string name="type.landuse.commercial">Commercieel gebied</string>
     <string name="type.landuse.construction">Bouwplaats</string>
     <string name="type.landuse.education">Educatieve voorzieningen</string>
@@ -1402,4 +1402,10 @@
     <string name="type.leisure.firepit">Vuurplaats</string>
     <string name="type.highway.ladder">Ladder</string>
     <string name="type.amenity.love_hotel">Ontmoetingshotel</string>
+    <string name="type.amenity.bicycle_parking.covered">Overdekte Fietsen Stalling</string>
+    <string name="type.amenity.luggage_locker">Baggage Kluis</string>
+    <string name="type.post_office.post_partner">Post Agentschap</string>
+    <string name="type.leisure.escape_game">Ontsnapkamer</string>
+    <string name="type.railway.station.subway.qingdao">Metro Station</string>
+    <string name="type.amenity.ranger_station">Boswachtershuis</string>
 </resources>

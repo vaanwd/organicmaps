@@ -18,7 +18,7 @@ import app.organicmaps.base.BaseMwmFragmentActivity;
 import app.organicmaps.sdk.downloader.CountryItem;
 import app.organicmaps.sdk.downloader.MapManager;
 import app.organicmaps.sdk.util.StringUtils;
-import app.organicmaps.sdk.util.UiUtils;
+import app.organicmaps.util.UiUtils;
 import app.organicmaps.widget.WheelProgressView;
 import java.util.List;
 
@@ -70,9 +70,9 @@ public class CountrySuggestFragment extends BaseMwmFragment implements View.OnCl
 
           switch (item.newStatus)
           {
-            case CountryItem.STATUS_FAILED: updateViews(); return;
+          case CountryItem.STATUS_FAILED: updateViews(); return;
 
-            case CountryItem.STATUS_DONE: exitFragment(); return;
+          case CountryItem.STATUS_DONE: exitFragment(); return;
           }
 
           break;
@@ -187,7 +187,7 @@ public class CountrySuggestFragment extends BaseMwmFragment implements View.OnCl
   private void updateProgress()
   {
     String text = getString(R.string.downloader_downloading) + " "
-                + StringUtils.formatPercent(mDownloadingCountry.progress / 100);
+                + StringUtils.formatPercent(mDownloadingCountry.progress / 100, true);
     mTvProgress.setText(text);
     mWpvDownloadProgress.setProgress(Math.round(mDownloadingCountry.progress));
   }

@@ -11,13 +11,13 @@ import androidx.core.view.ViewCompat;
 import app.organicmaps.MwmActivity;
 import app.organicmaps.MwmApplication;
 import app.organicmaps.R;
-import app.organicmaps.routing.RoutingController;
 import app.organicmaps.sdk.downloader.CountryItem;
 import app.organicmaps.sdk.downloader.MapManager;
+import app.organicmaps.sdk.routing.RoutingController;
 import app.organicmaps.sdk.util.Config;
 import app.organicmaps.sdk.util.ConnectionState;
 import app.organicmaps.sdk.util.StringUtils;
-import app.organicmaps.sdk.util.UiUtils;
+import app.organicmaps.util.UiUtils;
 import app.organicmaps.util.WindowInsetUtils.PaddingInsetsListener;
 import app.organicmaps.widget.WheelProgressView;
 import java.util.List;
@@ -139,7 +139,7 @@ public class OnmapDownloader implements MwmActivity.LeftAnimationTrackListener
           mProgress.setPending(false);
           mProgress.setProgress(Math.round(mCurrentCountry.progress));
           sizeText = mActivity.getString(R.string.downloader_downloading) + " "
-                   + StringUtils.formatPercent(mCurrentCountry.progress / 100);
+                   + StringUtils.formatPercent(mCurrentCountry.progress / 100, true);
         }
         else
         {

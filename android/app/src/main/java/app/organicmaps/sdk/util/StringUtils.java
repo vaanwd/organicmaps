@@ -11,6 +11,10 @@ import java.util.Locale;
 
 public class StringUtils
 {
+  public static String toSnakeCase(String input)
+  {
+    return input.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+  }
   public static String formatUsingUsLocale(String pattern, Object... args)
   {
     return String.format(Locale.US, pattern, args);
@@ -32,12 +36,15 @@ public class StringUtils
    * — formatPercent(0.37) will return 37%
    *
    * @param fraction a double value, that represents a fraction of a whole
+   * @param fixedFractionDigits if true, prints 13.00% instead of 13%
    * @return correct string representation of percent for different locales
    */
-  public static String formatPercent(double fraction)
+  public static String formatPercent(double fraction, boolean fixedFractionDigits)
   {
     NumberFormat percentFormat = NumberFormat.getPercentInstance();
     percentFormat.setMaximumFractionDigits(2);
+    if (fixedFractionDigits)
+      percentFormat.setMinimumFractionDigits(2);
     return percentFormat.format(fraction);
   }
 

@@ -32,8 +32,8 @@ import app.organicmaps.sdk.util.Config;
 import app.organicmaps.sdk.util.NetworkPolicy;
 import app.organicmaps.sdk.util.PowerManagment;
 import app.organicmaps.sdk.util.SharedPropertiesUtils;
-import app.organicmaps.sdk.util.ThemeSwitcher;
 import app.organicmaps.sdk.util.log.LogsManager;
+import app.organicmaps.util.ThemeSwitcher;
 import app.organicmaps.util.Utils;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import java.util.Locale;
@@ -65,6 +65,7 @@ public class SettingsPrefsFragment extends BaseXmlSettingsFragment implements La
     initEmulationBadStorage();
     initUseMobileDataPrefsCallbacks();
     initPowerManagementPrefsCallbacks();
+    initBookmarksTextPlacementPrefsCallbacks();
     initPlayServicesPrefsCallbacks();
     initSearchPrivacyPrefsCallbacks();
     initScreenSleepEnabledPrefsCallbacks();
@@ -93,9 +94,9 @@ public class SettingsPrefsFragment extends BaseXmlSettingsFragment implements La
   private void updateProfileSettingsPrefsSummary()
   {
     final Preference pref = getPreference(getString(R.string.pref_osm_profile));
-    if (OsmOAuth.isAuthorized(requireContext()))
+    if (OsmOAuth.isAuthorized())
     {
-      final String username = OsmOAuth.getUsername(requireContext());
+      final String username = OsmOAuth.getUsername();
       pref.setSummary(username);
     }
     else
@@ -230,7 +231,7 @@ public class SettingsPrefsFragment extends BaseXmlSettingsFragment implements La
     if (pref == null)
       return;
 
-    if (!SharedPropertiesUtils.shouldShowEmulateBadStorageSetting(requireContext()))
+    if (!SharedPropertiesUtils.shouldShowEmulateBadStorageSetting())
       removePreference(getString(R.string.pref_settings_general), pref);
     else
       pref.setVisible(true);
@@ -477,6 +478,21 @@ public class SettingsPrefsFragment extends BaseXmlSettingsFragment implements La
         Config.setShowOnLockScreenEnabled(newVal);
         Utils.showOnLockScreen(newVal, requireActivity());
       }
+      return true;
+    });
+  }
+
+  private void initBookmarksTextPlacementPrefsCallbacks()
+  {
+    final ListPreference bookmarksTextPlacementPref = getPreference(getString(R.string.pref_bookmarks_text_placement));
+
+    @PowerManagment.SchemeType
+    final int currentPlacement = Framework.nativeGetBookmarksTextPlacement();
+    bookmarksTextPlacementPref.setValue(String.valueOf(currentPlacement));
+
+    bookmarksTextPlacementPref.setOnPreferenceChangeListener((preference, newValue) -> {
+      final int placement = Integer.parseInt((String) newValue);
+      Framework.nativeSetBookmarksTextPlacement(placement);
       return true;
     });
   }

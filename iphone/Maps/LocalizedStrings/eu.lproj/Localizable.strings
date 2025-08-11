@@ -412,7 +412,7 @@
 "blue_gray" = "Gris urdinxka";
 "dialog_routing_disclaimer_title" = "Arrastoa jarraitzean, kontuan izan:";
 "dialog_routing_disclaimer_priority" = "— Bidearen egoera, zirkulazio arauek eta bide seinaleek lehentasuna dute beti nabigazio-iradokizunen gainetik;";
-"dialog_routing_disclaimer_precision" = "— Mapa zehazgabea izan daiteke eta helmugara iristeko biderik onena ez den ibilbide bat iradoki dezake;";
+"dialog_routing_disclaimer_precision" = "— Zehaztasunik gabeko mapa izan daiteke eta helmugara iristeko biderik onena ez den ibilbide bat iradoki dezake;";
 "dialog_routing_disclaimer_recommendations" = "— Iradokitako ibilbideak gomendio gisa soilik hartu behar dira;";
 "dialog_routing_disclaimer_borders" = "— Kontuz ibili muga-eremuak dituzten ibilbideetan: gure aplikazioak sortutako ibilbideek batzuetan herrialdeen mugak zeharkatu ditzakete baimendu gabeko tokietan.";
 "dialog_routing_disclaimer_beware" = "Egon adi eta seguru errepideetan!";
@@ -428,7 +428,7 @@
 "dialog_routing_change_start" = "Ezarri abiapuntua";
 "dialog_routing_start_not_determined" = "Ibilbidea ez da sortu. Abiapuntua ezin izan da aurkitu.";
 "dialog_routing_select_closer_start" = "Hautatu errepide batetik gertuko abiapuntua.";
-"dialog_routing_change_end" = "Zehaztu helmuga";
+"dialog_routing_change_end" = "Zehaztu norakoa";
 "dialog_routing_end_not_determined" = "Ibilbidea ez da sortu. Ezin izan da helmuga aurkitu.";
 "dialog_routing_select_closer_end" = "Hautatu helmuga puntu bat errepide batetik gertu.";
 "dialog_routing_change_intermediate" = "Ezin izan da tarteko puntua kokatu.";
@@ -470,8 +470,8 @@
 "wikimedia_commons" = "Wikimedia Commons";
 "p2p_your_location" = "Zure kokapena";
 "p2p_start" = "Hasi";
-"p2p_from_here" = "Hemendik";
-"p2p_to_here" = "Bidea hona";
+"p2p_from_here" = "Abiapuntua";
+"p2p_to_here" = "Helmuga";
 "p2p_only_from_current" = "Nabigazioa zure uneko kokapenetik soilik dago erabilgarri.";
 "p2p_reroute_from_current" = "Zure uneko kokapenetik ibilbide bat antolatzea nahi duzu?";
 "editor_time_add" = "Gehitu ordutegia";
@@ -1060,3 +1060,17 @@
 /* Message for the toast when saving the track recording is finished but nothing to save. */
 "track_recording_toast_nothing_to_save" = "Arrastoa hutsik dago; ez dago ezer gordetzeko";
 "edit_track" = "Editatu arrastoa";
+"saved" = "Saved";
+"button_layer_hiking" = "Mendi-ibilaldiak";
+"button_layer_cycling" = "Txirrindularitza";
+
+/* Settings/Bookmark Text Placement */
+"bookmarks_text_placement_title" = "Laster-markak mapan";
+"bookmarks_text_placement_description" = "Laster-marka gehiegi badaude, mapan laster-markak bistaratzeak aplikazioa moteldu dezake.";
+"show_to_the_right" = "Erakutsi eskuinean";
+"right" = "Right";
+"show_at_the_bottom" = "Erakutsi behean";
+"bottom" = "Bottom";
+
+/* Toast text when the maps version should be updated to display the OSM hiking and cycling routes */
+"routes_update_maps_text" = "Arrastoak ikusteko mapak eguneratu behar dira.";

@@ -27,12 +27,12 @@ import app.organicmaps.MwmApplication;
 import app.organicmaps.R;
 import app.organicmaps.base.BaseMwmFragment;
 import app.organicmaps.downloader.CountrySuggestFragment;
-import app.organicmaps.routing.RoutingController;
 import app.organicmaps.sdk.Framework;
 import app.organicmaps.sdk.bookmarks.data.FeatureId;
 import app.organicmaps.sdk.bookmarks.data.MapObject;
 import app.organicmaps.sdk.downloader.MapManager;
 import app.organicmaps.sdk.location.LocationListener;
+import app.organicmaps.sdk.routing.RoutingController;
 import app.organicmaps.sdk.search.SearchEngine;
 import app.organicmaps.sdk.search.SearchListener;
 import app.organicmaps.sdk.search.SearchRecents;
@@ -40,7 +40,7 @@ import app.organicmaps.sdk.search.SearchResult;
 import app.organicmaps.sdk.util.Config;
 import app.organicmaps.sdk.util.Language;
 import app.organicmaps.sdk.util.SharedPropertiesUtils;
-import app.organicmaps.sdk.util.UiUtils;
+import app.organicmaps.util.UiUtils;
 import app.organicmaps.util.Utils;
 import app.organicmaps.util.WindowInsetUtils;
 import app.organicmaps.widget.PlaceholderView;
@@ -430,6 +430,8 @@ public class SearchFragment extends BaseMwmFragment implements SearchListener, C
 
   void showAllResultsOnMap()
   {
+    SearchEngine.INSTANCE.updateViewportWithLastResults();
+
     // The previous search should be cancelled before the new one is started, since previous search
     // results are no longer needed.
     SearchEngine.INSTANCE.cancel();
@@ -586,7 +588,7 @@ public class SearchFragment extends BaseMwmFragment implements SearchListener, C
     @Override
     void executeInternal()
     {
-      SharedPropertiesUtils.setShouldShowEmulateBadStorageSetting(mContext, true);
+      SharedPropertiesUtils.setShouldShowEmulateBadStorageSetting(true);
     }
   }
 

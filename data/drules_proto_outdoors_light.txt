@@ -3605,6 +3605,73 @@ cont {
   }
 }
 cont {
+  name: "amenity-bicycle_parking-covered"
+  element {
+    scale: 17
+    symbol {
+      name: "bicycle-parking-covered-m"
+      priority: 250
+    }
+    caption {
+      primary {
+        height: 10
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -9750
+    }
+  }
+  element {
+    scale: 18
+    symbol {
+      name: "bicycle-parking-covered-m"
+      priority: 250
+    }
+    caption {
+      primary {
+        height: 10
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -9750
+    }
+  }
+  element {
+    scale: 19
+    symbol {
+      name: "bicycle-parking-covered-m"
+      priority: 250
+    }
+    caption {
+      primary {
+        height: 10
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -9750
+    }
+  }
+  element {
+    scale: 20
+    symbol {
+      name: "bicycle-parking-covered-m"
+      priority: 250
+    }
+    caption {
+      primary {
+        height: 10
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -9750
+    }
+  }
+}
+cont {
   name: "amenity-bicycle_rental"
   element {
     scale: 17
@@ -6250,7 +6317,7 @@ cont {
   element {
     scale: 15
     symbol {
-      name: "fastfood-m"
+      name: "restaurant-m"
       priority: 4050
       min_distance: 28
     }
@@ -6267,7 +6334,7 @@ cont {
   element {
     scale: 16
     symbol {
-      name: "fastfood-m"
+      name: "restaurant-m"
       priority: 4050
       min_distance: 12
     }
@@ -6284,7 +6351,7 @@ cont {
   element {
     scale: 17
     symbol {
-      name: "fastfood-m"
+      name: "restaurant-m"
       priority: 4050
       min_distance: 12
     }
@@ -6301,7 +6368,7 @@ cont {
   element {
     scale: 18
     symbol {
-      name: "fastfood-m"
+      name: "restaurant-m"
       priority: 4050
       min_distance: 12
     }
@@ -6318,7 +6385,7 @@ cont {
   element {
     scale: 19
     symbol {
-      name: "fastfood-m"
+      name: "restaurant-m"
       priority: 4050
       min_distance: 12
     }
@@ -6335,7 +6402,7 @@ cont {
   element {
     scale: 20
     symbol {
-      name: "fastfood-m"
+      name: "restaurant-m"
       priority: 4050
       min_distance: 12
     }
@@ -7506,9 +7573,62 @@ cont {
   }
 }
 cont {
+  name: "amenity-luggage_locker"
+  element {
+    scale: 17
+    symbol {
+      name: "luggage_locker-m"
+      priority: 450
+    }
+  }
+  element {
+    scale: 18
+    symbol {
+      name: "luggage_locker-m"
+      priority: 450
+    }
+  }
+  element {
+    scale: 19
+    symbol {
+      name: "luggage_locker-m"
+      priority: 450
+    }
+    caption {
+      primary {
+        height: 11
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -9550
+    }
+  }
+  element {
+    scale: 20
+    symbol {
+      name: "luggage_locker-m"
+      priority: 450
+    }
+    caption {
+      primary {
+        height: 11
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -9550
+    }
+  }
+}
+cont {
   name: "amenity-marketplace"
   element {
     scale: 16
+    area {
+      color: 16445409
+      priority: -1830
+    }
     symbol {
       name: "marketplace-m"
       priority: 2700
@@ -7526,6 +7646,10 @@ cont {
   }
   element {
     scale: 17
+    area {
+      color: 16445409
+      priority: -1830
+    }
     symbol {
       name: "marketplace-m"
       priority: 2700
@@ -7543,6 +7667,10 @@ cont {
   }
   element {
     scale: 18
+    area {
+      color: 16445409
+      priority: -1830
+    }
     symbol {
       name: "marketplace-m"
       priority: 2700
@@ -7560,6 +7688,10 @@ cont {
   }
   element {
     scale: 19
+    area {
+      color: 16445409
+      priority: -1830
+    }
     symbol {
       name: "marketplace-m"
       priority: 2700
@@ -7577,6 +7709,10 @@ cont {
   }
   element {
     scale: 20
+    area {
+      color: 16445409
+      priority: -1830
+    }
     symbol {
       name: "marketplace-m"
       priority: 2700
@@ -9823,6 +9959,10 @@ cont {
   name: "amenity-place_of_worship"
   element {
     scale: 14
+    area {
+      color: 16445409
+      priority: -1760
+    }
     symbol {
       name: "place-of-worship-s"
       priority: 4150
@@ -9840,6 +9980,10 @@ cont {
   }
   element {
     scale: 15
+    area {
+      color: 16445409
+      priority: -1760
+    }
     symbol {
       name: "place-of-worship-m"
       priority: 4150
@@ -9858,7 +10002,7 @@ cont {
   element {
     scale: 16
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -9879,7 +10023,7 @@ cont {
   element {
     scale: 17
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -9900,7 +10044,7 @@ cont {
   element {
     scale: 18
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -9921,7 +10065,7 @@ cont {
   element {
     scale: 19
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -9942,7 +10086,7 @@ cont {
   element {
     scale: 20
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -9965,6 +10109,10 @@ cont {
   name: "amenity-place_of_worship-buddhist"
   element {
     scale: 14
+    area {
+      color: 16445409
+      priority: -1760
+    }
     symbol {
       name: "buddhist-s"
       priority: 4200
@@ -9982,6 +10130,10 @@ cont {
   }
   element {
     scale: 15
+    area {
+      color: 16445409
+      priority: -1760
+    }
     symbol {
       name: "buddhist-m"
       priority: 4200
@@ -10000,7 +10152,7 @@ cont {
   element {
     scale: 16
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -10021,7 +10173,7 @@ cont {
   element {
     scale: 17
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -10042,7 +10194,7 @@ cont {
   element {
     scale: 18
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -10063,7 +10215,7 @@ cont {
   element {
     scale: 19
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -10084,7 +10236,7 @@ cont {
   element {
     scale: 20
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -10107,6 +10259,10 @@ cont {
   name: "amenity-place_of_worship-christian"
   element {
     scale: 14
+    area {
+      color: 16445409
+      priority: -1760
+    }
     symbol {
       name: "christian-s"
       priority: 4200
@@ -10124,6 +10280,10 @@ cont {
   }
   element {
     scale: 15
+    area {
+      color: 16445409
+      priority: -1760
+    }
     symbol {
       name: "christian-m"
       priority: 4200
@@ -10142,7 +10302,7 @@ cont {
   element {
     scale: 16
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -10163,7 +10323,7 @@ cont {
   element {
     scale: 17
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -10184,7 +10344,7 @@ cont {
   element {
     scale: 18
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -10205,7 +10365,7 @@ cont {
   element {
     scale: 19
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -10226,7 +10386,7 @@ cont {
   element {
     scale: 20
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -10249,6 +10409,10 @@ cont {
   name: "amenity-place_of_worship-christian-jehovahs_witness"
   element {
     scale: 14
+    area {
+      color: 16445409
+      priority: -1760
+    }
     symbol {
       name: "place-of-worship-s"
       priority: 4200
@@ -10266,6 +10430,10 @@ cont {
   }
   element {
     scale: 15
+    area {
+      color: 16445409
+      priority: -1760
+    }
     symbol {
       name: "place-of-worship-m"
       priority: 4200
@@ -10284,7 +10452,7 @@ cont {
   element {
     scale: 16
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -10305,7 +10473,7 @@ cont {
   element {
     scale: 17
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -10326,7 +10494,7 @@ cont {
   element {
     scale: 18
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -10347,7 +10515,7 @@ cont {
   element {
     scale: 19
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -10368,7 +10536,7 @@ cont {
   element {
     scale: 20
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -10391,6 +10559,10 @@ cont {
   name: "amenity-place_of_worship-christian-mormon"
   element {
     scale: 14
+    area {
+      color: 16445409
+      priority: -1760
+    }
     symbol {
       name: "mormon-s"
       priority: 4200
@@ -10408,6 +10580,10 @@ cont {
   }
   element {
     scale: 15
+    area {
+      color: 16445409
+      priority: -1760
+    }
     symbol {
       name: "mormon-m"
       priority: 4200
@@ -10426,7 +10602,7 @@ cont {
   element {
     scale: 16
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -10447,7 +10623,7 @@ cont {
   element {
     scale: 17
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -10468,7 +10644,7 @@ cont {
   element {
     scale: 18
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -10489,7 +10665,7 @@ cont {
   element {
     scale: 19
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -10510,7 +10686,7 @@ cont {
   element {
     scale: 20
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -10533,6 +10709,10 @@ cont {
   name: "amenity-place_of_worship-hindu"
   element {
     scale: 14
+    area {
+      color: 16445409
+      priority: -1760
+    }
     symbol {
       name: "hindu-s"
       priority: 4200
@@ -10550,6 +10730,10 @@ cont {
   }
   element {
     scale: 15
+    area {
+      color: 16445409
+      priority: -1760
+    }
     symbol {
       name: "hindu-m"
       priority: 4200
@@ -10568,7 +10752,7 @@ cont {
   element {
     scale: 16
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -10589,7 +10773,7 @@ cont {
   element {
     scale: 17
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -10610,7 +10794,7 @@ cont {
   element {
     scale: 18
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -10631,7 +10815,7 @@ cont {
   element {
     scale: 19
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -10652,7 +10836,7 @@ cont {
   element {
     scale: 20
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -10675,6 +10859,10 @@ cont {
   name: "amenity-place_of_worship-jewish"
   element {
     scale: 14
+    area {
+      color: 16445409
+      priority: -1760
+    }
     symbol {
       name: "jewish-s"
       priority: 4200
@@ -10692,6 +10880,10 @@ cont {
   }
   element {
     scale: 15
+    area {
+      color: 16445409
+      priority: -1760
+    }
     symbol {
       name: "jewish-m"
       priority: 4200
@@ -10710,7 +10902,7 @@ cont {
   element {
     scale: 16
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -10731,7 +10923,7 @@ cont {
   element {
     scale: 17
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -10752,7 +10944,7 @@ cont {
   element {
     scale: 18
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -10773,7 +10965,7 @@ cont {
   element {
     scale: 19
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -10794,7 +10986,7 @@ cont {
   element {
     scale: 20
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -10817,6 +11009,10 @@ cont {
   name: "amenity-place_of_worship-muslim"
   element {
     scale: 14
+    area {
+      color: 16445409
+      priority: -1760
+    }
     symbol {
       name: "muslim-s"
       priority: 4200
@@ -10834,6 +11030,10 @@ cont {
   }
   element {
     scale: 15
+    area {
+      color: 16445409
+      priority: -1760
+    }
     symbol {
       name: "muslim-m"
       priority: 4200
@@ -10852,7 +11052,7 @@ cont {
   element {
     scale: 16
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -10873,7 +11073,7 @@ cont {
   element {
     scale: 17
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -10894,7 +11094,7 @@ cont {
   element {
     scale: 18
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -10915,7 +11115,7 @@ cont {
   element {
     scale: 19
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -10936,7 +11136,7 @@ cont {
   element {
     scale: 20
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -10959,6 +11159,10 @@ cont {
   name: "amenity-place_of_worship-shinto"
   element {
     scale: 14
+    area {
+      color: 16445409
+      priority: -1760
+    }
     symbol {
       name: "shinto-s"
       priority: 4200
@@ -10976,6 +11180,10 @@ cont {
   }
   element {
     scale: 15
+    area {
+      color: 16445409
+      priority: -1760
+    }
     symbol {
       name: "shinto-m"
       priority: 4200
@@ -10994,7 +11202,7 @@ cont {
   element {
     scale: 16
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -11015,7 +11223,7 @@ cont {
   element {
     scale: 17
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -11036,7 +11244,7 @@ cont {
   element {
     scale: 18
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -11057,7 +11265,7 @@ cont {
   element {
     scale: 19
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -11078,7 +11286,7 @@ cont {
   element {
     scale: 20
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -11101,6 +11309,10 @@ cont {
   name: "amenity-place_of_worship-taoist"
   element {
     scale: 14
+    area {
+      color: 16445409
+      priority: -1760
+    }
     symbol {
       name: "taoist-s"
       priority: 4200
@@ -11118,6 +11330,10 @@ cont {
   }
   element {
     scale: 15
+    area {
+      color: 16445409
+      priority: -1760
+    }
     symbol {
       name: "taoist-m"
       priority: 4200
@@ -11136,7 +11352,7 @@ cont {
   element {
     scale: 16
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -11157,7 +11373,7 @@ cont {
   element {
     scale: 17
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -11178,7 +11394,7 @@ cont {
   element {
     scale: 18
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -11199,7 +11415,7 @@ cont {
   element {
     scale: 19
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -11220,7 +11436,7 @@ cont {
   element {
     scale: 20
     area {
-      color: 15591638
+      color: 16445409
       priority: -1760
     }
     symbol {
@@ -11762,6 +11978,128 @@ cont {
         is_optional: true
       }
       priority: -9550
+    }
+  }
+}
+cont {
+  name: "amenity-ranger_station"
+  element {
+    scale: 14
+    symbol {
+      name: "ranger-station-m"
+      priority: 4400
+      min_distance: 10
+    }
+    caption {
+      primary {
+        height: 10
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -5600
+    }
+  }
+  element {
+    scale: 15
+    symbol {
+      name: "ranger-station-m"
+      priority: 4400
+      min_distance: 10
+    }
+    caption {
+      primary {
+        height: 10
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -5600
+    }
+  }
+  element {
+    scale: 16
+    symbol {
+      name: "ranger-station-m"
+      priority: 4400
+      min_distance: 10
+    }
+    caption {
+      primary {
+        height: 10
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -5600
+    }
+  }
+  element {
+    scale: 17
+    symbol {
+      name: "ranger-station-m"
+      priority: 4400
+      min_distance: 10
+    }
+    caption {
+      primary {
+        height: 10
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -5600
+    }
+  }
+  element {
+    scale: 18
+    symbol {
+      name: "ranger-station-m"
+      priority: 4400
+      min_distance: 10
+    }
+    caption {
+      primary {
+        height: 10
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -5600
+    }
+  }
+  element {
+    scale: 19
+    symbol {
+      name: "ranger-station-m"
+      priority: 4400
+      min_distance: 10
+    }
+    caption {
+      primary {
+        height: 10
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -5600
+    }
+  }
+  element {
+    scale: 20
+    symbol {
+      name: "ranger-station-m"
+      priority: 4400
+      min_distance: 10
+    }
+    caption {
+      primary {
+        height: 10
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -5600
     }
   }
 }
@@ -33323,6 +33661,10 @@ cont {
   }
   element {
     scale: 15
+    area {
+      color: 16445409
+      priority: -1830
+    }
     symbol {
       name: "picnic-m"
       priority: 3800
@@ -33340,6 +33682,10 @@ cont {
   }
   element {
     scale: 16
+    area {
+      color: 16445409
+      priority: -1830
+    }
     symbol {
       name: "picnic-m"
       priority: 3800
@@ -33356,6 +33702,10 @@ cont {
   }
   element {
     scale: 17
+    area {
+      color: 16445409
+      priority: -1830
+    }
     symbol {
       name: "picnic-m"
       priority: 3800
@@ -33372,6 +33722,10 @@ cont {
   }
   element {
     scale: 18
+    area {
+      color: 16445409
+      priority: -1830
+    }
     symbol {
       name: "picnic-m"
       priority: 3800
@@ -33388,6 +33742,10 @@ cont {
   }
   element {
     scale: 19
+    area {
+      color: 16445409
+      priority: -1830
+    }
     symbol {
       name: "picnic-m"
       priority: 3800
@@ -33404,6 +33762,10 @@ cont {
   }
   element {
     scale: 20
+    area {
+      color: 16445409
+      priority: -1830
+    }
     symbol {
       name: "picnic-m"
       priority: 3800
@@ -35890,6 +36252,10 @@ cont {
   name: "highway-services"
   element {
     scale: 14
+    area {
+      color: 16445409
+      priority: -1830
+    }
     symbol {
       name: "car-repair-s"
       priority: 4250
@@ -35907,6 +36273,10 @@ cont {
   }
   element {
     scale: 15
+    area {
+      color: 16445409
+      priority: -1830
+    }
     symbol {
       name: "car-repair-m"
       priority: 4250
@@ -35924,6 +36294,10 @@ cont {
   }
   element {
     scale: 16
+    area {
+      color: 16445409
+      priority: -1830
+    }
     symbol {
       name: "car-repair-m"
       priority: 4250
@@ -35940,6 +36314,10 @@ cont {
   }
   element {
     scale: 17
+    area {
+      color: 16445409
+      priority: -1830
+    }
     symbol {
       name: "car-repair-m"
       priority: 4250
@@ -35956,6 +36334,10 @@ cont {
   }
   element {
     scale: 18
+    area {
+      color: 16445409
+      priority: -1830
+    }
     symbol {
       name: "car-repair-m"
       priority: 4250
@@ -35972,6 +36354,10 @@ cont {
   }
   element {
     scale: 19
+    area {
+      color: 16445409
+      priority: -1830
+    }
     symbol {
       name: "car-repair-m"
       priority: 4250
@@ -35988,6 +36374,10 @@ cont {
   }
   element {
     scale: 20
+    area {
+      color: 16445409
+      priority: -1830
+    }
     symbol {
       name: "car-repair-m"
       priority: 4250
@@ -47465,51 +47855,6 @@ cont {
   }
 }
 cont {
-  name: "landuse-churchyard"
-  element {
-    scale: 15
-    area {
-      color: 14934482
-      priority: -1950
-    }
-  }
-  element {
-    scale: 16
-    area {
-      color: 14934482
-      priority: -1950
-    }
-  }
-  element {
-    scale: 17
-    area {
-      color: 14934482
-      priority: -1950
-    }
-  }
-  element {
-    scale: 18
-    area {
-      color: 14934482
-      priority: -1950
-    }
-  }
-  element {
-    scale: 19
-    area {
-      color: 14934482
-      priority: -1950
-    }
-  }
-  element {
-    scale: 20
-    area {
-      color: 14934482
-      priority: -1950
-    }
-  }
-}
-cont {
   name: "landuse-commercial"
   element {
     scale: 17
@@ -47554,6 +47899,20 @@ cont {
 }
 cont {
   name: "landuse-construction"
+  element {
+    scale: 13
+    area {
+      color: 15000299
+      priority: -1950
+    }
+  }
+  element {
+    scale: 14
+    area {
+      color: 15000299
+      priority: -1950
+    }
+  }
   element {
     scale: 15
     area {
@@ -48037,21 +48396,21 @@ cont {
   element {
     scale: 10
     area {
-      color: 13029267
+      color: 11584112
       priority: -1940
     }
   }
   element {
     scale: 11
     area {
-      color: 12372094
+      color: 11584112
       priority: -1940
     }
   }
   element {
     scale: 12
     area {
-      color: 12372094
+      color: 11584112
       priority: -1940
     }
     symbol {
@@ -48063,7 +48422,7 @@ cont {
   element {
     scale: 12
     area {
-      color: 12372094
+      color: 11584112
       priority: -1940
     }
     apply_if: "!name"
@@ -48071,7 +48430,7 @@ cont {
   element {
     scale: 13
     area {
-      color: 11781233
+      color: 11584112
       priority: -1940
     }
     symbol {
@@ -48093,7 +48452,7 @@ cont {
   element {
     scale: 13
     area {
-      color: 11781233
+      color: 11584112
       priority: -1940
     }
     apply_if: "!name"
@@ -48101,7 +48460,7 @@ cont {
   element {
     scale: 14
     area {
-      color: 11453035
+      color: 11584112
       priority: -1940
     }
     symbol {
@@ -48124,7 +48483,7 @@ cont {
   element {
     scale: 14
     area {
-      color: 11453035
+      color: 11584112
       priority: -1940
     }
     apply_if: "!name"
@@ -48163,7 +48522,7 @@ cont {
   element {
     scale: 16
     area {
-      color: 11190117
+      color: 11584112
       priority: -1940
     }
     symbol {
@@ -48193,7 +48552,7 @@ cont {
   element {
     scale: 16
     area {
-      color: 11190117
+      color: 11584112
       priority: -1940
     }
     apply_if: "!name"
@@ -48201,7 +48560,7 @@ cont {
   element {
     scale: 17
     area {
-      color: 11190117
+      color: 11584112
       priority: -1940
     }
     symbol {
@@ -48231,7 +48590,7 @@ cont {
   element {
     scale: 17
     area {
-      color: 11190117
+      color: 11584112
       priority: -1940
     }
     apply_if: "!name"
@@ -48239,7 +48598,7 @@ cont {
   element {
     scale: 18
     area {
-      color: 11190117
+      color: 11584112
       priority: -1940
     }
     symbol {
@@ -48269,7 +48628,7 @@ cont {
   element {
     scale: 18
     area {
-      color: 11190117
+      color: 11584112
       priority: -1940
     }
     symbol {
@@ -48281,7 +48640,7 @@ cont {
   element {
     scale: 19
     area {
-      color: 11190117
+      color: 11584112
       priority: -1940
     }
     symbol {
@@ -48311,7 +48670,7 @@ cont {
   element {
     scale: 19
     area {
-      color: 11190117
+      color: 11584112
       priority: -1940
     }
     symbol {
@@ -48323,7 +48682,7 @@ cont {
   element {
     scale: 20
     area {
-      color: 11190117
+      color: 11584112
       priority: -1940
     }
     symbol {
@@ -48353,7 +48712,7 @@ cont {
   element {
     scale: 20
     area {
-      color: 11190117
+      color: 11584112
       priority: -1940
     }
     symbol {
@@ -48368,21 +48727,21 @@ cont {
   element {
     scale: 10
     area {
-      color: 13029267
+      color: 11584112
       priority: -1940
     }
   }
   element {
     scale: 11
     area {
-      color: 12372094
+      color: 11584112
       priority: -1940
     }
   }
   element {
     scale: 12
     area {
-      color: 12372094
+      color: 11584112
       priority: -1940
     }
     symbol {
@@ -48394,7 +48753,7 @@ cont {
   element {
     scale: 12
     area {
-      color: 12372094
+      color: 11584112
       priority: -1940
     }
     apply_if: "!name"
@@ -48402,7 +48761,7 @@ cont {
   element {
     scale: 13
     area {
-      color: 11781233
+      color: 11584112
       priority: -1940
     }
     symbol {
@@ -48424,7 +48783,7 @@ cont {
   element {
     scale: 13
     area {
-      color: 11781233
+      color: 11584112
       priority: -1940
     }
     apply_if: "!name"
@@ -48432,7 +48791,7 @@ cont {
   element {
     scale: 14
     area {
-      color: 11453035
+      color: 11584112
       priority: -1940
     }
     symbol {
@@ -48455,7 +48814,7 @@ cont {
   element {
     scale: 14
     area {
-      color: 11453035
+      color: 11584112
       priority: -1940
     }
     apply_if: "!name"
@@ -48494,7 +48853,7 @@ cont {
   element {
     scale: 16
     area {
-      color: 11190117
+      color: 11584112
       priority: -1940
     }
     symbol {
@@ -48524,7 +48883,7 @@ cont {
   element {
     scale: 16
     area {
-      color: 11190117
+      color: 11584112
       priority: -1940
     }
     apply_if: "!name"
@@ -48532,7 +48891,7 @@ cont {
   element {
     scale: 17
     area {
-      color: 11190117
+      color: 11584112
       priority: -1940
     }
     symbol {
@@ -48562,7 +48921,7 @@ cont {
   element {
     scale: 17
     area {
-      color: 11190117
+      color: 11584112
       priority: -1940
     }
     apply_if: "!name"
@@ -48570,7 +48929,7 @@ cont {
   element {
     scale: 18
     area {
-      color: 11190117
+      color: 11584112
       priority: -1940
     }
     symbol {
@@ -48600,7 +48959,7 @@ cont {
   element {
     scale: 18
     area {
-      color: 11190117
+      color: 11584112
       priority: -1940
     }
     symbol {
@@ -48612,7 +48971,7 @@ cont {
   element {
     scale: 19
     area {
-      color: 11190117
+      color: 11584112
       priority: -1940
     }
     symbol {
@@ -48642,7 +49001,7 @@ cont {
   element {
     scale: 19
     area {
-      color: 11190117
+      color: 11584112
       priority: -1940
     }
     symbol {
@@ -48654,7 +49013,7 @@ cont {
   element {
     scale: 20
     area {
-      color: 11190117
+      color: 11584112
       priority: -1940
     }
     symbol {
@@ -48684,7 +49043,7 @@ cont {
   element {
     scale: 20
     area {
-      color: 11190117
+      color: 11584112
       priority: -1940
     }
     symbol {
@@ -48699,21 +49058,21 @@ cont {
   element {
     scale: 10
     area {
-      color: 13029267
+      color: 11584112
       priority: -1940
     }
   }
   element {
     scale: 11
     area {
-      color: 12372094
+      color: 11584112
       priority: -1940
     }
   }
   element {
     scale: 12
     area {
-      color: 12372094
+      color: 11584112
       priority: -1940
     }
     symbol {
@@ -48725,7 +49084,7 @@ cont {
   element {
     scale: 12
     area {
-      color: 12372094
+      color: 11584112
       priority: -1940
     }
     apply_if: "!name"
@@ -48733,7 +49092,7 @@ cont {
   element {
     scale: 13
     area {
-      color: 11781233
+      color: 11584112
       priority: -1940
     }
     symbol {
@@ -48755,7 +49114,7 @@ cont {
   element {
     scale: 13
     area {
-      color: 11781233
+      color: 11584112
       priority: -1940
     }
     apply_if: "!name"
@@ -48763,7 +49122,7 @@ cont {
   element {
     scale: 14
     area {
-      color: 11453035
+      color: 11584112
       priority: -1940
     }
     symbol {
@@ -48786,7 +49145,7 @@ cont {
   element {
     scale: 14
     area {
-      color: 11453035
+      color: 11584112
       priority: -1940
     }
     apply_if: "!name"
@@ -48825,7 +49184,7 @@ cont {
   element {
     scale: 16
     area {
-      color: 11190117
+      color: 11584112
       priority: -1940
     }
     symbol {
@@ -48855,7 +49214,7 @@ cont {
   element {
     scale: 16
     area {
-      color: 11190117
+      color: 11584112
       priority: -1940
     }
     apply_if: "!name"
@@ -48863,7 +49222,7 @@ cont {
   element {
     scale: 17
     area {
-      color: 11190117
+      color: 11584112
       priority: -1940
     }
     symbol {
@@ -48893,7 +49252,7 @@ cont {
   element {
     scale: 17
     area {
-      color: 11190117
+      color: 11584112
       priority: -1940
     }
     apply_if: "!name"
@@ -48901,7 +49260,7 @@ cont {
   element {
     scale: 18
     area {
-      color: 11190117
+      color: 11584112
       priority: -1940
     }
     symbol {
@@ -48931,7 +49290,7 @@ cont {
   element {
     scale: 18
     area {
-      color: 11190117
+      color: 11584112
       priority: -1940
     }
     symbol {
@@ -48943,7 +49302,7 @@ cont {
   element {
     scale: 19
     area {
-      color: 11190117
+      color: 11584112
       priority: -1940
     }
     symbol {
@@ -48973,7 +49332,7 @@ cont {
   element {
     scale: 19
     area {
-      color: 11190117
+      color: 11584112
       priority: -1940
     }
     symbol {
@@ -48985,7 +49344,7 @@ cont {
   element {
     scale: 20
     area {
-      color: 11190117
+      color: 11584112
       priority: -1940
     }
     symbol {
@@ -49015,7 +49374,7 @@ cont {
   element {
     scale: 20
     area {
-      color: 11190117
+      color: 11584112
       priority: -1940
     }
     symbol {
@@ -49030,21 +49389,21 @@ cont {
   element {
     scale: 10
     area {
-      color: 13029267
+      color: 11584112
       priority: -1940
     }
   }
   element {
     scale: 11
     area {
-      color: 12372094
+      color: 11584112
       priority: -1940
     }
   }
   element {
     scale: 12
     area {
-      color: 12372094
+      color: 11584112
       priority: -1940
     }
     symbol {
@@ -49056,7 +49415,7 @@ cont {
   element {
     scale: 12
     area {
-      color: 12372094
+      color: 11584112
       priority: -1940
     }
     apply_if: "!name"
@@ -49064,7 +49423,7 @@ cont {
   element {
     scale: 13
     area {
-      color: 11781233
+      color: 11584112
       priority: -1940
     }
     symbol {
@@ -49086,7 +49445,7 @@ cont {
   element {
     scale: 13
     area {
-      color: 11781233
+      color: 11584112
       priority: -1940
     }
     apply_if: "!name"
@@ -49094,7 +49453,7 @@ cont {
   element {
     scale: 14
     area {
-      color: 11453035
+      color: 11584112
       priority: -1940
     }
     symbol {
@@ -49117,7 +49476,7 @@ cont {
   element {
     scale: 14
     area {
-      color: 11453035
+      color: 11584112
       priority: -1940
     }
     apply_if: "!name"
@@ -49156,7 +49515,7 @@ cont {
   element {
     scale: 16
     area {
-      color: 11190117
+      color: 11584112
       priority: -1940
     }
     symbol {
@@ -49186,7 +49545,7 @@ cont {
   element {
     scale: 16
     area {
-      color: 11190117
+      color: 11584112
       priority: -1940
     }
     apply_if: "!name"
@@ -49194,7 +49553,7 @@ cont {
   element {
     scale: 17
     area {
-      color: 11190117
+      color: 11584112
       priority: -1940
     }
     symbol {
@@ -49224,7 +49583,7 @@ cont {
   element {
     scale: 17
     area {
-      color: 11190117
+      color: 11584112
       priority: -1940
     }
     apply_if: "!name"
@@ -49232,7 +49591,7 @@ cont {
   element {
     scale: 18
     area {
-      color: 11190117
+      color: 11584112
       priority: -1940
     }
     symbol {
@@ -49262,7 +49621,7 @@ cont {
   element {
     scale: 18
     area {
-      color: 11190117
+      color: 11584112
       priority: -1940
     }
     symbol {
@@ -49274,7 +49633,7 @@ cont {
   element {
     scale: 19
     area {
-      color: 11190117
+      color: 11584112
       priority: -1940
     }
     symbol {
@@ -49304,7 +49663,7 @@ cont {
   element {
     scale: 19
     area {
-      color: 11190117
+      color: 11584112
       priority: -1940
     }
     symbol {
@@ -49316,7 +49675,7 @@ cont {
   element {
     scale: 20
     area {
-      color: 11190117
+      color: 11584112
       priority: -1940
     }
     symbol {
@@ -49346,7 +49705,7 @@ cont {
   element {
     scale: 20
     area {
-      color: 11190117
+      color: 11584112
       priority: -1940
     }
     symbol {
@@ -49358,6 +49717,20 @@ cont {
 }
 cont {
   name: "landuse-garages"
+  element {
+    scale: 13
+    area {
+      color: 15000299
+      priority: 110
+    }
+  }
+  element {
+    scale: 14
+    area {
+      color: 15000299
+      priority: 110
+    }
+  }
   element {
     scale: 15
     area {
@@ -49470,6 +49843,20 @@ cont {
 cont {
   name: "landuse-industrial"
   element {
+    scale: 13
+    area {
+      color: 15000299
+      priority: -1950
+    }
+  }
+  element {
+    scale: 14
+    area {
+      color: 15000299
+      priority: -1950
+    }
+  }
+  element {
     scale: 15
     area {
       color: 15000299
@@ -49556,6 +49943,20 @@ cont {
 }
 cont {
   name: "landuse-industrial-mine"
+  element {
+    scale: 13
+    area {
+      color: 15000299
+      priority: -1950
+    }
+  }
+  element {
+    scale: 14
+    area {
+      color: 15000299
+      priority: -1950
+    }
+  }
   element {
     scale: 15
     area {
@@ -49679,6 +50080,20 @@ cont {
 }
 cont {
   name: "landuse-landfill"
+  element {
+    scale: 13
+    area {
+      color: 15000299
+      priority: -1780
+    }
+  }
+  element {
+    scale: 14
+    area {
+      color: 15000299
+      priority: -1780
+    }
+  }
   element {
     scale: 15
     area {
@@ -49805,14 +50220,14 @@ cont {
   element {
     scale: 12
     area {
-      color: 13620648
+      color: 13029267
       priority: -1920
     }
   }
   element {
     scale: 13
     area {
-      color: 13620648
+      color: 13029267
       priority: -1920
     }
   }
@@ -49833,35 +50248,35 @@ cont {
   element {
     scale: 16
     area {
-      color: 12700809
+      color: 13029267
       priority: -1920
     }
   }
   element {
     scale: 17
     area {
-      color: 12700809
+      color: 13029267
       priority: -1920
     }
   }
   element {
     scale: 18
     area {
-      color: 12700809
+      color: 13029267
       priority: -1920
     }
   }
   element {
     scale: 19
     area {
-      color: 12700809
+      color: 13029267
       priority: -1920
     }
   }
   element {
     scale: 20
     area {
-      color: 12700809
+      color: 13029267
       priority: -1920
     }
   }
@@ -50355,6 +50770,20 @@ cont {
 cont {
   name: "landuse-quarry"
   element {
+    scale: 13
+    area {
+      color: 15000299
+      priority: -1950
+    }
+  }
+  element {
+    scale: 14
+    area {
+      color: 15000299
+      priority: -1950
+    }
+  }
+  element {
     scale: 15
     area {
       color: 15000299
@@ -50477,6 +50906,20 @@ cont {
 }
 cont {
   name: "landuse-railway"
+  element {
+    scale: 13
+    area {
+      color: 15000299
+      priority: -1950
+    }
+  }
+  element {
+    scale: 14
+    area {
+      color: 15000299
+      priority: -1950
+    }
+  }
   element {
     scale: 15
     area {
@@ -50667,6 +51110,51 @@ cont {
         color: 4473924
       }
       priority: 1250
+    }
+  }
+}
+cont {
+  name: "landuse-religious"
+  element {
+    scale: 15
+    area {
+      color: 14934482
+      priority: -1950
+    }
+  }
+  element {
+    scale: 16
+    area {
+      color: 14934482
+      priority: -1950
+    }
+  }
+  element {
+    scale: 17
+    area {
+      color: 14934482
+      priority: -1950
+    }
+  }
+  element {
+    scale: 18
+    area {
+      color: 14934482
+      priority: -1950
+    }
+  }
+  element {
+    scale: 19
+    area {
+      color: 14934482
+      priority: -1950
+    }
+  }
+  element {
+    scale: 20
+    area {
+      color: 14934482
+      priority: -1950
     }
   }
 }
@@ -50962,6 +51450,51 @@ cont {
         offset_y: 1
       }
       priority: 120
+    }
+  }
+}
+cont {
+  name: "landuse-retail"
+  element {
+    scale: 15
+    area {
+      color: 16445409
+      priority: -1830
+    }
+  }
+  element {
+    scale: 16
+    area {
+      color: 16445409
+      priority: -1830
+    }
+  }
+  element {
+    scale: 17
+    area {
+      color: 16445409
+      priority: -1830
+    }
+  }
+  element {
+    scale: 18
+    area {
+      color: 16445409
+      priority: -1830
+    }
+  }
+  element {
+    scale: 19
+    area {
+      color: 16445409
+      priority: -1830
+    }
+  }
+  element {
+    scale: 20
+    area {
+      color: 16445409
+      priority: -1830
     }
   }
 }
@@ -51839,6 +52372,73 @@ cont {
         is_optional: true
       }
       priority: -7700
+    }
+  }
+}
+cont {
+  name: "leisure-escape_game"
+  element {
+    scale: 17
+    symbol {
+      name: "escape_game-m"
+      priority: 1600
+    }
+    caption {
+      primary {
+        height: 10
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -8400
+    }
+  }
+  element {
+    scale: 18
+    symbol {
+      name: "escape_game-m"
+      priority: 1600
+    }
+    caption {
+      primary {
+        height: 10
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -8400
+    }
+  }
+  element {
+    scale: 19
+    symbol {
+      name: "escape_game-m"
+      priority: 1600
+    }
+    caption {
+      primary {
+        height: 10
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -8400
+    }
+  }
+  element {
+    scale: 20
+    symbol {
+      name: "escape_game-m"
+      priority: 1600
+    }
+    caption {
+      primary {
+        height: 10
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -8400
     }
   }
 }
@@ -54428,6 +55028,13 @@ cont {
 cont {
   name: "leisure-playground"
   element {
+    scale: 15
+    area {
+      color: 13749671
+      priority: -1800
+    }
+  }
+  element {
     scale: 16
     area {
       color: 13749671
@@ -54569,7 +55176,18 @@ cont {
 cont {
   name: "leisure-resort"
   element {
+    scale: 15
+    area {
+      color: 16445409
+      priority: -1830
+    }
+  }
+  element {
     scale: 16
+    area {
+      color: 16445409
+      priority: -1830
+    }
     symbol {
       name: "hotel-m"
       priority: 2750
@@ -54587,6 +55205,10 @@ cont {
   }
   element {
     scale: 17
+    area {
+      color: 16445409
+      priority: -1830
+    }
     symbol {
       name: "hotel-m"
       priority: 2750
@@ -54604,6 +55226,10 @@ cont {
   }
   element {
     scale: 18
+    area {
+      color: 16445409
+      priority: -1830
+    }
     symbol {
       name: "hotel-m"
       priority: 2750
@@ -54621,6 +55247,10 @@ cont {
   }
   element {
     scale: 19
+    area {
+      color: 16445409
+      priority: -1830
+    }
     symbol {
       name: "hotel-m"
       priority: 2750
@@ -54638,6 +55268,10 @@ cont {
   }
   element {
     scale: 20
+    area {
+      color: 16445409
+      priority: -1830
+    }
     symbol {
       name: "hotel-m"
       priority: 2750
@@ -55526,6 +56160,10 @@ cont {
   name: "leisure-water_park"
   element {
     scale: 16
+    area {
+      color: 16445409
+      priority: -1830
+    }
     symbol {
       name: "swimming-m"
       priority: 5200
@@ -55543,6 +56181,10 @@ cont {
   }
   element {
     scale: 17
+    area {
+      color: 16445409
+      priority: -1830
+    }
     symbol {
       name: "swimming-m"
       priority: 5200
@@ -55560,6 +56202,10 @@ cont {
   }
   element {
     scale: 18
+    area {
+      color: 16445409
+      priority: -1830
+    }
     symbol {
       name: "swimming-m"
       priority: 5200
@@ -55577,6 +56223,10 @@ cont {
   }
   element {
     scale: 19
+    area {
+      color: 16445409
+      priority: -1830
+    }
     symbol {
       name: "swimming-m"
       priority: 5200
@@ -55594,6 +56244,10 @@ cont {
   }
   element {
     scale: 20
+    area {
+      color: 16445409
+      priority: -1830
+    }
     symbol {
       name: "swimming-m"
       priority: 5200
@@ -61448,14 +62102,14 @@ cont {
   element {
     scale: 12
     area {
-      color: 13620648
+      color: 12372094
       priority: -1870
     }
   }
   element {
     scale: 13
     area {
-      color: 13620648
+      color: 12372094
       priority: -1870
     }
   }
@@ -61476,35 +62130,35 @@ cont {
   element {
     scale: 16
     area {
-      color: 11781233
+      color: 12372094
       priority: -1870
     }
   }
   element {
     scale: 17
     area {
-      color: 11781233
+      color: 12372094
       priority: -1870
     }
   }
   element {
     scale: 18
     area {
-      color: 11781233
+      color: 12372094
       priority: -1870
     }
   }
   element {
     scale: 19
     area {
-      color: 11781233
+      color: 12372094
       priority: -1870
     }
   }
   element {
     scale: 20
     area {
-      color: 11781233
+      color: 12372094
       priority: -1870
     }
   }
@@ -65640,43 +66294,43 @@ cont {
   element {
     scale: 11
     area {
-      color: 13229526
-      priority: -1910
+      color: 7377829
+      priority: 40
     }
   }
   element {
     scale: 12
     area {
-      color: 13229526
-      priority: -1910
+      color: 7377829
+      priority: 40
     }
   }
   element {
     scale: 13
     area {
-      color: 13229526
-      priority: -1910
+      color: 7377829
+      priority: 40
     }
   }
   element {
     scale: 14
     area {
-      color: 13229526
-      priority: -1910
+      color: 7377829
+      priority: 40
     }
   }
   element {
     scale: 15
     area {
-      color: 13229526
-      priority: -1910
+      color: 7377829
+      priority: 40
     }
   }
   element {
     scale: 16
     area {
-      color: 13229526
-      priority: -1910
+      color: 7377829
+      priority: 40
     }
     caption {
       primary {
@@ -65689,8 +66343,8 @@ cont {
   element {
     scale: 17
     area {
-      color: 13229526
-      priority: -1910
+      color: 7377829
+      priority: 40
     }
     caption {
       primary {
@@ -65703,8 +66357,8 @@ cont {
   element {
     scale: 18
     area {
-      color: 13229526
-      priority: -1910
+      color: 7377829
+      priority: 40
     }
     caption {
       primary {
@@ -65717,8 +66371,8 @@ cont {
   element {
     scale: 19
     area {
-      color: 13229526
-      priority: -1910
+      color: 7377829
+      priority: 40
     }
     caption {
       primary {
@@ -65731,8 +66385,8 @@ cont {
   element {
     scale: 20
     area {
-      color: 13229526
-      priority: -1910
+      color: 7377829
+      priority: 40
     }
     caption {
       primary {
@@ -65748,43 +66402,43 @@ cont {
   element {
     scale: 11
     area {
-      color: 13229526
-      priority: -1910
+      color: 7377829
+      priority: 40
     }
   }
   element {
     scale: 12
     area {
-      color: 13229526
-      priority: -1910
+      color: 7377829
+      priority: 40
     }
   }
   element {
     scale: 13
     area {
-      color: 13229526
-      priority: -1910
+      color: 7377829
+      priority: 40
     }
   }
   element {
     scale: 14
     area {
-      color: 13229526
-      priority: -1910
+      color: 7377829
+      priority: 40
     }
   }
   element {
     scale: 15
     area {
-      color: 13229526
-      priority: -1910
+      color: 7377829
+      priority: 40
     }
   }
   element {
     scale: 16
     area {
-      color: 13229526
-      priority: -1910
+      color: 7377829
+      priority: 40
     }
     caption {
       primary {
@@ -65797,8 +66451,8 @@ cont {
   element {
     scale: 17
     area {
-      color: 13229526
-      priority: -1910
+      color: 7377829
+      priority: 40
     }
     caption {
       primary {
@@ -65811,8 +66465,8 @@ cont {
   element {
     scale: 18
     area {
-      color: 13229526
-      priority: -1910
+      color: 7377829
+      priority: 40
     }
     caption {
       primary {
@@ -65825,8 +66479,8 @@ cont {
   element {
     scale: 19
     area {
-      color: 13229526
-      priority: -1910
+      color: 7377829
+      priority: 40
     }
     caption {
       primary {
@@ -65839,8 +66493,8 @@ cont {
   element {
     scale: 20
     area {
-      color: 13229526
-      priority: -1910
+      color: 7377829
+      priority: 40
     }
     caption {
       primary {
@@ -65856,43 +66510,43 @@ cont {
   element {
     scale: 11
     area {
-      color: 13229526
-      priority: -1910
+      color: 7377829
+      priority: 40
     }
   }
   element {
     scale: 12
     area {
-      color: 13229526
-      priority: -1910
+      color: 7377829
+      priority: 40
     }
   }
   element {
     scale: 13
     area {
-      color: 13229526
-      priority: -1910
+      color: 7377829
+      priority: 40
     }
   }
   element {
     scale: 14
     area {
-      color: 13229526
-      priority: -1910
+      color: 7377829
+      priority: 40
     }
   }
   element {
     scale: 15
     area {
-      color: 13229526
-      priority: -1910
+      color: 7377829
+      priority: 40
     }
   }
   element {
     scale: 16
     area {
-      color: 13229526
-      priority: -1910
+      color: 7377829
+      priority: 40
     }
     caption {
       primary {
@@ -65905,8 +66559,8 @@ cont {
   element {
     scale: 17
     area {
-      color: 13229526
-      priority: -1910
+      color: 7377829
+      priority: 40
     }
     caption {
       primary {
@@ -65919,8 +66573,8 @@ cont {
   element {
     scale: 18
     area {
-      color: 13229526
-      priority: -1910
+      color: 7377829
+      priority: 40
     }
     caption {
       primary {
@@ -65933,8 +66587,8 @@ cont {
   element {
     scale: 19
     area {
-      color: 13229526
-      priority: -1910
+      color: 7377829
+      priority: 40
     }
     caption {
       primary {
@@ -65947,8 +66601,8 @@ cont {
   element {
     scale: 20
     area {
-      color: 13229526
-      priority: -1910
+      color: 7377829
+      priority: 40
     }
     caption {
       primary {
@@ -66067,7 +66721,7 @@ cont {
     scale: 17
     symbol {
       name: "embassy-m"
-      priority: 500
+      priority: 2450
     }
     caption {
       primary {
@@ -66076,14 +66730,14 @@ cont {
         offset_y: 1
         is_optional: true
       }
-      priority: -9500
+      priority: -7550
     }
   }
   element {
     scale: 18
     symbol {
       name: "embassy-m"
-      priority: 500
+      priority: 2450
     }
     caption {
       primary {
@@ -66092,14 +66746,14 @@ cont {
         offset_y: 1
         is_optional: true
       }
-      priority: -9500
+      priority: -7550
     }
   }
   element {
     scale: 19
     symbol {
       name: "embassy-m"
-      priority: 500
+      priority: 2450
     }
     caption {
       primary {
@@ -66108,14 +66762,14 @@ cont {
         offset_y: 1
         is_optional: true
       }
-      priority: -9500
+      priority: -7550
     }
   }
   element {
     scale: 20
     symbol {
       name: "embassy-m"
-      priority: 500
+      priority: 2450
     }
     caption {
       primary {
@@ -66124,7 +66778,7 @@ cont {
         offset_y: 1
         is_optional: true
       }
-      priority: -9500
+      priority: -7550
     }
   }
 }
@@ -74597,6 +75251,57 @@ cont {
   }
 }
 cont {
+  name: "post_office-post_partner"
+  element {
+    scale: 18
+    symbol {
+      name: "mail-m"
+      priority: 470
+    }
+    caption {
+      primary {
+        height: 11
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -9530
+    }
+  }
+  element {
+    scale: 19
+    symbol {
+      name: "mail-m"
+      priority: 470
+    }
+    caption {
+      primary {
+        height: 11
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -9530
+    }
+  }
+  element {
+    scale: 20
+    symbol {
+      name: "mail-m"
+      priority: 470
+    }
+    caption {
+      primary {
+        height: 11
+        color: 4473924
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -9530
+    }
+  }
+}
+cont {
   name: "power-generator"
   element {
     scale: 17
@@ -75563,14 +76268,14 @@ cont {
   element {
     scale: 16
     area {
-      color: 15591638
+      color: 15524822
       priority: -1890
     }
   }
   element {
     scale: 17
     area {
-      color: 15591638
+      color: 15524822
       priority: -1890
     }
     caption {
@@ -75584,7 +76289,7 @@ cont {
   element {
     scale: 18
     area {
-      color: 15591638
+      color: 15524822
       priority: -1890
     }
     caption {
@@ -75598,7 +76303,7 @@ cont {
   element {
     scale: 19
     area {
-      color: 15591638
+      color: 15524822
       priority: -1890
     }
     caption {
@@ -75612,7 +76317,7 @@ cont {
   element {
     scale: 20
     area {
-      color: 15591638
+      color: 15524822
       priority: -1890
     }
     caption {
@@ -77312,7 +78017,7 @@ cont {
   element {
     scale: 16
     area {
-      color: 15591638
+      color: 15524822
       priority: -1890
     }
     caption {
@@ -77326,7 +78031,7 @@ cont {
   element {
     scale: 17
     area {
-      color: 15591638
+      color: 15524822
       priority: -1890
     }
     caption {
@@ -77340,7 +78045,7 @@ cont {
   element {
     scale: 18
     area {
-      color: 15591638
+      color: 15524822
       priority: -1890
     }
     caption {
@@ -77354,7 +78059,7 @@ cont {
   element {
     scale: 19
     area {
-      color: 15591638
+      color: 15524822
       priority: -1890
     }
     caption {
@@ -77368,7 +78073,7 @@ cont {
   element {
     scale: 20
     area {
-      color: 15591638
+      color: 15524822
       priority: -1890
     }
     caption {
@@ -130089,6 +130794,10 @@ cont {
   name: "tourism-camp_site"
   element {
     scale: 13
+    area {
+      color: 16445409
+      priority: -1830
+    }
     symbol {
       name: "campsite-s"
       priority: 3800
@@ -130106,6 +130815,10 @@ cont {
   }
   element {
     scale: 14
+    area {
+      color: 16445409
+      priority: -1830
+    }
     symbol {
       name: "campsite-m"
       priority: 3800
@@ -130123,6 +130836,10 @@ cont {
   }
   element {
     scale: 15
+    area {
+      color: 16445409
+      priority: -1830
+    }
     symbol {
       name: "campsite-m"
       priority: 3800
@@ -130140,6 +130857,10 @@ cont {
   }
   element {
     scale: 16
+    area {
+      color: 16445409
+      priority: -1830
+    }
     symbol {
       name: "campsite-m"
       priority: 3800
@@ -130156,6 +130877,10 @@ cont {
   }
   element {
     scale: 17
+    area {
+      color: 16445409
+      priority: -1830
+    }
     symbol {
       name: "campsite-m"
       priority: 3800
@@ -130172,6 +130897,10 @@ cont {
   }
   element {
     scale: 18
+    area {
+      color: 16445409
+      priority: -1830
+    }
     symbol {
       name: "campsite-m"
       priority: 3800
@@ -130188,6 +130917,10 @@ cont {
   }
   element {
     scale: 19
+    area {
+      color: 16445409
+      priority: -1830
+    }
     symbol {
       name: "campsite-m"
       priority: 3800
@@ -130204,6 +130937,10 @@ cont {
   }
   element {
     scale: 20
+    area {
+      color: 16445409
+      priority: -1830
+    }
     symbol {
       name: "campsite-m"
       priority: 3800

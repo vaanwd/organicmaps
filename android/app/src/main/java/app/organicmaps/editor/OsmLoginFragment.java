@@ -19,10 +19,10 @@ import app.organicmaps.sdk.Framework;
 import app.organicmaps.sdk.editor.OsmOAuth;
 import app.organicmaps.sdk.util.Constants;
 import app.organicmaps.sdk.util.DateUtils;
-import app.organicmaps.sdk.util.UiUtils;
 import app.organicmaps.sdk.util.concurrency.ThreadPool;
 import app.organicmaps.sdk.util.concurrency.UiThread;
 import app.organicmaps.util.InputUtils;
+import app.organicmaps.util.UiUtils;
 import app.organicmaps.util.Utils;
 import app.organicmaps.util.WindowInsetUtils.ScrollableContentInsetsListener;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
@@ -57,7 +57,7 @@ public class OsmLoginFragment extends BaseMwmToolbarFragment
     mProgress = view.findViewById(R.id.osm_login_progress);
     final String dataVersion = DateUtils.getShortDateFormatter().format(Framework.getDataVersion());
 
-    if (BuildConfig.FLAVOR.equals("google"))
+    if (BuildConfig.FLAVOR.equals("google") && Utils.isBrowserAvailable(requireContext()))
     {
       // Hide login and password inputs and Forgot password button
       UiUtils.hide(view.findViewById(R.id.osm_username_container), view.findViewById(R.id.osm_password_container),
@@ -142,7 +142,7 @@ public class OsmLoginFragment extends BaseMwmToolbarFragment
 
   private void onAuthSuccess(String oauthToken, String username)
   {
-    OsmOAuth.setAuthorization(requireContext(), oauthToken, username);
+    OsmOAuth.setAuthorization(oauthToken, username);
     final Bundle extras = requireActivity().getIntent().getExtras();
     if (extras != null && extras.getBoolean("redirectToProfile", false))
       startActivity(new Intent(requireContext(), ProfileActivity.class));

@@ -1,5 +1,7 @@
 package app.organicmaps.routing;
 
+import static app.organicmaps.sdk.util.Utils.dimen;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
@@ -32,13 +34,15 @@ import app.organicmaps.sdk.Framework;
 import app.organicmaps.sdk.bookmarks.data.DistanceAndAzimut;
 import app.organicmaps.sdk.routing.RouteMarkData;
 import app.organicmaps.sdk.routing.RouteMarkType;
+import app.organicmaps.sdk.routing.RoutingController;
 import app.organicmaps.sdk.routing.RoutingInfo;
 import app.organicmaps.sdk.routing.TransitRouteInfo;
 import app.organicmaps.sdk.routing.TransitStepInfo;
 import app.organicmaps.sdk.util.Distance;
-import app.organicmaps.sdk.util.UiUtils;
 import app.organicmaps.util.Graphics;
 import app.organicmaps.util.ThemeUtils;
+import app.organicmaps.util.UiUtils;
+import app.organicmaps.util.Utils;
 import app.organicmaps.widget.recycler.DotDividerItemDecoration;
 import app.organicmaps.widget.recycler.MultilineLayoutManager;
 import java.util.LinkedList;
@@ -189,8 +193,7 @@ final class RoutingBottomMenuController implements View.OnClickListener
     scrollToBottom(rv);
 
     TextView totalTimeView = mTransitFrame.findViewById(R.id.total_time);
-    totalTimeView.setText(
-        RoutingController.formatRoutingTime(mContext, info.getTotalTime(), R.dimen.text_size_routing_number));
+    totalTimeView.setText(Utils.formatRoutingTime(mContext, info.getTotalTime(), R.dimen.text_size_routing_number));
     View dotView = mTransitFrame.findViewById(R.id.dot);
     View pedestrianIcon = mTransitFrame.findViewById(R.id.pedestrian_icon);
     TextView distanceView = mTransitFrame.findViewById(R.id.total_distance);
@@ -341,8 +344,8 @@ final class RoutingBottomMenuController implements View.OnClickListener
 
     UiUtils.hide(mTimeVehicle);
 
-    int chartWidth = UiUtils.dimen(mContext, R.dimen.altitude_chart_image_width);
-    int chartHeight = UiUtils.dimen(mContext, R.dimen.altitude_chart_image_height);
+    int chartWidth = dimen(mContext, R.dimen.altitude_chart_image_width);
+    int chartHeight = dimen(mContext, R.dimen.altitude_chart_image_height);
     Framework.RouteAltitudeLimits limits = new Framework.RouteAltitudeLimits();
     Bitmap bm = Framework.generateRouteAltitudeChart(chartWidth, chartHeight, limits);
     if (bm != null)
@@ -380,7 +383,7 @@ final class RoutingBottomMenuController implements View.OnClickListener
 
     if (mArrival != null)
     {
-      String arrivalTime = RoutingController.formatArrivalTime(rinfo.totalTimeInSeconds);
+      String arrivalTime = Utils.formatArrivalTime(rinfo.totalTimeInSeconds);
       mArrival.setText(arrivalTime);
     }
   }
@@ -398,7 +401,7 @@ final class RoutingBottomMenuController implements View.OnClickListener
 
   {
     CharSequence time =
-        RoutingController.formatRoutingTime(context, routingInfo.totalTimeInSeconds, R.dimen.text_size_routing_number);
+        Utils.formatRoutingTime(context, routingInfo.totalTimeInSeconds, R.dimen.text_size_routing_number);
 
     SpannableStringBuilder builder = new SpannableStringBuilder();
     initTimeBuilderSequence(context, time, builder);

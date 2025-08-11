@@ -1,6 +1,5 @@
 package app.organicmaps.sdk.editor;
 
-import android.content.Context;
 import androidx.annotation.IntDef;
 import androidx.annotation.NonNull;
 import androidx.annotation.Size;
@@ -43,10 +42,10 @@ public final class Editor
   private static native void nativeInit();
 
   @WorkerThread
-  public static void uploadChanges(@NonNull Context context)
+  public static void uploadChanges()
   {
-    if (nativeHasSomethingToUpload() && OsmOAuth.isAuthorized(context))
-      nativeUploadChanges(OsmOAuth.getAuthToken(context), BuildConfig.VERSION_NAME, BuildConfig.APPLICATION_ID);
+    if (nativeHasSomethingToUpload() && OsmOAuth.isAuthorized())
+      nativeUploadChanges(OsmOAuth.getAuthToken(), BuildConfig.VERSION_NAME, BuildConfig.APPLICATION_ID);
   }
 
   public static native boolean nativeShouldShowEditPlace();
@@ -162,6 +161,7 @@ public final class Editor
   public static native void nativeCreateNote(String text);
   public static native void nativePlaceDoesNotExist(@NonNull String comment);
   public static native void nativeRollbackMapObject();
+  public static native void nativeCreateStandaloneNote(double lat, double lon, String text);
 
   /**
    * @return all cuisines keys.

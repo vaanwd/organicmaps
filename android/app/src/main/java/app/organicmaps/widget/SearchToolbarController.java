@@ -9,14 +9,15 @@ import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import androidx.activity.OnBackPressedCallback;
 import androidx.activity.result.ActivityResult;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import app.organicmaps.R;
 import app.organicmaps.sdk.util.StringUtils;
-import app.organicmaps.sdk.util.UiUtils;
 import app.organicmaps.util.InputUtils;
+import app.organicmaps.util.UiUtils;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class SearchToolbarController extends ToolbarController implements View.OnClickListener
@@ -42,8 +43,19 @@ public class SearchToolbarController extends ToolbarController implements View.O
     @Override
     public void onTextChanged(CharSequence s, int start, int before, int count)
     {
-      updateViewsVisibility(TextUtils.isEmpty(s));
+      final boolean isEmpty = TextUtils.isEmpty(s);
+      mBackPressedCallback.setEnabled(!isEmpty);
+      updateViewsVisibility(isEmpty);
       SearchToolbarController.this.onTextChanged(s.toString());
+    }
+  };
+
+  private final OnBackPressedCallback mBackPressedCallback = new OnBackPressedCallback(false) {
+    @Override
+    public void handleOnBackPressed()
+    {
+      clear();
+      setEnabled(false);
     }
   };
 
@@ -225,5 +237,11 @@ public class SearchToolbarController extends ToolbarController implements View.O
   public void setHint(@StringRes int hint)
   {
     mQuery.setHint(hint);
+  }
+
+  @NonNull
+  public OnBackPressedCallback getBackPressedCallback()
+  {
+    return mBackPressedCallback;
   }
 }

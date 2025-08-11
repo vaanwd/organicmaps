@@ -272,26 +272,28 @@ public class Framework
   public static native boolean nativeIsDayTime(long utcTimeSeconds, double lat, double lon);
 
   public static native void nativeGet3dMode(Params3dMode result);
-
   public static native void nativeSet3dMode(boolean allow3d, boolean allow3dBuildings);
 
   public static native boolean nativeGetAutoZoomEnabled();
-
   public static native void nativeSetAutoZoomEnabled(boolean enabled);
 
   public static native void nativeSetTransitSchemeEnabled(boolean enabled);
-
   public static native void nativeSaveSettingSchemeEnabled(boolean enabled);
-
   public static native boolean nativeIsTransitSchemeEnabled();
 
   public static native void nativeSetIsolinesLayerEnabled(boolean enabled);
-
   public static native boolean nativeIsIsolinesLayerEnabled();
 
   public static native void nativeSetOutdoorsLayerEnabled(boolean enabled);
-
   public static native boolean nativeIsOutdoorsLayerEnabled();
+
+  public static native void nativeSetHikingLayerEnabled(boolean enabled);
+  public static native boolean nativeIsHikingLayerEnabled();
+
+  public static native void nativeSetCyclingLayerEnabled(boolean enabled);
+  public static native boolean nativeIsCyclingLayerEnabled();
+
+  public static native boolean nativeNeedUpdateForRoutes();
 
   @NonNull
   public static native MapObject nativeDeleteBookmarkFromMapObject();
@@ -329,6 +331,10 @@ public class Framework
   public static native void nativeSetPowerManagerFacility(int facilityType, boolean state);
   public static native int nativeGetPowerManagerScheme();
   public static native void nativeSetPowerManagerScheme(int schemeType);
+
+  public static native int nativeGetBookmarksTextPlacement();
+  public static native void nativeSetBookmarksTextPlacement(int enumIndex);
+
   public static native void nativeSetViewportCenter(double lat, double lon, int zoom);
   public static native void nativeStopLocationFollow();
 

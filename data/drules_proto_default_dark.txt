@@ -3573,6 +3573,73 @@ cont {
   }
 }
 cont {
+  name: "amenity-bicycle_parking-covered"
+  element {
+    scale: 17
+    symbol {
+      name: "bicycle-parking-covered-m"
+      priority: 250
+    }
+    caption {
+      primary {
+        height: 10
+        color: 9211020
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -9750
+    }
+  }
+  element {
+    scale: 18
+    symbol {
+      name: "bicycle-parking-covered-m"
+      priority: 250
+    }
+    caption {
+      primary {
+        height: 10
+        color: 9211020
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -9750
+    }
+  }
+  element {
+    scale: 19
+    symbol {
+      name: "bicycle-parking-covered-m"
+      priority: 250
+    }
+    caption {
+      primary {
+        height: 10
+        color: 9211020
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -9750
+    }
+  }
+  element {
+    scale: 20
+    symbol {
+      name: "bicycle-parking-covered-m"
+      priority: 250
+    }
+    caption {
+      primary {
+        height: 10
+        color: 9211020
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -9750
+    }
+  }
+}
+cont {
   name: "amenity-bicycle_rental"
   element {
     scale: 17
@@ -6154,7 +6221,7 @@ cont {
   element {
     scale: 15
     symbol {
-      name: "fastfood-m"
+      name: "restaurant-m"
       priority: 4050
       min_distance: 28
     }
@@ -6171,7 +6238,7 @@ cont {
   element {
     scale: 16
     symbol {
-      name: "fastfood-m"
+      name: "restaurant-m"
       priority: 4050
       min_distance: 12
     }
@@ -6188,7 +6255,7 @@ cont {
   element {
     scale: 17
     symbol {
-      name: "fastfood-m"
+      name: "restaurant-m"
       priority: 4050
       min_distance: 12
     }
@@ -6205,7 +6272,7 @@ cont {
   element {
     scale: 18
     symbol {
-      name: "fastfood-m"
+      name: "restaurant-m"
       priority: 4050
       min_distance: 12
     }
@@ -6222,7 +6289,7 @@ cont {
   element {
     scale: 19
     symbol {
-      name: "fastfood-m"
+      name: "restaurant-m"
       priority: 4050
       min_distance: 12
     }
@@ -6239,7 +6306,7 @@ cont {
   element {
     scale: 20
     symbol {
-      name: "fastfood-m"
+      name: "restaurant-m"
       priority: 4050
       min_distance: 12
     }
@@ -7355,9 +7422,62 @@ cont {
   }
 }
 cont {
+  name: "amenity-luggage_locker"
+  element {
+    scale: 17
+    symbol {
+      name: "luggage_locker-m"
+      priority: 450
+    }
+  }
+  element {
+    scale: 18
+    symbol {
+      name: "luggage_locker-m"
+      priority: 450
+    }
+  }
+  element {
+    scale: 19
+    symbol {
+      name: "luggage_locker-m"
+      priority: 450
+    }
+    caption {
+      primary {
+        height: 11
+        color: 9211020
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -9550
+    }
+  }
+  element {
+    scale: 20
+    symbol {
+      name: "luggage_locker-m"
+      priority: 450
+    }
+    caption {
+      primary {
+        height: 11
+        color: 9211020
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -9550
+    }
+  }
+}
+cont {
   name: "amenity-marketplace"
   element {
     scale: 16
+    area {
+      color: 2499106
+      priority: -1830
+    }
     symbol {
       name: "marketplace-m"
       priority: 2700
@@ -7375,6 +7495,10 @@ cont {
   }
   element {
     scale: 17
+    area {
+      color: 2499106
+      priority: -1830
+    }
     symbol {
       name: "marketplace-m"
       priority: 2700
@@ -7392,6 +7516,10 @@ cont {
   }
   element {
     scale: 18
+    area {
+      color: 2499106
+      priority: -1830
+    }
     symbol {
       name: "marketplace-m"
       priority: 2700
@@ -7409,6 +7537,10 @@ cont {
   }
   element {
     scale: 19
+    area {
+      color: 2499106
+      priority: -1830
+    }
     symbol {
       name: "marketplace-m"
       priority: 2700
@@ -7426,6 +7558,10 @@ cont {
   }
   element {
     scale: 20
+    area {
+      color: 2499106
+      priority: -1830
+    }
     symbol {
       name: "marketplace-m"
       priority: 2700
@@ -9672,6 +9808,10 @@ cont {
   name: "amenity-place_of_worship"
   element {
     scale: 14
+    area {
+      color: 2499106
+      priority: -1760
+    }
     symbol {
       name: "place-of-worship-s"
       priority: 4150
@@ -9689,6 +9829,10 @@ cont {
   }
   element {
     scale: 15
+    area {
+      color: 2499106
+      priority: -1760
+    }
     symbol {
       name: "place-of-worship-m"
       priority: 4150
@@ -9814,6 +9958,10 @@ cont {
   name: "amenity-place_of_worship-buddhist"
   element {
     scale: 14
+    area {
+      color: 2499106
+      priority: -1760
+    }
     symbol {
       name: "buddhist-s"
       priority: 4200
@@ -9831,6 +9979,10 @@ cont {
   }
   element {
     scale: 15
+    area {
+      color: 2499106
+      priority: -1760
+    }
     symbol {
       name: "buddhist-m"
       priority: 4200
@@ -9956,6 +10108,10 @@ cont {
   name: "amenity-place_of_worship-christian"
   element {
     scale: 14
+    area {
+      color: 2499106
+      priority: -1760
+    }
     symbol {
       name: "christian-s"
       priority: 4200
@@ -9973,6 +10129,10 @@ cont {
   }
   element {
     scale: 15
+    area {
+      color: 2499106
+      priority: -1760
+    }
     symbol {
       name: "christian-m"
       priority: 4200
@@ -10098,6 +10258,10 @@ cont {
   name: "amenity-place_of_worship-christian-jehovahs_witness"
   element {
     scale: 14
+    area {
+      color: 2499106
+      priority: -1760
+    }
     symbol {
       name: "place-of-worship-s"
       priority: 4200
@@ -10115,6 +10279,10 @@ cont {
   }
   element {
     scale: 15
+    area {
+      color: 2499106
+      priority: -1760
+    }
     symbol {
       name: "place-of-worship-m"
       priority: 4200
@@ -10240,6 +10408,10 @@ cont {
   name: "amenity-place_of_worship-christian-mormon"
   element {
     scale: 14
+    area {
+      color: 2499106
+      priority: -1760
+    }
     symbol {
       name: "mormon-s"
       priority: 4200
@@ -10257,6 +10429,10 @@ cont {
   }
   element {
     scale: 15
+    area {
+      color: 2499106
+      priority: -1760
+    }
     symbol {
       name: "mormon-m"
       priority: 4200
@@ -10382,6 +10558,10 @@ cont {
   name: "amenity-place_of_worship-hindu"
   element {
     scale: 14
+    area {
+      color: 2499106
+      priority: -1760
+    }
     symbol {
       name: "hindu-s"
       priority: 4200
@@ -10399,6 +10579,10 @@ cont {
   }
   element {
     scale: 15
+    area {
+      color: 2499106
+      priority: -1760
+    }
     symbol {
       name: "hindu-m"
       priority: 4200
@@ -10524,6 +10708,10 @@ cont {
   name: "amenity-place_of_worship-jewish"
   element {
     scale: 14
+    area {
+      color: 2499106
+      priority: -1760
+    }
     symbol {
       name: "jewish-s"
       priority: 4200
@@ -10541,6 +10729,10 @@ cont {
   }
   element {
     scale: 15
+    area {
+      color: 2499106
+      priority: -1760
+    }
     symbol {
       name: "jewish-m"
       priority: 4200
@@ -10666,6 +10858,10 @@ cont {
   name: "amenity-place_of_worship-muslim"
   element {
     scale: 14
+    area {
+      color: 2499106
+      priority: -1760
+    }
     symbol {
       name: "muslim-s"
       priority: 4200
@@ -10683,6 +10879,10 @@ cont {
   }
   element {
     scale: 15
+    area {
+      color: 2499106
+      priority: -1760
+    }
     symbol {
       name: "muslim-m"
       priority: 4200
@@ -10808,6 +11008,10 @@ cont {
   name: "amenity-place_of_worship-shinto"
   element {
     scale: 14
+    area {
+      color: 2499106
+      priority: -1760
+    }
     symbol {
       name: "shinto-s"
       priority: 4200
@@ -10825,6 +11029,10 @@ cont {
   }
   element {
     scale: 15
+    area {
+      color: 2499106
+      priority: -1760
+    }
     symbol {
       name: "shinto-m"
       priority: 4200
@@ -10950,6 +11158,10 @@ cont {
   name: "amenity-place_of_worship-taoist"
   element {
     scale: 14
+    area {
+      color: 2499106
+      priority: -1760
+    }
     symbol {
       name: "taoist-s"
       priority: 4200
@@ -10967,6 +11179,10 @@ cont {
   }
   element {
     scale: 15
+    area {
+      color: 2499106
+      priority: -1760
+    }
     symbol {
       name: "taoist-m"
       priority: 4200
@@ -11611,6 +11827,111 @@ cont {
         is_optional: true
       }
       priority: -9550
+    }
+  }
+}
+cont {
+  name: "amenity-ranger_station"
+  element {
+    scale: 15
+    symbol {
+      name: "ranger-station-m"
+      priority: 4400
+      min_distance: 10
+    }
+    caption {
+      primary {
+        height: 10
+        color: 9211020
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -5600
+    }
+  }
+  element {
+    scale: 16
+    symbol {
+      name: "ranger-station-m"
+      priority: 4400
+      min_distance: 10
+    }
+    caption {
+      primary {
+        height: 10
+        color: 9211020
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -5600
+    }
+  }
+  element {
+    scale: 17
+    symbol {
+      name: "ranger-station-m"
+      priority: 4400
+      min_distance: 10
+    }
+    caption {
+      primary {
+        height: 10
+        color: 9211020
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -5600
+    }
+  }
+  element {
+    scale: 18
+    symbol {
+      name: "ranger-station-m"
+      priority: 4400
+      min_distance: 10
+    }
+    caption {
+      primary {
+        height: 10
+        color: 9211020
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -5600
+    }
+  }
+  element {
+    scale: 19
+    symbol {
+      name: "ranger-station-m"
+      priority: 4400
+      min_distance: 10
+    }
+    caption {
+      primary {
+        height: 10
+        color: 9211020
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -5600
+    }
+  }
+  element {
+    scale: 20
+    symbol {
+      name: "ranger-station-m"
+      priority: 4400
+      min_distance: 10
+    }
+    caption {
+      primary {
+        height: 10
+        color: 9211020
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -5600
     }
   }
 }
@@ -31557,6 +31878,10 @@ cont {
   name: "highway-rest_area"
   element {
     scale: 15
+    area {
+      color: 2499106
+      priority: -1830
+    }
     symbol {
       name: "picnic-m"
       priority: 3800
@@ -31574,6 +31899,10 @@ cont {
   }
   element {
     scale: 16
+    area {
+      color: 2499106
+      priority: -1830
+    }
     symbol {
       name: "picnic-m"
       priority: 3800
@@ -31590,6 +31919,10 @@ cont {
   }
   element {
     scale: 17
+    area {
+      color: 2499106
+      priority: -1830
+    }
     symbol {
       name: "picnic-m"
       priority: 3800
@@ -31606,6 +31939,10 @@ cont {
   }
   element {
     scale: 18
+    area {
+      color: 2499106
+      priority: -1830
+    }
     symbol {
       name: "picnic-m"
       priority: 3800
@@ -31622,6 +31959,10 @@ cont {
   }
   element {
     scale: 19
+    area {
+      color: 2499106
+      priority: -1830
+    }
     symbol {
       name: "picnic-m"
       priority: 3800
@@ -31638,6 +31979,10 @@ cont {
   }
   element {
     scale: 20
+    area {
+      color: 2499106
+      priority: -1830
+    }
     symbol {
       name: "picnic-m"
       priority: 3800
@@ -34079,6 +34424,10 @@ cont {
   name: "highway-services"
   element {
     scale: 14
+    area {
+      color: 2499106
+      priority: -1830
+    }
     symbol {
       name: "car-repair-s"
       priority: 4250
@@ -34096,6 +34445,10 @@ cont {
   }
   element {
     scale: 15
+    area {
+      color: 2499106
+      priority: -1830
+    }
     symbol {
       name: "car-repair-m"
       priority: 4250
@@ -34113,6 +34466,10 @@ cont {
   }
   element {
     scale: 16
+    area {
+      color: 2499106
+      priority: -1830
+    }
     symbol {
       name: "car-repair-m"
       priority: 4250
@@ -34129,6 +34486,10 @@ cont {
   }
   element {
     scale: 17
+    area {
+      color: 2499106
+      priority: -1830
+    }
     symbol {
       name: "car-repair-m"
       priority: 4250
@@ -34145,6 +34506,10 @@ cont {
   }
   element {
     scale: 18
+    area {
+      color: 2499106
+      priority: -1830
+    }
     symbol {
       name: "car-repair-m"
       priority: 4250
@@ -34161,6 +34526,10 @@ cont {
   }
   element {
     scale: 19
+    area {
+      color: 2499106
+      priority: -1830
+    }
     symbol {
       name: "car-repair-m"
       priority: 4250
@@ -34177,6 +34546,10 @@ cont {
   }
   element {
     scale: 20
+    area {
+      color: 2499106
+      priority: -1830
+    }
     symbol {
       name: "car-repair-m"
       priority: 4250
@@ -45179,45 +45552,6 @@ cont {
   }
 }
 cont {
-  name: "landuse-churchyard"
-  element {
-    scale: 15
-    area {
-      priority: -1950
-    }
-  }
-  element {
-    scale: 16
-    area {
-      priority: -1950
-    }
-  }
-  element {
-    scale: 17
-    area {
-      priority: -1950
-    }
-  }
-  element {
-    scale: 18
-    area {
-      priority: -1950
-    }
-  }
-  element {
-    scale: 19
-    area {
-      priority: -1950
-    }
-  }
-  element {
-    scale: 20
-    area {
-      priority: -1950
-    }
-  }
-}
-cont {
   name: "landuse-commercial"
   element {
     scale: 17
@@ -45262,6 +45596,13 @@ cont {
 }
 cont {
   name: "landuse-construction"
+  element {
+    scale: 14
+    area {
+      color: 1643545
+      priority: -1950
+    }
+  }
   element {
     scale: 15
     area {
@@ -45745,7 +46086,7 @@ cont {
   element {
     scale: 10
     area {
-      color: 1251584
+      color: 1317888
       priority: -1940
     }
   }
@@ -46053,7 +46394,7 @@ cont {
   element {
     scale: 10
     area {
-      color: 1251584
+      color: 1317888
       priority: -1940
     }
   }
@@ -46361,7 +46702,7 @@ cont {
   element {
     scale: 10
     area {
-      color: 1251584
+      color: 1317888
       priority: -1940
     }
   }
@@ -46669,7 +47010,7 @@ cont {
   element {
     scale: 10
     area {
-      color: 1251584
+      color: 1317888
       priority: -1940
     }
   }
@@ -46975,6 +47316,13 @@ cont {
 cont {
   name: "landuse-garages"
   element {
+    scale: 14
+    area {
+      color: 1643545
+      priority: 110
+    }
+  }
+  element {
     scale: 15
     area {
       color: 1643545
@@ -47086,6 +47434,13 @@ cont {
 cont {
   name: "landuse-industrial"
   element {
+    scale: 14
+    area {
+      color: 1643545
+      priority: -1950
+    }
+  }
+  element {
     scale: 15
     area {
       color: 1643545
@@ -47172,6 +47527,13 @@ cont {
 }
 cont {
   name: "landuse-industrial-mine"
+  element {
+    scale: 14
+    area {
+      color: 1643545
+      priority: -1950
+    }
+  }
   element {
     scale: 15
     area {
@@ -47295,6 +47657,13 @@ cont {
 }
 cont {
   name: "landuse-landfill"
+  element {
+    scale: 14
+    area {
+      color: 1643545
+      priority: -1780
+    }
+  }
   element {
     scale: 15
     area {
@@ -47421,14 +47790,14 @@ cont {
   element {
     scale: 12
     area {
-      color: 988160
+      color: 1251584
       priority: -1920
     }
   }
   element {
     scale: 13
     area {
-      color: 988160
+      color: 1251584
       priority: -1920
     }
   }
@@ -47449,35 +47818,35 @@ cont {
   element {
     scale: 16
     area {
-      color: 1317888
+      color: 1251584
       priority: -1920
     }
   }
   element {
     scale: 17
     area {
-      color: 1317888
+      color: 1251584
       priority: -1920
     }
   }
   element {
     scale: 18
     area {
-      color: 1317888
+      color: 1251584
       priority: -1920
     }
   }
   element {
     scale: 19
     area {
-      color: 1317888
+      color: 1251584
       priority: -1920
     }
   }
   element {
     scale: 20
     area {
-      color: 1317888
+      color: 1251584
       priority: -1920
     }
   }
@@ -47971,6 +48340,13 @@ cont {
 cont {
   name: "landuse-quarry"
   element {
+    scale: 14
+    area {
+      color: 1643545
+      priority: -1950
+    }
+  }
+  element {
     scale: 15
     area {
       color: 1643545
@@ -48093,6 +48469,13 @@ cont {
 }
 cont {
   name: "landuse-railway"
+  element {
+    scale: 14
+    area {
+      color: 1643545
+      priority: -1950
+    }
+  }
   element {
     scale: 15
     area {
@@ -48283,6 +48666,45 @@ cont {
         color: 9211020
       }
       priority: 1250
+    }
+  }
+}
+cont {
+  name: "landuse-religious"
+  element {
+    scale: 15
+    area {
+      priority: -1950
+    }
+  }
+  element {
+    scale: 16
+    area {
+      priority: -1950
+    }
+  }
+  element {
+    scale: 17
+    area {
+      priority: -1950
+    }
+  }
+  element {
+    scale: 18
+    area {
+      priority: -1950
+    }
+  }
+  element {
+    scale: 19
+    area {
+      priority: -1950
+    }
+  }
+  element {
+    scale: 20
+    area {
+      priority: -1950
     }
   }
 }
@@ -48578,6 +49000,51 @@ cont {
         offset_y: 1
       }
       priority: 120
+    }
+  }
+}
+cont {
+  name: "landuse-retail"
+  element {
+    scale: 15
+    area {
+      color: 2499106
+      priority: -1830
+    }
+  }
+  element {
+    scale: 16
+    area {
+      color: 2499106
+      priority: -1830
+    }
+  }
+  element {
+    scale: 17
+    area {
+      color: 2499106
+      priority: -1830
+    }
+  }
+  element {
+    scale: 18
+    area {
+      color: 2499106
+      priority: -1830
+    }
+  }
+  element {
+    scale: 19
+    area {
+      color: 2499106
+      priority: -1830
+    }
+  }
+  element {
+    scale: 20
+    area {
+      color: 2499106
+      priority: -1830
     }
   }
 }
@@ -49455,6 +49922,73 @@ cont {
         is_optional: true
       }
       priority: -7700
+    }
+  }
+}
+cont {
+  name: "leisure-escape_game"
+  element {
+    scale: 17
+    symbol {
+      name: "escape_game-m"
+      priority: 1600
+    }
+    caption {
+      primary {
+        height: 10
+        color: 9211020
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -8400
+    }
+  }
+  element {
+    scale: 18
+    symbol {
+      name: "escape_game-m"
+      priority: 1600
+    }
+    caption {
+      primary {
+        height: 10
+        color: 9211020
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -8400
+    }
+  }
+  element {
+    scale: 19
+    symbol {
+      name: "escape_game-m"
+      priority: 1600
+    }
+    caption {
+      primary {
+        height: 10
+        color: 9211020
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -8400
+    }
+  }
+  element {
+    scale: 20
+    symbol {
+      name: "escape_game-m"
+      priority: 1600
+    }
+    caption {
+      primary {
+        height: 10
+        color: 9211020
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -8400
     }
   }
 }
@@ -51975,6 +52509,13 @@ cont {
 cont {
   name: "leisure-playground"
   element {
+    scale: 15
+    area {
+      color: 2763300
+      priority: -1800
+    }
+  }
+  element {
     scale: 16
     area {
       color: 2763300
@@ -52116,7 +52657,18 @@ cont {
 cont {
   name: "leisure-resort"
   element {
+    scale: 15
+    area {
+      color: 2499106
+      priority: -1830
+    }
+  }
+  element {
     scale: 16
+    area {
+      color: 2499106
+      priority: -1830
+    }
     symbol {
       name: "hotel-m"
       priority: 2750
@@ -52134,6 +52686,10 @@ cont {
   }
   element {
     scale: 17
+    area {
+      color: 2499106
+      priority: -1830
+    }
     symbol {
       name: "hotel-m"
       priority: 2750
@@ -52151,6 +52707,10 @@ cont {
   }
   element {
     scale: 18
+    area {
+      color: 2499106
+      priority: -1830
+    }
     symbol {
       name: "hotel-m"
       priority: 2750
@@ -52168,6 +52728,10 @@ cont {
   }
   element {
     scale: 19
+    area {
+      color: 2499106
+      priority: -1830
+    }
     symbol {
       name: "hotel-m"
       priority: 2750
@@ -52185,6 +52749,10 @@ cont {
   }
   element {
     scale: 20
+    area {
+      color: 2499106
+      priority: -1830
+    }
     symbol {
       name: "hotel-m"
       priority: 2750
@@ -53073,6 +53641,10 @@ cont {
   name: "leisure-water_park"
   element {
     scale: 16
+    area {
+      color: 2499106
+      priority: -1830
+    }
     symbol {
       name: "swimming-m"
       priority: 5200
@@ -53090,6 +53662,10 @@ cont {
   }
   element {
     scale: 17
+    area {
+      color: 2499106
+      priority: -1830
+    }
     symbol {
       name: "swimming-m"
       priority: 5200
@@ -53107,6 +53683,10 @@ cont {
   }
   element {
     scale: 18
+    area {
+      color: 2499106
+      priority: -1830
+    }
     symbol {
       name: "swimming-m"
       priority: 5200
@@ -53124,6 +53704,10 @@ cont {
   }
   element {
     scale: 19
+    area {
+      color: 2499106
+      priority: -1830
+    }
     symbol {
       name: "swimming-m"
       priority: 5200
@@ -53141,6 +53725,10 @@ cont {
   }
   element {
     scale: 20
+    area {
+      color: 2499106
+      priority: -1830
+    }
     symbol {
       name: "swimming-m"
       priority: 5200
@@ -57532,14 +58120,14 @@ cont {
   element {
     scale: 12
     area {
-      color: 988160
+      color: 1317888
       priority: -1870
     }
   }
   element {
     scale: 13
     area {
-      color: 988160
+      color: 1317888
       priority: -1870
     }
   }
@@ -61636,43 +62224,43 @@ cont {
   element {
     scale: 11
     area {
-      color: 6425
-      priority: -1910
+      color: 8377299
+      priority: 40
     }
   }
   element {
     scale: 12
     area {
-      color: 6425
-      priority: -1910
+      color: 8377299
+      priority: 40
     }
   }
   element {
     scale: 13
     area {
-      color: 6425
-      priority: -1910
+      color: 8377299
+      priority: 40
     }
   }
   element {
     scale: 14
     area {
-      color: 6425
-      priority: -1910
+      color: 8377299
+      priority: 40
     }
   }
   element {
     scale: 15
     area {
-      color: 6425
-      priority: -1910
+      color: 8377299
+      priority: 40
     }
   }
   element {
     scale: 16
     area {
-      color: 6425
-      priority: -1910
+      color: 8377299
+      priority: 40
     }
     caption {
       primary {
@@ -61685,8 +62273,8 @@ cont {
   element {
     scale: 17
     area {
-      color: 6425
-      priority: -1910
+      color: 8377299
+      priority: 40
     }
     caption {
       primary {
@@ -61699,8 +62287,8 @@ cont {
   element {
     scale: 18
     area {
-      color: 6425
-      priority: -1910
+      color: 8377299
+      priority: 40
     }
     caption {
       primary {
@@ -61713,8 +62301,8 @@ cont {
   element {
     scale: 19
     area {
-      color: 6425
-      priority: -1910
+      color: 8377299
+      priority: 40
     }
     caption {
       primary {
@@ -61727,8 +62315,8 @@ cont {
   element {
     scale: 20
     area {
-      color: 6425
-      priority: -1910
+      color: 8377299
+      priority: 40
     }
     caption {
       primary {
@@ -61744,43 +62332,43 @@ cont {
   element {
     scale: 11
     area {
-      color: 6425
-      priority: -1910
+      color: 8377299
+      priority: 40
     }
   }
   element {
     scale: 12
     area {
-      color: 6425
-      priority: -1910
+      color: 8377299
+      priority: 40
     }
   }
   element {
     scale: 13
     area {
-      color: 6425
-      priority: -1910
+      color: 8377299
+      priority: 40
     }
   }
   element {
     scale: 14
     area {
-      color: 6425
-      priority: -1910
+      color: 8377299
+      priority: 40
     }
   }
   element {
     scale: 15
     area {
-      color: 6425
-      priority: -1910
+      color: 8377299
+      priority: 40
     }
   }
   element {
     scale: 16
     area {
-      color: 6425
-      priority: -1910
+      color: 8377299
+      priority: 40
     }
     caption {
       primary {
@@ -61793,8 +62381,8 @@ cont {
   element {
     scale: 17
     area {
-      color: 6425
-      priority: -1910
+      color: 8377299
+      priority: 40
     }
     caption {
       primary {
@@ -61807,8 +62395,8 @@ cont {
   element {
     scale: 18
     area {
-      color: 6425
-      priority: -1910
+      color: 8377299
+      priority: 40
     }
     caption {
       primary {
@@ -61821,8 +62409,8 @@ cont {
   element {
     scale: 19
     area {
-      color: 6425
-      priority: -1910
+      color: 8377299
+      priority: 40
     }
     caption {
       primary {
@@ -61835,8 +62423,8 @@ cont {
   element {
     scale: 20
     area {
-      color: 6425
-      priority: -1910
+      color: 8377299
+      priority: 40
     }
     caption {
       primary {
@@ -61852,43 +62440,43 @@ cont {
   element {
     scale: 11
     area {
-      color: 6425
-      priority: -1910
+      color: 8377299
+      priority: 40
     }
   }
   element {
     scale: 12
     area {
-      color: 6425
-      priority: -1910
+      color: 8377299
+      priority: 40
     }
   }
   element {
     scale: 13
     area {
-      color: 6425
-      priority: -1910
+      color: 8377299
+      priority: 40
     }
   }
   element {
     scale: 14
     area {
-      color: 6425
-      priority: -1910
+      color: 8377299
+      priority: 40
     }
   }
   element {
     scale: 15
     area {
-      color: 6425
-      priority: -1910
+      color: 8377299
+      priority: 40
     }
   }
   element {
     scale: 16
     area {
-      color: 6425
-      priority: -1910
+      color: 8377299
+      priority: 40
     }
     caption {
       primary {
@@ -61901,8 +62489,8 @@ cont {
   element {
     scale: 17
     area {
-      color: 6425
-      priority: -1910
+      color: 8377299
+      priority: 40
     }
     caption {
       primary {
@@ -61915,8 +62503,8 @@ cont {
   element {
     scale: 18
     area {
-      color: 6425
-      priority: -1910
+      color: 8377299
+      priority: 40
     }
     caption {
       primary {
@@ -61929,8 +62517,8 @@ cont {
   element {
     scale: 19
     area {
-      color: 6425
-      priority: -1910
+      color: 8377299
+      priority: 40
     }
     caption {
       primary {
@@ -61943,8 +62531,8 @@ cont {
   element {
     scale: 20
     area {
-      color: 6425
-      priority: -1910
+      color: 8377299
+      priority: 40
     }
     caption {
       primary {
@@ -62063,7 +62651,7 @@ cont {
     scale: 17
     symbol {
       name: "embassy-m"
-      priority: 500
+      priority: 2450
     }
     caption {
       primary {
@@ -62072,14 +62660,14 @@ cont {
         offset_y: 1
         is_optional: true
       }
-      priority: -9500
+      priority: -7550
     }
   }
   element {
     scale: 18
     symbol {
       name: "embassy-m"
-      priority: 500
+      priority: 2450
     }
     caption {
       primary {
@@ -62088,14 +62676,14 @@ cont {
         offset_y: 1
         is_optional: true
       }
-      priority: -9500
+      priority: -7550
     }
   }
   element {
     scale: 19
     symbol {
       name: "embassy-m"
-      priority: 500
+      priority: 2450
     }
     caption {
       primary {
@@ -62104,14 +62692,14 @@ cont {
         offset_y: 1
         is_optional: true
       }
-      priority: -9500
+      priority: -7550
     }
   }
   element {
     scale: 20
     symbol {
       name: "embassy-m"
-      priority: 500
+      priority: 2450
     }
     caption {
       primary {
@@ -62120,7 +62708,7 @@ cont {
         offset_y: 1
         is_optional: true
       }
-      priority: -9500
+      priority: -7550
     }
   }
 }
@@ -69893,6 +70481,57 @@ cont {
         offset_y: 1
       }
       priority: 6900
+    }
+  }
+}
+cont {
+  name: "post_office-post_partner"
+  element {
+    scale: 18
+    symbol {
+      name: "mail-m"
+      priority: 470
+    }
+    caption {
+      primary {
+        height: 11
+        color: 9211020
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -9530
+    }
+  }
+  element {
+    scale: 19
+    symbol {
+      name: "mail-m"
+      priority: 470
+    }
+    caption {
+      primary {
+        height: 11
+        color: 9211020
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -9530
+    }
+  }
+  element {
+    scale: 20
+    symbol {
+      name: "mail-m"
+      priority: 470
+    }
+    caption {
+      primary {
+        height: 11
+        color: 9211020
+        offset_y: 1
+        is_optional: true
+      }
+      priority: -9530
     }
   }
 }
@@ -124288,7 +124927,18 @@ cont {
 cont {
   name: "tourism-camp_site"
   element {
+    scale: 15
+    area {
+      color: 2499106
+      priority: -1830
+    }
+  }
+  element {
     scale: 16
+    area {
+      color: 2499106
+      priority: -1830
+    }
     symbol {
       name: "campsite-m"
       priority: 3800
@@ -124305,6 +124955,10 @@ cont {
   }
   element {
     scale: 17
+    area {
+      color: 2499106
+      priority: -1830
+    }
     symbol {
       name: "campsite-m"
       priority: 3800
@@ -124321,6 +124975,10 @@ cont {
   }
   element {
     scale: 18
+    area {
+      color: 2499106
+      priority: -1830
+    }
     symbol {
       name: "campsite-m"
       priority: 3800
@@ -124337,6 +124995,10 @@ cont {
   }
   element {
     scale: 19
+    area {
+      color: 2499106
+      priority: -1830
+    }
     symbol {
       name: "campsite-m"
       priority: 3800
@@ -124353,6 +125015,10 @@ cont {
   }
   element {
     scale: 20
+    area {
+      color: 2499106
+      priority: -1830
+    }
     symbol {
       name: "campsite-m"
       priority: 3800

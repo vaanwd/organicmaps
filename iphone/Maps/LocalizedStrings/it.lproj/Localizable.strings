@@ -691,7 +691,7 @@
 "mobile_data_option_never" = "Non usare mai";
 "mobile_data_option_ask" = "Chiedi sempre";
 "traffic_update_maps_text" = "Per visualizzare i dati sul traffico, le mappe devono essere aggiornate.";
-"big_font" = "Aumenta dimensione etichete sulla mappa";
+"big_font" = "Aumenta dimensione etichette sulla mappa";
 
 /* "traffic" as in road congestion */
 "traffic_update_app_message" = "Per visualizzare i dati sul traffico, l'applicazione deve essere aggiornata.";
@@ -1061,3 +1061,16 @@
 "track_recording_toast_nothing_to_save" = "La traccia è vuota - non c'è nulla da salvare";
 "edit_track" = "Modifica traccia";
 "saved" = "Salvato";
+"button_layer_hiking" = "Hiking";
+"button_layer_cycling" = "Cycling";
+
+/* Settings/Bookmark Text Placement */
+"bookmarks_text_placement_title" = "Bookmark names on the map";
+"bookmarks_text_placement_description" = "If there are too many bookmarks, displaying their names on the map may slow down the app.";
+"show_to_the_right" = "Show to the right";
+"right" = "Right";
+"show_at_the_bottom" = "Show at the bottom";
+"bottom" = "Bottom";
+
+/* Toast text when the maps version should be updated to display the OSM hiking and cycling routes */
+"routes_update_maps_text" = "To display routes, maps must be updated.";

@@ -364,7 +364,7 @@
     <string name="dialog_routing_disclaimer_beware">¡Manténgase alerta y a salvo durante el viaje!</string>
     <string name="dialog_routing_check_gps">Verificar la señal del GPS</string>
     <string name="dialog_routing_error_location_not_found">No se puede crear la ruta. No se pudieron identificar las coordenadas actuales del GPS.</string>
-    <string name="dialog_routing_location_turn_wifi">Verifique la señal del GPS. Activar la Wi-Fi mejorará la precisión de su ubicación.</string>
+    <string name="dialog_routing_location_turn_wifi">Verifique la señal del GPS. Activar la wifi mejorará la precisión de su ubicación.</string>
     <string name="dialog_routing_location_turn_on">Activar servicios de ubicación</string>
     <string name="dialog_routing_location_unknown_turn_on">No se pueden encontrar las coordenadas del GPS. Active los servicios de ubicación para calcular la ruta.</string>
     <string name="dialog_routing_unable_locate_route">Imposible de encontrar una ruta</string>
@@ -654,6 +654,8 @@
     <string name="privacy_policy">Normativa de privacidad</string>
     <string name="terms_of_use">Condiciones de uso</string>
     <string name="button_layer_traffic">Tráfico</string>
+    <string name="button_layer_hiking">Senderismo</string>
+    <string name="button_layer_cycling">Ciclismo</string>
     <string name="button_layer_subway">Metro</string>
     <string name="layers_title">Estilos y capas del mapa</string>
     <string name="subway_data_unavailable">El mapa del metro no está disponible</string>
@@ -750,7 +752,7 @@
     <string name="search_in_the_list">Buscar en la lista</string>
     <string name="religious_places">Lugares sagrados</string>
     <string name="select_list">Seleccionar lista</string>
-    <string name="transit_not_found">Navegación en Metro aún no disponible en esta región</string>
+    <string name="transit_not_found">La navegación en metro aún no está disponible en esta región</string>
     <string name="dialog_pedestrian_route_is_long_header">No se encontró ninguna ruta de metro</string>
     <string name="dialog_pedestrian_route_is_long_message">Elija un punto de inicio o fin de ruta más cercano a una estación de metro</string>
     <string name="button_layer_isolines">Alturas</string>
@@ -895,4 +897,6 @@
     <string name="level_value_generic">Nivel: %s</string>
     <string name="editor_line_social_network">LINE</string>
     <string name="saved">Guardado</string>
+    <string name="osm_note_toast">La nota se enviará a OpenStreetMap</string>
+    <string name="osm_note_hint">O bien, deje una nota a la comunidad de OpenStreetMap para que otra persona pueda añadir o corregir un lugar.</string>
 </resources>

@@ -14,7 +14,6 @@ import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import app.organicmaps.R;
 import app.organicmaps.base.BaseMwmRecyclerFragment;
-import app.organicmaps.base.OnBackPressListener;
 import app.organicmaps.sdk.downloader.CountryItem;
 import app.organicmaps.sdk.downloader.MapManager;
 import app.organicmaps.sdk.search.MapSearchListener;
@@ -25,8 +24,8 @@ import app.organicmaps.widget.PlaceholderView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DownloaderFragment extends BaseMwmRecyclerFragment<DownloaderAdapter>
-    implements OnBackPressListener, MenuBottomSheetFragment.MenuBottomSheetInterface
+public class DownloaderFragment
+    extends BaseMwmRecyclerFragment<DownloaderAdapter> implements MenuBottomSheetFragment.MenuBottomSheetInterface
 {
   private DownloaderToolbarController mToolbarController;
 
@@ -154,6 +153,8 @@ public class DownloaderFragment extends BaseMwmRecyclerFragment<DownloaderAdapte
 
     mBottomPanel = new BottomPanel(this, view);
     mToolbarController = new DownloaderToolbarController(view, requireActivity(), this);
+    requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(),
+                                                               mToolbarController.getBackPressedCallback());
 
     update();
   }
@@ -184,18 +185,6 @@ public class DownloaderFragment extends BaseMwmRecyclerFragment<DownloaderAdapte
   }
 
   @Override
-  public boolean onBackPressed()
-  {
-    if (mToolbarController.hasQuery())
-    {
-      mToolbarController.clear();
-      return true;
-    }
-
-    return mAdapter != null && mAdapter.goUpwards();
-  }
-
-  @Override
   protected int getLayoutRes()
   {
     return R.layout.fragment_downloader;
@@ -207,6 +196,8 @@ public class DownloaderFragment extends BaseMwmRecyclerFragment<DownloaderAdapte
   {
     if (mAdapter == null)
       mAdapter = new DownloaderAdapter(this);
+    requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(),
+                                                               mAdapter.getBackPressedCallback());
 
     return mAdapter;
   }

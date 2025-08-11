@@ -4,15 +4,15 @@ import android.content.Context;
 import android.graphics.Rect;
 import android.view.MotionEvent;
 import android.view.Surface;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import app.organicmaps.BuildConfig;
-import app.organicmaps.MwmApplication;
 import app.organicmaps.R;
 import app.organicmaps.sdk.display.DisplayType;
 import app.organicmaps.sdk.location.LocationHelper;
 import app.organicmaps.sdk.util.Config;
 import app.organicmaps.sdk.util.ROMUtils;
-import app.organicmaps.sdk.util.UiUtils;
+import app.organicmaps.sdk.util.Utils;
 import app.organicmaps.sdk.util.concurrency.UiThread;
 import app.organicmaps.sdk.util.log.Logger;
 
@@ -53,7 +53,11 @@ public final class Map
   public static final int INVALID_POINTER_MASK = 0xFF;
   public static final int INVALID_TOUCH_ID = -1;
 
+  @NonNull
   private final DisplayType mDisplayType;
+
+  @Nullable
+  private LocationHelper mLocationHelper;
 
   private int mCurrentCompassOffsetX;
   private int mCurrentCompassOffsetY;
@@ -75,10 +79,15 @@ public final class Map
 
   private static int sCurrentDpi = 0;
 
-  public Map(DisplayType mapType)
+  public Map(@NonNull DisplayType mapType)
   {
     mDisplayType = mapType;
     onCreate(false);
+  }
+
+  public void setLocationHelper(@NonNull LocationHelper locationHelper)
+  {
+    mLocationHelper = locationHelper;
   }
 
   /**
@@ -93,9 +102,9 @@ public final class Map
   {
     final int x = offsetX < 0 ? mCurrentCompassOffsetX : offsetX;
     final int y = offsetY < 0 ? mCurrentCompassOffsetY : offsetY;
-    final int navPadding = UiUtils.dimen(context, R.dimen.nav_frame_padding);
-    final int marginX = UiUtils.dimen(context, R.dimen.margin_compass) + navPadding;
-    final int marginY = UiUtils.dimen(context, R.dimen.margin_compass_top) + navPadding;
+    final int navPadding = Utils.dimen(context, R.dimen.nav_frame_padding);
+    final int marginX = Utils.dimen(context, R.dimen.margin_compass) + navPadding;
+    final int marginY = Utils.dimen(context, R.dimen.margin_compass_top) + navPadding;
     nativeSetupWidget(WIDGET_COMPASS, mWidth - x - marginX, y + marginY, ANCHOR_CENTER);
     if (forceRedraw && mSurfaceCreated)
       nativeApplyWidgets();
@@ -137,6 +146,8 @@ public final class Map
 
   public void onSurfaceCreated(final Context context, final Surface surface, Rect surfaceFrame, int surfaceDpi)
   {
+    assert mLocationHelper != null : "LocationHelper must be initialized before calling onSurfaceCreated";
+
     if (isThemeChangingProcess(context))
     {
       Logger.d(TAG, "Theme changing process, skip 'onSurfaceCreated' callback");
@@ -169,9 +180,7 @@ public final class Map
     mRequireResize = false;
     setupWidgets(context, surfaceFrame.width(), surfaceFrame.height());
 
-    final LocationHelper locationHelper = MwmApplication.from(context).getLocationHelper();
-
-    final boolean firstStart = locationHelper.isInFirstRun();
+    final boolean firstStart = mLocationHelper.isInFirstRun();
     if (!nativeCreateEngine(surface, surfaceDpi, firstStart, mLaunchByDeepLink, BuildConfig.VERSION_CODE,
                             ROMUtils.isCustomROM()))
     {
@@ -182,7 +191,7 @@ public final class Map
     sCurrentDpi = surfaceDpi;
 
     if (firstStart)
-      UiThread.runLater(locationHelper::onExitFromFirstRun);
+      UiThread.runLater(mLocationHelper::onExitFromFirstRun);
 
     mSurfaceCreated = true;
     mSurfaceAttached = true;
@@ -333,30 +342,30 @@ public final class Map
     updateBottomWidgetsOffset(context, mBottomWidgetOffsetX, mBottomWidgetOffsetY);
     if (mDisplayType == DisplayType.Device)
     {
-      nativeSetupWidget(WIDGET_SCALE_FPS_LABEL, UiUtils.dimen(context, R.dimen.margin_base),
-                        UiUtils.dimen(context, R.dimen.margin_base) * 2, ANCHOR_LEFT_TOP);
+      nativeSetupWidget(WIDGET_SCALE_FPS_LABEL, Utils.dimen(context, R.dimen.margin_base),
+                        Utils.dimen(context, R.dimen.margin_base) * 2, ANCHOR_LEFT_TOP);
       updateCompassOffset(context, mCurrentCompassOffsetX, mCurrentCompassOffsetY, false);
     }
     else
     {
-      nativeSetupWidget(WIDGET_SCALE_FPS_LABEL, (float) mWidth / 2 + UiUtils.dimen(context, R.dimen.margin_base) * 2,
-                        UiUtils.dimen(context, R.dimen.margin_base), ANCHOR_LEFT_TOP);
+      nativeSetupWidget(WIDGET_SCALE_FPS_LABEL, (float) mWidth / 2 + Utils.dimen(context, R.dimen.margin_base) * 2,
+                        Utils.dimen(context, R.dimen.margin_base), ANCHOR_LEFT_TOP);
       updateCompassOffset(context, mWidth, mCurrentCompassOffsetY, true);
     }
   }
 
   private void updateRulerOffset(final Context context, int offsetX, int offsetY)
   {
-    nativeSetupWidget(WIDGET_RULER, UiUtils.dimen(context, R.dimen.margin_ruler) + offsetX,
-                      mHeight - UiUtils.dimen(context, R.dimen.margin_ruler) - offsetY, ANCHOR_LEFT_BOTTOM);
+    nativeSetupWidget(WIDGET_RULER, Utils.dimen(context, R.dimen.margin_ruler) + offsetX,
+                      mHeight - Utils.dimen(context, R.dimen.margin_ruler) - offsetY, ANCHOR_LEFT_BOTTOM);
     if (mSurfaceCreated)
       nativeApplyWidgets();
   }
 
   private void updateAttributionOffset(final Context context, int offsetX, int offsetY)
   {
-    nativeSetupWidget(WIDGET_COPYRIGHT, UiUtils.dimen(context, R.dimen.margin_ruler) + offsetX,
-                      mHeight - UiUtils.dimen(context, R.dimen.margin_ruler) - offsetY, ANCHOR_LEFT_BOTTOM);
+    nativeSetupWidget(WIDGET_COPYRIGHT, Utils.dimen(context, R.dimen.margin_ruler) + offsetX,
+                      mHeight - Utils.dimen(context, R.dimen.margin_ruler) - offsetY, ANCHOR_LEFT_BOTTOM);
     if (mSurfaceCreated)
       nativeApplyWidgets();
   }

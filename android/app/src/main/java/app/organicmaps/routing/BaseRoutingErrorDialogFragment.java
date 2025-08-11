@@ -16,8 +16,10 @@ import app.organicmaps.R;
 import app.organicmaps.adapter.DisabledChildSimpleExpandableListAdapter;
 import app.organicmaps.base.BaseMwmDialogFragment;
 import app.organicmaps.sdk.downloader.CountryItem;
+import app.organicmaps.sdk.routing.RoutingController;
 import app.organicmaps.sdk.util.StringUtils;
-import app.organicmaps.sdk.util.UiUtils;
+import app.organicmaps.sdk.util.Utils;
+import app.organicmaps.util.UiUtils;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -125,7 +127,7 @@ abstract class BaseRoutingErrorDialogFragment extends BaseMwmDialogFragment
 
     UiUtils.waitLayout(listView, () -> {
       final int width = listView.getWidth();
-      final int indicatorWidth = UiUtils.dimen(requireContext(), R.dimen.margin_quadruple);
+      final int indicatorWidth = Utils.dimen(requireContext(), R.dimen.margin_quadruple);
       listView.setIndicatorBounds(width - indicatorWidth, width);
       listView.setIndicatorBoundsRelative(width - indicatorWidth, width);
     });

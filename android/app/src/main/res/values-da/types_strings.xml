@@ -111,7 +111,7 @@
     <string name="type.amenity.post_office">Posthus</string>
     <string name="type.amenity.prison">Fængsel</string>
     <string name="type.amenity.pub">Værtshus</string>
-    <string name="type.amenity.public_bookcase">Bogudveksling</string>
+    <string name="type.amenity.public_bookcase">Bogbytteskab</string>
     <!-- SECTION: Types: Recycling -->
     <string name="type.amenity.recycling.centre">Genbrugsplads</string>
     <string name="type.amenity.recycling">Genbrugscontainer</string>
@@ -515,7 +515,7 @@
     <string name="type.landuse.cemetery">Kirkegård</string>
     <!-- In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. -->
     <string name="type.landuse.cemetery.christian">Kirkegård</string>
-    <string name="type.landuse.churchyard">Kirkegård</string>
+    <string name="type.landuse.religious">Kirkegård</string>
     <string name="type.landuse.farmland">Landbrugsjord</string>
     <string name="type.landuse.flowerbed">Blomsterseng</string>
     <string name="type.landuse.forest">Skov</string>

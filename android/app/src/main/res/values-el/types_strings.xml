@@ -535,7 +535,7 @@
     <string name="type.landuse.cemetery">Νεκροταφείο</string>
     <!-- In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. -->
     <string name="type.landuse.cemetery.christian">Χριστιανικό νεκροταφείο</string>
-    <string name="type.landuse.churchyard">Αυλόγυρος εκκλησίας</string>
+    <string name="type.landuse.religious">Αυλόγυρος εκκλησίας</string>
     <string name="type.landuse.farmland">Αγροτική γη</string>
     <string name="type.landuse.flowerbed">Παρτέρι</string>
     <string name="type.landuse.forest">Δάσος</string>
@@ -1395,4 +1395,9 @@
     <string name="type.piste_type.nordic">Διαδρομή σκανδιναβικού σκι</string>
     <string name="type.piste_type.sled">Πίστα για έλκηθρο</string>
     <string name="type.piste_type.sled.area">Πίστα για έλκηθρο</string>
+    <string name="type.amenity.bicycle_parking.covered">Σκεπαστή στάθμευση ποδηλάτων</string>
+    <string name="type.post_office.post_partner">Ταχυδρομικός συνεργάτης</string>
+    <string name="type.amenity.ranger_station">Σταθμός δασοφύλακα</string>
+    <string name="type.amenity.luggage_locker">Ντουλάπι αποσκευών</string>
+    <string name="type.leisure.escape_game">Δωμάτιο απόδρασης</string>
 </resources>

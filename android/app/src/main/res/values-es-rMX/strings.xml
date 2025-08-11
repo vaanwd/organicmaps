@@ -101,6 +101,8 @@
     <string name="privacy_policy">Política de Privacidad</string>
     <string name="terms_of_use">Términos de uso</string>
     <string name="button_layer_traffic">Tráfico</string>
+    <string name="button_layer_hiking">Senderismo</string>
+    <string name="button_layer_cycling">Ciclismo</string>
     <string name="button_layer_subway">Metro</string>
     <string name="layers_title">Estilos y capas del mapa</string>
     <string name="subway_data_unavailable">El mapa del metro no está disponible</string>
@@ -185,8 +187,8 @@
     <string name="religious_places">Sitios religiosos</string>
     <string name="select_list">Seleccionar lista</string>
     <string name="transit_not_found">Navegación por metro aún no disponible en esta región</string>
-    <string name="dialog_pedestrian_route_is_long_header">Ruta de metro no encontrada</string>
-    <string name="dialog_pedestrian_route_is_long_message">Elija el punto de inicio o fin de ruta más cercano al metro</string>
+    <string name="dialog_pedestrian_route_is_long_header">No se encontró ninguna ruta de metro</string>
+    <string name="dialog_pedestrian_route_is_long_message">Elija un punto de inicio o fin de ruta más cercano a una estación de metro</string>
     <string name="button_layer_isolines">Alturas</string>
     <string name="isolines_activation_error_dialog">Para usar la altitud de relieve, actualice o descargue el mapa del área deseada</string>
     <string name="isolines_location_error_dialog">La altitud de relieve no está aún disponible en esta región</string>
@@ -226,4 +228,6 @@
     <string name="dialog_routing_intermediate_not_determined">Ajuste la parada intermedia.</string>
     <string name="stop_track_recording">Detener grabación de trayecto</string>
     <string name="big_font">Aumentar tamaño del texto en el mapa</string>
+    <string name="bookmarks_export">Exportar todos los marcadores y trayectos</string>
+    <string name="bookmarks_and_tracks">Marcadores y trayectos</string>
 </resources>

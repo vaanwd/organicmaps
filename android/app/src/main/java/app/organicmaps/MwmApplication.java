@@ -18,7 +18,6 @@ import app.organicmaps.background.OsmUploadWork;
 import app.organicmaps.downloader.DownloaderNotifier;
 import app.organicmaps.location.TrackRecordingService;
 import app.organicmaps.routing.NavigationService;
-import app.organicmaps.routing.RoutingController;
 import app.organicmaps.sdk.Map;
 import app.organicmaps.sdk.OrganicMaps;
 import app.organicmaps.sdk.display.DisplayManager;
@@ -28,10 +27,11 @@ import app.organicmaps.sdk.location.SensorHelper;
 import app.organicmaps.sdk.location.TrackRecorder;
 import app.organicmaps.sdk.maplayer.isolines.IsolinesManager;
 import app.organicmaps.sdk.maplayer.subway.SubwayManager;
+import app.organicmaps.sdk.routing.RoutingController;
 import app.organicmaps.sdk.util.Config;
 import app.organicmaps.sdk.util.ConnectionState;
 import app.organicmaps.sdk.util.log.Logger;
-import app.organicmaps.sdk.util.log.LogsManager;
+import app.organicmaps.util.ThemeSwitcher;
 import app.organicmaps.util.Utils;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
@@ -51,6 +51,10 @@ public class MwmApplication extends Application implements Application.ActivityL
 
   @Nullable
   private WeakReference<Activity> mTopActivity;
+
+  @SuppressWarnings("NotNullFieldNotInitialized")
+  @NonNull
+  public static MwmApplication sInstance;
 
   @UiThread
   @Nullable
@@ -102,12 +106,9 @@ public class MwmApplication extends Application implements Application.ActivityL
   }
 
   @NonNull
-  public static MwmApplication sInstance;
-
-  @NonNull
   public static SharedPreferences prefs(@NonNull Context context)
   {
-    return context.getSharedPreferences(context.getString(R.string.pref_file_name), MODE_PRIVATE);
+    return from(context).getOrganicMaps().getPreferences();
   }
 
   @Override
@@ -119,8 +120,6 @@ public class MwmApplication extends Application implements Application.ActivityL
     sInstance = this;
 
     mOrganicMaps = new OrganicMaps(getApplicationContext());
-
-    LogsManager.INSTANCE.initFileLogging(this);
 
     ConnectionState.INSTANCE.initialize(this);
 
@@ -135,6 +134,8 @@ public class MwmApplication extends Application implements Application.ActivityL
   public boolean initOrganicMaps(@NonNull Runnable onComplete) throws IOException
   {
     return mOrganicMaps.init(() -> {
+      ThemeSwitcher.INSTANCE.initialize(this);
+      ThemeSwitcher.INSTANCE.restart(false);
       ProcessLifecycleOwner.get().getLifecycle().addObserver(mProcessLifecycleObserver);
       onComplete.run();
     });

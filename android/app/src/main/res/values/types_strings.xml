@@ -28,6 +28,7 @@
     <string name="type.amenity.bbq">Barbecue Grill</string>
     <string name="type.amenity.bench">Bench</string>
     <string name="type.amenity.bicycle_parking">Bicycle Parking</string>
+    <string name="type.amenity.bicycle_parking.covered">Covered Bicycle Parking</string>
     <string name="type.amenity.bicycle_rental">Bicycle Rental</string>
     <string name="type.amenity.bicycle_repair_station">Bicycle Repair Station</string>
     <string name="type.amenity.biergarten">Biergarten</string>
@@ -84,6 +85,7 @@
     <string name="type.amenity.kindergarten">Kindergarten</string>
     <string name="type.amenity.library">Library</string>
     <string name="type.amenity.loading_dock">Loading Dock</string>
+    <string name="type.amenity.luggage_locker">Luggage Locker</string>
     <string name="type.amenity.marketplace">Marketplace</string>
     <string name="type.amenity.motorcycle_parking">Motorcycle Parking</string>
     <string name="type.amenity.nightclub">Nightclub</string>
@@ -128,6 +130,7 @@
     <string name="type.amenity.police">Police</string>
     <string name="type.amenity.post_box">Mailbox</string>
     <string name="type.amenity.post_office">Post Office</string>
+    <string name="type.post_office.post_partner">Post Partner</string>
     <string name="type.amenity.prison">Prison</string>
     <string name="type.amenity.pub">Pub</string>
     <string name="type.amenity.public_bookcase">Book Exchange</string>
@@ -614,7 +617,7 @@
     <string name="type.landuse.cemetery">Cemetery</string>
     <!-- In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. -->
     <string name="type.landuse.cemetery.christian">Christian Cemetery</string>
-    <string name="type.landuse.churchyard">Churchyard</string>
+    <string name="type.landuse.religious">Churchyard</string>
     <string name="type.landuse.commercial">Commercial Area</string>
     <string name="type.landuse.construction">Construction Area</string>
     <string name="type.landuse.education">Educational Facility</string>
@@ -648,6 +651,7 @@
     <string name="type.leisure">Leisure</string>
     <string name="type.leisure.common">Public Land</string>
     <string name="type.leisure.dog_park">Dog Park</string>
+    <string name="type.leisure.escape_game">Escape Room</string>
     <string name="type.leisure.fitness_centre">Fitness Centre</string>
     <string name="type.leisure.fitness_station">Fitness Station</string>
     <string name="type.leisure.dance">Dance Hall</string>
@@ -1326,6 +1330,7 @@
     <string name="type.tourism.information.map">Tourist Map</string>
     <string name="type.tourism.information.office">Tourist Office</string>
     <string name="type.tourism.information.visitor_centre">Visitor Centre</string>
+    <string name="type.amenity.ranger_station">Ranger Station</string>
     <string name="type.tourism.motel">Motel</string>
     <string name="type.tourism.museum">Museum</string>
     <string name="type.tourism.picnic_site">Picnic Site</string>

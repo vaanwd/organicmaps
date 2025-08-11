@@ -2,6 +2,7 @@ package app.organicmaps.maplayer;
 
 import android.content.Context;
 import android.view.View;
+import androidx.annotation.AttrRes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
@@ -37,31 +38,44 @@ public class LayerBottomSheetItem
   public static LayerBottomSheetItem create(@NonNull Context mContext, Mode mode,
                                             @NonNull OnItemClickListener<LayerBottomSheetItem> layerItemClickListener)
   {
+    @AttrRes
     int disabledResource = 0;
+    @AttrRes
     int enabledResource = 0;
+    @StringRes
     int buttonTextResource = R.string.layers_title;
     switch (mode)
     {
-      case OUTDOORS:
-        disabledResource = R.attr.outdoorsMenuDisabled;
-        enabledResource = R.attr.outdoorsMenuEnabled;
-        buttonTextResource = R.string.button_layer_outdoor;
-        break;
-      case SUBWAY:
-        disabledResource = R.attr.subwayMenuDisabled;
-        enabledResource = R.attr.subwayMenuEnabled;
-        buttonTextResource = R.string.button_layer_subway;
-        break;
-      case ISOLINES:
-        disabledResource = R.attr.isoLinesMenuDisabled;
-        enabledResource = R.attr.isoLinesMenuEnabled;
-        buttonTextResource = R.string.button_layer_isolines;
-        break;
-      case TRAFFIC:
-        disabledResource = R.attr.trafficMenuDisabled;
-        enabledResource = R.attr.trafficMenuEnabled;
-        buttonTextResource = R.string.button_layer_traffic;
-        break;
+    case OUTDOORS:
+      disabledResource = R.attr.outdoorsMenuDisabled;
+      enabledResource = R.attr.outdoorsMenuEnabled;
+      buttonTextResource = R.string.button_layer_outdoor;
+      break;
+    case SUBWAY:
+      disabledResource = R.attr.subwayMenuDisabled;
+      enabledResource = R.attr.subwayMenuEnabled;
+      buttonTextResource = R.string.button_layer_subway;
+      break;
+    case ISOLINES:
+      disabledResource = R.attr.isoLinesMenuDisabled;
+      enabledResource = R.attr.isoLinesMenuEnabled;
+      buttonTextResource = R.string.button_layer_isolines;
+      break;
+    case TRAFFIC:
+      disabledResource = R.attr.trafficMenuDisabled;
+      enabledResource = R.attr.trafficMenuEnabled;
+      buttonTextResource = R.string.button_layer_traffic;
+      break;
+    case HIKING:
+      disabledResource = R.attr.hikingMenuDisabled;
+      enabledResource = R.attr.hikingMenuEnabled;
+      buttonTextResource = R.string.button_layer_hiking;
+      break;
+    case CYCLING:
+      disabledResource = R.attr.cyclingMenuDisabled;
+      enabledResource = R.attr.cyclingMenuEnabled;
+      buttonTextResource = R.string.button_layer_cycling;
+      break;
     }
     int disabled = ThemeUtils.getResource(mContext, disabledResource);
     int enabled = ThemeUtils.getResource(mContext, enabledResource);

@@ -11,18 +11,18 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import app.organicmaps.MwmApplication;
 import app.organicmaps.R;
 import app.organicmaps.sdk.Framework;
 import app.organicmaps.sdk.Router;
+import app.organicmaps.sdk.routing.RoutingController;
 import app.organicmaps.sdk.routing.RoutingInfo;
 import app.organicmaps.sdk.routing.RoutingOptions;
 import app.organicmaps.sdk.routing.TransitRouteInfo;
-import app.organicmaps.sdk.util.UiUtils;
 import app.organicmaps.settings.DrivingOptionsActivity;
+import app.organicmaps.util.UiUtils;
 import app.organicmaps.util.WindowInsetUtils.PaddingInsetsListener;
 import app.organicmaps.widget.RoutingToolbarButton;
 import app.organicmaps.widget.ToolbarController;
@@ -229,32 +229,32 @@ public class RoutingPlanController extends ToolbarController
     WheelProgressView progressView;
     switch (router)
     {
-      case Vehicle:
-        mRouterTypes.check(R.id.vehicle);
-        progressView = mProgressVehicle;
-        break;
-      case Pedestrian:
-        mRouterTypes.check(R.id.pedestrian);
-        progressView = mProgressPedestrian;
-        break;
-      // case Taxi:
-      //     {
-      //       mRouterTypes.check(R.id.taxi);
-      //       progressView = mProgressTaxi;
-      //     }
-      case Transit:
-        mRouterTypes.check(R.id.transit);
-        progressView = mProgressTransit;
-        break;
-      case Bicycle:
-        mRouterTypes.check(R.id.bicycle);
-        progressView = mProgressBicycle;
-        break;
-      case Ruler:
-        mRouterTypes.check(R.id.ruler);
-        progressView = mProgressRuler;
-        break;
-      default: throw new IllegalArgumentException("unknown router: " + router);
+    case Vehicle:
+      mRouterTypes.check(R.id.vehicle);
+      progressView = mProgressVehicle;
+      break;
+    case Pedestrian:
+      mRouterTypes.check(R.id.pedestrian);
+      progressView = mProgressPedestrian;
+      break;
+    // case Taxi:
+    //     {
+    //       mRouterTypes.check(R.id.taxi);
+    //       progressView = mProgressTaxi;
+    //     }
+    case Transit:
+      mRouterTypes.check(R.id.transit);
+      progressView = mProgressTransit;
+      break;
+    case Bicycle:
+      mRouterTypes.check(R.id.bicycle);
+      progressView = mProgressBicycle;
+      break;
+    case Ruler:
+      mRouterTypes.check(R.id.ruler);
+      progressView = mProgressRuler;
+      break;
+    default: throw new IllegalArgumentException("unknown router: " + router);
     }
 
     RoutingToolbarButton button = mRouterTypes.findViewById(mRouterTypes.getCheckedRadioButtonId());

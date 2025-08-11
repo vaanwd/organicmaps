@@ -672,7 +672,7 @@
 
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.landuse.cemetery.christian" = "Hristiyan Mezarlığı";
-"type.landuse.churchyard" = "Kilise Bölgesi";
+"type.landuse.religious" = "Kilise Bölgesi";
 "type.landuse.commercial" = "Ticari Alan";
 "type.landuse.construction" = "Yapı";
 "type.landuse.education" = "Eğitim Tesisi";
@@ -919,7 +919,7 @@
 "type.railway.funicular" = "Füniküler";
 "type.railway.funicular.bridge" = "Füniküler Köprüsü";
 "type.railway.funicular.tunnel" = "Füniküler Tüneli";
-"type.railway.halt" = "Tren İstasyonu";
+"type.railway.halt" = "Demir Yolu Durağı";
 "type.railway.level_crossing" = "Hemzemin Geçit";
 "type.railway.light_rail" = "Hafif Raylı";
 "type.railway.light_rail.bridge" = "Hafif Raylı Köprüsü";
@@ -1492,3 +1492,9 @@
 "type.barrier.guard_rail" = "Korkuluk";
 "type.leisure.firepit" = "Ateş Çukuru";
 "type.man_made.crane" = "Vinç";
+"type.amenity.bicycle_parking.covered" = "Covered Bicycle Parking";
+"type.amenity.luggage_locker" = "Luggage Locker";
+"type.post_office.post_partner" = "Post Partner";
+"type.leisure.escape_game" = "Escape Room";
+"type.railway.station.subway.qingdao" = "Subway Station";
+"type.amenity.ranger_station" = "Ranger Station";

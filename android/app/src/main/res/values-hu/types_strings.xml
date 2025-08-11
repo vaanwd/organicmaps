@@ -527,7 +527,7 @@
     <string name="type.landuse.cemetery">Temető</string>
     <!-- In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. -->
     <string name="type.landuse.cemetery.christian">Keresztény temető</string>
-    <string name="type.landuse.churchyard">Templomkert</string>
+    <string name="type.landuse.religious">Templomkert</string>
     <string name="type.landuse.farmland">Szántóföld</string>
     <string name="type.landuse.flowerbed">Virágágyás</string>
     <string name="type.landuse.forest">Telepített erdő</string>
@@ -1400,4 +1400,9 @@
     <string name="type.sport.diving">Búvárkodás</string>
     <string name="type.man_made.crane">Daru</string>
     <string name="type.railway.station.subway.qingdao">Metróállomás</string>
+    <string name="type.amenity.bicycle_parking.covered">Fedett kerékpártároló</string>
+    <string name="type.amenity.ranger_station">Vadőrség</string>
+    <string name="type.post_office.post_partner">Postapartnerpont</string>
+    <string name="type.amenity.luggage_locker">Csomagmegőrző</string>
+    <string name="type.leisure.escape_game">Szabadulószoba</string>
 </resources>

@@ -656,6 +656,8 @@
     <string name="privacy_policy">Privacybeleid</string>
     <string name="terms_of_use">Gebruiksvoorwaarden</string>
     <string name="button_layer_traffic">Verkeer</string>
+    <string name="button_layer_hiking">Wandelen</string>
+    <string name="button_layer_cycling">Fietsen</string>
     <string name="button_layer_subway">Metro</string>
     <string name="layers_title">Kaartstijlen en -lagen</string>
     <string name="subway_data_unavailable">Metrokaart is niet beschikbaar</string>
@@ -898,4 +900,5 @@
     <string name="mb">MB</string>
     <string name="tts_info_link">https://organicmaps.app/faq/text-to-speech-android-tts/</string>
     <string name="saved">Opgeslagen</string>
+    <string name="osm_note_hint">Of, als alternatief, laat een opmerking achter voor de OpenStreetMap gemeenschap zodat iemand anders een plaats kan toevoegen of verbeteren.</string>
 </resources>

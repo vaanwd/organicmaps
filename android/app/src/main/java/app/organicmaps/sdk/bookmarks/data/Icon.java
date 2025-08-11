@@ -1,104 +1,29 @@
 package app.organicmaps.sdk.bookmarks.data;
 
+import android.content.res.Resources;
 import android.os.Parcel;
 import android.os.Parcelable;
+import androidx.annotation.ColorInt;
 import androidx.annotation.DrawableRes;
-import androidx.annotation.IntDef;
-import app.organicmaps.sdk.R;
+import androidx.annotation.NonNull;
+import app.organicmaps.BuildConfig;
+import app.organicmaps.sdk.util.StringUtils;
+import app.organicmaps.sdk.util.log.Logger;
 import com.google.common.base.Objects;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
+import dalvik.annotation.optimization.FastNative;
 
 public class Icon implements Parcelable
 {
-  @Retention(RetentionPolicy.SOURCE)
-  @IntDef({PREDEFINED_COLOR_NONE, PREDEFINED_COLOR_RED, PREDEFINED_COLOR_BLUE, PREDEFINED_COLOR_PURPLE,
-           PREDEFINED_COLOR_YELLOW, PREDEFINED_COLOR_PINK, PREDEFINED_COLOR_BROWN, PREDEFINED_COLOR_GREEN,
-           PREDEFINED_COLOR_ORANGE, PREDEFINED_COLOR_DEEPPURPLE, PREDEFINED_COLOR_LIGHTBLUE, PREDEFINED_COLOR_CYAN,
-           PREDEFINED_COLOR_TEAL, PREDEFINED_COLOR_LIME, PREDEFINED_COLOR_DEEPORANGE, PREDEFINED_COLOR_GRAY,
-           PREDEFINED_COLOR_BLUEGRAY})
-  @interface PredefinedColor
-  {}
+  private static final String TAG = Icon.class.getSimpleName();
 
-  static final int PREDEFINED_COLOR_NONE = 0;
-  static final int PREDEFINED_COLOR_RED = 1;
-  static final int PREDEFINED_COLOR_BLUE = 2;
-  static final int PREDEFINED_COLOR_PURPLE = 3;
-  static final int PREDEFINED_COLOR_YELLOW = 4;
-  static final int PREDEFINED_COLOR_PINK = 5;
-  static final int PREDEFINED_COLOR_BROWN = 6;
-  static final int PREDEFINED_COLOR_GREEN = 7;
-  static final int PREDEFINED_COLOR_ORANGE = 8;
-  static final int PREDEFINED_COLOR_DEEPPURPLE = 9;
-  static final int PREDEFINED_COLOR_LIGHTBLUE = 10;
-  static final int PREDEFINED_COLOR_CYAN = 11;
-  static final int PREDEFINED_COLOR_TEAL = 12;
-  static final int PREDEFINED_COLOR_LIME = 13;
-  static final int PREDEFINED_COLOR_DEEPORANGE = 14;
-  static final int PREDEFINED_COLOR_GRAY = 15;
-  static final int PREDEFINED_COLOR_BLUEGRAY = 16;
-
-  private static int shift(int v, int bitCount)
-  {
-    return v << bitCount;
-  }
-  private static int toARGB(int r, int g, int b)
-  {
-    return shift(255, 24) + shift(r, 16) + shift(g, 8) + b;
-  }
-
-  /// @note Important! Should be synced with kml/types.hpp/PredefinedColor
-  /// @todo Values can be taken from Core.
-  private static final int[] ARGB_COLORS = {toARGB(229, 27, 35), // none
-                                            toARGB(229, 27, 35), // red
-                                            toARGB(0, 110, 199), // blue
-                                            toARGB(156, 39, 176), // purple
-                                            toARGB(255, 200, 0), // yellow
-                                            toARGB(255, 65, 130), // pink
-                                            toARGB(121, 85, 72), // brown
-                                            toARGB(56, 142, 60), // green
-                                            toARGB(255, 160, 0), // orange
-                                            toARGB(102, 57, 191), // deeppurple
-                                            toARGB(36, 156, 242), // lightblue
-                                            toARGB(20, 190, 205), // cyan
-                                            toARGB(0, 165, 140), // teal
-                                            toARGB(147, 191, 57), // lime
-                                            toARGB(240, 100, 50), // deeporange
-                                            toARGB(115, 115, 115), // gray
-                                            toARGB(89, 115, 128)}; // bluegray
-
-  static final int BOOKMARK_ICON_TYPE_NONE = 0;
-
-  /// @note Important! Should be synced with kml/types.hpp/BookmarkIcon
-  /// @todo Can make better: take name-by-type from Core and make a concat: "R.drawable.ic_bookmark_" + name.
-  // First icon should be "none" <-> BOOKMARK_ICON_TYPE_NONE.
   @DrawableRes
-  private static final int[] TYPE_ICONS = {
-      R.drawable.ic_bookmark_none,          R.drawable.ic_bookmark_hotel,     R.drawable.ic_bookmark_animals,
-      R.drawable.ic_bookmark_buddhism,      R.drawable.ic_bookmark_building,  R.drawable.ic_bookmark_christianity,
-      R.drawable.ic_bookmark_entertainment, R.drawable.ic_bookmark_money,     R.drawable.ic_bookmark_food,
-      R.drawable.ic_bookmark_gas,           R.drawable.ic_bookmark_judaism,   R.drawable.ic_bookmark_medicine,
-      R.drawable.ic_bookmark_mountain,      R.drawable.ic_bookmark_museum,    R.drawable.ic_bookmark_islam,
-      R.drawable.ic_bookmark_park,          R.drawable.ic_bookmark_parking,   R.drawable.ic_bookmark_shop,
-      R.drawable.ic_bookmark_sights,        R.drawable.ic_bookmark_swim,      R.drawable.ic_bookmark_water,
-      R.drawable.ic_bookmark_bar,           R.drawable.ic_bookmark_transport, R.drawable.ic_bookmark_viewpoint,
-      R.drawable.ic_bookmark_sport,
-      R.drawable.ic_bookmark_none, // pub
-      R.drawable.ic_bookmark_none, // art
-      R.drawable.ic_bookmark_none, // bank
-      R.drawable.ic_bookmark_none, // cafe
-      R.drawable.ic_bookmark_none, // pharmacy
-      R.drawable.ic_bookmark_none, // stadium
-      R.drawable.ic_bookmark_none, // theatre
-      R.drawable.ic_bookmark_none, // information
-      R.drawable.ic_bookmark_none  // ChargingStation
-  };
+  private static int[] sTypeIcons = null;
 
-  @PredefinedColor
+  @PredefinedColors.Color
   private final int mColor;
   private final int mType;
 
-  public Icon(@PredefinedColor int color, int type)
+  public Icon(@PredefinedColors.Color int color, int type)
   {
     mColor = color;
     mType = type;
@@ -123,31 +48,29 @@ public class Icon implements Parcelable
     mType = in.readInt();
   }
 
-  @PredefinedColor
+  @PredefinedColors.Color
   public int getColor()
   {
     return mColor;
   }
 
+  @ColorInt
   public int argb()
   {
-    return ARGB_COLORS[mColor];
-  }
-
-  public static int getColorPosition(int color)
-  {
-    for (int index = 1; index < ARGB_COLORS.length; index++)
-    {
-      if (ARGB_COLORS[index] == color)
-        return index;
-    }
-    return -1;
+    return PredefinedColors.getColor(mColor);
   }
 
   @DrawableRes
   public int getResId()
   {
-    return TYPE_ICONS[mType];
+    // loadDefaultIcons should be called
+    assert (sTypeIcons != null);
+    return sTypeIcons[mType];
+  }
+
+  public int getType()
+  {
+    return mType;
   }
 
   @Override
@@ -177,4 +100,29 @@ public class Icon implements Parcelable
       return new Icon[size];
     }
   };
+
+  static public void loadDefaultIcons(@NonNull Resources resources, @NonNull String packageName)
+  {
+    final String[] names = nativeGetBookmarkIconNames();
+    int[] icons = new int[names.length];
+    for (int i = 0; i < names.length; i++)
+    {
+      final String name = StringUtils.toSnakeCase(names[i]);
+      icons[i] = resources.getIdentifier("ic_bookmark_" + name, "drawable", packageName);
+      if (icons[i] == 0)
+      {
+        Logger.e(TAG, "Error getting icon for " + name);
+        // Force devs to add an icon for each bookmark type.
+        if (BuildConfig.DEBUG)
+          throw new RuntimeException("Error getting icon for " + name);
+        icons[i] = app.organicmaps.sdk.R.drawable.ic_bookmark_none; // Fallback icon
+      }
+    }
+
+    sTypeIcons = icons;
+  }
+
+  @FastNative
+  @NonNull
+  private static native String[] nativeGetBookmarkIconNames();
 }

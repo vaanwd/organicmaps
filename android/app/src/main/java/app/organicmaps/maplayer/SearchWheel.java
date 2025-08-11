@@ -14,11 +14,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import app.organicmaps.R;
-import app.organicmaps.routing.RoutingController;
+import app.organicmaps.sdk.routing.RoutingController;
 import app.organicmaps.sdk.search.SearchEngine;
-import app.organicmaps.sdk.util.UiUtils;
 import app.organicmaps.sdk.util.concurrency.UiThread;
 import app.organicmaps.util.Graphics;
+import app.organicmaps.util.UiUtils;
 
 public class SearchWheel implements View.OnClickListener
 {
