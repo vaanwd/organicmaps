@@ -94,7 +94,7 @@ public class ManageRouteAdapter extends RecyclerView.Adapter<ManageRouteAdapter.
     if (mRoutePoints.get(position).mIsMyPosition)
     {
       // My position point.
-      title = mContext.getString(R.string.core_my_position);
+      title = mContext.getString(app.organicmaps.sdk.R.string.core_my_position);
 
       if (mRoutePoints.get(position).mPointType != RouteMarkType.Start)
         subtitle = mRoutePoints.get(position).mTitle;
@@ -146,8 +146,10 @@ public class ManageRouteAdapter extends RecyclerView.Adapter<ManageRouteAdapter.
     return mRoutePoints.size();
   }
 
-  public void moveRoutePoint(int draggedItemIndex, int targetIndex)
+  public void moveRoutePoint(@NonNull RecyclerView.ViewHolder draggedItem, @NonNull RecyclerView.ViewHolder targetItem)
   {
+    final int draggedItemIndex = draggedItem.getAbsoluteAdapterPosition();
+    final int targetIndex = targetItem.getAbsoluteAdapterPosition();
     if (draggedItemIndex == targetIndex) // Dragged to same spot. Do nothing.
       return;
 
@@ -156,6 +158,11 @@ public class ManageRouteAdapter extends RecyclerView.Adapter<ManageRouteAdapter.
     updateRoutePointsData();
 
     notifyItemMoved(draggedItemIndex, targetIndex);
+
+    // Rebind view holders to update their content.
+    // draggedItem is now at targetIndex and targetItem is now at draggedItemIndex.
+    onBindViewHolder((ManageRouteViewHolder) draggedItem, targetIndex);
+    onBindViewHolder((ManageRouteViewHolder) targetItem, draggedItemIndex);
   }
 
   public void deleteRoutePoint(RecyclerView.ViewHolder viewHolder)
